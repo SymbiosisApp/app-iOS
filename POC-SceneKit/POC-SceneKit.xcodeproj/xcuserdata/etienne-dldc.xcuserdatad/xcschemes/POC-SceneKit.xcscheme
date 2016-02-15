@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1845EE831C665ADA00F7C634"
-               BuildableName = "GobProjSwift.app"
-               BlueprintName = "GobProjSwift"
-               ReferencedContainer = "container:GobProjSwift.xcodeproj">
+               BlueprintIdentifier = "18BC17F11C722BBE008E6558"
+               BuildableName = "POC-SceneKit.app"
+               BlueprintName = "POC-SceneKit"
+               ReferencedContainer = "container:POC-SceneKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1845EE831C665ADA00F7C634"
-            BuildableName = "GobProjSwift.app"
-            BlueprintName = "GobProjSwift"
-            ReferencedContainer = "container:GobProjSwift.xcodeproj">
+            BlueprintIdentifier = "18BC17F11C722BBE008E6558"
+            BuildableName = "POC-SceneKit.app"
+            BlueprintName = "POC-SceneKit"
+            ReferencedContainer = "container:POC-SceneKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1845EE831C665ADA00F7C634"
-            BuildableName = "GobProjSwift.app"
-            BlueprintName = "GobProjSwift"
-            ReferencedContainer = "container:GobProjSwift.xcodeproj">
+            BlueprintIdentifier = "18BC17F11C722BBE008E6558"
+            BuildableName = "POC-SceneKit.app"
+            BlueprintName = "POC-SceneKit"
+            ReferencedContainer = "container:POC-SceneKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1845EE831C665ADA00F7C634"
-            BuildableName = "GobProjSwift.app"
-            BlueprintName = "GobProjSwift"
-            ReferencedContainer = "container:GobProjSwift.xcodeproj">
+            BlueprintIdentifier = "18BC17F11C722BBE008E6558"
+            BuildableName = "POC-SceneKit.app"
+            BlueprintName = "POC-SceneKit"
+            ReferencedContainer = "container:POC-SceneKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

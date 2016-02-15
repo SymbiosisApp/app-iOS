@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1845EE881C665ADA00F7C634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845EE871C665ADA00F7C634 /* AppDelegate.swift */; };
-		1845EE8A1C665ADA00F7C634 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1845EE891C665ADA00F7C634 /* art.scnassets */; };
-		1845EE8C1C665ADA00F7C634 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845EE8B1C665ADA00F7C634 /* GameViewController.swift */; };
-		1845EE8F1C665ADA00F7C634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1845EE8D1C665ADA00F7C634 /* Main.storyboard */; };
-		1845EE911C665ADA00F7C634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1845EE901C665ADA00F7C634 /* Assets.xcassets */; };
-		1845EE941C665ADA00F7C634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1845EE921C665ADA00F7C634 /* LaunchScreen.storyboard */; };
+		18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F51C722BBE008E6558 /* AppDelegate.swift */; };
+		18BC17F81C722BBE008E6558 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17F71C722BBE008E6558 /* art.scnassets */; };
+		18BC17FA1C722BBE008E6558 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F91C722BBE008E6558 /* GameViewController.swift */; };
+		18BC17FD1C722BBE008E6558 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FB1C722BBE008E6558 /* Main.storyboard */; };
+		18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FE1C722BBE008E6558 /* Assets.xcassets */; };
+		18BC18021C722BBE008E6558 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1845EE841C665ADA00F7C634 /* GobProjSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GobProjSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1845EE871C665ADA00F7C634 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1845EE891C665ADA00F7C634 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		1845EE8B1C665ADA00F7C634 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		1845EE8E1C665ADA00F7C634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1845EE901C665ADA00F7C634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1845EE931C665ADA00F7C634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1845EE951C665ADA00F7C634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18BC17F21C722BBE008E6558 /* POC-SceneKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POC-SceneKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18BC17F71C722BBE008E6558 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		18BC17F91C722BBE008E6558 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		18BC17FC1C722BBE008E6558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18BC17FE1C722BBE008E6558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18BC18011C722BBE008E6558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18BC18031C722BBE008E6558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1845EE811C665ADA00F7C634 /* Frameworks */ = {
+		18BC17EF1C722BBE008E6558 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,73 +37,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1845EE7B1C665ADA00F7C634 = {
+		18BC17E91C722BBE008E6558 = {
 			isa = PBXGroup;
 			children = (
-				1845EE861C665ADA00F7C634 /* GobProjSwift */,
-				1845EE851C665ADA00F7C634 /* Products */,
+				18BC17F41C722BBE008E6558 /* POC-SceneKit */,
+				18BC17F31C722BBE008E6558 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1845EE851C665ADA00F7C634 /* Products */ = {
+		18BC17F31C722BBE008E6558 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1845EE841C665ADA00F7C634 /* GobProjSwift.app */,
+				18BC17F21C722BBE008E6558 /* POC-SceneKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1845EE861C665ADA00F7C634 /* GobProjSwift */ = {
+		18BC17F41C722BBE008E6558 /* POC-SceneKit */ = {
 			isa = PBXGroup;
 			children = (
-				1845EE871C665ADA00F7C634 /* AppDelegate.swift */,
-				1845EE891C665ADA00F7C634 /* art.scnassets */,
-				1845EE8B1C665ADA00F7C634 /* GameViewController.swift */,
-				1845EE8D1C665ADA00F7C634 /* Main.storyboard */,
-				1845EE901C665ADA00F7C634 /* Assets.xcassets */,
-				1845EE921C665ADA00F7C634 /* LaunchScreen.storyboard */,
-				1845EE951C665ADA00F7C634 /* Info.plist */,
+				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
+				18BC17F71C722BBE008E6558 /* art.scnassets */,
+				18BC17F91C722BBE008E6558 /* GameViewController.swift */,
+				18BC17FB1C722BBE008E6558 /* Main.storyboard */,
+				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
+				18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */,
+				18BC18031C722BBE008E6558 /* Info.plist */,
 			);
-			path = GobProjSwift;
+			path = "POC-SceneKit";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1845EE831C665ADA00F7C634 /* GobProjSwift */ = {
+		18BC17F11C722BBE008E6558 /* POC-SceneKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1845EE981C665ADA00F7C634 /* Build configuration list for PBXNativeTarget "GobProjSwift" */;
+			buildConfigurationList = 18BC18061C722BBE008E6558 /* Build configuration list for PBXNativeTarget "POC-SceneKit" */;
 			buildPhases = (
-				1845EE801C665ADA00F7C634 /* Sources */,
-				1845EE811C665ADA00F7C634 /* Frameworks */,
-				1845EE821C665ADA00F7C634 /* Resources */,
+				18BC17EE1C722BBE008E6558 /* Sources */,
+				18BC17EF1C722BBE008E6558 /* Frameworks */,
+				18BC17F01C722BBE008E6558 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GobProjSwift;
-			productName = GobProjSwift;
-			productReference = 1845EE841C665ADA00F7C634 /* GobProjSwift.app */;
+			name = "POC-SceneKit";
+			productName = "POC-SceneKit";
+			productReference = 18BC17F21C722BBE008E6558 /* POC-SceneKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1845EE7C1C665ADA00F7C634 /* Project object */ = {
+		18BC17EA1C722BBE008E6558 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Etienne De Ladonchamps";
 				TargetAttributes = {
-					1845EE831C665ADA00F7C634 = {
+					18BC17F11C722BBE008E6558 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = U953397FRU;
 					};
 				};
 			};
-			buildConfigurationList = 1845EE7F1C665ADA00F7C634 /* Build configuration list for PBXProject "GobProjSwift" */;
+			buildConfigurationList = 18BC17ED1C722BBE008E6558 /* Build configuration list for PBXProject "POC-SceneKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -111,55 +111,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 1845EE7B1C665ADA00F7C634;
-			productRefGroup = 1845EE851C665ADA00F7C634 /* Products */;
+			mainGroup = 18BC17E91C722BBE008E6558;
+			productRefGroup = 18BC17F31C722BBE008E6558 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1845EE831C665ADA00F7C634 /* GobProjSwift */,
+				18BC17F11C722BBE008E6558 /* POC-SceneKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1845EE821C665ADA00F7C634 /* Resources */ = {
+		18BC17F01C722BBE008E6558 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1845EE8A1C665ADA00F7C634 /* art.scnassets in Resources */,
-				1845EE941C665ADA00F7C634 /* LaunchScreen.storyboard in Resources */,
-				1845EE911C665ADA00F7C634 /* Assets.xcassets in Resources */,
-				1845EE8F1C665ADA00F7C634 /* Main.storyboard in Resources */,
+				18BC17F81C722BBE008E6558 /* art.scnassets in Resources */,
+				18BC18021C722BBE008E6558 /* LaunchScreen.storyboard in Resources */,
+				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
+				18BC17FD1C722BBE008E6558 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1845EE801C665ADA00F7C634 /* Sources */ = {
+		18BC17EE1C722BBE008E6558 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1845EE8C1C665ADA00F7C634 /* GameViewController.swift in Sources */,
-				1845EE881C665ADA00F7C634 /* AppDelegate.swift in Sources */,
+				18BC17FA1C722BBE008E6558 /* GameViewController.swift in Sources */,
+				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1845EE8D1C665ADA00F7C634 /* Main.storyboard */ = {
+		18BC17FB1C722BBE008E6558 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1845EE8E1C665ADA00F7C634 /* Base */,
+				18BC17FC1C722BBE008E6558 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1845EE921C665ADA00F7C634 /* LaunchScreen.storyboard */ = {
+		18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1845EE931C665ADA00F7C634 /* Base */,
+				18BC18011C722BBE008E6558 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1845EE961C665ADA00F7C634 /* Debug */ = {
+		18BC18041C722BBE008E6558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -211,7 +211,7 @@
 			};
 			name = Debug;
 		};
-		1845EE971C665ADA00F7C634 /* Release */ = {
+		18BC18051C722BBE008E6558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -248,24 +248,24 @@
 			};
 			name = Release;
 		};
-		1845EE991C665ADA00F7C634 /* Debug */ = {
+		18BC18071C722BBE008E6558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = GobProjSwift/Info.plist;
+				INFOPLIST_FILE = "POC-SceneKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deladonchamps.GobProjSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.POC-SceneKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		1845EE9A1C665ADA00F7C634 /* Release */ = {
+		18BC18081C722BBE008E6558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = GobProjSwift/Info.plist;
+				INFOPLIST_FILE = "POC-SceneKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deladonchamps.GobProjSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.POC-SceneKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -273,24 +273,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1845EE7F1C665ADA00F7C634 /* Build configuration list for PBXProject "GobProjSwift" */ = {
+		18BC17ED1C722BBE008E6558 /* Build configuration list for PBXProject "POC-SceneKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1845EE961C665ADA00F7C634 /* Debug */,
-				1845EE971C665ADA00F7C634 /* Release */,
+				18BC18041C722BBE008E6558 /* Debug */,
+				18BC18051C722BBE008E6558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1845EE981C665ADA00F7C634 /* Build configuration list for PBXNativeTarget "GobProjSwift" */ = {
+		18BC18061C722BBE008E6558 /* Build configuration list for PBXNativeTarget "POC-SceneKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1845EE991C665ADA00F7C634 /* Debug */,
-				1845EE9A1C665ADA00F7C634 /* Release */,
+				18BC18071C722BBE008E6558 /* Debug */,
+				18BC18081C722BBE008E6558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1845EE7C1C665ADA00F7C634 /* Project object */;
+	rootObject = 18BC17EA1C722BBE008E6558 /* Project object */;
 }

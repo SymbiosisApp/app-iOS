@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GobProjSwift.xcscheme</key>
+		<key>POC-SceneKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1845EE831C665ADA00F7C634</key>
+		<key>18BC17F11C722BBE008E6558</key>
 		<dict>
 			<key>primary</key>
 			<true/>
