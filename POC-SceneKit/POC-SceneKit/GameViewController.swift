@@ -122,13 +122,18 @@ class GameViewController: UIViewController {
             }
         }
         
+        
+        
+        
+        
+        
         // Print
-        print(indicesList)
-        for var index = 0; index < verticesList.count; index++
-        {
-            let vert = verticesList[index]
-            print(vert.x, vert.y, vert.z)
-        }
+//        print(indicesList)
+//        for var index = 0; index < verticesList.count; index++
+//        {
+//            let vert = verticesList[index]
+//            print(vert.x, vert.y, vert.z)
+//        }
 
         let verticesCount = verticesList.count
         let normalsCount = normalsList.count
