@@ -17,51 +17,13 @@ class GameViewController: UIViewController {
 
         // create a new scene
         let scene = SCNScene()
-        
-        func boneFunc (options: BoneFuncOptions) -> Bone {
-            var isLastStep: Bool = false
-            if (options.index == 5) {
-                isLastStep = true
-            }
-            
-            let translation: GLKMatrix4 = GLKMatrix4MakeTranslation(0, 1, 0)
-            let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
-            
-            return Bone(translation: translation, rotation: rotation, isLastStep: isLastStep)
-        }
-        
-        func stepFunc (options: StepFuncOptions) -> Step {
-//            print("--------")
-//            let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-//            print(progress)
-            
-//            let mult: Float = Float()
-            
-            let mult: Float = options.options["test"] as! Float
-            
-            // Points
-            let point1: GLKVector3 = GLKVector3Make(1*mult, 0, 1*mult)
-            let point2: GLKVector3 = GLKVector3Make(1*mult, 0, -1*mult)
-            let point3: GLKVector3 = GLKVector3Make(-1*mult, 0, -1*mult)
-            let point4: GLKVector3 = GLKVector3Make(-1*mult, 0, 1*mult)
-            return Step(points: [point1, point2, point3, point4])
-        }
-        
-        let myShape = Shape(boneFunc: boneFunc, stepFunc: stepFunc)
-        
-        let options: [String:Any] = [
-            "test": Float(3)
-        ]
-        
-        myShape.execWithOptions(options)
-        
-        print(myShape)
+
 
         let nbrOfSteps = 10
 
         var stepOrigin = GLKVector3Make(0, 0, 0)
         var stepAngle = GLKMatrix4MakeRotation(0, 1, 0, 0)
-        var stepsList = [[GLKVector3]]()
+        var stepsList = Array<Array<GLKVector3>>()
         var verticesList = [GLKVector3]()
         var indicesList = [Int]()
         var normalsList = [GLKVector3]()
@@ -159,6 +121,8 @@ class GameViewController: UIViewController {
 
             }
         }
+        
+        
         
         
         
