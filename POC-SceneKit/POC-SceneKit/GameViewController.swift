@@ -24,27 +24,34 @@ class GameViewController: UIViewController {
                 isLastStep = true
             }
             
-            let translation: GLKMatrix4 = GLKMatrix4MakeTranslation(0, 1, 0)
-            let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
+            let translation: GLKVector3 = GLKVector3Make(0, 1, 0)
+            let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0.01, 0, 1, 0)
             
             return Bone(translation: translation, rotation: rotation, isLastStep: isLastStep)
         }
         
         func stepFunc (options: StepFuncOptions) -> Step {
 //            print("--------")
-//            let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-//            print(progress)
+            let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
+            print(progress)
             
 //            let mult: Float = Float()
             
+            var points: [GLKVector3] = []
+            
             let mult: Float = options.options["test"] as! Float
             
-            // Points
-            let point1: GLKVector3 = GLKVector3Make(1*mult, 0, 1*mult)
-            let point2: GLKVector3 = GLKVector3Make(1*mult, 0, -1*mult)
-            let point3: GLKVector3 = GLKVector3Make(-1*mult, 0, -1*mult)
-            let point4: GLKVector3 = GLKVector3Make(-1*mult, 0, 1*mult)
-            return Step(points: [point1, point2, point3, point4])
+            // Last step
+            if progress == 1 {
+                points = [GLKVector3Make(0, 0, 0)]
+            } else {
+                points += [GLKVector3Make(1*mult, 0, 1*mult)]
+                points += [GLKVector3Make(1*mult, 0, -1*mult)]
+                points += [GLKVector3Make(-1*mult, 0, -1*mult)]
+                points += [GLKVector3Make(-1*mult, 0, 1*mult)]
+            }
+
+            return Step(points: points)
         }
         
         let myShape = Shape(boneFunc: boneFunc, stepFunc: stepFunc)
@@ -55,9 +62,15 @@ class GameViewController: UIViewController {
         
         myShape.execWithOptions(options)
         
-        print(myShape)
+//        print(myShape)
+        
+        
+        
+        
+        
+        
 
-        let nbrOfSteps = 10
+        let nbrOfSteps = 30
 
         var stepOrigin = GLKVector3Make(0, 0, 0)
         var stepAngle = GLKMatrix4MakeRotation(0, 1, 0, 0)
@@ -99,8 +112,8 @@ class GameViewController: UIViewController {
             
             stepsList.append(stepRotated)
 
-            stepAngle = GLKMatrix4Multiply(stepAngle, GLKMatrix4MakeRotation(0.15, 0, 0, 1))
-            let stepDiff = GLKMatrix4MultiplyVector3WithTranslation(stepAngle, GLKVector3Make(0, 0.5, 0))
+            stepAngle = GLKMatrix4Multiply(stepAngle, GLKMatrix4MakeRotation(0.1, 0, 0, 1))
+            let stepDiff = GLKMatrix4MultiplyVector3WithTranslation(stepAngle, GLKVector3Make(0, 0.2, 0))
             stepOrigin = GLKVector3Add(stepOrigin, stepDiff)
 
         }
