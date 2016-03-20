@@ -10,245 +10,81 @@ import UIKit
 import QuartzCore
 import SceneKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SCNSceneRendererDelegate {
+    
+    var animProgress: Float = 0
+    var morpher: SCNMorpher?
+    var scnView: SCNView?
+    var lastUpdateTimeInterval: NSTimeInterval = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // create a new scene
         let scene = SCNScene()
+        self.scnView = self.view as? SCNView
+        self.scnView!.scene = scene
+        self.scnView!.delegate = self
         
-        func boneFunc (options: BoneFuncOptions) -> Bone {
-            var isLastStep: Bool = false
-            if (options.index == 5) {
-                isLastStep = true
-            }
-            
-            let translation: GLKVector3 = GLKVector3Make(0, 1, 0)
-            let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0.01, 0, 1, 0)
-            
-            return Bone(translation: translation, rotation: rotation, isLastStep: isLastStep)
-        }
+        // material
         
-        func stepFunc (options: StepFuncOptions) -> Step {
-//            print("--------")
-            let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-            print(progress)
-            
-//            let mult: Float = Float()
-            
-            var points: [GLKVector3] = []
-            
-            let mult: Float = options.options["test"] as! Float
-            
-            // Last step
-            if progress == 1 {
-                points = [GLKVector3Make(0, 0, 0)]
-            } else {
-                points += [GLKVector3Make(1*mult, 0, 1*mult)]
-                points += [GLKVector3Make(1*mult, 0, -1*mult)]
-                points += [GLKVector3Make(-1*mult, 0, -1*mult)]
-                points += [GLKVector3Make(-1*mult, 0, 1*mult)]
-            }
+        let redMataterialBis = SCNMaterial()
+        redMataterialBis.diffuse.contents = UIColor.blueColor()
+        redMataterialBis.doubleSided = true
+        
 
-            return Step(points: points)
-        }
-        
-        let myShape = Shape(boneFunc: boneFunc, stepFunc: stepFunc)
-        
-        let options: [String:Any] = [
-            "test": Float(3)
+        let options1: [String:Any] = [
+            "test": Float(1),
+            "rotate": Float(0)
         ]
+        let customGeo1 = SYShape(options: options1).geometry!
+        customGeo1.materials = [redMataterialBis]
         
-        myShape.execWithOptions(options)
+        let options2: [String:Any] = [
+            "test": Float(1),
+            "rotate": Float(3)
+        ]
+        let customGeo2 = SYShape(options: options2).geometry!
         
-//        print(myShape)
+        let options3: [String:Any] = [
+            "test": Float(1),
+            "rotate": Float(6)
+        ]
+        let customGeo3 = SYShape(options: options3).geometry!
         
+        let options4: [String:Any] = [
+            "test": Float(1),
+            "rotate": Float(9)
+        ]
+        let customGeo4 = SYShape(options: options4).geometry!
         
+        let cubeNodeBis = SCNNode(geometry:customGeo1)
+        self.morpher = SCNMorpher()
+        morpher!.targets = [customGeo1, customGeo2, customGeo3, customGeo4]
+        cubeNodeBis.morpher = morpher
         
+        let animation = CAAnimation()
+        animation.usesSceneTimeBase = true
         
+//        let animation = CABasicAnimation(keyPath: "morpher.weights[0]")
+//        animation.fromValue = 0.0;
+//        animation.toValue = 2.0;
+//        animation.autoreverses = true;
+//        animation.repeatCount = Float.infinity;
+//        animation.duration = 1;
+//        cubeNodeBis.addAnimation(animation, forKey: "morpher")
+
+//        morpher.setWeight(1, forTargetAtIndex: 0)
+        self.morpher!.setWeight(1, forTargetAtIndex: 1)
         
+        scene.rootNode.addChildNode(cubeNodeBis)
         
-
-        let nbrOfSteps = 30
-
-        var stepOrigin = GLKVector3Make(0, 0, 0)
-        var stepAngle = GLKMatrix4MakeRotation(0, 1, 0, 0)
-        var stepsList = [[GLKVector3]]()
-        var verticesList = [GLKVector3]()
-        var indicesList = [Int]()
-        var normalsList = [GLKVector3]()
-
-        // Calculate Points
-        for var step = 0; step <= nbrOfSteps; step++
-        {
-
-            // NSLog("%i / %i", step, nbrOfSteps)
-
-            let progress = Float(step+1)/Float(nbrOfSteps)
-            let width = Float(0.5 + (sin(Float(M_PI) * progress) * 1.0))
-            let thickness = Float(0.1 + (sin(Float(M_PI) * progress) * 0.2))
-
-            let point1 = SCNVector3Make(-thickness,0,0)
-            let point2 = SCNVector3Make(width*0.4,0,width)
-            let point3 = SCNVector3Make(thickness,0,0)
-            let point4 = SCNVector3Make(width*0.4,0,-width)
-
-            var step = [
-                point1,
-                point2,
-                point3,
-                point4
-            ]
-
-            let stepSize = step.count
-            var stepRotated = [GLKVector3]()
-            for var pointIndex = 0; pointIndex < stepSize; pointIndex++
-            {
-                var point = SCNVector3ToGLKVector3(step[pointIndex])
-                point = GLKVector3Add(stepOrigin, GLKMatrix4MultiplyVector3WithTranslation(stepAngle, point))
-                stepRotated.append(point)
-            }
-            
-            stepsList.append(stepRotated)
-
-            stepAngle = GLKMatrix4Multiply(stepAngle, GLKMatrix4MakeRotation(0.1, 0, 0, 1))
-            let stepDiff = GLKMatrix4MultiplyVector3WithTranslation(stepAngle, GLKVector3Make(0, 0.2, 0))
-            stepOrigin = GLKVector3Add(stepOrigin, stepDiff)
-
-        }
-
-        let stepSize = stepsList[0].count
-        let stepListSize = stepsList.count
-
-        // Create faces and normals
-        for var stepIndex = 1; stepIndex < stepListSize; stepIndex++
-        {
-            for var pointIndex = 0; pointIndex < stepSize; pointIndex++
-            {
-
-                var nextPointIndex = pointIndex + 1
-                if (nextPointIndex == stepSize) {
-                    nextPointIndex = 0
-                }
-
-                // Get 4 points
-                let point1 = stepsList[stepIndex][pointIndex]
-                let point2 = stepsList[stepIndex][nextPointIndex]
-                let point3 = stepsList[stepIndex-1][pointIndex]
-                let point4 = stepsList[stepIndex-1][nextPointIndex]
-
-                // Calculate normals
-                let originPoint = GLKVector3Make(point1.x, point1.y, point1.z)
-                let firstPoint = GLKVector3Make(point2.x, point2.y, point2.z)
-                let secondPoint = GLKVector3Make(point3.x, point3.y, point3.z)
-                let firstVector = GLKVector3Subtract(firstPoint, originPoint)
-                let secondVector = GLKVector3Subtract(secondPoint, originPoint)
-                var normal = GLKVector3CrossProduct(secondVector, firstVector)
-                normal = GLKVector3Normalize(normal)
-
-                // Add 4 time the same normal for each face
-                normalsList += [
-                    normal,
-                    normal,
-                    normal,
-                    normal
-                ]
-
-                // Get Indexes
-                let point1Index = verticesList.count
-                let point2Index = point1Index + 1
-                let point3Index = point1Index + 2
-                let point4Index = point1Index + 3
-
-                // Add Points
-                verticesList += [point1, point2, point3, point4]
-
-                // face one
-                indicesList += [point1Index, point3Index, point4Index]
-
-                // face two
-                indicesList += [point1Index, point4Index, point2Index]
-
-            }
-        }
-        
-        
-        
-        
-        // Print
-//        print(indicesList)
-//        for var index = 0; index < verticesList.count; index++
-//        {
-//            let vert = verticesList[index]
-//            print(vert.x, vert.y, vert.z)
-//        }
-
-        let verticesCount = verticesList.count
-        let normalsCount = normalsList.count
-        let indicesCount = indicesList.count
-
-        if (normalsCount != verticesCount) {
-            print("normalsCount !== verticesCount : %i !== %i", normalsCount, verticesCount)
-        }
-
-        let positions :[SCNVector3] = verticesList.map { (vertice) -> SCNVector3 in
-            return SCNVector3FromGLKVector3(vertice)
-        }
-
-        let normals :[SCNVector3] = normalsList.map { (norm) -> SCNVector3 in
-            return SCNVector3FromGLKVector3(norm)
-        }
-
-        let indices :[CInt] = indicesList.map { (indi) -> CInt in
-            return CInt(indi)
-        }
-
-        // Create sources for the vertices and normals
-        let vertexSource = SCNGeometrySource(vertices:positions, count:verticesCount)
-        let normalSource = SCNGeometrySource(normals:normals, count:normalsCount)
-
-        let indexData = NSData(
-            bytes:indices,
-            length: (indices.count * sizeof(CInt))
-        )
-
-        let element = SCNGeometryElement(
-            data:indexData,
-            primitiveType:SCNGeometryPrimitiveType.Triangles,
-            primitiveCount:indicesCount/3,
-            bytesPerIndex: sizeof(CInt)
-        )
-
-        let geometry = SCNGeometry(
-            sources:[vertexSource, normalSource],
-            elements:[element]
-        )
-
-
-        // Red colored material
-
-        let redMataterial = SCNMaterial()
-        redMataterial.diffuse.contents = UIColor.redColor()
-        redMataterial.doubleSided = true
-
-        geometry.materials = [redMataterial]
-
-        let cubeNode = SCNNode(geometry:geometry)
-        scene.rootNode.addChildNode(cubeNode)
-
         // Animate the 3d object
-        cubeNode.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
+//        cubeNodeBis.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
+//        
 
-
-
-
-
-
-
-
-
-
+        
+        
 
 
 
@@ -290,8 +126,6 @@ class GameViewController: UIViewController {
         myFloorNode.position = SCNVector3Make(0, -1, 0);
         scene.rootNode.addChildNode(myFloorNode)
         
-
-
         // retrieve the SCNView
         let scnView = self.view as! SCNView
 
@@ -311,7 +145,28 @@ class GameViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
         scnView.addGestureRecognizer(tapGesture)
     }
-
+    
+    func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
+        let deltaTime = time - self.lastUpdateTimeInterval
+        self.lastUpdateTimeInterval = time
+        
+        self.updateMorpher(deltaTime)
+    }
+    
+    func updateMorpher (deltaTime: NSTimeInterval) {
+        self.animProgress += 1 * Float(deltaTime)
+        print(self.animProgress)
+        self.animProgress = self.animProgress % Float(self.morpher!.targets.count)
+        let index = Int(floor(self.animProgress / 1.0))
+        let nextIndex = (index + 1) % self.morpher!.targets.count
+        let progress = CGFloat(self.animProgress - Float(index))
+        for i in 0...self.morpher!.targets.count-1 {
+            self.morpher!.setWeight(0, forTargetAtIndex: i)
+        }
+        self.morpher!.setWeight(1 - progress, forTargetAtIndex: index)
+        self.morpher!.setWeight(progress, forTargetAtIndex: nextIndex)
+    }
+    
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         // retrieve the SCNView
         let scnView = self.view as! SCNView
