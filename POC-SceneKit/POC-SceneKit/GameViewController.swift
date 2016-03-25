@@ -42,19 +42,19 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         let options2: [String:Any] = [
             "test": Float(1),
-            "rotate": Float(3)
+            "rotate": Float(1)
         ]
         let customGeo2 = SYShape(options: options2).geometry!
         
         let options3: [String:Any] = [
             "test": Float(1),
-            "rotate": Float(6)
+            "rotate": Float(2)
         ]
         let customGeo3 = SYShape(options: options3).geometry!
         
         let options4: [String:Any] = [
             "test": Float(1),
-            "rotate": Float(9)
+            "rotate": Float(3)
         ]
         let customGeo4 = SYShape(options: options4).geometry!
         
@@ -142,7 +142,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         scnView.backgroundColor = UIColor.blackColor()
 
         // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
     }
     

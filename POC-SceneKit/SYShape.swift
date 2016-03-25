@@ -166,7 +166,7 @@ class SYShape {
             isLastStep = bone.isLastStep
             
             if (!isLastStep) {
-                ++stepIndex
+                stepIndex += 1
                 boneSizeFromStart += bone.size
             } else {
 //                print("last step")
@@ -198,12 +198,12 @@ class SYShape {
         var bonePosition: GLKVector3 = GLKVector3Make(0, 0, 0)
         var boneRotation: GLKMatrix4 = GLKMatrix4MakeTranslation(0, 0, 0)
         print(boneRotation)
-        for var i = 0; i < self.bones.count; ++i {
+        for i in 0 ..< self.bones.count {
             let bone: SYBone = self.bones[i]
             var step: SYStep = self.steps[i]
             
             // Convert step points
-            for var j = 0; j < step.points.count; ++j {
+            for j in 0 ..< step.points.count {
                 let point: GLKVector3 = step.points[j]
                 let rotatedPoint: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(boneRotation, point)
                 self.steps[i].points[j] = GLKVector3Add(bonePosition, rotatedPoint)
@@ -218,7 +218,7 @@ class SYShape {
     
     func createFaces () {
         
-        for var index = 0; index < self.steps.count-1; ++index {
+        for index in 0 ..< self.steps.count-1 {
             let step = self.steps[index]
             let nextStep = self.steps[index+1]
             
@@ -238,10 +238,10 @@ class SYShape {
                 let nextRightInterpolate = Float(rightIndex+1) / Float(nextStep.count+1)
                 
                 if (nextLeftInterpolate <= nextRightInterpolate) {
-                    ++leftIndex
+                    leftIndex += 1
                     points += [step.points[leftIndex % step.count]]
                 } else {
-                    ++rightIndex
+                    rightIndex += 1
                     points += [nextStep.points[leftIndex % nextStep.count]]
                 }
                 
