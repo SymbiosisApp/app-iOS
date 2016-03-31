@@ -19,75 +19,46 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let optionsTest: [String:Any] = [
+//            "test": Float(1),
+//            "rotate": Float(0)
+//        ]
+//        let customGeoTest = SYShape(options: optionsTest)
+//        print(customGeoTest)
 
         // create a new scene
         let scene = SCNScene()
         self.scnView = self.view as? SCNView
         self.scnView!.scene = scene
         self.scnView!.delegate = self
-        
+
         // material
+//        let redMataterialBis = SCNMaterial()
+//        redMataterialBis.diffuse.contents = UIColor.blueColor()
+//        redMataterialBis.doubleSided = true
+//        
+//        let options1: [String:Any] = [:]
+//        let customGeo1 = SYShape(options: options1).geometry!
+//        customGeo1.materials = [redMataterialBis]
+//        
+//        let cubeNodeBis = SCNNode(geometry:customGeo1)
+//        self.morpher = SCNMorpher()
+//        morpher!.targets = [customGeo1, customGeo2, customGeo3, customGeo4]
+//        cubeNodeBis.morpher = morpher
+//
+//        self.morpher!.setWeight(1, forTargetAtIndex: 1)
+//        
+        let element = SYElement()
         
-        let redMataterialBis = SCNMaterial()
-        redMataterialBis.diffuse.contents = UIColor.blueColor()
-        redMataterialBis.doubleSided = true
-        
-
-        let options1: [String:Any] = [
-            "test": Float(1),
-            "rotate": Float(0)
-        ]
-        let customGeo1 = SYShape(options: options1).geometry!
-        customGeo1.materials = [redMataterialBis]
-        
-        let options2: [String:Any] = [
-            "test": Float(1),
-            "rotate": Float(1)
-        ]
-        let customGeo2 = SYShape(options: options2).geometry!
-        
-        let options3: [String:Any] = [
-            "test": Float(1),
-            "rotate": Float(2)
-        ]
-        let customGeo3 = SYShape(options: options3).geometry!
-        
-        let options4: [String:Any] = [
-            "test": Float(1),
-            "rotate": Float(3)
-        ]
-        let customGeo4 = SYShape(options: options4).geometry!
-        
-        let cubeNodeBis = SCNNode(geometry:customGeo1)
-        self.morpher = SCNMorpher()
-        morpher!.targets = [customGeo1, customGeo2, customGeo3, customGeo4]
-        cubeNodeBis.morpher = morpher
-        
-        let animation = CAAnimation()
-        animation.usesSceneTimeBase = true
-        
-//        let animation = CABasicAnimation(keyPath: "morpher.weights[0]")
-//        animation.fromValue = 0.0;
-//        animation.toValue = 2.0;
-//        animation.autoreverses = true;
-//        animation.repeatCount = Float.infinity;
-//        animation.duration = 1;
-//        cubeNodeBis.addAnimation(animation, forKey: "morpher")
-
-//        morpher.setWeight(1, forTargetAtIndex: 0)
-        self.morpher!.setWeight(1, forTargetAtIndex: 1)
-        
-        scene.rootNode.addChildNode(cubeNodeBis)
+        scene.rootNode.addChildNode(element)
+        element.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
         
         // Animate the 3d object
 //        cubeNodeBis.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
-//        
-
         
-        
-
-
-
+//        let animation = CAAnimation()
+//        animation.usesSceneTimeBase = true
 
         // create and add a camera to the scene
         let cameraNode = SCNNode()
@@ -120,11 +91,18 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         lightNode2.position = lightPosition;
         scene.rootNode.addChildNode(lightNode2)
         
-        // Add froor
-        let myFloor = SCNFloor()
-        let myFloorNode = SCNNode(geometry: myFloor)
-        myFloorNode.position = SCNVector3Make(0, -1, 0);
-        scene.rootNode.addChildNode(myFloorNode)
+        // create and add a light to the scene
+        let lightNode3 = SCNNode()
+        lightNode3.light = SCNLight()
+        lightNode3.light!.type = SCNLightTypeOmni
+        lightNode3.position = SCNVector3Make(10, 3, -10);
+        scene.rootNode.addChildNode(lightNode3)
+        
+//        // Add froor
+//        let myFloor = SCNFloor()
+//        let myFloorNode = SCNNode(geometry: myFloor)
+//        myFloorNode.position = SCNVector3Make(0, -1, 0);
+//        scene.rootNode.addChildNode(myFloorNode)
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -147,14 +125,14 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
-        let deltaTime = time - self.lastUpdateTimeInterval
-        self.lastUpdateTimeInterval = time
-        
-        self.updateMorpher(deltaTime)
+//        let deltaTime = time - self.lastUpdateTimeInterval
+//        self.lastUpdateTimeInterval = time
+//        
+//        self.updateMorpher(deltaTime)
     }
     
-    func updateMorpher (deltaTime: NSTimeInterval) {
-        self.animProgress += 1 * Float(deltaTime)
+    func updateMorpher (deltaTime: Double) {
+        self.animProgress += Float(deltaTime)
         print(self.animProgress)
         self.animProgress = self.animProgress % Float(self.morpher!.targets.count)
         let index = Int(floor(self.animProgress / 1.0))

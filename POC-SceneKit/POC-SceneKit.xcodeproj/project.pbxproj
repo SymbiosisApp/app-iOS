@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184B8F161CAB2D4B0032C948 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B8F151CAB2D4B0032C948 /* SYElement.swift */; };
+		184B8F181CAB2DD20032C948 /* SYShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B8F171CAB2DD20032C948 /* SYShapes.swift */; };
 		185416231C7F364A00654A47 /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185416221C7F364A00654A47 /* SYShape.swift */; };
 		18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F51C722BBE008E6558 /* AppDelegate.swift */; };
 		18BC17F81C722BBE008E6558 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17F71C722BBE008E6558 /* art.scnassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184B8F151CAB2D4B0032C948 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
+		184B8F171CAB2DD20032C948 /* SYShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShapes.swift; sourceTree = "<group>"; };
 		185416221C7F364A00654A47 /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYShape.swift; path = ../SYShape.swift; sourceTree = "<group>"; };
 		18BC17F21C722BBE008E6558 /* POC-SceneKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POC-SceneKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				18BC17F71C722BBE008E6558 /* art.scnassets */,
 				18BC17F91C722BBE008E6558 /* GameViewController.swift */,
 				185416221C7F364A00654A47 /* SYShape.swift */,
+				184B8F171CAB2DD20032C948 /* SYShapes.swift */,
+				184B8F151CAB2D4B0032C948 /* SYElement.swift */,
 				18BC17FB1C722BBE008E6558 /* Main.storyboard */,
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
 				18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */,
@@ -143,9 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184B8F161CAB2D4B0032C948 /* SYElement.swift in Sources */,
 				18BC17FA1C722BBE008E6558 /* GameViewController.swift in Sources */,
 				185416231C7F364A00654A47 /* SYShape.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
+				184B8F181CAB2DD20032C948 /* SYShapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

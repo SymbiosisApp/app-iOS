@@ -84,9 +84,7 @@ class SYShape {
     
     var options: [String:Any] = [:]
     
-    init (
-        options: [String:Any]
-    ) {
+    init ( options: [String:Any] ) {
         self.setOptions(options)
         
         self.generateBones()
@@ -105,17 +103,14 @@ class SYShape {
     
     func boneFunc (options: SYBoneFuncOptions) -> SYBone {
         var isLastStep: Bool = false
-        let nbrOfSteps = 50
-        let size = 10.0 / Float(nbrOfSteps)
+        let nbrOfSteps = 5
+        let size = 2 / Float(nbrOfSteps)
         if (options.index == nbrOfSteps) {
             isLastStep = true
         }
 
-        var rotate: Float = options.options["rotate"] as! Float
-        rotate = rotate / Float(nbrOfSteps)
-        
         let translation: GLKVector3 = GLKVector3Make(0, size, 0)
-        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(rotate, 0, 1, 0)
+        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
         
         return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
     }
@@ -126,16 +121,23 @@ class SYShape {
         
         var points: [GLKVector3] = []
         
-        let mult: Float = options.options["test"] as! Float
-        
         // Last step
         if progress == 1 {
-            points = [GLKVector3Make(0, 0, 0)]
-        } else {
-            points += [GLKVector3Make(1*mult, 0, 1*mult)]
-            points += [GLKVector3Make(1*mult, 0, -1*mult)]
-            points += [GLKVector3Make(-1*mult, 0, -1*mult)]
-            points += [GLKVector3Make(-1*mult, 0, 1*mult)]
+            points.append(GLKVector3Make(0, 0, 0))
+        } else
+        if progress == 0 {
+            points.append(GLKVector3Make(0.25, 0, 0))
+            points.append(GLKVector3Make(-0.25, 0, 0))
+        } else
+        if progress == 0.6 {
+            points.append(GLKVector3Make(0.5, 0, 0.5))
+            points.append(GLKVector3Make(0.5, 0, -0.5))
+            points.append(GLKVector3Make(-0.5, 0, -0.5))
+        } else{
+            points.append(GLKVector3Make(0.5, 0, 0.5))
+            points.append(GLKVector3Make(0.5, 0, -0.5))
+            points.append(GLKVector3Make(-0.5, 0, -0.5))
+            points.append(GLKVector3Make(-0.5, 0, 0.5))
         }
         
         return SYStep(points: points)
@@ -227,22 +229,47 @@ class SYShape {
             
             var stepFaces: [SYFace] = []
             
-            let nbrOfFaces = step.count + nextStep.count
+            var nbrOfFaces = step.count + nextStep.count
+            if step.count == 1 {
+                nbrOfFaces -= 1
+            }
+            if nextStep.count == 1 {
+                nbrOfFaces -= 1
+            }
+            nbrOfFaces -= 1
             
             for _ in 0...nbrOfFaces {
                 var points: [GLKVector3] = []
-                points += [step.points[leftIndex % step.count]]
-                points += [nextStep.points[rightIndex % nextStep.count]]
+                points.append(step.points[leftIndex % step.count])
+                points.append(nextStep.points[rightIndex % nextStep.count])
                 
                 let nextLeftInterpolate = Float(leftIndex+1) / Float(step.count+1)
                 let nextRightInterpolate = Float(rightIndex+1) / Float(nextStep.count+1)
                 
-                if (nextLeftInterpolate <= nextRightInterpolate) {
+                var useLeft: Bool
+                if leftIndex == step.count - 1 && rightIndex < nextStep.count - 1 {
+                    useLeft = false
+                } else if leftIndex < step.count - 1 && rightIndex == nextStep.count - 1 {
+                    useLeft = true
+                } else if leftIndex == step.count - 1 && rightIndex == nextStep.count - 1 {
+                    if step.count == 1 {
+                        useLeft = false
+                    } else
+                    if nextStep.count == 1 {
+                        useLeft = true
+                    } else {
+                        useLeft = true
+                    }
+                } else {
+                    useLeft = nextLeftInterpolate <= nextRightInterpolate
+                }
+                
+                if (useLeft) {
                     leftIndex += 1
-                    points += [step.points[leftIndex % step.count]]
+                    points.append(step.points[leftIndex % step.count])
                 } else {
                     rightIndex += 1
-                    points += [nextStep.points[leftIndex % nextStep.count]]
+                    points.append(nextStep.points[rightIndex % nextStep.count])
                 }
                 
                 stepFaces += [SYFace(points: points)]
