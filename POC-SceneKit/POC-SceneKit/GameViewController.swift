@@ -50,6 +50,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
 //        self.morpher!.setWeight(1, forTargetAtIndex: 1)
 //        
         let element = SYElement()
+        element.render(1.0)
         
         scene.rootNode.addChildNode(element)
         element.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))

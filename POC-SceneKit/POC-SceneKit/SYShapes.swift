@@ -27,11 +27,14 @@ class SYShapeTwist: SYShape {
             isLastStep = true
         }
         
-        var rotate: Float = options.options["rotate"] as! Float
-        rotate = rotate / Float(nbrOfSteps)
+        var rotate: Float? = options.options["rotate"] as? Float
+        if rotate == nil {
+            rotate = Float(0)
+        }
+        rotate = rotate! / Float(nbrOfSteps)
         
         let translation: GLKVector3 = GLKVector3Make(0, size, 0)
-        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(rotate, 0, 1, 0)
+        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(rotate!, 0, 1, 0)
         
         return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
     }
@@ -42,16 +45,19 @@ class SYShapeTwist: SYShape {
         
         var points: [GLKVector3] = []
         
-        let mult: Float = options.options["size"] as! Float
+        var mult: Float? = options.options["size"] as? Float
+        if mult == nil {
+            mult = Float(1)
+        }
         
         // Last step
         if progress == 1 {
             points = [GLKVector3Make(0, 0, 0)]
         } else {
-            points += [GLKVector3Make(1*mult, 0, 1*mult)]
-            points += [GLKVector3Make(1*mult, 0, -1*mult)]
-            points += [GLKVector3Make(-1*mult, 0, -1*mult)]
-            points += [GLKVector3Make(-1*mult, 0, 1*mult)]
+            points += [GLKVector3Make(1*mult!, 0, 1*mult!)]
+            points += [GLKVector3Make(1*mult!, 0, -1*mult!)]
+            points += [GLKVector3Make(-1*mult!, 0, -1*mult!)]
+            points += [GLKVector3Make(-1*mult!, 0, 1*mult!)]
         }
         
         return SYStep(points: points)

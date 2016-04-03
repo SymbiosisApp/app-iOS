@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 import GLKit
 
-// Structures
+//MARK: - Structures
 
 struct SYBone {
     var index: Int?
@@ -72,11 +72,10 @@ struct SYStepFuncOptions {
 }
 
 
-// The Class
+//MARK: - The Class
 
-class SYShape {
+class SYShape: SCNNode {
     
-    var geometry: SCNGeometry?
     var totalBoneSize: Float = 0.0
     var bones: [SYBone] = []
     var steps: [SYStep] = []
@@ -85,6 +84,14 @@ class SYShape {
     var options: [String:Any] = [:]
     
     init ( options: [String:Any] ) {
+        super.init()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func render(state: Float) {
         self.setOptions(options)
         
         self.generateBones()
@@ -94,53 +101,15 @@ class SYShape {
         
         let geomData = self.getGeometryData()
         self.geometry = SCNGeometry(sources: [geomData.normalSource, geomData.vertexSource], elements: geomData.elements)
-
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.generateMaterial(state)
     }
     
-    func boneFunc (options: SYBoneFuncOptions) -> SYBone {
-        var isLastStep: Bool = false
-        let nbrOfSteps = 5
-        let size = 2 / Float(nbrOfSteps)
-        if (options.index == nbrOfSteps) {
-            isLastStep = true
-        }
-
-        let translation: GLKVector3 = GLKVector3Make(0, size, 0)
-        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
+    func generateMaterial(state: Float) {
+        let mat = SCNMaterial()
+        mat.diffuse.contents = UIColor.blueColor()
+        mat.doubleSided = true
         
-        return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
-    }
-    
-    func stepFunc (options: SYStepFuncOptions) -> SYStep {
-        let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-        print(progress)
-        
-        var points: [GLKVector3] = []
-        
-        // Last step
-        if progress == 1 {
-            points.append(GLKVector3Make(0, 0, 0))
-        } else
-        if progress == 0 {
-            points.append(GLKVector3Make(0.25, 0, 0))
-            points.append(GLKVector3Make(-0.25, 0, 0))
-        } else
-        if progress == 0.6 {
-            points.append(GLKVector3Make(0.5, 0, 0.5))
-            points.append(GLKVector3Make(0.5, 0, -0.5))
-            points.append(GLKVector3Make(-0.5, 0, -0.5))
-        } else{
-            points.append(GLKVector3Make(0.5, 0, 0.5))
-            points.append(GLKVector3Make(0.5, 0, -0.5))
-            points.append(GLKVector3Make(-0.5, 0, -0.5))
-            points.append(GLKVector3Make(-0.5, 0, 0.5))
-        }
-        
-        return SYStep(points: points)
+        self.geometry!.materials = [mat]
     }
     
     func generateBones () {
@@ -171,7 +140,7 @@ class SYShape {
                 stepIndex += 1
                 boneSizeFromStart += bone.size
             } else {
-//                print("last step")
+                // print("last step")
             }
         
         } while (!isLastStep)
@@ -357,6 +326,51 @@ class SYShape {
     
     func setOptions (options: [String:Any]) {
         self.options = options
+    }
+    
+
+    // MARK: Default generate func
+    
+    func boneFunc (options: SYBoneFuncOptions) -> SYBone {
+        var isLastStep: Bool = false
+        let nbrOfSteps = 5
+        let size = 2 / Float(nbrOfSteps)
+        if (options.index == nbrOfSteps) {
+            isLastStep = true
+        }
+        
+        let translation: GLKVector3 = GLKVector3Make(0, size, 0)
+        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
+        
+        return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
+    }
+    
+    func stepFunc (options: SYStepFuncOptions) -> SYStep {
+        let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
+        print(progress)
+        
+        var points: [GLKVector3] = []
+        
+        // Last step
+        if progress == 1 {
+            points.append(GLKVector3Make(0, 0, 0))
+        } else
+            if progress == 0 {
+                points.append(GLKVector3Make(0.25, 0, 0))
+                points.append(GLKVector3Make(-0.25, 0, 0))
+            } else
+                if progress == 0.6 {
+                    points.append(GLKVector3Make(0.5, 0, 0.5))
+                    points.append(GLKVector3Make(0.5, 0, -0.5))
+                    points.append(GLKVector3Make(-0.5, 0, -0.5))
+                } else{
+                    points.append(GLKVector3Make(0.5, 0, 0.5))
+                    points.append(GLKVector3Make(0.5, 0, -0.5))
+                    points.append(GLKVector3Make(-0.5, 0, -0.5))
+                    points.append(GLKVector3Make(-0.5, 0, 0.5))
+        }
+        
+        return SYStep(points: points)
     }
     
 }
