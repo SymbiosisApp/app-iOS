@@ -83,8 +83,10 @@ class SYShape: SCNNode {
     
     var options: [String:Any] = [:]
     
-    init ( options: [String:Any] ) {
+    init (options: [String:Any] ) {
         super.init()
+        
+        self.options = options
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -92,27 +94,17 @@ class SYShape: SCNNode {
     }
     
     func render(state: Float) {
-        self.setOptions(options)
-        
-        self.generateBones()
-        self.generateSteps()
+        self.generateBones(state)
+        self.generateSteps(state)
         self.resolveStepsPositions()
         self.createFaces()
         
         let geomData = self.getGeometryData()
         self.geometry = SCNGeometry(sources: [geomData.normalSource, geomData.vertexSource], elements: geomData.elements)
-        self.generateMaterial(state)
+        self.geometry!.materials = self.generateMaterial(self.options)
     }
     
-    func generateMaterial(state: Float) {
-        let mat = SCNMaterial()
-        mat.diffuse.contents = UIColor.blueColor()
-        mat.doubleSided = true
-        
-        self.geometry!.materials = [mat]
-    }
-    
-    func generateBones () {
+    func generateBones (state: Float) {
         var isLastStep: Bool = false
         var stepIndex: Int = 0;
         var boneSizeFromStart: Float = 0.0
@@ -126,7 +118,7 @@ class SYShape: SCNNode {
                 options: self.options
             )
             // Exec func
-            var bone = self.boneFunc(options)
+            var bone = self.boneFunc(options, state: state)
             // set index
             bone.index = stepIndex
             // set sizeFromStart
@@ -148,7 +140,7 @@ class SYShape: SCNNode {
         self.totalBoneSize = boneSizeFromStart
     }
     
-    func generateSteps () {
+    func generateSteps (state: Float) {
         for bone in self.bones {
             // Create options
             let options = SYStepFuncOptions(
@@ -158,7 +150,7 @@ class SYShape: SCNNode {
                 options: self.options
             )
             // Exec func
-            var step = self.stepFunc(options)
+            var step = self.stepFunc(options, state: state)
             // set index
             step.index = bone.index
             self.steps.append(step)
@@ -181,7 +173,8 @@ class SYShape: SCNNode {
             }
             
             // Apply bone
-            let boneTranslationAfterRotation: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(bone.rotation, bone.translation)
+            var boneTranslationAfterRotation: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(bone.rotation, bone.translation)
+            boneTranslationAfterRotation = GLKMatrix4MultiplyAndProjectVector3(boneRotation, boneTranslationAfterRotation)
             bonePosition = GLKVector3Add(bonePosition, boneTranslationAfterRotation)
             boneRotation = GLKMatrix4Multiply(boneRotation, bone.rotation)
         }
@@ -324,14 +317,10 @@ class SYShape: SCNNode {
         return (vertexSource, normalSource, [element])
     }
     
-    func setOptions (options: [String:Any]) {
-        self.options = options
-    }
-    
 
     // MARK: Default generate func
     
-    func boneFunc (options: SYBoneFuncOptions) -> SYBone {
+    func boneFunc (options: SYBoneFuncOptions, state: Float) -> SYBone {
         var isLastStep: Bool = false
         let nbrOfSteps = 5
         let size = 2 / Float(nbrOfSteps)
@@ -345,9 +334,9 @@ class SYShape: SCNNode {
         return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
     }
     
-    func stepFunc (options: SYStepFuncOptions) -> SYStep {
+    func stepFunc (options: SYStepFuncOptions, state: Float) -> SYStep {
         let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-        print(progress)
+//        print(progress)
         
         var points: [GLKVector3] = []
         
@@ -371,6 +360,14 @@ class SYShape: SCNNode {
         }
         
         return SYStep(points: points)
+    }
+    
+    func generateMaterial(options: [String:Any]) -> [SCNMaterial] {
+        let mat = SCNMaterial()
+        mat.diffuse.contents = UIColor.blueColor()
+        mat.doubleSided = true
+        
+        return [mat]
     }
     
 }

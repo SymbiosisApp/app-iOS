@@ -48,12 +48,18 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
 //        cubeNodeBis.morpher = morpher
 //
 //        self.morpher!.setWeight(1, forTargetAtIndex: 1)
-//        
-        let element = SYElement()
-        element.render(1.0)
+//      
         
-        scene.rootNode.addChildNode(element)
-        element.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
+        let leaf = SYShapeBranch(options: ["size": 1.0])
+        scene.rootNode.addChildNode(leaf)
+        leaf.render(1)
+        leaf.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
+        
+//        let element = SYElement()
+//        element.render(1.0)
+        
+//        scene.rootNode.addChildNode(element)
+//        element.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
         
         // Animate the 3d object
 //        cubeNodeBis.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
@@ -99,11 +105,20 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         lightNode3.position = SCNVector3Make(10, 3, -10);
         scene.rootNode.addChildNode(lightNode3)
         
+        
+        
+        
 //        // Add froor
-//        let myFloor = SCNFloor()
-//        let myFloorNode = SCNNode(geometry: myFloor)
-//        myFloorNode.position = SCNVector3Make(0, -1, 0);
-//        scene.rootNode.addChildNode(myFloorNode)
+        let floorMat = SCNMaterial()
+        floorMat.diffuse.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        floorMat.doubleSided = true
+        floorMat.transparent.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        let myFloor = SCNFloor()
+        myFloor.materials = [floorMat]
+        myFloor.reflectivity = 0;
+        let myFloorNode = SCNNode(geometry: myFloor)
+        myFloorNode.position = SCNVector3Make(0, -1, 0);
+        scene.rootNode.addChildNode(myFloorNode)
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView

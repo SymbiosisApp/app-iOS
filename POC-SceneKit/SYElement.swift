@@ -11,11 +11,14 @@ import SceneKit
 
 class SYElement: SCNNode {
     let geometries = SCNNode()
+    let children = SCNNode()
     
     override init() {
         super.init()
         self.geometries.name = "geometries"
         self.addChildNode(self.geometries)
+        self.children.name = "children"
+        self.addChildNode(self.children)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,16 +41,24 @@ class SYElement: SCNNode {
         }
     }
     
+    func generateChildren(state: Float) {
+//        let options1: [String:Any] = [:]
+//        let child = SYShape(options: options1)
+//        child.render(state)
+//        self.addChildNode(child)
+//        child.position = SCNVector3Make(0, 1, 1)
+    }
+    
     func renderChildren(state: Float) {
-        let options1: [String:Any] = [:]
-        let child = SYShape(options: options1)
-        child.render(state)
-        self.addChildNode(child)
-        child.position = SCNVector3Make(0, 1, 1)
+        for child in self.children.childNodes {
+            let elem = child as! SYElement
+            elem.render(state)
+        }
     }
     
     func render(state: Float) {
         self.generateSelfGeom(state)
+        self.generateChildren(state)
         self.renderSelfGeom(state)
         self.renderChildren(state)
     }
