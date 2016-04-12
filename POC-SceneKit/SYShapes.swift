@@ -32,9 +32,9 @@ class SYShapeTwist: SYShape {
         rotate = rotate! / Float(nbrOfSteps)
         
         let translation: GLKVector3 = GLKVector3Make(0, size, 0)
-        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(rotate!, 0, 1, 0)
+        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(rotate!, 0, 1, 0)
         
-        return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
     }
     
     override func stepFunc (options: SYStepFuncOptions, state: Float) -> SYStep {
@@ -88,7 +88,12 @@ class SYShapeLeaf: SYShape {
         let stepSize = size / Float(nbrOfSteps)
         
         var translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
-        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 0, 1)
+        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 0, 1)
+//        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 0, 1)
+        
+        if (options.index == 0) {
+            translation = GLKVector3Make(0, 0, 0)
+        }
         
         if (options.index == nbrOfSteps-1) {
             isLastStep = true
@@ -98,14 +103,14 @@ class SYShapeLeaf: SYShape {
             translation = GLKVector3Make(0, stepSize/2.0, 0)
         }
         
-        return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
     }
     
     override func stepFunc (options: SYStepFuncOptions, state: Float) -> SYStep {
         let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
         let index: Int = options.bone.index!
         
-        let widths: [Float] = [0.1, 0.2, 0.25, 0.3, 0.32, 0.35, 0.3, 0.15]
+        let widths: [Float] = [0.1, 0.2, 0.25, 0.3, 0.35, 0.37, 0.3, 0.25, 0.15]
         
         var points: [GLKVector3] = []
         
@@ -125,6 +130,8 @@ class SYShapeLeaf: SYShape {
             points.append(GLKVector3Make(-dist*0.5*mult, 0, 0))
             points.append(GLKVector3Make(dist*1*mult, 0, dist*3*mult))
         }
+        
+        
         
         return SYStep(points: points)
     }
@@ -157,19 +164,23 @@ class SYShapeBranch: SYShape {
         let nbrOfSteps = 20
         let stepSize = size / Float(nbrOfSteps)
         
-        let translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
-        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
+        var translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
+        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
+        
+        if (options.index == 0) {
+            translation = GLKVector3Make(0, 0, 0)
+        }
         
         if (options.index == nbrOfSteps-1) {
             isLastStep = true
         }
         
-        return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
     }
     
     override func stepFunc (options: SYStepFuncOptions, state: Float) -> SYStep {
         let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-
+        
         var points: [GLKVector3] = []
         
         let size = options.options["size"] as? Float ?? 3.0

@@ -50,10 +50,20 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
 //        self.morpher!.setWeight(1, forTargetAtIndex: 1)
 //      
         
-        let leaf = SYShapeBranch(options: ["size": 1.0])
-        scene.rootNode.addChildNode(leaf)
-        leaf.render(1)
-        leaf.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
+        let elem = SYElementBranch()
+        scene.rootNode.addChildNode(elem)
+        elem.render(1)
+        elem.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
+      
+//        let leaf = SYShapeLeaf(options: ["size":1.0])
+//        scene.rootNode.addChildNode(leaf)
+//        leaf.render(1)
+//        leaf.position = SCNVector3Make(0, 0, 0)
+//        leaf.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(1, y:1, z:0, duration:1)))
+//        
+//        scene.rootNode.addChildNode(SCNNode(geometry: SCNSphere(radius: 0.02)))
+        
+        
         
 //        let element = SYElement()
 //        element.render(1.0)

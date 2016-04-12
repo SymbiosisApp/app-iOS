@@ -10,76 +10,14 @@ import Foundation
 import SceneKit
 import GLKit
 
-//MARK: - Structures
-
-struct SYBone {
-    var index: Int?
-    var size: Float
-    var sizeFromStart: Float?
-    var translation: GLKVector3
-    var rotation: GLKMatrix4
-    var isLastStep: Bool
-    
-    init (translation: GLKVector3, rotation: GLKMatrix4, isLastStep: Bool) {
-        self.index = nil
-        self.translation = translation
-        self.rotation = rotation
-        self.isLastStep = isLastStep
-        self.size = GLKVector3Length(translation);
-    }
-}
-
-struct SYStep {
-    var points: [GLKVector3] = []
-    var bone: SYBone?
-    var index: Int?
-    var count: Int {
-        get {
-            return self.points.count
-        }
-    }
-    
-    init (points: [GLKVector3]) {
-        self.points = points
-    }
-}
-
-struct SYFace {
-    var points: [GLKVector3] = []
-    var count: Int {
-        get {
-            return self.points.count
-        }
-    }
-    
-    init (points: [GLKVector3]) {
-        self.points = points
-    }
-}
-
-struct SYBoneFuncOptions {
-    let bones: [SYBone]
-    let index: Int
-    let boneSizeFromStart: Float
-    var options: [String:Any] = [:]
-}
-
-struct SYStepFuncOptions {
-    let bone: SYBone
-    let nbrOfSteps: Int
-    let totalBoneSize: Float
-    var options: [String:Any] = [:]
-}
-
-
-//MARK: - The Class
-
 class SYShape: SCNNode {
     
     var totalBoneSize: Float = 0.0
     var bones: [SYBone] = []
     var steps: [SYStep] = []
     var faces: [[SYFace]] = []
+    var lastBonesState: Float = -1.0
+    var lastStepsState: Float = -1.0
     
     var options: [String:Any] = [:]
     
@@ -96,7 +34,6 @@ class SYShape: SCNNode {
     func render(state: Float) {
         self.generateBones(state)
         self.generateSteps(state)
-        self.resolveStepsPositions()
         self.createFaces()
         
         let geomData = self.getGeometryData()
@@ -104,11 +41,24 @@ class SYShape: SCNNode {
         self.geometry!.materials = self.generateMaterial(self.options)
     }
     
+    func getBones(state: Float) -> [SYBone] {
+        if self.lastBonesState != state {
+            self.generateBones(state)
+        }
+        return self.bones
+    }
+    
     func generateBones (state: Float) {
+        
+        if self.lastBonesState == state {
+            return
+        }
+        
         var isLastStep: Bool = false
         var stepIndex: Int = 0;
         var boneSizeFromStart: Float = 0.0
         
+        // Run boneFunc
         repeat {
             // Create options struct
             let options = SYBoneFuncOptions(
@@ -122,25 +72,35 @@ class SYShape: SCNNode {
             // set index
             bone.index = stepIndex
             // set sizeFromStart
-            bone.sizeFromStart = boneSizeFromStart
+            bone.sizeFromStart = boneSizeFromStart + bone.size
             // Append the bone
             self.bones.append(bone);
             
             isLastStep = bone.isLastStep
             
+            boneSizeFromStart += bone.size
+            
             if (!isLastStep) {
                 stepIndex += 1
-                boneSizeFromStart += bone.size
             } else {
                 // print("last step")
             }
         
         } while (!isLastStep)
         
+        // Resolve bone's positions and rotation
+        self.resolveBonesPositionsAndRotations()
+        
         self.totalBoneSize = boneSizeFromStart
+        self.lastBonesState = state
     }
     
     func generateSteps (state: Float) {
+        
+        if self.lastStepsState == state {
+            return
+        }
+        
         for bone in self.bones {
             // Create options
             let options = SYStepFuncOptions(
@@ -155,12 +115,30 @@ class SYShape: SCNNode {
             step.index = bone.index
             self.steps.append(step)
         }
+        
+        self.resolveStepsPositionsAndRotations()
+        
+        self.lastStepsState = state
     }
     
-    func resolveStepsPositions () {
+    func resolveBonesPositionsAndRotations() {
         var bonePosition: GLKVector3 = GLKVector3Make(0, 0, 0)
-        var boneRotation: GLKMatrix4 = GLKMatrix4MakeTranslation(0, 0, 0)
-        print(boneRotation)
+        var boneRotation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
+        for i in 0 ..< self.bones.count {
+            let bone: SYBone = self.bones[i]
+            
+            // Apply bone
+            var boneTranslationAfterRotation: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(bone.orientation, bone.translation)
+            boneTranslationAfterRotation = GLKMatrix4MultiplyAndProjectVector3(boneRotation, boneTranslationAfterRotation)
+            bonePosition = GLKVector3Add(bonePosition, boneTranslationAfterRotation)
+            boneRotation = GLKMatrix4Multiply(boneRotation, bone.orientation)
+            
+            self.bones[i].rotation = boneRotation
+            self.bones[i].position = bonePosition
+        }
+    }
+    
+    func resolveStepsPositionsAndRotations () {
         for i in 0 ..< self.bones.count {
             let bone: SYBone = self.bones[i]
             var step: SYStep = self.steps[i]
@@ -168,15 +146,9 @@ class SYShape: SCNNode {
             // Convert step points
             for j in 0 ..< step.points.count {
                 let point: GLKVector3 = step.points[j]
-                let rotatedPoint: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(boneRotation, point)
-                self.steps[i].points[j] = GLKVector3Add(bonePosition, rotatedPoint)
+                let rotatedPoint: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(bone.rotation, point)
+                self.steps[i].points[j] = GLKVector3Add(bone.position, rotatedPoint)
             }
-            
-            // Apply bone
-            var boneTranslationAfterRotation: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(bone.rotation, bone.translation)
-            boneTranslationAfterRotation = GLKMatrix4MultiplyAndProjectVector3(boneRotation, boneTranslationAfterRotation)
-            bonePosition = GLKVector3Add(bonePosition, boneTranslationAfterRotation)
-            boneRotation = GLKMatrix4Multiply(boneRotation, bone.rotation)
         }
     }
     
@@ -199,6 +171,11 @@ class SYShape: SCNNode {
                 nbrOfFaces -= 1
             }
             nbrOfFaces -= 1
+            
+            
+            if (nbrOfFaces < 0) {
+                nbrOfFaces = 0
+            }
             
             for _ in 0...nbrOfFaces {
                 var points: [GLKVector3] = []
@@ -329,9 +306,9 @@ class SYShape: SCNNode {
         }
         
         let translation: GLKVector3 = GLKVector3Make(0, size, 0)
-        let rotation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
+        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
         
-        return SYBone(translation: translation, rotation: rotation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
     }
     
     func stepFunc (options: SYStepFuncOptions, state: Float) -> SYStep {
