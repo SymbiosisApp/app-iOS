@@ -42,11 +42,15 @@ class SYShape: SCNNode {
     }
     
     func getBones(state: Float) -> [SYBone] {
-        if self.lastBonesState != state {
-            self.generateBones(state)
-        }
+        self.generateBones(state)
         return self.bones
     }
+    
+    func getSteps(state: Float) -> [SYStep] {
+        self.generateSteps(state)
+        return self.steps
+    }
+    
     
     func generateBones (state: Float) {
         
@@ -97,6 +101,8 @@ class SYShape: SCNNode {
     
     func generateSteps (state: Float) {
         
+        generateBones(state)
+        
         if self.lastStepsState == state {
             return
         }
@@ -113,6 +119,7 @@ class SYShape: SCNNode {
             var step = self.stepFunc(options, state: state)
             // set index
             step.index = bone.index
+            step.bone = bone
             self.steps.append(step)
         }
         
@@ -153,6 +160,11 @@ class SYShape: SCNNode {
     }
     
     func createFaces () {
+        
+        if self.steps.count == 0 {
+            print("No steps :/")
+            return
+        }
         
         for index in 0 ..< self.steps.count-1 {
             let step = self.steps[index]

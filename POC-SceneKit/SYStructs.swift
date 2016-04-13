@@ -15,13 +15,13 @@ import GLKit
 struct SYBone {
     
     /// Bone index
-    var index: Int?
+    var index: Int!
     
     /// Size of this bone only
     var size: Float
     
     /// Size of the bone from the first bone
-    var sizeFromStart: Float?
+    var sizeFromStart: Float!
     
     /// The translation of the bone used to generate
     var translation: GLKVector3
@@ -52,8 +52,8 @@ struct SYBone {
 
 struct SYStep {
     var points: [GLKVector3] = []
-    var bone: SYBone?
-    var index: Int?
+    var bone: SYBone!
+    var index: Int!
     var count: Int {
         get {
             return self.points.count

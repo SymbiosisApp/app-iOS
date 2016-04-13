@@ -81,15 +81,14 @@ class SYShapeLeaf: SYShape {
     
     override func boneFunc (options: SYBoneFuncOptions, state: Float) -> SYBone {
         
-        let size = options.options["size"] as? Float ?? 1.0
+        let size = (options.options["size"] as? Float) ?? 1.0
         
         var isLastStep: Bool = false
         let nbrOfSteps = 10
         let stepSize = size / Float(nbrOfSteps)
         
         var translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
-        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 0, 1)
-//        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 0, 1)
+        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 0, 1)
         
         if (options.index == 0) {
             translation = GLKVector3Make(0, 0, 0)

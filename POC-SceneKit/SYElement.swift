@@ -35,6 +35,9 @@ class SYElement: SCNNode {
     }
     
     func renderSelfGeom(state: Float) {
+        if self.geometries.childNodes.count == 0 {
+            return
+        }
         for selfGeom in self.geometries.childNodes {
             let geom = selfGeom as! SYShape
             geom.render(state)
@@ -50,10 +53,18 @@ class SYElement: SCNNode {
     }
     
     func renderChildren(state: Float) {
+        if self.children.childNodes.count == 0 {
+            return
+        }
         for child in self.children.childNodes {
             let elem = child as! SYElement
-            elem.render(state)
+            let childState = self.transformStateForChild(elem, state: state)
+            elem.render(childState)
         }
+    }
+    
+    func transformStateForChild(child: SYElement, state: Float) -> Float {
+        return state
     }
     
     func render(state: Float) {
