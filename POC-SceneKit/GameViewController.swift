@@ -49,12 +49,17 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
 //
 //        self.morpher!.setWeight(1, forTargetAtIndex: 1)
 //      
+        let startTime = CFAbsoluteTimeGetCurrent()
         
         let elem = SYElementBranch()
         scene.rootNode.addChildNode(elem)
-        elem.render(1)
+        elem.render(1.7)
         elem.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
-      
+        
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        print("Render time : \(timeElapsed)")
+
+        
 //        let leaf = SYShapeLeaf(options: ["size":1.0])
 //        scene.rootNode.addChildNode(leaf)
 //        leaf.render(1)
@@ -77,43 +82,54 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
 //        let animation = CAAnimation()
 //        animation.usesSceneTimeBase = true
 
+        let cameraTarget = SCNNode()
+        cameraTarget.position = SCNVector3Make(0, 0.5, 0)
+        scene.rootNode.addChildNode(cameraTarget)
+        
         // create and add a camera to the scene
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
+        cameraNode.camera?.xFov = 30.0
         scene.rootNode.addChildNode(cameraNode)
-
         // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 5)
-
-        // create and add a light to the scene
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light!.type = SCNLightTypeOmni
-        lightNode.position = SCNVector3(x: 0, y: 15, z: 10)
-        scene.rootNode.addChildNode(lightNode)
-
+        cameraNode.position = SCNVector3(x: 5, y: 1, z: 5)
+        let constraint = SCNLookAtConstraint(target: cameraTarget)
+        constraint.gimbalLockEnabled = true
+        cameraNode.constraints = [constraint]
+        
         // create and add an ambient light to the scene
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light!.type = SCNLightTypeAmbient
         ambientLightNode.light!.color = UIColor.darkGrayColor()
         scene.rootNode.addChildNode(ambientLightNode)
-        
-        let lightPosition = SCNVector3Make(3, 10, 10)
+
+        // create and add a light to the scene
+        let lightNode = SCNNode()
+        lightNode.light = SCNLight()
+        lightNode.light!.type = SCNLightTypeOmni
+        lightNode.position = SCNVector3Make(2, 3, 0)
+        scene.rootNode.addChildNode(lightNode)
+
+        // A shpere to see where the light is
+//        let lightSphere = SCNNode()
+//        lightSphere.geometry = SCNSphere(radius: 0.1)
+//        lightSphere.position = lightNode.position
+//        scene.rootNode.addChildNode(lightSphere)
         
         // create and add a light to the scene
         let lightNode2 = SCNNode()
         lightNode2.light = SCNLight()
         lightNode2.light!.type = SCNLightTypeOmni
-        lightNode2.position = lightPosition;
+        lightNode2.position = SCNVector3Make(2, 2, 2);
         scene.rootNode.addChildNode(lightNode2)
         
         // create and add a light to the scene
-        let lightNode3 = SCNNode()
-        lightNode3.light = SCNLight()
-        lightNode3.light!.type = SCNLightTypeOmni
-        lightNode3.position = SCNVector3Make(10, 3, -10);
-        scene.rootNode.addChildNode(lightNode3)
+//        let lightNode3 = SCNNode()
+//        lightNode3.light = SCNLight()
+//        lightNode3.light!.type = SCNLightTypeOmni
+//        lightNode3.position = SCNVector3Make(10, 10, -10);
+//        scene.rootNode.addChildNode(lightNode3)
         
         
         
@@ -127,7 +143,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         myFloor.materials = [floorMat]
         myFloor.reflectivity = 0;
         let myFloorNode = SCNNode(geometry: myFloor)
-        myFloorNode.position = SCNVector3Make(0, -1, 0);
+        myFloorNode.position = SCNVector3Make(0, 0, 0);
         scene.rootNode.addChildNode(myFloorNode)
         
         // retrieve the SCNView

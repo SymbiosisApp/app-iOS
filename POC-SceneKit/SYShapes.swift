@@ -157,14 +157,20 @@ class SYShapeBranch: SYShape {
     
     override func boneFunc (options: SYBoneFuncOptions, state: Float) -> SYBone {
         
-        let size = options.options["size"] as? Float ?? 3.0
+        let size = options.options["size"] as? Float ?? 1.0
         
         var isLastStep: Bool = false
         let nbrOfSteps = 20
         let stepSize = size / Float(nbrOfSteps)
         
         var translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
-        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
+        var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
+        
+        let xAngle = (Float((random() % 2000)-1000) / 1000.0) * 0.2;
+        orientation = GLKMatrix4Multiply(orientation, GLKMatrix4MakeRotation(xAngle, 1, 0, 0))
+        
+        let zAngle = (Float((random() % 2000)-1000) / 1000.0) * 0.2;
+        orientation = GLKMatrix4Multiply(orientation, GLKMatrix4MakeRotation(zAngle, 0, 0, 1))
         
         if (options.index == 0) {
             translation = GLKVector3Make(0, 0, 0)
@@ -172,6 +178,7 @@ class SYShapeBranch: SYShape {
         
         if (options.index == nbrOfSteps-1) {
             isLastStep = true
+            translation = GLKVector3Make(0, stepSize*0.3, 0)
         }
         
         return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
@@ -179,18 +186,19 @@ class SYShapeBranch: SYShape {
     
     override func stepFunc (options: SYStepFuncOptions, state: Float) -> SYStep {
         let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
+        let progressNum: Float = Float(options.bone.index) / Float(options.nbrOfSteps - 1)        
         
         var points: [GLKVector3] = []
         
-        let size = options.options["size"] as? Float ?? 3.0
-        let baseWidth = size / 8.0
+//        let size = options.options["size"] as? Float ?? 3.0
+        let baseWidth = options.options["width"] as? Float ?? 0.2
         let endWidth = baseWidth * 0.5
         let width = baseWidth - ((baseWidth - endWidth) * progress)
         
         // Last step
-        if progress == 1 {
+        if progressNum == 1 {
             points = [GLKVector3Make(0, 0, 0)]
-        } else if progress == 0 {
+        } else if progressNum == 0 {
             points = [GLKVector3Make(0, 0, 0)]
         } else {
             let angleStep: Float = Float(M_PI)/3.0
@@ -209,7 +217,9 @@ class SYShapeBranch: SYShape {
     
     override func generateMaterial(options: [String:Any]) -> [SCNMaterial] {
         let mat = SCNMaterial()
-        mat.diffuse.contents = UIColor(red: 0.1294, green: 0.4706, blue: 0.2745, alpha: 1)
+        mat.diffuse.contents = UIImage(named: "leaf.png")
+        // mat.diffuse.contents = UIColor(red: 0.1294, green: 0.3706, blue: 0.1745, alpha: 1)
+        mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         mat.doubleSided = true
         
         return [mat]

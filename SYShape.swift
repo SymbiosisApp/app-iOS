@@ -10,6 +10,8 @@ import Foundation
 import SceneKit
 import GLKit
 
+var totalVerticeCount = 0
+
 class SYShape: SCNNode {
     
     var totalBoneSize: Float = 0.0
@@ -244,7 +246,7 @@ class SYShape: SCNNode {
                 let secondPoint = face.points[1]
                 let firstVector = GLKVector3Subtract(firstPoint, originPoint)
                 let secondVector = GLKVector3Subtract(secondPoint, originPoint)
-                var normal = GLKVector3CrossProduct(secondVector, firstVector)
+                var normal = GLKVector3CrossProduct(firstVector, secondVector)
                 normal = GLKVector3Normalize(normal)
                 
                 // First point
@@ -270,6 +272,9 @@ class SYShape: SCNNode {
         let verticesCount = verticesList.count
         let normalsCount = normalsList.count
         let indicesCount = indicesList.count
+        
+        totalVerticeCount += verticesCount
+        print(totalVerticeCount)
         
         if (normalsCount != verticesCount) {
             print("normalsCount !== verticesCount : %i !== %i", normalsCount, verticesCount)
