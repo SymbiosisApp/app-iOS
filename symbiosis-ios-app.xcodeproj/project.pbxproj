@@ -26,7 +26,7 @@
 		185416221C7F364A00654A47 /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYShape.swift; path = ../SYShape.swift; sourceTree = "<group>"; };
 		18806D5B1CBCF69100C255BD /* SYStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYStructs.swift; sourceTree = "<group>"; };
 		18A27E911CBBC7CA000DE5C9 /* SYElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElements.swift; sourceTree = "<group>"; };
-		18BC17F21C722BBE008E6558 /* POC-SceneKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POC-SceneKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "symbiosis-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18BC17F71C722BBE008E6558 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		18BC17F91C722BBE008E6558 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		18BC17E91C722BBE008E6558 = {
 			isa = PBXGroup;
 			children = (
-				18BC17F41C722BBE008E6558 /* POC-SceneKit */,
+				18BC17F41C722BBE008E6558 /* symbiosys-ios-app */,
 				18BC17F31C722BBE008E6558 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,12 +58,12 @@
 		18BC17F31C722BBE008E6558 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18BC17F21C722BBE008E6558 /* POC-SceneKit.app */,
+				18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		18BC17F41C722BBE008E6558 /* POC-SceneKit */ = {
+		18BC17F41C722BBE008E6558 /* symbiosys-ios-app */ = {
 			isa = PBXGroup;
 			children = (
 				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
@@ -79,15 +79,16 @@
 				18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */,
 				18BC18031C722BBE008E6558 /* Info.plist */,
 			);
+			name = "symbiosys-ios-app";
 			path = "POC-SceneKit";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		18BC17F11C722BBE008E6558 /* POC-SceneKit */ = {
+		18BC17F11C722BBE008E6558 /* symbiosis-ios-app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18BC18061C722BBE008E6558 /* Build configuration list for PBXNativeTarget "POC-SceneKit" */;
+			buildConfigurationList = 18BC18061C722BBE008E6558 /* Build configuration list for PBXNativeTarget "symbiosis-ios-app" */;
 			buildPhases = (
 				18BC17EE1C722BBE008E6558 /* Sources */,
 				18BC17EF1C722BBE008E6558 /* Frameworks */,
@@ -97,9 +98,9 @@
 			);
 			dependencies = (
 			);
-			name = "POC-SceneKit";
+			name = "symbiosis-ios-app";
 			productName = "POC-SceneKit";
-			productReference = 18BC17F21C722BBE008E6558 /* POC-SceneKit.app */;
+			productReference = 18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -123,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 18BC17ED1C722BBE008E6558 /* Build configuration list for PBXProject "POC-SceneKit" */;
+			buildConfigurationList = 18BC17ED1C722BBE008E6558 /* Build configuration list for PBXProject "symbiosis-ios-app" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -136,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18BC17F11C722BBE008E6558 /* POC-SceneKit */,
+				18BC17F11C722BBE008E6558 /* symbiosis-ios-app */,
 			);
 		};
 /* End PBXProject section */
@@ -280,7 +281,7 @@
 				INFOPLIST_FILE = "POC-SceneKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "symbiosis-ios-app";
 			};
 			name = Debug;
 		};
@@ -291,14 +292,14 @@
 				INFOPLIST_FILE = "POC-SceneKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "symbiosis-ios-app";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		18BC17ED1C722BBE008E6558 /* Build configuration list for PBXProject "POC-SceneKit" */ = {
+		18BC17ED1C722BBE008E6558 /* Build configuration list for PBXProject "symbiosis-ios-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18BC18041C722BBE008E6558 /* Debug */,
@@ -307,7 +308,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18BC18061C722BBE008E6558 /* Build configuration list for PBXNativeTarget "POC-SceneKit" */ = {
+		18BC18061C722BBE008E6558 /* Build configuration list for PBXNativeTarget "symbiosis-ios-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18BC18071C722BBE008E6558 /* Debug */,

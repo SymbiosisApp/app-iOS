@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "18BC17F11C722BBE008E6558"
-               BuildableName = "POC-SceneKit.app"
-               BlueprintName = "POC-SceneKit"
-               ReferencedContainer = "container:POC-SceneKit.xcodeproj">
+               BuildableName = "symbiosys-ios-app.app"
+               BlueprintName = "symbiosis-ios-app"
+               ReferencedContainer = "container:symbiosis-ios-app.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18BC17F11C722BBE008E6558"
-            BuildableName = "POC-SceneKit.app"
-            BlueprintName = "POC-SceneKit"
-            ReferencedContainer = "container:POC-SceneKit.xcodeproj">
+            BuildableName = "symbiosys-ios-app.app"
+            BlueprintName = "symbiosis-ios-app"
+            ReferencedContainer = "container:symbiosis-ios-app.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18BC17F11C722BBE008E6558"
-            BuildableName = "POC-SceneKit.app"
-            BlueprintName = "POC-SceneKit"
-            ReferencedContainer = "container:POC-SceneKit.xcodeproj">
+            BuildableName = "symbiosys-ios-app.app"
+            BlueprintName = "symbiosis-ios-app"
+            ReferencedContainer = "container:symbiosis-ios-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18BC17F11C722BBE008E6558"
-            BuildableName = "POC-SceneKit.app"
-            BlueprintName = "POC-SceneKit"
-            ReferencedContainer = "container:POC-SceneKit.xcodeproj">
+            BuildableName = "symbiosys-ios-app.app"
+            BlueprintName = "symbiosis-ios-app"
+            ReferencedContainer = "container:symbiosis-ios-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
