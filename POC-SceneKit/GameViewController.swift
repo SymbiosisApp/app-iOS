@@ -52,9 +52,19 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         let startTime = CFAbsoluteTimeGetCurrent()
         
         let elem = SYElementBranch()
-        scene.rootNode.addChildNode(elem)
-        elem.render(1.7)
-        elem.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
+        
+        // Async task
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            elem.render(0.7)
+            dispatch_async(dispatch_get_main_queue()) {
+                scene.rootNode.addChildNode(elem)
+            }
+        }
+        
+        // scene.rootNode.addChildNode(elem)
+        // elem.render(0.6)
+        // elem.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y:1, z:0, duration:1)))
         
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         print("Render time : \(timeElapsed)")

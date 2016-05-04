@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 import GLKit
 
-var totalVerticeCount = 0
+// var totalVerticeCount = 0
 
 class SYShape: SCNNode {
     
@@ -273,8 +273,8 @@ class SYShape: SCNNode {
         let normalsCount = normalsList.count
         let indicesCount = indicesList.count
         
-        totalVerticeCount += verticesCount
-        print(totalVerticeCount)
+        // totalVerticeCount += verticesCount
+        // print(totalVerticeCount)
         
         if (normalsCount != verticesCount) {
             print("normalsCount !== verticesCount : %i !== %i", normalsCount, verticesCount)

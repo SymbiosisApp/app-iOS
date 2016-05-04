@@ -218,8 +218,8 @@ class SYShapeBranch: SYShape {
     override func generateMaterial(options: [String:Any]) -> [SCNMaterial] {
         let mat = SCNMaterial()
         mat.diffuse.contents = UIImage(named: "leaf.png")
-        // mat.diffuse.contents = UIColor(red: 0.1294, green: 0.3706, blue: 0.1745, alpha: 1)
-        mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
+        mat.diffuse.contents = UIColor(red: 0.1294, green: 0.3706, blue: 0.1745, alpha: 1)
+        // mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         mat.doubleSided = true
         
         return [mat]
