@@ -9,31 +9,31 @@
 /* Begin PBXBuildFile section */
 		18824C951CD01AF700D8622B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18824C941CD01AF700D8622B /* GameViewController.swift */; };
 		18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F51C722BBE008E6558 /* AppDelegate.swift */; };
-		18BC17F81C722BBE008E6558 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17F71C722BBE008E6558 /* art.scnassets */; };
-		18BC17FD1C722BBE008E6558 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FB1C722BBE008E6558 /* Main.storyboard */; };
 		18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FE1C722BBE008E6558 /* Assets.xcassets */; };
-		18BC18021C722BBE008E6558 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */; };
 		18EE76721CDA24FA000F290C /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766D1CDA24FA000F290C /* SYElement.swift */; };
 		18EE76731CDA24FA000F290C /* SYElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766E1CDA24FA000F290C /* SYElements.swift */; };
 		18EE76741CDA24FA000F290C /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766F1CDA24FA000F290C /* SYShape.swift */; };
 		18EE76751CDA24FA000F290C /* SYShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE76701CDA24FA000F290C /* SYShapes.swift */; };
 		18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE76711CDA24FA000F290C /* SYStructs.swift */; };
+		18EE767D1CDA25B4000F290C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EE767B1CDA25B4000F290C /* LaunchScreen.storyboard */; };
+		18EE767E1CDA25B4000F290C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EE767C1CDA25B4000F290C /* Main.storyboard */; };
+		18EE76801CDA271B000F290C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE767F1CDA271B000F290C /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18824C941CD01AF700D8622B /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "symbiosis-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18BC17F71C722BBE008E6558 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		18BC17FC1C722BBE008E6558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18BC17FE1C722BBE008E6558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		18BC18011C722BBE008E6558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18BC18031C722BBE008E6558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18EE766D1CDA24FA000F290C /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		18EE766E1CDA24FA000F290C /* SYElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElements.swift; sourceTree = "<group>"; };
 		18EE766F1CDA24FA000F290C /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
 		18EE76701CDA24FA000F290C /* SYShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShapes.swift; sourceTree = "<group>"; };
 		18EE76711CDA24FA000F290C /* SYStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYStructs.swift; sourceTree = "<group>"; };
+		18EE767B1CDA25B4000F290C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18EE767C1CDA25B4000F290C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		18EE767F1CDA271B000F290C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +66,13 @@
 		18BC17F41C722BBE008E6558 /* Symbiosis */ = {
 			isa = PBXGroup;
 			children = (
-				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
-				18EE766C1CDA249B000F290C /* Plant3D */,
-				18BC17F71C722BBE008E6558 /* art.scnassets */,
-				18824C941CD01AF700D8622B /* GameViewController.swift */,
-				18BC17FB1C722BBE008E6558 /* Main.storyboard */,
-				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
-				18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */,
 				18BC18031C722BBE008E6558 /* Info.plist */,
+				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
+				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
+				18EE767F1CDA271B000F290C /* MainViewController.swift */,
+				18824C941CD01AF700D8622B /* GameViewController.swift */,
+				18EE767A1CDA2598000F290C /* Storyboards */,
+				18EE766C1CDA249B000F290C /* Plant3D */,
 			);
 			path = Symbiosis;
 			sourceTree = "<group>";
@@ -88,6 +87,15 @@
 				18EE76711CDA24FA000F290C /* SYStructs.swift */,
 			);
 			path = Plant3D;
+			sourceTree = "<group>";
+		};
+		18EE767A1CDA2598000F290C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				18EE767C1CDA25B4000F290C /* Main.storyboard */,
+				18EE767B1CDA25B4000F290C /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,10 +162,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BC17F81C722BBE008E6558 /* art.scnassets in Resources */,
-				18BC18021C722BBE008E6558 /* LaunchScreen.storyboard in Resources */,
+				18EE767E1CDA25B4000F290C /* Main.storyboard in Resources */,
+				18EE767D1CDA25B4000F290C /* LaunchScreen.storyboard in Resources */,
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
-				18BC17FD1C722BBE008E6558 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,29 +182,11 @@
 				18EE76741CDA24FA000F290C /* SYShape.swift in Sources */,
 				18EE76751CDA24FA000F290C /* SYShapes.swift in Sources */,
 				18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */,
+				18EE76801CDA271B000F290C /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		18BC17FB1C722BBE008E6558 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18BC17FC1C722BBE008E6558 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		18BC18001C722BBE008E6558 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18BC18011C722BBE008E6558 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		18BC18041C722BBE008E6558 /* Debug */ = {
@@ -285,7 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "POC-SceneKit/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Symbiosis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
 				PRODUCT_NAME = "symbiosis-ios-app";
@@ -296,7 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "POC-SceneKit/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Symbiosis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
 				PRODUCT_NAME = "symbiosis-ios-app";

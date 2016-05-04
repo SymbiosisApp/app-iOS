@@ -52,14 +52,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         let startTime = CFAbsoluteTimeGetCurrent()
         
         let elem = SYElementBranch()
+        scene.rootNode.addChildNode(elem)
         
         // Async task
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            elem.render(0.7)
-            dispatch_async(dispatch_get_main_queue()) {
-                scene.rootNode.addChildNode(elem)
-            }
+            elem.render(1.0)
+//            dispatch_async(dispatch_get_main_queue()) {
+//                scene.rootNode.addChildNode(elem)
+//            }
         }
         
         // scene.rootNode.addChildNode(elem)
