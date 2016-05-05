@@ -34,7 +34,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         // Async task
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            elem.render(1.0)
+            elem.render(1.6)
         }
         
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
