@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18824C951CD01AF700D8622B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18824C941CD01AF700D8622B /* GameViewController.swift */; };
+		184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA85C1CE0CBC4007D5C6F /* SYState.swift */; };
+		18824C951CD01AF700D8622B /* PlantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18824C941CD01AF700D8622B /* PlantSceneViewController.swift */; };
 		18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F51C722BBE008E6558 /* AppDelegate.swift */; };
 		18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FE1C722BBE008E6558 /* Assets.xcassets */; };
+		18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4262E1CE473CB00309EE6 /* Utils.swift */; };
 		18EE76721CDA24FA000F290C /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766D1CDA24FA000F290C /* SYElement.swift */; };
 		18EE76731CDA24FA000F290C /* SYElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766E1CDA24FA000F290C /* SYElements.swift */; };
 		18EE76741CDA24FA000F290C /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766F1CDA24FA000F290C /* SYShape.swift */; };
@@ -21,11 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18824C941CD01AF700D8622B /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		184FA85C1CE0CBC4007D5C6F /* SYState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYState.swift; sourceTree = "<group>"; };
+		18824C941CD01AF700D8622B /* PlantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSceneViewController.swift; sourceTree = "<group>"; };
 		18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "symbiosis-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18BC17FE1C722BBE008E6558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18BC18031C722BBE008E6558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D4262E1CE473CB00309EE6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18EE766D1CDA24FA000F290C /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		18EE766E1CDA24FA000F290C /* SYElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElements.swift; sourceTree = "<group>"; };
 		18EE766F1CDA24FA000F290C /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
@@ -70,7 +74,9 @@
 				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
 				18EE767F1CDA271B000F290C /* MainViewController.swift */,
-				18824C941CD01AF700D8622B /* GameViewController.swift */,
+				18824C941CD01AF700D8622B /* PlantSceneViewController.swift */,
+				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
+				18D4262E1CE473CB00309EE6 /* Utils.swift */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
 				18EE766C1CDA249B000F290C /* Plant3D */,
 			);
@@ -132,6 +138,9 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = U953397FRU;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -176,10 +185,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EE76731CDA24FA000F290C /* SYElements.swift in Sources */,
-				18824C951CD01AF700D8622B /* GameViewController.swift in Sources */,
+				18824C951CD01AF700D8622B /* PlantSceneViewController.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
 				18EE76721CDA24FA000F290C /* SYElement.swift in Sources */,
 				18EE76741CDA24FA000F290C /* SYShape.swift in Sources */,
+				18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */,
+				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
 				18EE76751CDA24FA000F290C /* SYShapes.swift in Sources */,
 				18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */,
 				18EE76801CDA271B000F290C /* MainViewController.swift in Sources */,

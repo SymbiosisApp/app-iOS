@@ -12,7 +12,7 @@ import GLKit
 
 // var totalVerticeCount = 0
 
-class SYShape: SCNNode {
+class SYShape<T: SYProps>: SCNNode {
     
     var totalBoneSize: Float = 0.0
     var bones: [SYBone] = []
@@ -21,12 +21,11 @@ class SYShape: SCNNode {
     var lastBonesState: Float = -1.0
     var lastStepsState: Float = -1.0
     
-    var options: [String:Any] = [:]
+    var props: T
     
-    init (options: [String:Any] ) {
+    init (props: T) {
+        self.props = props
         super.init()
-        
-        self.options = options
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -40,7 +39,7 @@ class SYShape: SCNNode {
         
         let geomData = self.getGeometryData()
         self.geometry = SCNGeometry(sources: [geomData.normalSource, geomData.vertexSource], elements: geomData.elements)
-        self.geometry!.materials = self.generateMaterial(self.options)
+        self.geometry!.materials = self.generateMaterial(self.props)
     }
     
     func getBones(state: Float) -> [SYBone] {
@@ -71,7 +70,7 @@ class SYShape: SCNNode {
                 bones: self.bones,
                 index: stepIndex,
                 boneSizeFromStart: boneSizeFromStart,
-                options: self.options
+                props: self.props
             )
             // Exec func
             var bone = self.boneFunc(options, state: state)
@@ -115,7 +114,7 @@ class SYShape: SCNNode {
                 bone: bone,
                 nbrOfSteps: self.bones.count,
                 totalBoneSize: self.totalBoneSize,
-                options: self.options
+                props: self.props
             )
             // Exec func
             var step = self.stepFunc(options, state: state)
@@ -314,7 +313,7 @@ class SYShape: SCNNode {
 
     // MARK: Default generate func
     
-    func boneFunc (options: SYBoneFuncOptions, state: Float) -> SYBone {
+    func boneFunc (options: SYBoneFuncOptions<T>, state: Float) -> SYBone {
         var isLastStep: Bool = false
         let nbrOfSteps = 5
         let size = 2 / Float(nbrOfSteps)
@@ -328,9 +327,8 @@ class SYShape: SCNNode {
         return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
     }
     
-    func stepFunc (options: SYStepFuncOptions, state: Float) -> SYStep {
+    func stepFunc (options: SYStepFuncOptions<T>, state: Float) -> SYStep {
         let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-//        print(progress)
         
         var points: [GLKVector3] = []
         
@@ -356,7 +354,7 @@ class SYShape: SCNNode {
         return SYStep(points: points)
     }
     
-    func generateMaterial(options: [String:Any]) -> [SCNMaterial] {
+    func generateMaterial (props: T) -> [SCNMaterial] {
         let mat = SCNMaterial()
         mat.diffuse.contents = UIColor.blueColor()
         mat.doubleSided = true

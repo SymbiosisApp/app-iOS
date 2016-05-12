@@ -16,7 +16,10 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     var morpher: SCNMorpher?
     var scnView: SCNView?
     var lastUpdateTimeInterval: NSTimeInterval = 0
-
+    var currentCameraRotationVert: Float = 0
+    var currentCameraRotationHor: Float = 0
+    let cameraContainerNode = SCNNode()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,14 +30,14 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         self.scnView!.delegate = self
 
         let startTime = CFAbsoluteTimeGetCurrent()
-        
-        let elem = SYElementBranch()
-        scene.rootNode.addChildNode(elem)
+
+        let plant = SYElementBranch()
+        scene.rootNode.addChildNode(plant)
         
         // Async task
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            elem.render(1.6)
+            plant.render(1.6)
         }
         
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
@@ -45,15 +48,56 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         scene.rootNode.addChildNode(cameraTarget)
         
         // create and add a camera to the scene
+        scene.rootNode.addChildNode(cameraContainerNode)
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.camera?.xFov = 30.0
-        scene.rootNode.addChildNode(cameraNode)
+        cameraNode.position = SCNVector3Make(0, 1, 5)
+        cameraContainerNode.addChildNode(cameraNode)
+        cameraContainerNode.position = SCNVector3Make(0, 0, 0)
+        
         // place the camera
-        cameraNode.position = SCNVector3(x: 5, y: 1, z: 5)
-        let constraint = SCNLookAtConstraint(target: cameraTarget)
-        constraint.gimbalLockEnabled = true
-        cameraNode.constraints = [constraint]
+//        cameraNode.position = SCNVector3(x: 5, y: 1, z: 5)
+//        let lookAtconstraint = SCNLookAtConstraint(target: cameraTarget)
+//        let customConstraint = SCNTransformConstraint(inWorldSpace: true) { (node, transform) -> SCNMatrix4 in
+//            let trans1 = SCNMatrix4ToGLKMatrix4(transform)
+//            
+//            let pos = GLKMatrix4MultiplyAndProjectVector3(trans1, GLKVector3Make(0, 0, 0))
+//            
+//            var yProject = GLKVector3Make(pos.x, 0, pos.z)
+//            yProject = GLKVector3Normalize(yProject)
+//            
+//            var horAngle = Float(acos(Double(GLKVector3DotProduct(GLKVector3Make(1, 0, 0), yProject))))
+//            if yProject.z > 0 {
+//                horAngle = Float(M_PI/2) - horAngle
+//            } else {
+//                horAngle = Float(M_PI/2) + horAngle
+//            }
+//            let vertAngle = Float(acos(Double(GLKVector3DotProduct(GLKVector3Normalize(pos), yProject))))
+//            // print(vertAngle)
+//
+//            
+//            print(" \(yProject.z) :  \(vertAngle) - \(horAngle)")
+//            
+//            let resultTrans = GLKMatrix4MakeTranslation(pos.x, pos.y, pos.z)
+//            let resultRotate1 = GLKMatrix4MakeRotation(horAngle, 0, 1, 0)
+//            let resultRotate2 = GLKMatrix4MakeRotation(vertAngle, 1, 0, 0)
+//            
+//            // let result = GLKMatrix4MakeLookAt(pos.x, pos.y, pos.z, 0, 0, 0, 0, 1, 0)
+//            
+////            let rotate = GLKQuaternionMakeWithMatrix4(trans1)
+////            let rotateAngle = GLKQuaternionAngle(rotate)
+////            let rotateAxis = GLKQuaternionAxis(rotate)
+////            print(rotateAngle)
+////            let newRotate = GLKQuaternionMakeWithAngleAndAxis(0, rotateAxis.x, rotateAxis.y, rotateAxis.z)
+////            let resultRotate = GLKMatrix4MakeWithQuaternion(newRotate)
+//            
+//            var result = GLKMatrix4Multiply(resultTrans, resultRotate1)
+//            // result = GLKMatrix4Multiply(result, resultRotate2)
+//            
+//            return SCNMatrix4FromGLKMatrix4(result)
+//        }
+//        cameraNode.constraints = [customConstraint]
         
         // create and add an ambient light to the scene
         let ambientLightNode = SCNNode()
@@ -76,7 +120,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         lightNode2.position = SCNVector3Make(2, 2, 2);
         scene.rootNode.addChildNode(lightNode2)
         
-        
         // Add froor
         let floorMat = SCNMaterial()
         floorMat.diffuse.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -96,7 +139,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         scnView.scene = scene
 
         // allows the user to manipulate the camera
-        scnView.allowsCameraControl = true
+        // scnView.allowsCameraControl = true
 
         // show statistics such as fps and timing information
         scnView.showsStatistics = true
@@ -104,6 +147,29 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         // configure the view
         scnView.backgroundColor = UIColor.blackColor()
 
+    }
+    
+    @IBAction func onPlantPan(gestureRecognize: UIPanGestureRecognizer) {
+        let translation = gestureRecognize.translationInView(self.view)
+        
+        let horRotate = (self.currentCameraRotationHor - Float(translation.x)/80) % (Float(M_PI) * 2)
+        var vertRotate = self.currentCameraRotationVert - Float(translation.y)/100
+        vertRotate = max(vertRotate, -1)
+        vertRotate = min(vertRotate, 0.2)
+        
+        let horRotateVect  = GLKMatrix4MakeRotation(horRotate, 0, 1, 0)
+        let vertRotateVect = GLKMatrix4MakeRotation(vertRotate, 1, 0, 0)
+        
+        let result = GLKMatrix4Multiply(horRotateVect, vertRotateVect)
+        
+        let resultQuat = GLKQuaternionMakeWithMatrix4(result)
+        
+        cameraContainerNode.orientation = SCNVector4Make(resultQuat.x, resultQuat.y, resultQuat.z, resultQuat.w)
+        
+        if(gestureRecognize.state == UIGestureRecognizerState.Ended) {
+            currentCameraRotationHor = horRotate
+            currentCameraRotationVert = vertRotate
+        }
     }
 
     override func shouldAutorotate() -> Bool {

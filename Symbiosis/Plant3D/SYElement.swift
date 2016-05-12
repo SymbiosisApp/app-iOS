@@ -26,11 +26,9 @@ class SYElement: SCNNode {
     }
     
     func generateSelfGeom(state: Float) {
-        let options1: [String:Any] = [
-            "size" : Float(1),
-            "rotate" : Float(0.1)
-        ]
-        let geom = SYShapeTwist(options: options1)
+        let options1: SYShapeTwistProps = SYShapeTwistProps(size: 1.0, rotate: 0.1)
+
+        let geom = SYShapeTwist(props: options1)
         self.geometries.addChildNode(geom)
     }
     
@@ -39,7 +37,7 @@ class SYElement: SCNNode {
             return
         }
         for selfGeom in self.geometries.childNodes {
-            let geom = selfGeom as! SYShape
+            let geom = selfGeom as! SYShape<SYPropsDefault>
             geom.render(state)
         }
     }

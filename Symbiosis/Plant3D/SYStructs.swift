@@ -78,16 +78,18 @@ struct SYFace {
     }
 }
 
+protocol SYProps {}
+
 struct SYBoneFuncOptions {
     let bones: [SYBone]
     let index: Int
     let boneSizeFromStart: Float
-    var options: [String:Any] = [:]
+    var props: SYProps
 }
 
 struct SYStepFuncOptions {
     let bone: SYBone
     let nbrOfSteps: Int
     let totalBoneSize: Float
-    var options: [String:Any] = [:]
+    var props: SYProps
 }
