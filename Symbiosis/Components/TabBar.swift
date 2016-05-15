@@ -24,6 +24,7 @@ class SYTabBar: UIView {
     
     // MARK: State
     var selectedItem: Int = -1
+    var lastSelectedItem: Int = -1
     
     
     // MARK: Init
@@ -99,6 +100,7 @@ class SYTabBar: UIView {
     
     func selectItem(index: Int) {
         if index != selectedItem {
+            lastSelectedItem = selectedItem
             selectedItem = index
             updateStyle()
             self.delegate?.onTabSelected(selectedItem)
@@ -107,6 +109,10 @@ class SYTabBar: UIView {
     
     func getSelectedItem() -> Int {
         return selectedItem
+    }
+    
+    func getLastSelectedItem() -> Int {
+        return lastSelectedItem
     }
     
     @IBAction func buttonTouched(sender: AnyObject) {

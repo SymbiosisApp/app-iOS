@@ -16,7 +16,7 @@ class MainViewController: UIViewController, SYTabBarDelegate {
     
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Help"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
-    var tabViewsControllers: [UIViewController?] = [nil, nil, nil, nil, nil]
+    var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     
     weak var currentTabView: UIViewController?
     
@@ -45,18 +45,18 @@ class MainViewController: UIViewController, SYTabBarDelegate {
     }
     
     func setTabNavigation(tabIndex: Int) {
-        if tabViewsControllers[tabIndex] == nil {
+        if tabViews[tabIndex] == nil {
             let tabName = viewsNames[tabIndex]
             if tabStoryboards[tabIndex] == nil {
                 tabStoryboards[tabIndex] = UIStoryboard(name: tabName, bundle: nil)
             }
             let strboard = tabStoryboards[tabIndex]!
             
-            tabViewsControllers[tabIndex] = strboard.instantiateViewControllerWithIdentifier("\(tabName)ViewCtrl")
-            tabViewsControllers[tabIndex]!.view.translatesAutoresizingMaskIntoConstraints = false
+            tabViews[tabIndex] = strboard.instantiateViewControllerWithIdentifier("\(tabName)ViewCtrl")
+            tabViews[tabIndex]!.view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        let tabView = tabViewsControllers[tabIndex]!
+        let tabView = tabViews[tabIndex]!
         
         if currentTabView == nil {
             // just set up
@@ -64,26 +64,12 @@ class MainViewController: UIViewController, SYTabBarDelegate {
             self.addSubview(tabView.view, toView: self.containerView)
         } else {
             // Animate transition
-            self.cycleFromViewController(self.currentTabView!, toViewController: tabView)
+            let invertDirection = tabIndex < tabBar.getLastSelectedItem()
+            self.cycleFromViewController(self.currentTabView!, toViewController: tabView, inverseDirection: invertDirection)
         }
         self.currentTabView = tabView
         
     }
-    
-//    @IBAction func onTouchSwitchButton(sender: AnyObject) {
-//        if currentView == 0 {
-//            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewCtrl")
-//            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-//            self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
-//            self.currentViewController = newViewController
-//        } else {
-//            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PlantViewCtrl")
-//            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-//            self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
-//            self.currentViewController = newViewController
-//        }
-//        currentView = (currentView + 1) % 2
-//    }
     
     func addSubview(subView:UIView, toView parentView:UIView) {
         parentView.addSubview(subView)
@@ -96,10 +82,14 @@ class MainViewController: UIViewController, SYTabBarDelegate {
             options: [], metrics: nil, views: viewBindingsDict))
     }
     
-    func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
+    func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController, inverseDirection: Bool) {
         oldViewController.willMoveToParentViewController(nil)
         self.addChildViewController(newViewController)
         self.containerView!.addSubview(newViewController.view)
+        
+        print(inverseDirection)
+        
+        let directionMultiplier: Float = inverseDirection ? -1.0 : 1.0
         
         // new
         var viewBindingsDict = [String: AnyObject]()
@@ -110,8 +100,7 @@ class MainViewController: UIViewController, SYTabBarDelegate {
         leftConstraint.active = true
         let widthConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.containerView!, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0.0);
         widthConstraint.active = true;
-
-        leftConstraint.constant = 100
+        leftConstraint.constant = 100 * CGFloat(directionMultiplier)
         newViewController.view.alpha = 0
         newViewController.view.layoutIfNeeded()
         
@@ -127,4 +116,23 @@ class MainViewController: UIViewController, SYTabBarDelegate {
                 newViewController.didMoveToParentViewController(self)
         })
     }
+    
+    override func didReceiveMemoryWarning() {
+        var hasReleaseSomething = false
+        for (index, view) in tabViews.enumerate() {
+            if index != tabBar.getSelectedItem() && view != nil && hasReleaseSomething == false {
+                tabViews[index] = nil
+                hasReleaseSomething = true
+            }
+        }
+        if hasReleaseSomething == false {
+            for (index, strboard) in tabStoryboards.enumerate() {
+                if index != tabBar.getSelectedItem() && strboard != nil && hasReleaseSomething == false {
+                    tabStoryboards[index] = nil
+                    hasReleaseSomething = true
+                }
+            }
+        }
+    }
+    
 }
