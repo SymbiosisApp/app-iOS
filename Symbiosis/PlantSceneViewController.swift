@@ -23,12 +23,18 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // retrieve the SCNView
+        let scnView = self.view as! SCNView
+        // show statistics such as fps and timing information
+        scnView.showsStatistics = true
+        scnView.backgroundColor = UIColor(red: 0.8, green: 0.9, blue: 0.98, alpha: 1)
+        scnView.delegate = self
+        
         // create a new scene
         let scene = SCNScene()
-        self.scnView = self.view as? SCNView
-        self.scnView!.scene = scene
-        self.scnView!.delegate = self
-
+        // set the scene to the view
+        scnView.scene = scene
+        
         let startTime = CFAbsoluteTimeGetCurrent()
 
         let plant = SYElementBranch()
@@ -52,7 +58,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.camera?.xFov = 30.0
-        cameraNode.position = SCNVector3Make(0, 1, 5)
+        cameraNode.position = SCNVector3Make(0, 1.5, 5)
         cameraContainerNode.addChildNode(cameraNode)
         cameraContainerNode.position = SCNVector3Make(0, 0, 0)
         
@@ -130,22 +136,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         myFloor.reflectivity = 0;
         let myFloorNode = SCNNode(geometry: myFloor)
         myFloorNode.position = SCNVector3Make(0, 0, 0);
-        scene.rootNode.addChildNode(myFloorNode)
-        
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
-
-        // set the scene to the view
-        scnView.scene = scene
-
-        // allows the user to manipulate the camera
-        // scnView.allowsCameraControl = true
-
-        // show statistics such as fps and timing information
-        scnView.showsStatistics = true
-
-        // configure the view
-        scnView.backgroundColor = UIColor.blackColor()
+        // scene.rootNode.addChildNode(myFloorNode)
 
     }
     
@@ -178,14 +169,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
-    }
-
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
-        } else {
-            return .All
-        }
     }
 
     override func didReceiveMemoryWarning() {

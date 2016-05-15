@@ -13,7 +13,7 @@
                     <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.75686274509803919" green="0.85882352941176465" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="UjD-nN-6xw" appends="YES" id="liY-eg-v2q"/>
@@ -27,7 +27,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1805" y="1876"/>
+            <point key="canvasLocation" x="2188.5" y="1696"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="fH5-lP-ibE">
@@ -44,8 +44,8 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnu-Na-B3R">
-                                <rect key="frame" x="504" y="28" width="76" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnu-Na-B3R">
+                                <rect key="frame" x="20" y="20" width="76" height="30"/>
                                 <color key="backgroundColor" red="0.16982650756835938" green="0.24185281991958618" blue="0.31671267747879028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.92495459318161011" green="0.94122463464736938" blue="0.94532805681228638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Go to Plant"/>
@@ -53,22 +53,28 @@
                                     <action selector="onTouchSwitchButton:" destination="8JD-vG-jvJ" eventType="touchUpInside" id="OXq-sl-zZG"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="SZ4-oK-xOj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mqZ-7N-97i" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="24L-yg-ubH"/>
-                            <constraint firstItem="gnu-Na-B3R" firstAttribute="top" secondItem="cD3-qD-PMZ" secondAttribute="bottom" constant="8" id="9Ez-YM-e8v"/>
-                            <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="AcH-vi-wao"/>
-                            <constraint firstItem="gnu-Na-B3R" firstAttribute="top" secondItem="cD3-qD-PMZ" secondAttribute="bottom" constant="8" id="C6A-OK-hU5"/>
-                            <constraint firstItem="gnu-Na-B3R" firstAttribute="trailing" secondItem="DGK-db-TLf" secondAttribute="trailingMargin" id="ElW-la-Z56"/>
-                            <constraint firstItem="gnu-Na-B3R" firstAttribute="trailing" secondItem="DGK-db-TLf" secondAttribute="trailingMargin" id="PZs-cZ-Xog"/>
-                            <constraint firstItem="mqZ-7N-97i" firstAttribute="width" secondItem="DGK-db-TLf" secondAttribute="width" id="bWD-2Q-ENV"/>
-                            <constraint firstItem="mqZ-7N-97i" firstAttribute="height" secondItem="DGK-db-TLf" secondAttribute="height" id="kDr-z7-brv"/>
+                            <constraint firstAttribute="trailing" secondItem="ouk-5U-jwS" secondAttribute="trailing" id="1Td-BN-aYR"/>
+                            <constraint firstItem="ouk-5U-jwS" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="1rs-2E-iXS"/>
+                            <constraint firstAttribute="trailing" secondItem="mqZ-7N-97i" secondAttribute="trailing" id="HGc-Ko-u5R"/>
+                            <constraint firstItem="mqZ-7N-97i" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="Mic-Ru-Y0X"/>
+                            <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="mqZ-7N-97i" secondAttribute="bottom" id="My5-8y-hwB"/>
+                            <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="tdf-L4-z10"/>
+                            <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="ouk-5U-jwS" secondAttribute="bottom" id="vXb-Lb-M57"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="mqZ-7N-97i" id="yMy-un-Jdv"/>
                         <outlet property="switchButton" destination="gnu-Na-B3R" id="dL7-n4-c5I"/>
+                        <outlet property="tabBar" destination="ouk-5U-jwS" id="o04-ZV-9PE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53T-iL-6OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7e-my-k3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1805" y="935"/>
+            <point key="canvasLocation" x="1102.5" y="1691"/>
         </scene>
     </scenes>
 </document>

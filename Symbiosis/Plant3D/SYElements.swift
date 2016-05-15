@@ -13,10 +13,9 @@ import SceneKit
 class SYElementBranch: SYElement {
     
     override func generateSelfGeom(state: Float) {
-
+        
         let trunkSize = Float(2.0) * state
-        let props = SYShapeBranchProps(size: trunkSize, width: Float(0.07) * state)
-        let trunk = SYShapeBranch(props: props)
+        let trunk = SYShapeBranch(options: ["size": trunkSize, "width": Float(0.07) * state ])
         trunk.name = "trunk"
         self.geometries.addChildNode(trunk)
         
@@ -33,8 +32,7 @@ class SYElementBranch: SYElement {
             if bone.sizeFromStart > trunkSize * 0.6 {
                 for point in step.points {
                     let size = 0.4 + (Float((random() % 2000)-1000) / 1000.0) * 0.2;
-                    let props = SYShapeLeafProps(size: Float(size) * state)
-                    let leaf = SYShapeLeaf(props: props)
+                    let leaf = SYShapeLeaf(options: ["size": Float(size) * state ])
                     
                     let leafVect = GLKVector3Make(0, 1, 0)
                     
@@ -68,11 +66,11 @@ class SYElementBranch: SYElement {
                 }
             }
         }
-
+        
     }
     
     override func generateChildren(state: Float) {
-        let trunk = self.geometries.childNodeWithName("trunk", recursively: false) as! SYShape<SYPropsDefault>
+        let trunk = self.geometries.childNodeWithName("trunk", recursively: false) as! SYShape
         let bones = trunk.getBones(state)
         let position = bones[7].position
         if (state > 0.3) {

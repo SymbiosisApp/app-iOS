@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, SYTabBarDelegate {
     
     @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var tabBar: SYTabBar!
 
     weak var currentViewController: UIViewController?
     var currentView: Int = 0;
@@ -29,6 +30,12 @@ class MainViewController: UIViewController {
         self.addChildViewController(self.currentViewController!)
         self.addSubview(self.currentViewController!.view, toView: self.containerView)
         super.viewDidLoad()
+        
+        tabBar.delegate = self
+    }
+    
+    func onTabSelected(tabIndex: Int) {
+        print("Yolo \(tabIndex)")
     }
     
     @IBAction func onTouchSwitchButton(sender: AnyObject) {
