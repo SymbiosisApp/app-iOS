@@ -11,46 +11,68 @@ import UIKit
 
 class SYTabBar: UIView {
     
+    // MARK: Outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var plantButton: UIView!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet var buttons: Array<UIButton>!
     
+    // MARK: Properties
     var delegate: SYTabBarDelegate?
+    var nibName: String = "TabBar"
     
+    // MARK: State
     var selectedItem: Int = -1
     
+    
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        UINib(nibName: "TabBar", bundle: nil).instantiateWithOwner(self, options: nil)
-        addSubview(view)
-        view.frame = self.bounds
         
-        applyStyle()
-        selectItem(0)
+        setup()
+    }
+    
+    // MARK: Setup
+    func setup() {
+        view = loadViewFromNib()
+    
+        view.frame = bounds
+        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        addSubview(view)
+
+        print(view.bounds)
+        print(self.bounds)
+    }
+    
+    func loadViewFromNib() -> UIView {
+        
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        
+        return view
         
     }
     
+    // This is called by the ViewController in viewDidLayoutSubviews
     func applyStyle() {
-        
-        self.layoutIfNeeded()
         
         // Background
         background.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).CGColor
         background.layer.masksToBounds = false
         background.layer.shadowColor = UIColor.blackColor().CGColor
         background.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-        background.layer.shadowOpacity = 0.5;
-        // background.layer.backgroundColor = UIColor.redColor().CGColor
-        print(background.layer.bounds)
-        
+        background.layer.shadowOpacity = 0.1;
         background.layer.shadowRadius = 5
-        let backShadowPath = UIBezierPath(rect: background.layer.bounds)
+        let backShadowPath = UIBezierPath(rect: background.bounds)
         background.layer.shadowPath = backShadowPath.CGPath;
         
         // PlantButton
@@ -83,7 +105,11 @@ class SYTabBar: UIView {
         }
     }
     
-    @IBAction func selectTab(sender: AnyObject) {
+    func getSelectedItem() -> Int {
+        return selectedItem
+    }
+    
+    @IBAction func buttonTouched(sender: AnyObject) {
         let button = sender as! UIButton
         if let index = buttons.indexOf(button) {
             selectItem(index)

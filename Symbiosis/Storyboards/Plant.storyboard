@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gkS-ms-hJy">
+            <objects>
+                <viewController storyboardIdentifier="PlantViewCtrl" id="fD0-gG-fvK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="waf-ug-Fid"/>
+                        <viewControllerLayoutGuide type="bottom" id="x3K-ad-l18"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3PZ-hn-UEo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-94-hjX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="fHZ-KM-3bX" kind="embed" id="uWf-P0-b7i"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Lol-94-hjX" firstAttribute="top" secondItem="3PZ-hn-UEo" secondAttribute="top" id="AhG-FQ-gNt"/>
+                            <constraint firstItem="Lol-94-hjX" firstAttribute="leading" secondItem="3PZ-hn-UEo" secondAttribute="leading" id="C7J-yx-CWc"/>
+                            <constraint firstAttribute="trailing" secondItem="Lol-94-hjX" secondAttribute="trailing" id="iDU-JL-Z1L"/>
+                            <constraint firstItem="x3K-ad-l18" firstAttribute="top" secondItem="Lol-94-hjX" secondAttribute="bottom" id="rSS-Kj-xCV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y63-Db-KCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="994.5" y="1647"/>
+        </scene>
+        <!--Plant Scene View Controller-->
+        <scene sceneID="7DY-O1-aom">
+            <objects>
+                <viewController storyboardIdentifier="PlantSceneViewCtrl" id="fHZ-KM-3bX" customClass="PlantSceneViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ytt-eO-pct">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.75686274509999996" green="0.85882352939999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nfU-38-bDa" appends="YES" id="5Ov-JZ-Vyw"/>
+                        </connections>
+                    </sceneKitView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6d-vA-NG5" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="nfU-38-bDa">
+                    <connections>
+                        <action selector="onPlantPan:" destination="fHZ-KM-3bX" id="Hhn-LJ-lEh"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1860" y="1647"/>
+        </scene>
+    </scenes>
+</document>

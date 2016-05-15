@@ -3,32 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
-        <scene sceneID="tXr-a1-R10">
-            <objects>
-                <viewController storyboardIdentifier="PlantSceneViewCtrl" id="BV1-FR-VrT" customClass="GameViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.75686274509803919" green="0.85882352941176465" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="UjD-nN-6xw" appends="YES" id="liY-eg-v2q"/>
-                        </connections>
-                    </sceneKitView>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="UjD-nN-6xw">
-                    <connections>
-                        <action selector="onPlantPan:" destination="BV1-FR-VrT" id="VhR-ZE-fDB"/>
-                    </connections>
-                </panGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2188.5" y="1696"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="fH5-lP-ibE">
             <objects>
@@ -44,15 +20,6 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnu-Na-B3R">
-                                <rect key="frame" x="20" y="20" width="76" height="30"/>
-                                <color key="backgroundColor" red="0.16982650756835938" green="0.24185281991958618" blue="0.31671267747879028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.92495459318161011" green="0.94122463464736938" blue="0.94532805681228638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Go to Plant"/>
-                                <connections>
-                                    <action selector="onTouchSwitchButton:" destination="8JD-vG-jvJ" eventType="touchUpInside" id="OXq-sl-zZG"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <constraints>
@@ -73,89 +40,12 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="mqZ-7N-97i" id="yMy-un-Jdv"/>
-                        <outlet property="switchButton" destination="gnu-Na-B3R" id="dL7-n4-c5I"/>
                         <outlet property="tabBar" destination="ouk-5U-jwS" id="o04-ZV-9PE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53T-iL-6OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="145" y="1355"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="rFB-Da-fKf">
-            <objects>
-                <viewController storyboardIdentifier="MapViewCtrl" id="BHP-IC-qle" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Xsu-2H-PeB"/>
-                        <viewControllerLayoutGuide type="bottom" id="1Sh-sh-vtF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XLV-zL-7DH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O9W-Kn-nFr">
-                                <rect key="frame" x="20" y="20" width="560" height="560"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFD-zB-zQx">
-                                        <rect key="frame" x="227" y="245" width="107" height="69"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="107" id="Xb3-eL-S4F"/>
-                                            <constraint firstAttribute="height" constant="69" id="rk2-p1-aCu"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <color key="textColor" red="0.92495459318161011" green="0.94122463464736938" blue="0.94532805681228638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="highlightedColor" red="0.92495459318161011" green="0.94122463464736938" blue="0.94532805681228638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.88235294119999996" green="0.20000000000000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="BFD-zB-zQx" firstAttribute="centerY" secondItem="O9W-Kn-nFr" secondAttribute="centerY" id="2mk-mm-GfL"/>
-                                    <constraint firstItem="BFD-zB-zQx" firstAttribute="centerX" secondItem="O9W-Kn-nFr" secondAttribute="centerX" id="NeK-gV-0Bf"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="O9W-Kn-nFr" firstAttribute="trailing" secondItem="XLV-zL-7DH" secondAttribute="trailingMargin" id="RJP-ag-kkS"/>
-                            <constraint firstItem="O9W-Kn-nFr" firstAttribute="top" secondItem="XLV-zL-7DH" secondAttribute="top" constant="20" symbolic="YES" id="Tff-pp-MDE"/>
-                            <constraint firstItem="O9W-Kn-nFr" firstAttribute="leading" secondItem="XLV-zL-7DH" secondAttribute="leadingMargin" id="lfe-zw-sZu"/>
-                            <constraint firstAttribute="bottom" secondItem="O9W-Kn-nFr" secondAttribute="bottom" constant="20" symbolic="YES" id="o4g-ba-KbD"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ni-vt-T1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1065" y="935"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="zYy-kU-RkA">
-            <objects>
-                <viewController storyboardIdentifier="PlantViewCtrl" id="5sF-oF-pLW" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7i-6A-I7S"/>
-                        <viewControllerLayoutGuide type="bottom" id="8zA-zO-8rR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dNs-RN-vvY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irH-Ny-SdX">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="embed" id="NTX-5B-cJg"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="8zA-zO-8rR" firstAttribute="top" secondItem="irH-Ny-SdX" secondAttribute="bottom" id="EgI-EG-WF9"/>
-                            <constraint firstAttribute="trailing" secondItem="irH-Ny-SdX" secondAttribute="trailing" id="PLu-Xn-Mji"/>
-                            <constraint firstItem="irH-Ny-SdX" firstAttribute="top" secondItem="dNs-RN-vvY" secondAttribute="top" id="c5e-DL-nVW"/>
-                            <constraint firstItem="irH-Ny-SdX" firstAttribute="leading" secondItem="dNs-RN-vvY" secondAttribute="leading" id="weB-h4-ZgF"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E7e-my-k3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1102.5" y="1691"/>
         </scene>
     </scenes>
 </document>

@@ -11,47 +11,79 @@ import UIKit
 
 class MainViewController: UIViewController, SYTabBarDelegate {
     
-    @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
-
-    weak var currentViewController: UIViewController?
-    var currentView: Int = 0;
-    var testConstraint: NSLayoutConstraint?
+    
+    let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Help"]
+    var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
+    var tabViewsControllers: [UIViewController?] = [nil, nil, nil, nil, nil]
+    
+    weak var currentTabView: UIViewController?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
-        // super.viewDidLoad()
-        self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PlantViewCtrl")
-        self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.addChildViewController(self.currentViewController!)
-        self.addSubview(self.currentViewController!.view, toView: self.containerView)
-        super.viewDidLoad()
         
         tabBar.delegate = self
+        
+        // Init the tabBar on plant
+        tabBar.selectItem(2)
+
+        super.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        tabBar.applyStyle()
     }
     
     func onTabSelected(tabIndex: Int) {
-        print("Yolo \(tabIndex)")
+        if tabIndex < viewsNames.count {
+            setTabNavigation(tabIndex)
+        }
     }
     
-    @IBAction func onTouchSwitchButton(sender: AnyObject) {
-        if currentView == 0 {
-            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewCtrl")
-            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
-            self.currentViewController = newViewController
-        } else {
-            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PlantViewCtrl")
-            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
-            self.currentViewController = newViewController
+    func setTabNavigation(tabIndex: Int) {
+        if tabViewsControllers[tabIndex] == nil {
+            let tabName = viewsNames[tabIndex]
+            if tabStoryboards[tabIndex] == nil {
+                tabStoryboards[tabIndex] = UIStoryboard(name: tabName, bundle: nil)
+            }
+            let strboard = tabStoryboards[tabIndex]!
+            
+            tabViewsControllers[tabIndex] = strboard.instantiateViewControllerWithIdentifier("\(tabName)ViewCtrl")
+            tabViewsControllers[tabIndex]!.view.translatesAutoresizingMaskIntoConstraints = false
         }
-        currentView = (currentView + 1) % 2
+        
+        let tabView = tabViewsControllers[tabIndex]!
+        
+        if currentTabView == nil {
+            // just set up
+            self.addChildViewController(tabView)
+            self.addSubview(tabView.view, toView: self.containerView)
+        } else {
+            // Animate transition
+            self.cycleFromViewController(self.currentTabView!, toViewController: tabView)
+        }
+        self.currentTabView = tabView
+        
     }
+    
+//    @IBAction func onTouchSwitchButton(sender: AnyObject) {
+//        if currentView == 0 {
+//            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewCtrl")
+//            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
+//            self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
+//            self.currentViewController = newViewController
+//        } else {
+//            let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PlantViewCtrl")
+//            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
+//            self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
+//            self.currentViewController = newViewController
+//        }
+//        currentView = (currentView + 1) % 2
+//    }
     
     func addSubview(subView:UIView, toView parentView:UIView) {
         parentView.addSubview(subView)
@@ -78,8 +110,6 @@ class MainViewController: UIViewController, SYTabBarDelegate {
         leftConstraint.active = true
         let widthConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.containerView!, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0.0);
         widthConstraint.active = true;
-        
-        print(oldViewController.view.constraints.count)
 
         leftConstraint.constant = 100
         newViewController.view.alpha = 0
