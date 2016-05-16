@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController, SYTabBarDelegate {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
@@ -20,29 +20,30 @@ class MainViewController: UIViewController, SYTabBarDelegate {
     
     weak var currentTabView: UIViewController?
     
+    let state = SYStateManager.sharedInstance
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         
-        tabBar.delegate = self
+//        tabBar.delegate = self
+        
+        state.listenTo(.TabChanged, action: self.onTabChanged)
         
         // Init the tabBar on plant
-        tabBar.selectItem(2)
+        // tabBar.selectItem(2)
 
+        state.selectTab(2)
+        
         super.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
     }
-    
-    func onTabSelected(tabIndex: Int) {
-        if tabIndex < viewsNames.count {
-            setTabNavigation(tabIndex)
-        }
-    }
+
     
     func setTabNavigation(tabIndex: Int) {
         if tabViews[tabIndex] == nil {
@@ -64,12 +65,22 @@ class MainViewController: UIViewController, SYTabBarDelegate {
             self.addSubview(tabView.view, toView: self.containerView)
         } else {
             // Animate transition
-            let invertDirection = tabIndex < tabBar.getLastSelectedItem()
+            let invertDirection = tabIndex < state.lastSelectedTab
             self.cycleFromViewController(self.currentTabView!, toViewController: tabView, inverseDirection: invertDirection)
         }
         self.currentTabView = tabView
         
     }
+    
+    // - MARK: Events listener
+    
+    func onTabChanged() {
+        if state.selectedTab < viewsNames.count {
+            setTabNavigation(state.selectedTab)
+        }
+    }
+    
+    // - MARK: Utils
     
     func addSubview(subView:UIView, toView parentView:UIView) {
         parentView.addSubview(subView)
@@ -120,14 +131,14 @@ class MainViewController: UIViewController, SYTabBarDelegate {
     override func didReceiveMemoryWarning() {
         var hasReleaseSomething = false
         for (index, view) in tabViews.enumerate() {
-            if index != tabBar.getSelectedItem() && view != nil && hasReleaseSomething == false {
+            if index != state.selectedTab && view != nil && hasReleaseSomething == false {
                 tabViews[index] = nil
                 hasReleaseSomething = true
             }
         }
         if hasReleaseSomething == false {
             for (index, strboard) in tabStoryboards.enumerate() {
-                if index != tabBar.getSelectedItem() && strboard != nil && hasReleaseSomething == false {
+                if index != state.selectedTab && strboard != nil && hasReleaseSomething == false {
                     tabStoryboards[index] = nil
                     hasReleaseSomething = true
                 }

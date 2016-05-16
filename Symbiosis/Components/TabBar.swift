@@ -19,29 +19,28 @@ class SYTabBar: UIView {
     @IBOutlet var buttons: Array<UIButton>!
     
     // MARK: Properties
-    var delegate: SYTabBarDelegate?
+//    var delegate: SYTabBarDelegate?
     var nibName: String = "TabBar"
     
     // MARK: State
-    var selectedItem: Int = -1
-    var lastSelectedItem: Int = -1
+    let state = SYStateManager.sharedInstance
     
     
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         setup()
     }
     
     // MARK: Setup
     func setup() {
+        state.listenTo(.TabChanged, action: self.onTabChanged)
+        
         view = loadViewFromNib()
     
         view.frame = bounds
@@ -90,7 +89,7 @@ class SYTabBar: UIView {
     
     func updateStyle() {
         for (index, button) in buttons.enumerate() {
-            if index == selectedItem {
+            if index == state.selectedTab {
                 button.selected = true
             } else {
                 button.selected = false
@@ -98,32 +97,32 @@ class SYTabBar: UIView {
         }
     }
     
-    func selectItem(index: Int) {
-        if index != selectedItem {
-            lastSelectedItem = selectedItem
-            selectedItem = index
-            updateStyle()
-            self.delegate?.onTabSelected(selectedItem)
-        }
-    }
+//    func selectItem(index: Int) {
+//        if index != selectedItem {
+//            lastSelectedItem = selectedItem
+//            selectedItem = index
+//            updateStyle()
+//            self.delegate?.onTabSelected(selectedItem)
+//        }
+//    }
     
-    func getSelectedItem() -> Int {
-        return selectedItem
-    }
-    
-    func getLastSelectedItem() -> Int {
-        return lastSelectedItem
-    }
     
     @IBAction func buttonTouched(sender: AnyObject) {
         let button = sender as! UIButton
         if let index = buttons.indexOf(button) {
-            selectItem(index)
+            state.selectTab(index)
+            // selectItem(index)
         }
+    }
+    
+    // - MARK: Events listener
+    
+    func onTabChanged() {
+        updateStyle()
     }
     
 }
 
-protocol SYTabBarDelegate: class {
-    func onTabSelected(tabIndex: Int)
-}
+//protocol SYTabBarDelegate: class {
+//    func onTabSelected(tabIndex: Int)
+//}

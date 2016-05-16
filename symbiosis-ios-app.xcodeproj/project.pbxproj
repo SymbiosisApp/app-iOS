@@ -92,11 +92,11 @@
 				18824C941CD01AF700D8622B /* PlantSceneViewController.swift */,
 				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
 				18D4262E1CE473CB00309EE6 /* Utils.swift */,
+				18DEDE891CE7DF9400CE154F /* MyCustomSegue.swift */,
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
 				18DEDE861CE5ED8100CE154F /* Components */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
 				18EE766C1CDA249B000F290C /* Plant3D */,
-				18DEDE891CE7DF9400CE154F /* MyCustomSegue.swift */,
 			);
 			path = Symbiosis;
 			sourceTree = "<group>";
