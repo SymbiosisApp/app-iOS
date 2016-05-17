@@ -19,7 +19,6 @@ class SYPedometerData {
     var startDate: NSDate
     var endDate: NSDate
     
-    
     init (numberOfSteps: Int, distance: Int, currentCadence: Int, floorsAscended: Int, floorsDescended: Int, startDate: NSDate, endDate: NSDate) {
         self.numberOfSteps = numberOfSteps
         self.distance = distance
@@ -31,8 +30,9 @@ class SYPedometerData {
     }
 }
 
-
 class SYPedometer {
+    var socket = Socket.sharedInstance
+    weak var delegate: SYPedometerDelegate?
     
     let useNatif: Bool
     var natifPedometer: CMPedometer? = nil
@@ -40,7 +40,6 @@ class SYPedometer {
     init(useNatif: Bool){
         self.useNatif = useNatif
     }
-    
     
     func getPedometerData (fromDate: NSDate, toDate: NSDate) -> SYPedometerData {
         
@@ -73,6 +72,14 @@ class SYPedometer {
             
         }else {
             
+            //USE Socket
+            self.socket.io.on("UPDATE_PEDOMETER") { data, ack in
+                
+                let step = data[0].integerValue;
+                self.delegate?.syPedometer(didReveiveData: step);
+            }
+            
+            //TODO AnyObject to NSDATA
             
             //Get DATA
             let data = NSData(contentsOfURL: NSURL(string: "http://127.0.0.1:8080/pedometerData/")!)
@@ -83,7 +90,6 @@ class SYPedometer {
                 
                 do {
                     jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
-                    //print(jsonResult[0])
                     
                     if let items = jsonResult as? NSArray {
                         for item in items {
@@ -92,9 +98,6 @@ class SYPedometer {
                             print(item["currentCadence"]!!.integerValue);
                             print(item["floorsAscended"]!!.integerValue);
                             print(item["floorsDescended"]!!.integerValue);
-                            print("-----------------");
-                            
-                            
                             
                             numberOfSteps = item["numberOfSteps"]!!.integerValue
                             distance = 10
@@ -124,5 +127,10 @@ class SYPedometer {
         
     }
     
+}
+
+// MARK: SYPedometerDelegate
+protocol SYPedometerDelegate: class {
+    func syPedometer(didReveiveData data:NSNumber)
 }
 

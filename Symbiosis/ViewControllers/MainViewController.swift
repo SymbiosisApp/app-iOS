@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 
-class MainViewController: UIViewController, SYLocationManagerDelegate {
+class MainViewController: UIViewController, SYLocationManagerDelegate, SYPedometerDelegate {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
@@ -38,6 +38,7 @@ class MainViewController: UIViewController, SYLocationManagerDelegate {
         
         // Delegates
         self.locationManager.delegate = self
+        self.pedometer.delegate = self
         
         // Listen to events
         state.listenTo(.TabChanged, action: self.onTabChanged)
@@ -160,5 +161,11 @@ class MainViewController: UIViewController, SYLocationManagerDelegate {
     
     func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
         print("Location manager Authorisation ok")
+    }
+    
+    // - MARK: SYPedometer Delegate
+    
+    func syPedometer(didReveiveData data: NSNumber) {
+        print("Youpi, j'ai fait \(data) pas !")
     }
 }
