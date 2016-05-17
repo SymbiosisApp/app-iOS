@@ -13,6 +13,11 @@
 		1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854398B1CEBC5DD00B1D86C /* MainViewController.swift */; };
 		1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854398C1CEBC5DD00B1D86C /* PlantSceneViewController.swift */; };
 		185439901CEBC60800B1D86C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854398F1CEBC60800B1D86C /* MapViewController.swift */; };
+		185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185439911CEBC87800B1D86C /* SYPedometer.swift */; };
+		185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185439931CEBC8EA00B1D86C /* SYLocationManager.swift */; };
+		1854399C1CEBCBA100B1D86C /* SocketSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854399B1CEBCBA100B1D86C /* SocketSingleton.swift */; };
+		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
+		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F51C722BBE008E6558 /* AppDelegate.swift */; };
 		18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FE1C722BBE008E6558 /* Assets.xcassets */; };
 		18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55961CE91CA9008E8EC4 /* Colony.storyboard */; };
@@ -25,7 +30,6 @@
 		18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4262E1CE473CB00309EE6 /* Utils.swift */; };
 		18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DEDE841CE5ED1300CE154F /* TabBar.xib */; };
 		18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEDE871CE5EDD100CE154F /* TabBar.swift */; };
-		18DEDE8A1CE7DF9400CE154F /* MyCustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEDE891CE7DF9400CE154F /* MyCustomSegue.swift */; };
 		18EE76721CDA24FA000F290C /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766D1CDA24FA000F290C /* SYElement.swift */; };
 		18EE76731CDA24FA000F290C /* SYElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766E1CDA24FA000F290C /* SYElements.swift */; };
 		18EE76741CDA24FA000F290C /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766F1CDA24FA000F290C /* SYShape.swift */; };
@@ -40,6 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */,
 				185439861CEBC4EF00B1D86C /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -53,6 +58,11 @@
 		1854398B1CEBC5DD00B1D86C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1854398C1CEBC5DD00B1D86C /* PlantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSceneViewController.swift; sourceTree = "<group>"; };
 		1854398F1CEBC60800B1D86C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		185439911CEBC87800B1D86C /* SYPedometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPedometer.swift; sourceTree = "<group>"; };
+		185439931CEBC8EA00B1D86C /* SYLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYLocationManager.swift; sourceTree = "<group>"; };
+		185439971CEBCABC00B1D86C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		1854399B1CEBCBA100B1D86C /* SocketSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketSingleton.swift; sourceTree = "<group>"; };
+		185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
 		18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "symbiosis-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18BC17FE1C722BBE008E6558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +77,6 @@
 		18D4262E1CE473CB00309EE6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18DEDE841CE5ED1300CE154F /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		18DEDE871CE5EDD100CE154F /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		18DEDE891CE7DF9400CE154F /* MyCustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomSegue.swift; sourceTree = "<group>"; };
 		18EE766D1CDA24FA000F290C /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		18EE766E1CDA24FA000F290C /* SYElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElements.swift; sourceTree = "<group>"; };
 		18EE766F1CDA24FA000F290C /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
@@ -81,6 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */,
+				185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +110,8 @@
 		18BC17E91C722BBE008E6558 = {
 			isa = PBXGroup;
 			children = (
+				185439971CEBCABC00B1D86C /* Cartfile */,
+				185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */,
 				185439841CEBC4EF00B1D86C /* Mapbox.framework */,
 				18BC17F41C722BBE008E6558 /* Symbiosis */,
 				18BC17F31C722BBE008E6558 /* Products */,
@@ -117,13 +129,15 @@
 		18BC17F41C722BBE008E6558 /* Symbiosis */ = {
 			isa = PBXGroup;
 			children = (
-				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
 				18BC18031C722BBE008E6558 /* Info.plist */,
 				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
 				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
 				18D4262E1CE473CB00309EE6 /* Utils.swift */,
-				18DEDE891CE7DF9400CE154F /* MyCustomSegue.swift */,
+				1854399B1CEBCBA100B1D86C /* SocketSingleton.swift */,
+				185439911CEBC87800B1D86C /* SYPedometer.swift */,
+				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
+				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
 				18DEDE861CE5ED8100CE154F /* Components */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
 				18EE766C1CDA249B000F290C /* Plant3D */,
@@ -203,7 +217,7 @@
 						DevelopmentTeam = U953397FRU;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -274,13 +288,15 @@
 				1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
 				18EE76721CDA24FA000F290C /* SYElement.swift in Sources */,
-				18DEDE8A1CE7DF9400CE154F /* MyCustomSegue.swift in Sources */,
 				18EE76741CDA24FA000F290C /* SYShape.swift in Sources */,
 				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
 				18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
+				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
 				18EE76751CDA24FA000F290C /* SYShapes.swift in Sources */,
+				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
 				18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */,
+				1854399C1CEBCBA100B1D86C /* SocketSingleton.swift in Sources */,
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
 				18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */,
 			);
@@ -377,6 +393,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Symbiosis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -392,6 +409,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Symbiosis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

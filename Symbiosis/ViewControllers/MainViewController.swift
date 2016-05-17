@@ -8,18 +8,26 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, SYLocationManagerDelegate {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
     
+    // For tabs (ViewControllers names)
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Help"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
-    
     weak var currentTabView: UIViewController?
     
+    // Location manager
+    let locationManager: SYLocationManager = SYLocationManager(useNatif: false)
+    
+    // Pedometer
+    let pedometer: SYPedometer = SYPedometer(useNatif: false)
+
+    // State
     let state = SYStateManager.sharedInstance
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,13 +36,13 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         
-//        tabBar.delegate = self
+        // Delegates
+        self.locationManager.delegate = self
         
+        // Listen to events
         state.listenTo(.TabChanged, action: self.onTabChanged)
         
         // Init the tabBar on plant
-        // tabBar.selectItem(2)
-
         state.selectTab(2)
         
         super.viewDidLoad()
@@ -98,8 +106,6 @@ class MainViewController: UIViewController {
         self.addChildViewController(newViewController)
         self.containerView!.addSubview(newViewController.view)
         
-        print(inverseDirection)
-        
         let directionMultiplier: Float = inverseDirection ? -1.0 : 1.0
         
         // new
@@ -146,4 +152,13 @@ class MainViewController: UIViewController {
         }
     }
     
+    // - MARK: SYLocationManager Delegate
+    
+    func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location updated !")
+    }
+    
+    func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
+        print("Location manager Authorisation ok")
+    }
 }
