@@ -10,9 +10,9 @@ import Foundation
 import SocketIOClientSwift
 
 
-class Socket {
+class SYSocket {
     
-    static let sharedInstance = Socket()
+    static let sharedInstance = SYSocket()
     
     let io = SocketIOClient(socketURL: NSURL(string: "http://192.168.2.1:8000")!, options: [.Log(true), .ForcePolling(true)])
     

@@ -31,7 +31,7 @@ class SYPedometerData {
 }
 
 class SYPedometer {
-    var socket = Socket.sharedInstance
+    var socket = SYSocket.sharedInstance
     weak var delegate: SYPedometerDelegate?
     
     let useNatif: Bool

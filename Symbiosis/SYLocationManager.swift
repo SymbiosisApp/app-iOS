@@ -14,7 +14,7 @@ class SYLocationManager : NSObject, CLLocationManagerDelegate {
     var natifLocationManager: CLLocationManager?
     var natifLocationManagerStatus: CLAuthorizationStatus? = nil
     var currentFakeLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
-    var socket = Socket.sharedInstance
+    var socket = SYSocket.sharedInstance
     weak var delegate: SYLocationManagerDelegate?
     weak var timer = NSTimer()
     
