@@ -80,7 +80,7 @@ class SYTabBar: UIView {
         plantButton.layer.masksToBounds = false
         plantButton.layer.shadowColor = UIColor.blackColor().CGColor
         plantButton.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-        plantButton.layer.shadowOpacity = 0.08;
+        plantButton.layer.shadowOpacity = 0.15;
         plantButton.layer.shadowRadius = 5
         plantButton.layer.cornerRadius = plantButton.layer.bounds.width/2
         let plantShadowPath = UIBezierPath(ovalInRect: plantButton.layer.bounds)

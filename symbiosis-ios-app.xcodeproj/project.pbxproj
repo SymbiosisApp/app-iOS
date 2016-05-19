@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1814CB041CEC8B57004D7540 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB031CEC8B57004D7540 /* SYPlant.swift */; };
+		1814CB0A1CEDAA8A004D7540 /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB091CEDAA8A004D7540 /* SYShape.swift */; };
+		1814CB0E1CEDAAE7004D7540 /* SYShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */; };
 		184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA85C1CE0CBC4007D5C6F /* SYState.swift */; };
 		185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; };
 		185439861CEBC4EF00B1D86C /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -26,14 +29,14 @@
 		18CF559F1CE91CA9008E8EC4 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55991CE91CA9008E8EC4 /* Map.storyboard */; };
 		18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */; };
 		18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */; };
-		18CF55A31CE91D85008E8EC4 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55A21CE91D85008E8EC4 /* Help.storyboard */; };
+		18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55A21CE91D85008E8EC4 /* Settings.storyboard */; };
 		18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4262E1CE473CB00309EE6 /* Utils.swift */; };
 		18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DEDE841CE5ED1300CE154F /* TabBar.xib */; };
 		18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEDE871CE5EDD100CE154F /* TabBar.swift */; };
 		18EE76721CDA24FA000F290C /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766D1CDA24FA000F290C /* SYElement.swift */; };
 		18EE76731CDA24FA000F290C /* SYElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766E1CDA24FA000F290C /* SYElements.swift */; };
-		18EE76741CDA24FA000F290C /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766F1CDA24FA000F290C /* SYShape.swift */; };
-		18EE76751CDA24FA000F290C /* SYShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE76701CDA24FA000F290C /* SYShapes.swift */; };
+		18EE76741CDA24FA000F290C /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766F1CDA24FA000F290C /* SYGeom.swift */; };
+		18EE76751CDA24FA000F290C /* SYGeoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE76701CDA24FA000F290C /* SYGeoms.swift */; };
 		18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE76711CDA24FA000F290C /* SYStructs.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1814CB031CEC8B57004D7540 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
+		1814CB091CEDAA8A004D7540 /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
+		1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShapes.swift; sourceTree = "<group>"; };
 		184FA85C1CE0CBC4007D5C6F /* SYState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYState.swift; sourceTree = "<group>"; };
 		185439841CEBC4EF00B1D86C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		1854398B1CEBC5DD00B1D86C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -73,14 +79,14 @@
 		18CF55991CE91CA9008E8EC4 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Storyboards/Map.storyboard; sourceTree = "<group>"; };
 		18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Plant.storyboard; path = Storyboards/Plant.storyboard; sourceTree = "<group>"; };
 		18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profil.storyboard; path = Storyboards/Profil.storyboard; sourceTree = "<group>"; };
-		18CF55A21CE91D85008E8EC4 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Help.storyboard; path = Storyboards/Help.storyboard; sourceTree = "<group>"; };
+		18CF55A21CE91D85008E8EC4 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
 		18D4262E1CE473CB00309EE6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18DEDE841CE5ED1300CE154F /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		18DEDE871CE5EDD100CE154F /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		18EE766D1CDA24FA000F290C /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		18EE766E1CDA24FA000F290C /* SYElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElements.swift; sourceTree = "<group>"; };
-		18EE766F1CDA24FA000F290C /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
-		18EE76701CDA24FA000F290C /* SYShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShapes.swift; sourceTree = "<group>"; };
+		18EE766F1CDA24FA000F290C /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
+		18EE76701CDA24FA000F290C /* SYGeoms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeoms.swift; sourceTree = "<group>"; };
 		18EE76711CDA24FA000F290C /* SYStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYStructs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,8 +137,8 @@
 			children = (
 				18BC18031C722BBE008E6558 /* Info.plist */,
 				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
-				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
 				18D4262E1CE473CB00309EE6 /* Utils.swift */,
+				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
 				1854399B1CEBCBA100B1D86C /* SYSocket.swift */,
 				185439911CEBC87800B1D86C /* SYPedometer.swift */,
 				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
@@ -157,10 +163,13 @@
 		18EE766C1CDA249B000F290C /* Plant3D */ = {
 			isa = PBXGroup;
 			children = (
+				1814CB031CEC8B57004D7540 /* SYPlant.swift */,
 				18EE766D1CDA24FA000F290C /* SYElement.swift */,
 				18EE766E1CDA24FA000F290C /* SYElements.swift */,
-				18EE766F1CDA24FA000F290C /* SYShape.swift */,
-				18EE76701CDA24FA000F290C /* SYShapes.swift */,
+				1814CB091CEDAA8A004D7540 /* SYShape.swift */,
+				1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */,
+				18EE766F1CDA24FA000F290C /* SYGeom.swift */,
+				18EE76701CDA24FA000F290C /* SYGeoms.swift */,
 				18EE76711CDA24FA000F290C /* SYStructs.swift */,
 			);
 			path = Plant3D;
@@ -174,8 +183,8 @@
 				18CF55991CE91CA9008E8EC4 /* Map.storyboard */,
 				18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */,
 				18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */,
+				18CF55A21CE91D85008E8EC4 /* Settings.storyboard */,
 				18CF55971CE91CA9008E8EC4 /* LaunchScreen.storyboard */,
-				18CF55A21CE91D85008E8EC4 /* Help.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -250,7 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
-				18CF55A31CE91D85008E8EC4 /* Help.storyboard in Resources */,
+				18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */,
 				18CF559E1CE91CA9008E8EC4 /* Main.storyboard in Resources */,
 				18CF559D1CE91CA9008E8EC4 /* LaunchScreen.storyboard in Resources */,
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
@@ -287,18 +296,21 @@
 				18EE76731CDA24FA000F290C /* SYElements.swift in Sources */,
 				1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
+				1814CB041CEC8B57004D7540 /* SYPlant.swift in Sources */,
 				18EE76721CDA24FA000F290C /* SYElement.swift in Sources */,
-				18EE76741CDA24FA000F290C /* SYShape.swift in Sources */,
+				18EE76741CDA24FA000F290C /* SYGeom.swift in Sources */,
 				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
 				18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
 				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
-				18EE76751CDA24FA000F290C /* SYShapes.swift in Sources */,
+				1814CB0A1CEDAA8A004D7540 /* SYShape.swift in Sources */,
+				18EE76751CDA24FA000F290C /* SYGeoms.swift in Sources */,
 				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
 				18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */,
 				1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */,
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
 				18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */,
+				1814CB0E1CEDAAE7004D7540 /* SYShapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

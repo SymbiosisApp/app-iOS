@@ -1,77 +1,62 @@
+////
+////  SYElement.swift
+////  POC-SceneKit
+////
+////  Created by Etienne De Ladonchamps on 29/03/2016.
+////  Copyright © 2016 Etienne De Ladonchamps. All rights reserved.
+////
 //
-//  SYElement.swift
-//  POC-SceneKit
+//import Foundation
+//import SceneKit
 //
-//  Created by Etienne De Ladonchamps on 29/03/2016.
-//  Copyright © 2016 Etienne De Ladonchamps. All rights reserved.
-//
-
-import Foundation
-import SceneKit
-
-class SYElement: SCNNode {
-    let geometries = SCNNode()
-    let children = SCNNode()
-    
-    override init() {
-        super.init()
-        self.geometries.name = "geometries"
-        self.addChildNode(self.geometries)
-        self.children.name = "children"
-        self.addChildNode(self.children)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func generateSelfGeom(state: Float) {
-        let options1: [String:Any] = [
-            "size" : Float(1),
-            "rotate" : Float(0.1)
-        ]
-        let geom = SYShapeTwist(options: options1)
-        self.geometries.addChildNode(geom)
-    }
-    
-    func renderSelfGeom(state: Float) {
-        if self.geometries.childNodes.count == 0 {
-            return
-        }
-        for selfGeom in self.geometries.childNodes {
-            let geom = selfGeom as! SYShape
-            geom.render(state)
-        }
-    }
-    
-    func generateChildren(state: Float) {
-        //        let options1: [String:Any] = [:]
-        //        let child = SYShape(options: options1)
-        //        child.render(state)
-        //        self.addChildNode(child)
-        //        child.position = SCNVector3Make(0, 1, 1)
-    }
-    
-    func renderChildren(state: Float) {
-        if self.children.childNodes.count == 0 {
-            return
-        }
-        for child in self.children.childNodes {
-            let elem = child as! SYElement
-            let childState = self.transformStateForChild(elem, state: state)
-            elem.render(childState)
-        }
-    }
-    
-    func transformStateForChild(child: SYElement, state: Float) -> Float {
-        return state
-    }
-    
-    func render(state: Float) {
-        self.generateSelfGeom(state)
-        self.generateChildren(state)
-        self.renderSelfGeom(state)
-        self.renderChildren(state)
-    }
-    
-}
+//class SYElement<T>: SCNNode {
+//    let geometries = SCNNode()
+//    let children = SCNNode()
+//    
+//    let startProps: T
+//    let endProps: T?
+//    
+//    init(startProps: T, endProps: T?) {
+//        super.init()
+//        
+//        self.geometries.name = "geometries"
+//        self.addChildNode(self.geometries)
+//        self.children.name = "children"
+//        self.addChildNode(self.children)
+//        
+//        self.startProps = startProps
+//        self.endProps = endProps
+//        
+//        self.generateSelfGeom()
+//        self.generateChildren()
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
+//    func generateSelfGeom() {}
+//    
+//    func generateChildren() {}
+//    
+//    func render(progress: Float?) {
+//        // self.renderSelfGeom(progress)
+//        if self.geometries.childNodes.count == 0 {
+//            return
+//        }
+//        for selfGeom in self.geometries.childNodes {
+//            let geom = selfGeom as! SYShape
+//            geom.render(progress)
+//        }
+//        
+//        // self.renderChildren(progress)
+//        if self.children.childNodes.count == 0 {
+//            return
+//        }
+//        for child in self.children.childNodes {
+//            let elem = child as! SYElement
+//            elem.render(progress)
+//        }
+//    }
+//    
+//}

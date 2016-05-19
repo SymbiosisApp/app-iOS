@@ -19,6 +19,9 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     var currentCameraRotationHor: Float = 0
     let cameraContainerNode = SCNNode()
     
+    var plant: SYShape!
+    var annimProgress: Float = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,14 +39,23 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         
         let startTime = CFAbsoluteTimeGetCurrent()
 
-        let plant = SYElementBranch()
-        scene.rootNode.addChildNode(plant)
+//        let plant = SYElementBranch()
+//        scene.rootNode.addChildNode(plant)
+//        
+//        // Async task
+//        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+//        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+//            plant.render(1.6)
+//        }
         
-        // Async task
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            plant.render(1.6)
-        }
+        let branchRandom: Int = 678676
+        
+        var propList: [Any] = []
+        propList.append(SYGeomBranchProps(size: 2.5, width: 0.15, random: branchRandom))
+        propList.append(SYGeomBranchProps(size: 5, width: 0.2, random: branchRandom))
+        plant = SYShapeBranch(propsList: propList)
+        scene.rootNode.addChildNode(plant)
+        plant.render(0)
         
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         print("Render time : \(timeElapsed)")
@@ -94,6 +106,19 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //        myFloorNode.position = SCNVector3Make(0, 0, 0);
 //        scene.rootNode.addChildNode(myFloorNode)
 
+        
+        // add a tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        scnView.addGestureRecognizer(tapGesture)
+    }
+    
+    func handleTap(gestureRecognize: UIGestureRecognizer) {
+        print("Tap")
+        annimProgress = (annimProgress + 1) % 2
+        SCNTransaction.begin()
+        SCNTransaction.setAnimationDuration(0.5)
+        plant.render(annimProgress)
+        SCNTransaction.commit()
     }
     
     @IBAction func onPlantPan(gestureRecognize: UIPanGestureRecognizer) {
