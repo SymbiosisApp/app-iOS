@@ -92,13 +92,14 @@ class MainViewController: UIViewController {
     }
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController, inverseDirection: Bool) {
+        
         oldViewController.willMoveToParentViewController(nil)
         self.addChildViewController(newViewController)
         self.containerView!.addSubview(newViewController.view)
         
         let directionMultiplier: Float = inverseDirection ? -1.0 : 1.0
         
-        // new
+        // Add new constraints
         var viewBindingsDict = [String: AnyObject]()
         viewBindingsDict["subView"] = newViewController.view
         self.containerView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
@@ -112,12 +113,17 @@ class MainViewController: UIViewController {
         newViewController.view.layoutIfNeeded()
         
         UIView.animateWithDuration(0.3, animations: {
-                // only need to call layoutIfNeeded here
                 newViewController.view.alpha = 1
                 leftConstraint.constant = 0
                 newViewController.view.layoutIfNeeded()
             },
             completion: { finished in
+                print("End : \(finished)")
+                if finished == false {
+                    newViewController.view.alpha = 1
+                    leftConstraint.constant = 0
+                    newViewController.view.layoutIfNeeded()
+                }
                 oldViewController.view.removeFromSuperview()
                 oldViewController.removeFromParentViewController()
                 newViewController.didMoveToParentViewController(self)

@@ -10,6 +10,9 @@
 		1814CB041CEC8B57004D7540 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB031CEC8B57004D7540 /* SYPlant.swift */; };
 		1814CB0A1CEDAA8A004D7540 /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB091CEDAA8A004D7540 /* SYShape.swift */; };
 		1814CB0E1CEDAAE7004D7540 /* SYShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */; };
+		1814CB351CEE0B47004D7540 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB341CEE0B47004D7540 /* main.swift */; };
+		1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */; };
+		1814CB3E1CEE5436004D7540 /* test.shader in Resources */ = {isa = PBXBuildFile; fileRef = 1814CB3D1CEE5436004D7540 /* test.shader */; };
 		184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA85C1CE0CBC4007D5C6F /* SYState.swift */; };
 		185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; };
 		185439861CEBC4EF00B1D86C /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -21,6 +24,7 @@
 		1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854399B1CEBCBA100B1D86C /* SYSocket.swift */; };
 		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
 		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1875E3B21CEE5CD300BF2730 /* tooning.shader in Resources */ = {isa = PBXBuildFile; fileRef = 1875E3B11CEE5CD300BF2730 /* tooning.shader */; };
 		18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F51C722BBE008E6558 /* AppDelegate.swift */; };
 		18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FE1C722BBE008E6558 /* Assets.xcassets */; };
 		18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55961CE91CA9008E8EC4 /* Colony.storyboard */; };
@@ -59,6 +63,11 @@
 		1814CB031CEC8B57004D7540 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
 		1814CB091CEDAA8A004D7540 /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
 		1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShapes.swift; sourceTree = "<group>"; };
+		1814CB2F1CEE0AEE004D7540 /* symbiosis-ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "symbiosis-ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		1814CB341CEE0B47004D7540 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1814CB361CEE0DC3004D7540 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTouchposeApplication.h; path = Touchpose/QTouchposeApplication.h; sourceTree = "<group>"; };
+		1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTouchposeApplication.m; path = Touchpose/QTouchposeApplication.m; sourceTree = "<group>"; };
+		1814CB3D1CEE5436004D7540 /* test.shader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = test.shader; sourceTree = "<group>"; };
 		184FA85C1CE0CBC4007D5C6F /* SYState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYState.swift; sourceTree = "<group>"; };
 		185439841CEBC4EF00B1D86C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		1854398B1CEBC5DD00B1D86C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +78,7 @@
 		185439971CEBCABC00B1D86C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		1854399B1CEBCBA100B1D86C /* SYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYSocket.swift; sourceTree = "<group>"; };
 		185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
+		1875E3B11CEE5CD300BF2730 /* tooning.shader */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = tooning.shader; sourceTree = "<group>"; };
 		18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "symbiosis-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18BC17FE1C722BBE008E6558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +113,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1814CB331CEE0B02004D7540 /* Touchpose */ = {
+			isa = PBXGroup;
+			children = (
+				1814CB361CEE0DC3004D7540 /* QTouchposeApplication.h */,
+				1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */,
+			);
+			name = Touchpose;
+			sourceTree = "<group>";
+		};
+		1814CB391CEE53DE004D7540 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1814CB3A1CEE53E5004D7540 /* Shaders */,
+				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		1814CB3A1CEE53E5004D7540 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				1814CB3D1CEE5436004D7540 /* test.shader */,
+				1875E3B11CEE5CD300BF2730 /* tooning.shader */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
 		1854398A1CEBC5DD00B1D86C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,13 +173,16 @@
 			isa = PBXGroup;
 			children = (
 				18BC18031C722BBE008E6558 /* Info.plist */,
+				1814CB2F1CEE0AEE004D7540 /* symbiosis-ios-app-Bridging-Header.h */,
+				1814CB341CEE0B47004D7540 /* main.swift */,
 				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
 				18D4262E1CE473CB00309EE6 /* Utils.swift */,
 				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
 				1854399B1CEBCBA100B1D86C /* SYSocket.swift */,
 				185439911CEBC87800B1D86C /* SYPedometer.swift */,
 				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
-				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
+				1814CB391CEE53DE004D7540 /* Assets */,
+				1814CB331CEE0B02004D7540 /* Touchpose */,
 				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
 				18DEDE861CE5ED8100CE154F /* Components */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
@@ -217,7 +257,7 @@
 		18BC17EA1C722BBE008E6558 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Etienne De Ladonchamps";
 				TargetAttributes = {
@@ -260,12 +300,14 @@
 			files = (
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
 				18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */,
+				1814CB3E1CEE5436004D7540 /* test.shader in Resources */,
 				18CF559E1CE91CA9008E8EC4 /* Main.storyboard in Resources */,
 				18CF559D1CE91CA9008E8EC4 /* LaunchScreen.storyboard in Resources */,
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
 				18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */,
 				18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */,
 				18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */,
+				1875E3B21CEE5CD300BF2730 /* tooning.shader in Resources */,
 				18CF559F1CE91CA9008E8EC4 /* Map.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +341,7 @@
 				1814CB041CEC8B57004D7540 /* SYPlant.swift in Sources */,
 				18EE76721CDA24FA000F290C /* SYElement.swift in Sources */,
 				18EE76741CDA24FA000F290C /* SYGeom.swift in Sources */,
+				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
 				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
 				18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
@@ -311,6 +354,7 @@
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
 				18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */,
 				1814CB0E1CEDAAE7004D7540 /* SYShapes.swift in Sources */,
+				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -411,6 +456,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
 				PRODUCT_NAME = "symbiosis-ios-app";
+				SWIFT_OBJC_BRIDGING_HEADER = "Symbiosis/symbiosis-ios-app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -418,6 +465,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -427,6 +475,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
 				PRODUCT_NAME = "symbiosis-ios-app";
+				SWIFT_OBJC_BRIDGING_HEADER = "Symbiosis/symbiosis-ios-app-Bridging-Header.h";
 			};
 			name = Release;
 		};

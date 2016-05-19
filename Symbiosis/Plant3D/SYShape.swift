@@ -72,11 +72,8 @@ class SYShape: SCNNode {
             numberOfSteps = max(numberOfSteps, step.count)
         }
         
-        print(numberOfSteps)
-        
         for i in 0..<numberOfSteps {
             // Add step if needed
-            print(i)
             for (index, step) in steps.enumerate() {
                 if step.count <= i {
                     if i > 1 {

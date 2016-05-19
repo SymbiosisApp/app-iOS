@@ -17,7 +17,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     var lastUpdateTimeInterval: NSTimeInterval = 0
     var currentCameraRotationVert: Float = 0
     var currentCameraRotationHor: Float = 0
-    let cameraContainerNode = SCNNode()
+    let rotationNode = SCNNode()
     
     var plant: SYShape!
     var annimProgress: Float = 0
@@ -64,35 +64,47 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         cameraTarget.position = SCNVector3Make(0, 0.5, 0)
         scene.rootNode.addChildNode(cameraTarget)
         
-        // create and add a camera to the scene
-        scene.rootNode.addChildNode(cameraContainerNode)
+        // Create the camera
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.camera?.xFov = 30.0
         cameraNode.position = SCNVector3Make(0, 1.5, 5)
-        cameraContainerNode.addChildNode(cameraNode)
-        cameraContainerNode.position = SCNVector3Make(0, 0, 0)
+        // add rotationNode
+        rotationNode.addChildNode(cameraNode)
+        rotationNode.position = SCNVector3Make(0, 0, 0)
+        scene.rootNode.addChildNode(rotationNode)
         
         // create and add an ambient light to the scene
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = SCNLightTypeAmbient
-        ambientLightNode.light!.color = UIColor.darkGrayColor()
-        scene.rootNode.addChildNode(ambientLightNode)
+//        let ambientLightNode = SCNNode()
+//        ambientLightNode.light = SCNLight()
+//        ambientLightNode.light!.type = SCNLightTypeAmbient
+//        ambientLightNode.light!.color = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+//        scene.rootNode.addChildNode(ambientLightNode)
 
-        // create and add a light to the scene
+        // Front light
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
         lightNode.light!.type = SCNLightTypeOmni
-        lightNode.position = SCNVector3Make(2, 3, 0)
-        scene.rootNode.addChildNode(lightNode)
+        lightNode.position = SCNVector3Make(0, 1.5, 6)
+        rotationNode.addChildNode(lightNode)
+        lightNode.geometry = SCNSphere(radius: 0.1)
         
-        // create and add a light to the scene
-        let lightNode2 = SCNNode()
-        lightNode2.light = SCNLight()
-        lightNode2.light!.type = SCNLightTypeOmni
-        lightNode2.position = SCNVector3Make(2, 2, 2);
-        scene.rootNode.addChildNode(lightNode2)
+//        // create and add a light to the scene
+//        let lightNode2 = SCNNode()
+//        lightNode2.light = SCNLight()
+//        lightNode2.light!.type = SCNLightTypeOmni
+//        lightNode2.position = SCNVector3Make(0, 0, 0);
+//        rotationNode.addChildNode(lightNode2)
+//        lightNode2.geometry = SCNSphere(radius: 0.5)
+        
+//        // create and add a light to the scene
+//        let lightNode3 = SCNNode()
+//        lightNode3.light = SCNLight()
+//        lightNode3.light!.type = SCNLightTypeOmni
+//        lightNode3.position = SCNVector3Make(2, 2, 2);
+//        rotationNode.addChildNode(lightNode3)
+//        lightNode3.geometry = SCNSphere(radius: 0.1)
+        
         
         // Add froor
 //        let floorMat = SCNMaterial()
@@ -106,10 +118,13 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //        myFloorNode.position = SCNVector3Make(0, 0, 0);
 //        scene.rootNode.addChildNode(myFloorNode)
 
+        //scnView.technique =
+        
         
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
+        
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
@@ -136,7 +151,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         
         let resultQuat = GLKQuaternionMakeWithMatrix4(result)
         
-        cameraContainerNode.orientation = SCNVector4Make(resultQuat.x, resultQuat.y, resultQuat.z, resultQuat.w)
+        rotationNode.orientation = SCNVector4Make(resultQuat.x, resultQuat.y, resultQuat.z, resultQuat.w)
         
         if(gestureRecognize.state == UIGestureRecognizerState.Ended) {
             currentCameraRotationHor = horRotate

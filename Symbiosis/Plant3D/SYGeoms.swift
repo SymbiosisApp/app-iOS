@@ -224,6 +224,14 @@ class SYGeomBranch: SYGeom {
         // mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         mat.doubleSided = true
         
+        var shaders: [String:String] = [:]
+        
+        shaders[SCNShaderModifierEntryPointFragment] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("test", ofType: "shader")!, encoding: NSUTF8StringEncoding)
+        
+        // shaders[SCNShaderModifierEntryPointLightingModel] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("tooning", ofType: "shader")!, encoding: NSUTF8StringEncoding)
+        
+        // mat.shaderModifiers = shaders
+        
         self.materials = [mat]
     }
     
