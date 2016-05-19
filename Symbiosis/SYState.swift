@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreLocation
 
-class SYStateManager {
+class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     // state
     var selectedTab: Int = -1
@@ -16,7 +17,18 @@ class SYStateManager {
     
     static let sharedInstance = SYStateManager()
     
-    private init() {} //This prevents others from using the default '()' initializer for this class.
+    // Location manager
+    let locationManager: SYLocationManager = SYLocationManager(useNatif: false)
+    // Pedometer
+    let pedometer: SYPedometer = SYPedometer(useNatif: false)
+    
+    private init() {
+        
+        // Delegates
+        self.locationManager.delegate = self
+        self.pedometer.delegate = self
+        
+    } //This prevents others from using the default '()' initializer for this class.
     
     // - MARK: EventManager
     
@@ -27,14 +39,6 @@ class SYStateManager {
     // + eventName: Matching trigger eventNames will cause this listener to fire
     // + action: The block of code you want executed when the event triggers
     func listenTo(event:SYStateEvent, action:(()->())) {
-        let newListener = EventListenerAction(callback: action);
-        addListener(event, newEventListener: newListener);
-    }
-    
-    // Create a new event listener, expecting information from the trigger
-    // + eventName: Matching trigger eventNames will cause this listener to fire
-    // + action: The block of code you want executed when the event triggers
-    func listenTo(event:SYStateEvent, action:((Any?)->())) {
         let newListener = EventListenerAction(callback: action);
         addListener(event, newEventListener: newListener);
     }
@@ -95,6 +99,22 @@ class SYStateManager {
         }
     }
     
+    // - MARK: SYLocationManager Delegate
+    
+    func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location updated !")
+    }
+    
+    func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
+        print("Location manager Authorisation ok")
+    }
+    
+    // - MARK: SYPedometer Delegate
+    
+    func syPedometer(didReveiveData data: NSNumber) {
+        print("Youpi, j'ai fait \(data) pas !")
+    }
+    
 }
 
 // Class to hold actions to live in NSMutableArray
@@ -116,46 +136,3 @@ class EventListenerAction {
 enum SYStateEvent {
     case TabChanged
 }
-
-
-
-
-
-
-
-
-
-//
-///**
-// * Class to manage the state of the app
-// **/
-//class SYStateManager {
-//    
-//    
-//    
-//    let events = EventManager();
-//    
-//    var state: SYState = SYState()
-//    
-//    private init() {} //This prevents others from using the default '()' initializer for this class.
-//
-//    func dispatch(action: SYActionsType, payload: Any?) {
-//        switch action {
-//        case .SelectTab:
-//            
-//        default:
-//            
-//        }
-//    }
-//    
-//    func selectTab(newSelectedTab: Int) {
-//        if newSelectedTab != selectedTab {
-//            lastSelectedTab = selectedTab
-//            selectedTab = newSelectedTab
-//            self.events.trigger(<#T##eventName: String##String#>, information: <#T##Any?#>)
-//        }
-//    }
-//}
-//
-//struct SYState {
-//}

@@ -14,7 +14,7 @@ class SYSocket {
     
     static let sharedInstance = SYSocket()
     
-    let io = SocketIOClient(socketURL: NSURL(string: "http://192.168.2.1:8000")!, options: [.Log(true), .ForcePolling(true)])
+    let io = SocketIOClient(socketURL: NSURL(string: "http://192.168.2.1:8000")!, options: [.Log(false), .ForcePolling(true)])
     
     private init() {
         self.io.on("connect") {data, ack in

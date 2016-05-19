@@ -8,25 +8,18 @@
 
 import Foundation
 import UIKit
-import CoreLocation
 
-class MainViewController: UIViewController, SYLocationManagerDelegate, SYPedometerDelegate {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
     
     // For tabs (ViewControllers names)
-    let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Help"]
+    let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     weak var currentTabView: UIViewController?
     
-    // Location manager
-    let locationManager: SYLocationManager = SYLocationManager(useNatif: false)
-    
-    // Pedometer
-    let pedometer: SYPedometer = SYPedometer(useNatif: false)
-
     // State
     let state = SYStateManager.sharedInstance
     
@@ -35,10 +28,6 @@ class MainViewController: UIViewController, SYLocationManagerDelegate, SYPedomet
     }
     
     override func viewDidLoad() {
-        
-        // Delegates
-        self.locationManager.delegate = self
-        self.pedometer.delegate = self
         
         // Listen to events
         state.listenTo(.TabChanged, action: self.onTabChanged)
@@ -135,7 +124,9 @@ class MainViewController: UIViewController, SYLocationManagerDelegate, SYPedomet
         })
     }
     
+    // - MARK: Memory warning
     override func didReceiveMemoryWarning() {
+        print("Memory Warning !!!!")
         var hasReleaseSomething = false
         for (index, view) in tabViews.enumerate() {
             if index != state.selectedTab && view != nil && hasReleaseSomething == false {
@@ -151,21 +142,5 @@ class MainViewController: UIViewController, SYLocationManagerDelegate, SYPedomet
                 }
             }
         }
-    }
-    
-    // - MARK: SYLocationManager Delegate
-    
-    func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Location updated !")
-    }
-    
-    func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
-        print("Location manager Authorisation ok")
-    }
-    
-    // - MARK: SYPedometer Delegate
-    
-    func syPedometer(didReveiveData data: NSNumber) {
-        print("Youpi, j'ai fait \(data) pas !")
     }
 }
