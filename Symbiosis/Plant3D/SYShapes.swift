@@ -45,3 +45,22 @@ class SYShapeBranch: SYShape {
     }
     
 }
+
+class SYShapeTrunk: SYShape {
+    
+    override func createGeoms() {
+        for props in propsList {
+            let newProps = props as! SYGeomTrunkProps
+            self.geoms.append(SYGeomTrunk(props: newProps)  )
+        }
+    }
+    
+    override func verifyProps() {
+        for props in propsList {
+            if !(props is SYGeomTrunkProps) {
+                fatalError("Incorect Props")
+            }
+        }
+    }
+    
+}

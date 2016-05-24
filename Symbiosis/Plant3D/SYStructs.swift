@@ -82,6 +82,17 @@ struct SYBoneFuncOptions {
     let bones: [SYBone]
     let index: Int
     let boneSizeFromStart: Float
+    
+    func getLastOrientation() -> GLKMatrix4 {
+        var result = GLKMatrix4MakeRotation(0, 0, 1, 0)
+        if bones.count > 0 {
+            for bone in bones {
+                // print(NSStringFromGLKMatrix4(bone.orientation))
+                result = GLKMatrix4Multiply(result, bone.orientation)
+            }
+        }
+        return result
+    }
 }
 
 struct SYStepFuncOptions {

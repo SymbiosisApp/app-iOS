@@ -15,6 +15,6 @@
 
 float dotProduct = dot(_surface.view, _surface.normal);
 
-//_output.color.rb = mix(_output.color.rb, vec2(dotProduct, 1.0 - dotProduct), 0.5);
+_output.color.rb = mix(_output.color.rb, vec2(dotProduct, 1.0 - dotProduct), 0.5);
 
-_output.color.rgb = mix(_output.color.rgb, vec3(0.0, 0.0, 0.0), dotProduct);
+//_output.color.rgb = mix(_output.color.rgb, vec3(0.0, 0.0, 0.0), dotProduct);

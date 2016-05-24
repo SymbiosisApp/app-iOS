@@ -51,8 +51,8 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         let branchRandom: Int = 678676
         
         var propList: [Any] = []
-        propList.append(SYGeomBranchProps(size: 2.5, width: 0.15, random: branchRandom))
-        propList.append(SYGeomBranchProps(size: 5, width: 0.2, random: branchRandom))
+        propList.append(SYGeomBranchProps(size: 3, width: 0.21, random: branchRandom))
+        propList.append(SYGeomBranchProps(size: 3, width: 0.2, random: branchRandom))
         plant = SYShapeBranch(propsList: propList)
         scene.rootNode.addChildNode(plant)
         plant.render(0)
@@ -118,12 +118,44 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //        myFloorNode.position = SCNVector3Make(0, 0, 0);
 //        scene.rootNode.addChildNode(myFloorNode)
 
-        //scnView.technique =
-        
+        // scnView.technique =
+        if let path = NSBundle.mainBundle().pathForResource("tilt_shift", ofType: "plist") {
+            if let dico1 = NSDictionary(contentsOfFile: path)  {
+                let dico = dico1 as! [String : AnyObject]
+                //println(dico)
+                let technique = SCNTechnique(dictionary:dico)
+                //Need the screen size
+                technique?.setValue(NSValue(CGSize: CGSizeApplyAffineTransform(self.view.frame.size, CGAffineTransformMakeScale(2.0, 2.0))), forKeyPath: "size_screen")
+                print("Add technique")
+                scnView.technique = technique
+            }
+        }
         
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
+        
+        let rotateY = GLKMatrix4MakeRotation(0.3, 0, 1, 0)
+        let rotateX = GLKMatrix4MakeRotation(0.3, 1, 0, 0)
+        let rotateZ = GLKMatrix4MakeRotation(0.3, 0, 0, 1)
+        
+        var rotateResult = GLKMatrix4Multiply(rotateY, rotateZ)
+        rotateResult = GLKMatrix4Multiply(rotateResult, rotateX)
+        
+        print("Vect 1 : " + NSStringFromGLKVector3(GLKMatrix4MultiplyVector3(rotateResult, GLKVector3Make(1, 0, 0))))
+        
+        var vect2 = GLKMatrix4MultiplyVector3(rotateX, GLKVector3Make(1, 0, 0))
+        vect2 = GLKMatrix4MultiplyVector3(rotateZ, vect2)
+        vect2 = GLKMatrix4MultiplyVector3(rotateY, vect2)
+        print("Vect 5 : " + NSStringFromGLKVector3(vect2))
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
     
