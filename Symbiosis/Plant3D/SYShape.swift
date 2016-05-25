@@ -9,32 +9,39 @@
 import Foundation
 import SceneKit
 
-class SYShape: SCNNode {
+/**
+ * This class manage the SCNMorpher, need subclasses for correct Props type
+ **/
+class SYShape: SCNNode, SYRederable {
     
     var geoms: [SYGeom] = []
-    var propsList: [Any] = []
     
-    init(propsList: [Any]) {
-        super.init()
+    var propsList: [Any]
+    var positionsList: [GLKVector3]
+    var orientationsList: [GLKVector4]
+    
+    init(propsList: [Any], positionsList: [GLKVector3], orientationsList: [GLKVector4]) {
         if propsList.count == 0 {
             fatalError("At least on props")
         }
-        
+        self.positionsList = positionsList
+        self.orientationsList = orientationsList
         self.propsList = propsList
-        verifyProps()
-        createGeoms()
+        super.init()
+        self.verifyProps()
+        self.generateAllGeomStructure()
         if propsList.count > 1 {
-            resolveStructures()
+            self.resolveAllGeomStructure()
         }
-        generateGeometries()
-        createMorpher()
+        self.generateAllGeomData()
+        self.createMorpher()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createGeoms() {
+    func generateAllGeomStructure() {
         for props in propsList {
             let newProps = props as! SYGeomEmptyProps
             self.geoms.append(SYGeomEmpty(props: newProps)  )
@@ -44,6 +51,17 @@ class SYShape: SCNNode {
     func verifyProps() {}
     
     func render(progress: Float) {
+        if self.propsList.count > 1 {
+            // Interpolate pos and orient
+            let pos = GLKVector3Lerp(self.positionsList[0], self.positionsList[1], progress)
+            self.position = SCNVector3FromGLKVector3(pos)
+            let orien = GLKVector4Lerp(self.orientationsList[0], self.orientationsList[1], progress)
+            self.orientation = SCNVector4FromGLKVector4(orien)
+        } else {
+            // Single props render
+            self.position = SCNVector3FromGLKVector3(self.positionsList[0])
+            self.orientation = SCNVector4FromGLKVector4(self.orientationsList[0])
+        }
         self.morpher?.setWeight(CGFloat(progress), forTargetAtIndex: 0)
     }
     
@@ -55,13 +73,13 @@ class SYShape: SCNNode {
         }
     }
     
-    private func generateGeometries() {
+    private func generateAllGeomData() {
         for geom in geoms {
             geom.generateGeometry()
         }
     }
     
-    private func resolveStructures () {
+    private func resolveAllGeomStructure () {
         var steps: [[SYStep]] = []
         for geo in geoms {
             steps.append(geo.steps)

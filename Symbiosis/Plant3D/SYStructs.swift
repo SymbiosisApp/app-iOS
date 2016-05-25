@@ -89,3 +89,7 @@ struct SYStepFuncOptions {
     let nbrOfSteps: Int
     let totalBoneSize: Float
 }
+
+protocol SYRederable: class {
+    func render(progress: Float)
+}

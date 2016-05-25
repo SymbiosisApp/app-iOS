@@ -12,7 +12,9 @@ import SceneKit
 import GLKit
 
 
-// Class that generate a geometry and a material
+/**
+ * Class that generate a geometry and a material
+ **/
 class SYGeom {
     
     var totalBoneSize: Float = 0.0

@@ -10,13 +10,6 @@ import Foundation
 
 class SYShapeLeaf: SYShape {
     
-    override func createGeoms() {
-        for props in propsList {
-            let newProps = props as! SYGeomLeafProps
-            self.geoms.append(SYGeomLeaf(props: newProps)  )
-        }
-    }
-    
     override func verifyProps() {
         for props in propsList {
             if !(props is SYGeomLeafProps) {
@@ -25,22 +18,29 @@ class SYShapeLeaf: SYShape {
         }
     }
     
+    override func generateAllGeomStructure() {
+        for props in propsList {
+            let newProps = props as! SYGeomLeafProps
+            self.geoms.append(SYGeomLeaf(props: newProps)  )
+        }
+    }
+    
 }
 
 class SYShapeBranch: SYShape {
-    
-    override func createGeoms() {
-        for props in propsList {
-            let newProps = props as! SYGeomBranchProps
-            self.geoms.append(SYGeomBranch(props: newProps)  )
-        }
-    }
     
     override func verifyProps() {
         for props in propsList {
             if !(props is SYGeomBranchProps) {
                 fatalError("Incorect Props")
             }
+        }
+    }
+    
+    override func generateAllGeomStructure() {
+        for props in propsList {
+            let newProps = props as! SYGeomBranchProps
+            self.geoms.append(SYGeomBranch(props: newProps)  )
         }
     }
     
