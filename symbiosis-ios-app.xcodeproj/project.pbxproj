@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1814CB041CEC8B57004D7540 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB031CEC8B57004D7540 /* SYPlant.swift */; };
-		1814CB0A1CEDAA8A004D7540 /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB091CEDAA8A004D7540 /* SYShape.swift */; };
-		1814CB0E1CEDAAE7004D7540 /* SYShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */; };
 		1814CB351CEE0B47004D7540 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB341CEE0B47004D7540 /* main.swift */; };
 		1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */; };
+		1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0121CF6446D000C45D6 /* SYElement.swift */; };
+		1848F01D1CF6446D000C45D6 /* SYElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0131CF6446D000C45D6 /* SYElements.swift */; };
+		1848F01E1CF6446D000C45D6 /* SYElementsOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0141CF6446D000C45D6 /* SYElementsOld.swift */; };
+		1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0151CF6446D000C45D6 /* SYGeom.swift */; };
+		1848F0201CF6446D000C45D6 /* SYGeoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0161CF6446D000C45D6 /* SYGeoms.swift */; };
+		1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0171CF6446D000C45D6 /* SYPlant.swift */; };
+		1848F0221CF6446D000C45D6 /* SYRandomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0181CF6446D000C45D6 /* SYRandomManager.swift */; };
+		1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0191CF6446D000C45D6 /* SYShape.swift */; };
+		1848F0241CF6446D000C45D6 /* SYShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F01A1CF6446D000C45D6 /* SYShapes.swift */; };
+		1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F01B1CF6446D000C45D6 /* SYStructs.swift */; };
 		184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA85C1CE0CBC4007D5C6F /* SYState.swift */; };
 		185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; };
 		185439861CEBC4EF00B1D86C /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,11 +47,6 @@
 		18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4262E1CE473CB00309EE6 /* Utils.swift */; };
 		18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DEDE841CE5ED1300CE154F /* TabBar.xib */; };
 		18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEDE871CE5EDD100CE154F /* TabBar.swift */; };
-		18EE76721CDA24FA000F290C /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766D1CDA24FA000F290C /* SYElement.swift */; };
-		18EE76731CDA24FA000F290C /* SYElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766E1CDA24FA000F290C /* SYElements.swift */; };
-		18EE76741CDA24FA000F290C /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE766F1CDA24FA000F290C /* SYGeom.swift */; };
-		18EE76751CDA24FA000F290C /* SYGeoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE76701CDA24FA000F290C /* SYGeoms.swift */; };
-		18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE76711CDA24FA000F290C /* SYStructs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,13 +65,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1814CB031CEC8B57004D7540 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
-		1814CB091CEDAA8A004D7540 /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
-		1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShapes.swift; sourceTree = "<group>"; };
 		1814CB2F1CEE0AEE004D7540 /* symbiosis-ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "symbiosis-ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		1814CB341CEE0B47004D7540 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1814CB361CEE0DC3004D7540 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTouchposeApplication.h; path = Touchpose/QTouchposeApplication.h; sourceTree = "<group>"; };
 		1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTouchposeApplication.m; path = Touchpose/QTouchposeApplication.m; sourceTree = "<group>"; };
+		1848F0121CF6446D000C45D6 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
+		1848F0131CF6446D000C45D6 /* SYElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElements.swift; sourceTree = "<group>"; };
+		1848F0141CF6446D000C45D6 /* SYElementsOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElementsOld.swift; sourceTree = "<group>"; };
+		1848F0151CF6446D000C45D6 /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
+		1848F0161CF6446D000C45D6 /* SYGeoms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeoms.swift; sourceTree = "<group>"; };
+		1848F0171CF6446D000C45D6 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
+		1848F0181CF6446D000C45D6 /* SYRandomManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRandomManager.swift; sourceTree = "<group>"; };
+		1848F0191CF6446D000C45D6 /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
+		1848F01A1CF6446D000C45D6 /* SYShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShapes.swift; sourceTree = "<group>"; };
+		1848F01B1CF6446D000C45D6 /* SYStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYStructs.swift; sourceTree = "<group>"; };
 		184FA85C1CE0CBC4007D5C6F /* SYState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYState.swift; sourceTree = "<group>"; };
 		185439841CEBC4EF00B1D86C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		1854398B1CEBC5DD00B1D86C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -99,11 +108,6 @@
 		18D4262E1CE473CB00309EE6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18DEDE841CE5ED1300CE154F /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		18DEDE871CE5EDD100CE154F /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		18EE766D1CDA24FA000F290C /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
-		18EE766E1CDA24FA000F290C /* SYElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElements.swift; sourceTree = "<group>"; };
-		18EE766F1CDA24FA000F290C /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
-		18EE76701CDA24FA000F290C /* SYGeoms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeoms.swift; sourceTree = "<group>"; };
-		18EE76711CDA24FA000F290C /* SYStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYStructs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,23 @@
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		1848F0111CF6446D000C45D6 /* Plant3D */ = {
+			isa = PBXGroup;
+			children = (
+				1848F0121CF6446D000C45D6 /* SYElement.swift */,
+				1848F0131CF6446D000C45D6 /* SYElements.swift */,
+				1848F0141CF6446D000C45D6 /* SYElementsOld.swift */,
+				1848F0151CF6446D000C45D6 /* SYGeom.swift */,
+				1848F0161CF6446D000C45D6 /* SYGeoms.swift */,
+				1848F0171CF6446D000C45D6 /* SYPlant.swift */,
+				1848F0181CF6446D000C45D6 /* SYRandomManager.swift */,
+				1848F0191CF6446D000C45D6 /* SYShape.swift */,
+				1848F01A1CF6446D000C45D6 /* SYShapes.swift */,
+				1848F01B1CF6446D000C45D6 /* SYStructs.swift */,
+			);
+			path = Plant3D;
 			sourceTree = "<group>";
 		};
 		1854398A1CEBC5DD00B1D86C /* ViewControllers */ = {
@@ -211,8 +232,8 @@
 				1814CB331CEE0B02004D7540 /* Touchpose */,
 				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
 				18DEDE861CE5ED8100CE154F /* Components */,
+				1848F0111CF6446D000C45D6 /* Plant3D */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
-				18EE766C1CDA249B000F290C /* Plant3D */,
 			);
 			path = Symbiosis;
 			sourceTree = "<group>";
@@ -224,21 +245,6 @@
 				18DEDE871CE5EDD100CE154F /* TabBar.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		18EE766C1CDA249B000F290C /* Plant3D */ = {
-			isa = PBXGroup;
-			children = (
-				1814CB031CEC8B57004D7540 /* SYPlant.swift */,
-				18EE766D1CDA24FA000F290C /* SYElement.swift */,
-				18EE766E1CDA24FA000F290C /* SYElements.swift */,
-				1814CB091CEDAA8A004D7540 /* SYShape.swift */,
-				1814CB0D1CEDAAE7004D7540 /* SYShapes.swift */,
-				18EE766F1CDA24FA000F290C /* SYGeom.swift */,
-				18EE76701CDA24FA000F290C /* SYGeoms.swift */,
-				18EE76711CDA24FA000F290C /* SYStructs.swift */,
-			);
-			path = Plant3D;
 			sourceTree = "<group>";
 		};
 		18EE767A1CDA2598000F290C /* Storyboards */ = {
@@ -364,25 +370,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18EE76731CDA24FA000F290C /* SYElements.swift in Sources */,
 				1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
-				1814CB041CEC8B57004D7540 /* SYPlant.swift in Sources */,
-				18EE76721CDA24FA000F290C /* SYElement.swift in Sources */,
-				18EE76741CDA24FA000F290C /* SYGeom.swift in Sources */,
+				1848F01E1CF6446D000C45D6 /* SYElementsOld.swift in Sources */,
+				1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */,
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
+				1848F0221CF6446D000C45D6 /* SYRandomManager.swift in Sources */,
+				1848F0201CF6446D000C45D6 /* SYGeoms.swift in Sources */,
 				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
+				1848F0241CF6446D000C45D6 /* SYShapes.swift in Sources */,
 				18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */,
+				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
+				1848F01D1CF6446D000C45D6 /* SYElements.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
 				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
-				1814CB0A1CEDAA8A004D7540 /* SYShape.swift in Sources */,
-				18EE76751CDA24FA000F290C /* SYGeoms.swift in Sources */,
+				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
+				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
+				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,
 				18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */,
 				1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */,
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
-				18EE76761CDA24FA000F290C /* SYStructs.swift in Sources */,
-				1814CB0E1CEDAAE7004D7540 /* SYShapes.swift in Sources */,
 				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

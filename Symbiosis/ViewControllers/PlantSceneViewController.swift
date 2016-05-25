@@ -19,7 +19,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     var currentCameraRotationHor: Float = 0
     let rotationNode = SCNNode()
     
-    var plant: SYShape!
+    var plant: SYElement!
     var annimProgress: Float = 0
     
     override func viewDidLoad() {
@@ -48,14 +48,15 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //            plant.render(1.6)
 //        }
         
-        let branchRandom: Int = 678676
         
-        var propList: [Any] = []
-        propList.append(SYGeomBranchProps(size: 3, width: 0.21, random: branchRandom))
-        propList.append(SYGeomBranchProps(size: 3, width: 0.2, random: branchRandom))
-        plant = SYShapeBranch(propsList: propList)
+
+        let propList: [Any] = [SYElementBranchProps(size: 1), SYElementBranchProps(size: 5)]
+        let positions = [GLKVector3Make(0, 0, 0), GLKVector3Make(0, 1, 0)]
+        let orient = [GLKVector4Make(0, 1, 0, 0), GLKVector4Make(0, 1, 0, 0.5)]
+        plant = SYElementBranch(propsList: propList, positionsList: positions, orientationsList: orient)
         scene.rootNode.addChildNode(plant)
         plant.render(0)
+        
         
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         print("Render time : \(timeElapsed)")

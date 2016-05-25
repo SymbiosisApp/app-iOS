@@ -22,10 +22,10 @@ class SYPlant: SCNNode {
     }
     
     init(from startSize: Float, to endSize: Float) {
+        super.init()
+        
         let propsList: [Any] = [SYElementRootProps(size: startSize), SYElementRootProps(size: endSize)]
         self.rootSYElem = SYElementRoot(propsList: propsList, positionsList: nil, orientationsList: nil)
-        
-        super.init()
         
         self.addChildNode(self.rootSYElem)
     }
