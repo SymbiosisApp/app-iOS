@@ -144,16 +144,16 @@
 		1848F0111CF6446D000C45D6 /* Plant3D */ = {
 			isa = PBXGroup;
 			children = (
+				1848F0181CF6446D000C45D6 /* SYRandomManager.swift */,
+				1848F0171CF6446D000C45D6 /* SYPlant.swift */,
+				1848F01B1CF6446D000C45D6 /* SYStructs.swift */,
 				1848F0121CF6446D000C45D6 /* SYElement.swift */,
 				1848F0131CF6446D000C45D6 /* SYElements.swift */,
 				1848F0141CF6446D000C45D6 /* SYElementsOld.swift */,
 				1848F0151CF6446D000C45D6 /* SYGeom.swift */,
 				1848F0161CF6446D000C45D6 /* SYGeoms.swift */,
-				1848F0171CF6446D000C45D6 /* SYPlant.swift */,
-				1848F0181CF6446D000C45D6 /* SYRandomManager.swift */,
 				1848F0191CF6446D000C45D6 /* SYShape.swift */,
 				1848F01A1CF6446D000C45D6 /* SYShapes.swift */,
-				1848F01B1CF6446D000C45D6 /* SYStructs.swift */,
 			);
 			path = Plant3D;
 			sourceTree = "<group>";

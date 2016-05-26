@@ -164,7 +164,6 @@ class SYGeomBranch: SYGeom {
         
         var isLastStep: Bool = false
         let stepSize: Float = 0.3
-        let nbrOfSteps = Int(floor(Double(myProps.size) / Double(stepSize)))
         
         var translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
         var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
@@ -179,42 +178,17 @@ class SYGeomBranch: SYGeom {
         
         if (options.index == 0) {
             translation = GLKVector3Make(0, 0, 0)
+            orientation = GLKMatrix4MakeYRotation(0)
         }
         
         if (options.index == 1) {
             translation = GLKVector3Make(0, stepSize*0.3, 0)
         }
         
-        if (options.index == nbrOfSteps-1) {
+        if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true
             translation = GLKVector3Make(0, stepSize*0.3, 0)
         }
-        
-        // -----
-        print("----")
-        let currentOrient = GLKMatrix4Multiply(options.getLastOrientation(), orientation)
-        let currentOrientVectY = GLKMatrix4MultiplyVector3(currentOrient, GLKVector3Make(0, 1, 0))
-        let currentOrientVectX = GLKMatrix4MultiplyVector3(currentOrient, GLKVector3Make(1, 0, 0))
-        // print(NSStringFromGLKVector3(currentOrientVectY))
-        let diffAngleY = acos(GLKVector3DotProduct(currentOrientVectY, GLKVector3Make(0, 1, 0)))
-        let diffAngleX = acos(GLKVector3DotProduct(currentOrientVectX, GLKVector3Make(1, 0, 0)))
-        var correctRotate = GLKMatrix4MakeRotation(0, 0, 1, 0)
-        if diffAngleY > 0  {
-            let axis = GLKVector3Normalize(GLKVector3CrossProduct(currentOrientVectY, GLKVector3Make(0, 1, 0)))
-            print("y angle : \(diffAngleY)")
-            if myProps.width == 0.2 && options.index == 5 {
-                correctRotate = GLKMatrix4Multiply(GLKMatrix4MakeRotation(diffAngleY, axis.x, axis.y, axis.z), correctRotate)
-            }
-        }
-        if diffAngleX > 0  {
-            let axis = GLKVector3Normalize(GLKVector3CrossProduct(currentOrientVectX, GLKVector3Make(1, 0, 0)))
-            print("x angle : \(diffAngleX)")
-            if myProps.width == 0.2 && options.index == 5 {
-                correctRotate = GLKMatrix4Multiply(GLKMatrix4MakeRotation(diffAngleY, axis.x, axis.y, axis.z), correctRotate)
-            }
-        }
-        orientation = GLKMatrix4Multiply(correctRotate, orientation)
-        // -----
         
         return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
     }
@@ -232,11 +206,8 @@ class SYGeomBranch: SYGeom {
         
         var points: [GLKVector3] = []
         
-//        let endWidth = myProps.width * 0.5
-//        let width = myProps.width - ((myProps.width - endWidth) * progress)
-        let endWidth: Float = 0.2 * 0.5
-        let width = 0.2 - ((0.2 - endWidth) * progress)
-
+        let endWidth = myProps.width * 0.5
+        let width = myProps.width - ((myProps.width - endWidth) * progress)
         
         // Last step
         if progressNum == 1 {

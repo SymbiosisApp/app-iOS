@@ -21,13 +21,21 @@ class SYPlant: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(from startSize: Float, to endSize: Float) {
-        let propsList: [Any] = [SYElementRootProps(size: startSize), SYElementRootProps(size: endSize)]
-        self.rootSYElem = SYElementRoot(propsList: propsList, positionsList: nil, orientationsList: nil)
+    init(states: [Float]) {
+        
+        var propsList: [Any] = []
+        for state in states {
+            propsList.append(SYElementRootProps(size: state))
+        }
+        self.rootSYElem = SYElementRoot(propsList: propsList, positionsList: nil, orientationsList: nil, randomManager: self.randomManager)
         
         super.init()
         
         self.addChildNode(self.rootSYElem)
+    }
+    
+    func render(progress: Float) {
+        self.rootSYElem.render(progress)
     }
     
 }

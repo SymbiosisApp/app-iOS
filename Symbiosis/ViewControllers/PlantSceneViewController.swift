@@ -19,8 +19,9 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     var currentCameraRotationHor: Float = 0
     let rotationNode = SCNNode()
     
-    var plant: SYElement!
+    var plant: SYPlant!
     var annimProgress: Float = 0
+    var states: [Float] = [0, 1, 2, 2.5, 3]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +51,11 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         
         
 
-        let propList: [Any] = [SYElementBranchProps(size: 1), SYElementBranchProps(size: 5)]
-        let positions = [GLKVector3Make(0, 0, 0), GLKVector3Make(0, 1, 0)]
-        let orient = [GLKVector4Make(0, 1, 0, 0), GLKVector4Make(0, 1, 0, 0.5)]
-        plant = SYElementBranch(propsList: propList, positionsList: positions, orientationsList: orient)
+//        let propList: [Any] = [SYElementBranchProps(size: 1), SYElementBranchProps(size: 5)]
+//        let positions = [GLKVector3Make(0, 0, 0), GLKVector3Make(0, 1, 0)]
+//        let orient = [GLKVector4Make(0, 1, 0, 0), GLKVector4Make(0, 1, 0, 0.5)]
+//        plant = SYElementBranch(propsList: propList, positionsList: positions, orientationsList: orient)
+        self.plant = SYPlant(states: self.states)
         scene.rootNode.addChildNode(plant)
         plant.render(0)
         
@@ -150,19 +152,14 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         vect2 = GLKMatrix4MultiplyVector3(rotateY, vect2)
         print("Vect 5 : " + NSStringFromGLKVector3(vect2))
         
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         print("Tap")
-        annimProgress = (annimProgress + 1) % 2
+        annimProgress = annimProgress + 0.25
+        if annimProgress >  Float(states.count - 1) {
+            annimProgress = 0
+        }
         SCNTransaction.begin()
         SCNTransaction.setAnimationDuration(0.5)
         plant.render(annimProgress)

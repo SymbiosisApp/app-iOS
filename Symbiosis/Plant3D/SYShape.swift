@@ -20,7 +20,10 @@ class SYShape: SCNNode, SYRederable {
     var positionsList: [GLKVector3]
     var orientationsList: [GLKVector4]
     
-    init(propsList: [Any], positionsList: [GLKVector3], orientationsList: [GLKVector4]) {
+    let randomManager: SYRandomManager
+    
+    init(propsList: [Any], positionsList: [GLKVector3], orientationsList: [GLKVector4], randomManager: SYRandomManager) {
+        self.randomManager = randomManager
         if propsList.count == 0 {
             fatalError("At least on props")
         }
@@ -51,18 +54,48 @@ class SYShape: SCNNode, SYRederable {
     func verifyProps() {}
     
     func render(progress: Float) {
+        if progress > Float(self.propsList.count-1) {
+            fatalError("Can't render more than propsList size : \(self.propsList.count-1)")
+        }
         if self.propsList.count > 1 {
+            var beforeIndex: Int = 0
+            var afterIndex: Int = 0
+            var diffProgress: Float = 0
+            
+//            if floor(progress) == progress {
+//                beforeIndex = Int(progress)
+//                afterIndex = beforeIndex
+//                diffProgress = 0
+//            } else {
+                beforeIndex = min(Int(floor(progress)), self.propsList.count - 2)
+                afterIndex = beforeIndex + 1
+                diffProgress = progress - Float(beforeIndex)
+//            }
+            
+            print("\(progress) -> \(beforeIndex) - \(afterIndex) - \(diffProgress)")
+
             // Interpolate pos and orient
-            let pos = GLKVector3Lerp(self.positionsList[0], self.positionsList[1], progress)
+            let pos = GLKVector3Lerp(self.positionsList[beforeIndex], self.positionsList[afterIndex], diffProgress)
             self.position = SCNVector3FromGLKVector3(pos)
-            let orien = GLKVector4Lerp(self.orientationsList[0], self.orientationsList[1], progress)
+            let orien = GLKVector4Lerp(self.orientationsList[beforeIndex], self.orientationsList[afterIndex], diffProgress)
             self.orientation = SCNVector4FromGLKVector4(orien)
+            // Reset morphers
+            for (index, _) in self.morpher!.targets.enumerate() {
+                self.morpher?.setWeight(0, forTargetAtIndex: index)
+            }
+            // Update morpher
+            if beforeIndex > 0 {
+                self.morpher?.setWeight(CGFloat(1 - diffProgress), forTargetAtIndex: beforeIndex - 1)
+            }
+            if afterIndex > 0 {
+                self.morpher?.setWeight(CGFloat(diffProgress), forTargetAtIndex: afterIndex - 1)
+            }
+            
         } else {
             // Single props render
             self.position = SCNVector3FromGLKVector3(self.positionsList[0])
             self.orientation = SCNVector4FromGLKVector4(self.orientationsList[0])
         }
-        self.morpher?.setWeight(CGFloat(progress), forTargetAtIndex: 0)
     }
     
     private func createMorpher() {
@@ -111,7 +144,13 @@ class SYShape: SCNNode, SYRederable {
                 for (index, step) in steps.enumerate() {
                     if step[i].count <= j {
                         // Add first point at the end
-                        steps[index][i].points.append(step[i].points[0])
+                        var point: GLKVector3
+                        if step[i].points.count == 0 {
+                            point = GLKVector3Make(0, 0, 0)
+                        } else {
+                            point = step[i].points[0]
+                        }
+                        steps[index][i].points.append(point)
                     }
                 }
             }

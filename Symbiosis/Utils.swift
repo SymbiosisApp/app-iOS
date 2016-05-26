@@ -41,3 +41,8 @@ class Interpolator {
     }
     
 }
+
+func UtilsRandom(withRandom random: Int, between min: Float, and max: Float) -> Float {
+    let diff = max - min
+    return min + (Float(random / 1000) % diff)
+}

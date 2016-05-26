@@ -26,11 +26,30 @@ class SYElementRoot: SYElement {
     }
     
     override func generateElemsList() {
-
+        let plantType = self.randomManager.get("plantRootType") % 1
+        for props in propsList {
+            let myProps = props as! SYElementRootProps
+            switch plantType {
+            case 0:
+                // Branch
+                let size = myProps.size
+                let props = SYElementBranchProps(id: "rootBranch", size: size)
+                self.addInElems("branch", type: "branchElem", props: props, position: nil, orientation: nil)
+            default:
+                print("Whaaaat ?")
+            }
+        }
+        
     }
     
     override func generateElemFromShadow(shadow: SYElementShadow) {
-
+        switch shadow.type {
+        case "branchElem":
+            let branch = SYElementBranch(propsList: shadow.props, positionsList: shadow.positions, orientationsList: shadow.orientations, randomManager: self.randomManager)
+            self.elems.append(branch)
+        default:
+            break
+        }
     }
     
 }
@@ -39,7 +58,8 @@ class SYElementRoot: SYElement {
 
 
 struct SYElementBranchProps {
-    var size: Float = 1
+    let id: String;
+    var size: Float = 1;
 }
 
 class SYElementBranch: SYElement {
@@ -53,26 +73,38 @@ class SYElementBranch: SYElement {
     }
     
     override func generateElemsList() {
-        let branchRandom = 568655;
-        for (index, props) in propsList.enumerate() {
+        var maxNumberOfElems: Int = 0
+        for props in propsList {
             let myProps = props as! SYElementBranchProps
-            
-            let width: Float = 0.15 + myProps.size * 0.01
-            let childProps = SYGeomBranchProps(size: myProps.size, width: width, random: branchRandom)
-            
-            var orien: GLKVector4? = nil;
-            if index == 1 {
-                orien = GLKVector4Make(1, 0, 0, 1)
+            let numberOfElems = Int((1 + myProps.size) * (1 + myProps.size))
+            maxNumberOfElems = max(numberOfElems, maxNumberOfElems)
+        }
+        for props in propsList {
+            let myProps = props as! SYElementBranchProps
+            let numberOfElems = Int((1 + myProps.size) * (1 + myProps.size))
+            for i in 1...maxNumberOfElems {
+                let subId = myProps.id + "-branch" + String(i)
+                let branchRandom = randomManager.get(subId);
+                let branchMult = UtilsRandom(withRandom: branchRandom, between: 0.5, and: 1.2)
+                
+                var size = myProps.size * branchMult;
+                let width: Float = 0.08 + size * 0.01
+                
+                if i >= numberOfElems {
+                    size = 0
+                }
+                
+                let childProps = SYGeomBranchProps(size: size, width: width, random: branchRandom)
+                let name = "subBranch-\(i)"
+                self.addInElems(name, type: "branchShape", props: childProps, position: nil, orientation: nil)
             }
-            
-            self.addInElems("yolo", props: childProps, position: nil, orientation: orien)
         }
     }
     
     override func generateElemFromShadow(shadow: SYElementShadow) {
-        switch shadow.name {
-        case "yolo":
-            let branch = SYShapeBranch(propsList: shadow.props, positionsList: shadow.positions, orientationsList: shadow.orientations)
+        switch shadow.type {
+        case "branchShape":
+            let branch = SYShapeBranch(propsList: shadow.props, positionsList: shadow.positions, orientationsList: shadow.orientations, randomManager: self.randomManager)
             self.elems.append(branch)
         default:
             break
