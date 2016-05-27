@@ -13,14 +13,58 @@ import GLKit
 class SYElementShadow {
     var type: String;
     var name: String;
-    var positions: [GLKVector3] = [];
-    var orientations: [GLKVector4] = [];
-    var props: [Any] = []
+    var options: Any? = nil;
     
-    init(type: String, name: String) {
+    var positions: [GLKVector3?];
+    var orientations: [GLKVector4?];
+    var props: [Any?];
+    
+    var allProps: [Any] {
+        get {
+            var result: [Any] = []
+            for prop in self.props {
+                if prop != nil {
+                    result.append(prop)
+                }
+            }
+            return result
+        }
+    }
+    
+    var allPositions: [GLKVector3] {
+        get {
+            var result: [GLKVector3] = []
+            for position in self.positions {
+                if position != nil {
+                    result.append(position!)
+                }
+            }
+            return result
+        }
+    }
+    
+    var allOrientations: [GLKVector4] {
+        get {
+            var result: [GLKVector4] = []
+            for orientation in self.orientations {
+                if orientation != nil {
+                    result.append(orientation!)
+                }
+            }
+            return result
+        }
+    }
+    
+    init(type: String, name: String, options: Any?, size: Int) {
+        print("init shadow with size \(size)")
         self.name = name
         self.type = type
+        self.options = options
+        positions = [GLKVector3?](count:size, repeatedValue: nil)
+        orientations = [GLKVector4?](count:size, repeatedValue: nil)
+        props = [Any?](count:size, repeatedValue: nil)
     }
+
 }
 
 struct SYElemEmptyProps {}
@@ -67,12 +111,10 @@ class SYElement: SCNNode, SYRederable {
         self.verifyListsSizes()
         self.verifyProps()
         self.generateElemsList()
-        if self.verifyElemsList() {
-            self.generateAllElemsFromShadows()
-            self.addAllElemsAsChildNodes()
-        } else {
-            fatalError("ShadowElems are not valid !")
-        }
+        self.resolveElemsList()
+        self.verifyElemsList()
+        self.generateAllElemsFromShadows()
+        self.addAllElemsAsChildNodes()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,13 +128,13 @@ class SYElement: SCNNode, SYRederable {
         }
     }
     
-    private func findShadow(type: String, name: String) -> SYElementShadow {
+    private func findShadow(type: String, name: String, options: Any?) -> SYElementShadow {
         for shadow in shadows {
             if shadow.name == name && shadow.type == type {
                 return shadow;
             }
         }
-        let shadow = SYElementShadow(type: type, name: name)
+        let shadow = SYElementShadow(type: type, name: name, options: options, size: self.propsList.count)
         self.shadows.append(shadow)
         return shadow;
     }
@@ -110,31 +152,47 @@ class SYElement: SCNNode, SYRederable {
         }
     }
     
-    private func verifyElemsList() -> Bool {
+    private func verifyElemsList() {
         let propsSize = propsList.count
         for elem in shadows {
             if elem.orientations.count != propsSize {
-                return false
+                fatalError("ShadowElems are not valid !")
             }
             if elem.positions.count != propsSize {
-                return false
+                print(self.shadows)
+                fatalError("ShadowElems are not valid !")
             }
         }
-        return true;
     }
     
-    func addInElems(name: String, type: String, props: Any, position: GLKVector3?, orientation: GLKVector4? ) {
-        let shadow = self.findShadow(type, name: name)
-        shadow.props.append(props)
+    // NOTE : options are only use the first time and are not replaced even if they are differents
+    func addInElems(name: String, type: String, index: Int, options: Any?, props: Any, position: GLKVector3?, orientation: GLKVector4? ) {
+        let shadow = self.findShadow(type, name: name, options: options)
+        if index >= self.propsList.count {
+            fatalError("Gné ? Index > propsList.count (\(self.propsList.count)) get \(index)")
+        }
+        shadow.props[index] = props
         if position == nil {
-            shadow.positions.append(GLKVector3Make(0, 0, 0))
+            shadow.positions[index] = GLKVector3Make(0, 0, 0)
         } else {
-            shadow.positions.append(position!)
+            shadow.positions[index] = position!
         }
         if orientation == nil {
-            shadow.orientations.append(GLKVector4Make(0, 1, 0, 0))
+            shadow.orientations[index] = GLKVector4Make(0, 1, 0, 0)
         } else {
-            shadow.orientations.append(orientation!)
+            shadow.orientations[index] = orientation!
+        }
+    }
+    
+    func resolveElemsList() {
+        for shadow in shadows {
+            // props
+            for (index, prop) in shadow.props.enumerate() {
+                if prop == nil {
+                    let emptyData = generateZeroElemItemFromShadow(shadow, atIndex: index)
+                    self.addInElems(shadow.name, type: shadow.type, index: index, options: nil, props: emptyData.props, position: emptyData.position, orientation: emptyData.orientation)
+                }
+            }
         }
     }
     
@@ -167,12 +225,17 @@ class SYElement: SCNNode, SYRederable {
         for props in propsList {
             // use self.addInElems to generate elems
             let newProps = props as! SYElemEmptyProps
-            self.addInElems("yolo", type: "yoloType", props: newProps, position: nil, orientation: nil)
+            self.addInElems("yolo", type: "yoloType", index: 0, options: nil, props: newProps, position: nil, orientation: nil)
         }
     }
 
     // Overide this to convert a SYElemShadow to a SYElem or a SYShape
     // then append them to self.elems
     func generateElemFromShadow(shadow: SYElementShadow) {}
+    
+    // Overide to verify the type of props
+    func generateZeroElemItemFromShadow(shadow: SYElementShadow, atIndex index: Int) -> (props: Any, position: GLKVector3?, orientation: GLKVector4?) {
+        return (SYElemEmptyProps(), nil, nil)
+    }
     
 }

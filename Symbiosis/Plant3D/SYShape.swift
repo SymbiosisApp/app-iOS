@@ -61,19 +61,11 @@ class SYShape: SCNNode, SYRederable {
             var beforeIndex: Int = 0
             var afterIndex: Int = 0
             var diffProgress: Float = 0
-            
-//            if floor(progress) == progress {
-//                beforeIndex = Int(progress)
-//                afterIndex = beforeIndex
-//                diffProgress = 0
-//            } else {
-                beforeIndex = min(Int(floor(progress)), self.propsList.count - 2)
-                afterIndex = beforeIndex + 1
-                diffProgress = progress - Float(beforeIndex)
-//            }
-            
-            print("\(progress) -> \(beforeIndex) - \(afterIndex) - \(diffProgress)")
 
+            beforeIndex = min(Int(floor(progress)), self.propsList.count - 2)
+            afterIndex = beforeIndex + 1
+            diffProgress = progress - Float(beforeIndex)
+            
             // Interpolate pos and orient
             let pos = GLKVector3Lerp(self.positionsList[beforeIndex], self.positionsList[afterIndex], diffProgress)
             self.position = SCNVector3FromGLKVector3(pos)

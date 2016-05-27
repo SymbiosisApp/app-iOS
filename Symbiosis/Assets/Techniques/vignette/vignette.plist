@@ -19,7 +19,7 @@
 				<string>COLOR</string>
 			</dict>
 			<key>program</key>
-			<string>tilt_shift</string>
+			<string>vignette</string>
 			<key>draw</key>
 			<string>DRAW_QUAD</string>
 		</dict>

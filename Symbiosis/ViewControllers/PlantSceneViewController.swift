@@ -76,13 +76,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         rotationNode.addChildNode(cameraNode)
         rotationNode.position = SCNVector3Make(0, 0, 0)
         scene.rootNode.addChildNode(rotationNode)
-        
-        // create and add an ambient light to the scene
-//        let ambientLightNode = SCNNode()
-//        ambientLightNode.light = SCNLight()
-//        ambientLightNode.light!.type = SCNLightTypeAmbient
-//        ambientLightNode.light!.color = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-//        scene.rootNode.addChildNode(ambientLightNode)
 
         // Front light
         let lightNode = SCNNode()
@@ -107,29 +100,15 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //        lightNode3.position = SCNVector3Make(2, 2, 2);
 //        rotationNode.addChildNode(lightNode3)
 //        lightNode3.geometry = SCNSphere(radius: 0.1)
-        
-        
-        // Add froor
-//        let floorMat = SCNMaterial()
-//        floorMat.diffuse.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-//        floorMat.doubleSided = true
-//        floorMat.transparent.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-//        let myFloor = SCNFloor()
-//        myFloor.materials = [floorMat]
-//        myFloor.reflectivity = 0;
-//        let myFloorNode = SCNNode(geometry: myFloor)
-//        myFloorNode.position = SCNVector3Make(0, 0, 0);
-//        scene.rootNode.addChildNode(myFloorNode)
 
         // scnView.technique =
-        if let path = NSBundle.mainBundle().pathForResource("tilt_shift", ofType: "plist") {
+        if let path = NSBundle.mainBundle().pathForResource("vignette", ofType: "plist") {
             if let dico1 = NSDictionary(contentsOfFile: path)  {
                 let dico = dico1 as! [String : AnyObject]
                 //println(dico)
                 let technique = SCNTechnique(dictionary:dico)
                 //Need the screen size
                 technique?.setValue(NSValue(CGSize: CGSizeApplyAffineTransform(self.view.frame.size, CGAffineTransformMakeScale(2.0, 2.0))), forKeyPath: "size_screen")
-                print("Add technique")
                 scnView.technique = technique
             }
         }
