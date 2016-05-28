@@ -72,7 +72,5 @@ class SYPath {
         self.elements = elements
         
     }
-    
-    
-    
+
 }

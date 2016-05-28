@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		1814CB351CEE0B47004D7540 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB341CEE0B47004D7540 /* main.swift */; };
 		1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */; };
-		183FF6A71CF8F1420086D011 /* PathAtTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6A61CF8F1420086D011 /* PathAtTime.swift */; };
 		183FF6A91CF8FB6F0086D011 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */; };
+		183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AB1CFA078D0086D011 /* SYPath.swift */; };
+		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
 		1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0121CF6446D000C45D6 /* SYElement.swift */; };
 		1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0151CF6446D000C45D6 /* SYGeom.swift */; };
 		1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0171CF6446D000C45D6 /* SYPlant.swift */; };
@@ -42,7 +43,6 @@
 		18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */; };
 		18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */; };
 		18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55A21CE91D85008E8EC4 /* Settings.storyboard */; };
-		18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4262E1CE473CB00309EE6 /* Utils.swift */; };
 		18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DEDE841CE5ED1300CE154F /* TabBar.xib */; };
 		18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEDE871CE5EDD100CE154F /* TabBar.swift */; };
 		18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 18F1363C1CF75AA30021CBF5 /* smoke.fsh */; };
@@ -77,8 +77,9 @@
 		1814CB341CEE0B47004D7540 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1814CB361CEE0DC3004D7540 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTouchposeApplication.h; path = Touchpose/QTouchposeApplication.h; sourceTree = "<group>"; };
 		1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTouchposeApplication.m; path = Touchpose/QTouchposeApplication.m; sourceTree = "<group>"; };
-		183FF6A61CF8F1420086D011 /* PathAtTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathAtTime.swift; sourceTree = "<group>"; };
 		183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		183FF6AB1CFA078D0086D011 /* SYPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPath.swift; sourceTree = "<group>"; };
+		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1848F0121CF6446D000C45D6 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		1848F0151CF6446D000C45D6 /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
 		1848F0171CF6446D000C45D6 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Plant.storyboard; path = Storyboards/Plant.storyboard; sourceTree = "<group>"; };
 		18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profil.storyboard; path = Storyboards/Profil.storyboard; sourceTree = "<group>"; };
 		18CF55A21CE91D85008E8EC4 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
-		18D4262E1CE473CB00309EE6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18DEDE841CE5ED1300CE154F /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		18DEDE871CE5EDD100CE154F /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		18F1363C1CF75AA30021CBF5 /* smoke.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = smoke.fsh; sourceTree = "<group>"; };
@@ -158,13 +158,13 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		183FF6A51CF8F1290086D011 /* Utils */ = {
+		183FF6AA1CFA078D0086D011 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				18D4262E1CE473CB00309EE6 /* Utils.swift */,
-				183FF6A61CF8F1420086D011 /* PathAtTime.swift */,
+				183FF6AB1CFA078D0086D011 /* SYPath.swift */,
+				183FF6AC1CFA078D0086D011 /* Utils.swift */,
 			);
-			name = Utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		1848F0111CF6446D000C45D6 /* Plant3D */ = {
@@ -248,11 +248,11 @@
 				1814CB2F1CEE0AEE004D7540 /* symbiosis-ios-app-Bridging-Header.h */,
 				1814CB341CEE0B47004D7540 /* main.swift */,
 				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
-				183FF6A51CF8F1290086D011 /* Utils */,
 				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
 				1854399B1CEBCBA100B1D86C /* SYSocket.swift */,
 				185439911CEBC87800B1D86C /* SYPedometer.swift */,
 				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
+				183FF6AA1CFA078D0086D011 /* Utils */,
 				1814CB391CEE53DE004D7540 /* Assets */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
 				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
@@ -429,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */,
 				18F136571CF7CC270021CBF5 /* SYGeomTige.swift in Sources */,
 				1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
@@ -436,12 +437,11 @@
 				1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */,
 				18F136541CF7CC270021CBF5 /* SYGeomBranch.swift in Sources */,
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
+				183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */,
 				1848F0221CF6446D000C45D6 /* SYRandomManager.swift in Sources */,
 				18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */,
 				18F136551CF7CC270021CBF5 /* SYGeomEmpty.swift in Sources */,
 				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
-				183FF6A71CF8F1420086D011 /* PathAtTime.swift in Sources */,
-				18D4262F1CE473CB00309EE6 /* Utils.swift in Sources */,
 				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
 				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
