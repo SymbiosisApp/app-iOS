@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import GLKit
+import SceneKit
 
 
 struct SYGeomLeafProps {

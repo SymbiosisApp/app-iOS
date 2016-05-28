@@ -25,6 +25,14 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // -----
+        let path: UIBezierPath = UIBezierPath()
+        path.moveToPoint(CGPoint(x: 0, y: 0))
+        path.addCurveToPoint(CGPoint(x: 10, y: 10), controlPoint1: CGPoint(x: 0, y: 10), controlPoint2: CGPoint(x: 0, y: 10))
+        path.moveToPoint(CGPoint(x: 20, y: 20))
+        path.addLineToPoint(CGPoint(x: 15, y: 15))
+        // -----
 
         // retrieve the SCNView
         let scnView = self.view as! SCNView
