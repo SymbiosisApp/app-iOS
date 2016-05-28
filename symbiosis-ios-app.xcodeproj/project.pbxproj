@@ -329,6 +329,7 @@
 				18BC17F01C722BBE008E6558 /* Resources */,
 				185439871CEBC4F000B1D86C /* Embed Frameworks */,
 				185439891CEBC52500B1D86C /* ShellScript */,
+				183FF6AF1CFA0B000086D011 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -409,6 +410,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		183FF6AF1CFA0B000086D011 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ls .\ntoken_file=$PROJECT_DIR/.mapboxToken\ntoken=\"$(cat $token_file)\"\nif [ \"$token\" ]; then\nplutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\necho 'error: Missing Mapbox access token'\nopen 'https://www.mapbox.com/studio/account/tokens/'\necho \"error: Get an access token from <https://www.mapbox.com/studio/account/tokens/>, then create a new file at $token_file that contains the access token.\"\nexit 1\nfi";
+		};
 		185439891CEBC52500B1D86C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

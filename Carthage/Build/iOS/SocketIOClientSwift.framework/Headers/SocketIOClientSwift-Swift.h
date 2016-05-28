@@ -104,6 +104,10 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 @end
 
 
+@interface NSData (SWIFT_EXTENSION(SocketIOClientSwift))
+@end
+
+
 @interface NSDictionary (SWIFT_EXTENSION(SocketIOClientSwift))
 @end
 
@@ -127,7 +131,6 @@ SWIFT_CLASS("_TtC19SocketIOClientSwift14SocketAnyEvent")
 @class NSURL;
 @class WebSocket;
 @protocol SocketEngineClient;
-@class NSData;
 enum SocketEnginePacketType : NSInteger;
 @class NSError;
 
@@ -181,9 +184,7 @@ SWIFT_PROTOCOL("_TtP19SocketIOClientSwift18SocketEngineClient_")
 @protocol SocketEngineClient
 - (void)engineDidError:(NSString * _Nonnull)reason;
 - (void)engineDidClose:(NSString * _Nonnull)reason;
-@optional
 - (void)engineDidOpen:(NSString * _Nonnull)reason;
-@required
 - (void)parseEngineMessage:(NSString * _Nonnull)msg;
 - (void)parseEngineBinaryData:(NSData * _Nonnull)data;
 @end
@@ -268,6 +269,7 @@ SWIFT_CLASS("_TtC19SocketIOClientSwift14SocketIOClient")
 
 /// error
 - (void)engineDidError:(NSString * _Nonnull)reason;
+- (void)engineDidOpen:(NSString * _Nonnull)reason;
 
 /// Causes an event to be handled. Only use if you know what you're doing.
 - (void)handleEvent:(NSString * _Nonnull)event data:(NSArray * _Nonnull)data isInternalMessage:(BOOL)isInternalMessage withAck:(NSInteger)ack;
@@ -332,6 +334,7 @@ SWIFT_CLASS("_TtC19SocketIOClientSwift9WebSocket")
 @property (nonatomic) BOOL voipEnabled;
 @property (nonatomic) BOOL selfSignedSSL;
 @property (nonatomic, copy) NSString * _Nullable origin;
+@property (nonatomic) NSInteger timeout;
 @property (nonatomic, readonly) BOOL isConnected;
 @property (nonatomic, readonly, strong) NSURL * _Nonnull currentURL;
 - (nonnull instancetype)initWithUrl:(NSURL * _Nonnull)url protocols:(NSArray<NSString *> * _Nullable)protocols OBJC_DESIGNATED_INITIALIZER;
