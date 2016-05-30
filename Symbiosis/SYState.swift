@@ -24,7 +24,8 @@ struct SYState {
     var lastSelectedTab: Int = -1
     var nextOnboarding: String = "Intro"
     var onboardingOpen: Bool = false
-    var numberOfSteps: [SYStateSteps] = []
+    var steps: [SYStateSteps] = []
+    var plantIsAnimating: Bool = false
 }
 
 /// Events types
@@ -120,7 +121,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func triggerUpdate() {
         self.trigger(.Update)
+        print("=======> Replace states")
         self.previousState = self.currentState
+        print("=> After Replace states")
     }
     
     
@@ -145,6 +148,32 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.lastSelectedTab
     }
     
+    func plantShouldAnimate() -> Bool {
+        if currentState.plantIsAnimating {
+            return false
+        }
+        return getCurrentTotalSteps() != getPreviousTotalSteps()
+    }
+    
+    func getCurrentTotalSteps() -> Int {
+        var result: Int = 0
+        for step in self.currentState.steps {
+            result += step.steps
+        }
+        return result
+    }
+    
+    func getPreviousTotalSteps() -> Int {
+        var result: Int = 0
+        for step in self.previousState.steps {
+            result += step.steps
+        }
+        return result
+    }
+    
+    func plantIsAnimating() -> Bool {
+        return currentState.plantIsAnimating
+    }
     
     
     
@@ -161,12 +190,24 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.triggerUpdate()
     }
     
-    func incrementsNumberOfSteps(newSteps: Int) {
-        currentState.numberOfSteps.append(SYStateSteps(date: NSDate(), steps: newSteps))
+    func addSteps(newSteps: Int) {
+        print("Add steps")
+        currentState.steps.append(SYStateSteps(date: NSDate(), steps: newSteps))
         self.triggerUpdate()
     }
     
+    func plantStartAnimate() {
+        if self.currentState.plantIsAnimating {
+            fatalError("Plant is already animating !")
+        }
+        self.currentState.plantIsAnimating = true
+        self.triggerUpdate()
+    }
     
+    func plantEndAnimating() {
+        self.currentState.plantIsAnimating = false
+        self.triggerUpdate()
+    }
     
     
     
@@ -187,8 +228,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: SYPedometer Delegate
     
     func syPedometer(didReveiveData data: NSNumber) {
-        print("Youpi, j'ai fait \(data) pas !")
-        self.incrementsNumberOfSteps(Int(data))
+        self.addSteps(Int(data))
     }
     
 }
