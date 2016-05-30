@@ -9,13 +9,37 @@
 import Foundation
 import CoreLocation
 
-class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
-    
-    // state
+/// Steps struct
+struct SYStateSteps {
+    let date: NSDate
+    let steps: Int
+}
+
+struct SYStatePlant {
+    let values: [Float]
+}
+
+struct SYState {
     var selectedTab: Int = -1
     var lastSelectedTab: Int = -1
     var nextOnboarding: String = "Intro"
     var onboardingOpen: Bool = false
+    var numberOfSteps: [SYStateSteps] = []
+}
+
+/// Events types
+enum SYStateEvent {
+    case Update
+}
+
+class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
+    
+    private var currentState = SYState()
+    private var previousState = SYState()
+    
+    /**
+     * This is the Events part
+     **/
     
     static let sharedInstance = SYStateManager()
     
@@ -91,16 +115,64 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         }
     }
     
+    
+    
+    
+    func triggerUpdate() {
+        self.trigger(.Update)
+        self.previousState = self.currentState
+    }
+    
+    
+    /**
+     * Get special properties
+     **/
+    // - MARK: Get special properties
+    
+    func tabHasChanged() -> Bool {
+        return currentState.selectedTab != previousState.selectedTab
+    }
+    
+    func isSelectedTab(index: Int) -> Bool {
+        return currentState.selectedTab == index
+    }
+    
+    func getSelectedTab() -> Int {
+        return currentState.selectedTab
+    }
+    
+    func getLastSelectedTab() -> Int {
+        return currentState.lastSelectedTab
+    }
+    
+    
+    
+    
+    /**
+     * State Actions
+     **/
     // - MARK: State Actions
     
     func selectTab(newSelectedTab: Int) {
-        if newSelectedTab != selectedTab {
-            lastSelectedTab = selectedTab
-            selectedTab = newSelectedTab
-            self.trigger(SYStateEvent.TabChanged)
+        if newSelectedTab != currentState.selectedTab {
+            currentState.lastSelectedTab = currentState.selectedTab
+            currentState.selectedTab = newSelectedTab
         }
+        self.triggerUpdate()
     }
     
+    func incrementsNumberOfSteps(newSteps: Int) {
+        currentState.numberOfSteps.append(SYStateSteps(date: NSDate(), steps: newSteps))
+        self.triggerUpdate()
+    }
+    
+    
+    
+    
+    
+    /**
+     * Delegates
+     **/
     // - MARK: SYLocationManager Delegate
     
     func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -116,6 +188,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func syPedometer(didReveiveData data: NSNumber) {
         print("Youpi, j'ai fait \(data) pas !")
+        self.incrementsNumberOfSteps(Int(data))
     }
     
 }
@@ -134,9 +207,4 @@ class EventListenerAction {
         self.actionExpectsInfo = callback;
         self.action = nil;
     }
-}
-
-enum SYStateEvent {
-    case TabChanged
-    case ShowOnboarding
 }
