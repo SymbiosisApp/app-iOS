@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         
         
         //showonboarding et path onborading's name
-        let JsonDataConfig = SymbiosisJsonSingleton()
+        let JsonDataConfig = SYOnboardingDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
             let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
             self.showOnboarding(onboardingData)

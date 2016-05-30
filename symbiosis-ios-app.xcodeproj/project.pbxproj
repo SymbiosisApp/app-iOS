@@ -14,6 +14,7 @@
 		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
 		183FF6B11CFC728F0086D011 /* onboardings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B01CFC728F0086D011 /* onboardings.plist */; };
 		183FF6B31CFC75970086D011 /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B21CFC75970086D011 /* symbiosis.json */; };
+		183FF6B51CFC77240086D011 /* SYOnboardingDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */; };
 		1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0121CF6446D000C45D6 /* SYElement.swift */; };
 		1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0151CF6446D000C45D6 /* SYGeom.swift */; };
 		1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0171CF6446D000C45D6 /* SYPlant.swift */; };
@@ -95,6 +96,7 @@
 		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		183FF6B01CFC728F0086D011 /* onboardings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = onboardings.plist; sourceTree = "<group>"; };
 		183FF6B21CFC75970086D011 /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
+		183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboardingDataLoader.swift; sourceTree = "<group>"; };
 		1848F0121CF6446D000C45D6 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		1848F0151CF6446D000C45D6 /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
 		1848F0171CF6446D000C45D6 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				666301A21CFC39C1001E991F /* gif */,
 				183FF6AB1CFA078D0086D011 /* SYPath.swift */,
 				183FF6AC1CFA078D0086D011 /* Utils.swift */,
+				183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
 				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
 				666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */,
+				183FF6B51CFC77240086D011 /* SYOnboardingDataLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

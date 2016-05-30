@@ -27,7 +27,7 @@ class SYOnboarding : UIPageViewController {
         var result :[UIViewController] = []
         
         for (key, value) in self.initOnboardingData {
-            result += [UIStoryboard(name:"Onboarding",bundle : nil).instantiateViewControllerWithIdentifier(String(value))]
+            result += [UIStoryboard(name:"Onboarding", bundle: nil).instantiateViewControllerWithIdentifier(String(value))]
         }
         
         return result
