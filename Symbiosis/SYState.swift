@@ -14,6 +14,8 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // state
     var selectedTab: Int = -1
     var lastSelectedTab: Int = -1
+    var nextOnboarding: String = "Intro"
+    var onboardingOpen: Bool = false
     
     static let sharedInstance = SYStateManager()
     
@@ -23,11 +25,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     let pedometer: SYPedometer = SYPedometer(useNatif: false)
     
     private init() {
-        
         // Delegates
         self.locationManager.delegate = self
         self.pedometer.delegate = self
         
+        self.locationManager.start()
     } //This prevents others from using the default '()' initializer for this class.
     
     // - MARK: EventManager
@@ -95,7 +97,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         if newSelectedTab != selectedTab {
             lastSelectedTab = selectedTab
             selectedTab = newSelectedTab
-            self.trigger(.TabChanged)
+            self.trigger(SYStateEvent.TabChanged)
         }
     }
     
@@ -103,6 +105,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Location updated !")
+        // self.trigger(.ShowOnboarding)
     }
     
     func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
@@ -135,4 +138,5 @@ class EventListenerAction {
 
 enum SYStateEvent {
     case TabChanged
+    case ShowOnboarding
 }

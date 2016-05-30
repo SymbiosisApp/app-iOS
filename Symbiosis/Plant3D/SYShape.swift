@@ -168,7 +168,7 @@ class SYShape: SCNNode, SYRederable {
                 print(keys[i-1])
                 print(keys[i])
             } else {
-                print("Same Structure !")
+                // print("Same Structure !")
             }
         }
     }

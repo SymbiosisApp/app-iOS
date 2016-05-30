@@ -39,93 +39,92 @@ class SYPedometer {
     
     init(useNatif: Bool){
         self.useNatif = useNatif
+        
+        //USE Socket
+        self.socket.io.on("UPDATE_PEDOMETER") { data, ack in
+            let step = data[0].integerValue;
+            self.delegate?.syPedometer(didReveiveData: step);
+        }
     }
     
-    func getPedometerData (fromDate: NSDate, toDate: NSDate) -> SYPedometerData {
-        
-        var numberOfSteps = 0;
-        var distance = 0;
-        var currentCadence = 0;
-        var floorsAscended = 0;
-        var floorsDescended = 0;
-        var startDate : NSDate = NSDate();
-        var endDate: NSDate = NSDate();
-        
-        if ( useNatif ) {
-            self.natifPedometer = CMPedometer()
-            
-            if CMPedometer.isStepCountingAvailable() {
-                print("valid pedometer");
-            } else {
-                print("invalid pedometer");
-            }
-            
-            self.natifPedometer!.queryPedometerDataFromDate(NSDate(), toDate: NSDate(), withHandler: { (data, error) -> Void in
-                
-                numberOfSteps = Int(data!.numberOfSteps)
-                distance = Int(data!.distance!)
-                currentCadence = Int(data!.currentCadence!)
-                floorsAscended = Int(data!.floorsAscended!)
-                floorsDescended = Int (data!.floorsDescended!)
-                //onComplete(SYPedometerData())
-            })
-            
-        }else {
-            
-            //USE Socket
-            self.socket.io.on("UPDATE_PEDOMETER") { data, ack in
-                
-                let step = data[0].integerValue;
-                self.delegate?.syPedometer(didReveiveData: step);
-            }
-            
-            //TODO AnyObject to NSDATA
-            
-            //Get DATA
-            let data = NSData(contentsOfURL: NSURL(string: "http://127.0.0.1:8080/pedometerData/")!)
-            
-            var jsonResult : AnyObject
-            
-            if (data != nil){
-                
-                do {
-                    jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
-                    
-                    if let items = jsonResult as? NSArray {
-                        for item in items {
-                            print(item["numberOfSteps"]!!.integerValue);
-                            print(item["distance"]!!.integerValue);
-                            print(item["currentCadence"]!!.integerValue);
-                            print(item["floorsAscended"]!!.integerValue);
-                            print(item["floorsDescended"]!!.integerValue);
-                            
-                            numberOfSteps = item["numberOfSteps"]!!.integerValue
-                            distance = 10
-                            
-                            let time = 2
-                            currentCadence = distance * time
-                            
-                            floorsAscended = 4
-                            floorsDescended = 2
-                            
-                            startDate = fromDate
-                            endDate = toDate
-                            
-                        }
-                    }
-                    
-                } catch let error as NSError {
-                    print(error)
-                }
-            }else{
-                print("error connection database (php)")
-            }
-            //onComplete(SYPedometerData())
-        }
-        
-        return SYPedometerData(numberOfSteps: numberOfSteps, distance: distance, currentCadence: currentCadence, floorsAscended: floorsAscended, floorsDescended: floorsDescended, startDate: startDate, endDate: endDate)
-        
-    }
+//    func getPedometerData (fromDate: NSDate, toDate: NSDate) -> SYPedometerData {
+//        
+//        var numberOfSteps = 0;
+//        var distance = 0;
+//        var currentCadence = 0;
+//        var floorsAscended = 0;
+//        var floorsDescended = 0;
+//        var startDate : NSDate = NSDate();
+//        var endDate: NSDate = NSDate();
+//        
+//        if ( useNatif ) {
+//            self.natifPedometer = CMPedometer()
+//            
+//            if CMPedometer.isStepCountingAvailable() {
+//                print("valid pedometer");
+//            } else {
+//                print("invalid pedometer");
+//            }
+//            
+//            self.natifPedometer!.queryPedometerDataFromDate(NSDate(), toDate: NSDate(), withHandler: { (data, error) -> Void in
+//                
+//                numberOfSteps = Int(data!.numberOfSteps)
+//                distance = Int(data!.distance!)
+//                currentCadence = Int(data!.currentCadence!)
+//                floorsAscended = Int(data!.floorsAscended!)
+//                floorsDescended = Int (data!.floorsDescended!)
+//                //onComplete(SYPedometerData())
+//            })
+//            
+//        } else {
+//            
+//            //TODO AnyObject to NSDATA
+//            
+//            //Get DATA
+//            let data = NSData(contentsOfURL: NSURL(string: "http://127.0.0.1:8080/pedometerData/")!)
+//            
+//            var jsonResult : AnyObject
+//            
+//            if (data != nil){
+//                
+//                do {
+//                    jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+//                    
+//                    if let items = jsonResult as? NSArray {
+//                        for item in items {
+//                            print(item["numberOfSteps"]!!.integerValue);
+//                            print(item["distance"]!!.integerValue);
+//                            print(item["currentCadence"]!!.integerValue);
+//                            print(item["floorsAscended"]!!.integerValue);
+//                            print(item["floorsDescended"]!!.integerValue);
+//                            
+//                            numberOfSteps = item["numberOfSteps"]!!.integerValue
+//                            distance = 10
+//                            
+//                            let time = 2
+//                            currentCadence = distance * time
+//                            
+//                            floorsAscended = 4
+//                            floorsDescended = 2
+//                            
+//                            startDate = fromDate
+//                            endDate = toDate
+//                            
+//                        }
+//                    }
+//                    
+//                } catch let error as NSError {
+//                    print(error)
+//                }
+//            }else{
+//                print("error connection database (php)")
+//            }
+//            //onComplete(SYPedometerData())
+//        }
+//        
+//        return SYPedometerData(numberOfSteps: numberOfSteps, distance: distance, currentCadence: currentCadence, floorsAscended: floorsAscended, floorsDescended: floorsDescended, startDate: startDate, endDate: endDate)
+//        
+//    }
     
 }
 

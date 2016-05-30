@@ -32,17 +32,10 @@ class MainViewController: UIViewController {
 
         // Listen to events
         state.listenTo(.TabChanged, action: self.onTabChanged)
+        state.listenTo(.ShowOnboarding, action: self.showOnboardingIntro)
         
         // Init the tabBar on plant
         state.selectTab(2)
-        
-        
-        //showonboarding et path onborading's name
-        let JsonDataConfig = SYOnboardingDataLoader()
-        dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
-            self.showOnboarding(onboardingData)
-        })
         
         //call notification with texte
         showNotifications("texte yolo notif")
@@ -51,6 +44,15 @@ class MainViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
+    }
+    
+    func showOnboardingIntro() {
+        //showonboarding et path onborading's name
+        let JsonDataConfig = SYOnboardingDataLoader()
+        dispatch_async(dispatch_get_main_queue(), {
+            let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
+            self.showOnboarding(onboardingData)
+        })
     }
     
     
