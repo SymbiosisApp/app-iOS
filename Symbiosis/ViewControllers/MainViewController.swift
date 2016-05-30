@@ -28,18 +28,53 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+
         // Listen to events
         state.listenTo(.TabChanged, action: self.onTabChanged)
         
         // Init the tabBar on plant
         state.selectTab(2)
         
-        super.viewDidLoad()
+        
+        //showonboarding et path onborading's name
+        let JsonDataConfig = SymbiosisJsonSingleton()
+        dispatch_async(dispatch_get_main_queue(), {
+            let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
+            self.showOnboarding(onboardingData)
+        })
+        
+        //call notification with texte
+        showNotifications("texte yolo notif")
     }
+    
     
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
+    }
+    
+    
+    func showOnboarding(onboardingData:NSDictionary)   {
+        let viewController: UIViewController = SYOnboarding(data: onboardingData as! [String : AnyObject])
+        presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func closeOnboarding(segue: UIStoryboardSegue)    {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func showNotifications(textNotification : String){
+        let now = NSDate(timeIntervalSinceNow: 10)
+        let notification = UILocalNotification()
+        notification.alertBody = textNotification
+        notification.fireDate = now
+        //notification.soundName =
+        //notification.alertAction =
+        //notification.category =
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
 
     

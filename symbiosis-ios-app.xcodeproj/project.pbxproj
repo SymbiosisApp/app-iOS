@@ -55,6 +55,14 @@
 		18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */; };
 		18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F136591CF7CC460021CBF5 /* SYElementRoot.swift */; };
 		18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1365B1CF7CC630021CBF5 /* SYElementBasicType1.swift */; };
+		666301951CFC3815001E991F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301941CFC3815001E991F /* Onboarding.storyboard */; };
+		666301971CFC3897001E991F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301961CFC3897001E991F /* LoginViewController.swift */; };
+		666301991CFC38EA001E991F /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301981CFC38EA001E991F /* UserSingleton.swift */; };
+		6663019B1CFC390E001E991F /* SYOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663019A1CFC390E001E991F /* SYOnboarding.swift */; };
+		6663019D1CFC3930001E991F /* SYOnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663019C1CFC3930001E991F /* SYOnboardingManager.swift */; };
+		6663019F1CFC3982001E991F /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 6663019E1CFC3982001E991F /* symbiosis.json */; };
+		666301A11CFC39BB001E991F /* graine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666301A01CFC39BB001E991F /* graine.gif */; };
+		666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A31CFC3A22001E991F /* IntroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,6 +132,14 @@
 		18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeomTrunk.swift; sourceTree = "<group>"; };
 		18F136591CF7CC460021CBF5 /* SYElementRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElementRoot.swift; sourceTree = "<group>"; };
 		18F1365B1CF7CC630021CBF5 /* SYElementBasicType1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElementBasicType1.swift; sourceTree = "<group>"; };
+		666301941CFC3815001E991F /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Onboarding.storyboard; path = Storyboards/Onboarding.storyboard; sourceTree = "<group>"; };
+		666301961CFC3897001E991F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
+		6663019A1CFC390E001E991F /* SYOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboarding.swift; sourceTree = "<group>"; };
+		6663019C1CFC3930001E991F /* SYOnboardingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboardingManager.swift; sourceTree = "<group>"; };
+		6663019E1CFC3982001E991F /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
+		666301A01CFC39BB001E991F /* graine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graine.gif; sourceTree = "<group>"; };
+		666301A31CFC3A22001E991F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = OnboardingViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +167,7 @@
 		1814CB391CEE53DE004D7540 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6663019E1CFC3982001E991F /* symbiosis.json */,
 				187FAD7A1CEF047A00B10224 /* Shaders */,
 				187FAD5A1CEEFFE200B10224 /* Techniques */,
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
@@ -161,6 +178,7 @@
 		183FF6AA1CFA078D0086D011 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				666301A21CFC39C1001E991F /* gif */,
 				183FF6AB1CFA078D0086D011 /* SYPath.swift */,
 				183FF6AC1CFA078D0086D011 /* Utils.swift */,
 			);
@@ -189,6 +207,7 @@
 				1854398C1CEBC5DD00B1D86C /* PlantSceneViewController.swift */,
 				1854398F1CEBC60800B1D86C /* MapViewController.swift */,
 				183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */,
+				666301961CFC3897001E991F /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -252,9 +271,13 @@
 				1854399B1CEBCBA100B1D86C /* SYSocket.swift */,
 				185439911CEBC87800B1D86C /* SYPedometer.swift */,
 				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
+				666301981CFC38EA001E991F /* UserSingleton.swift */,
+				6663019A1CFC390E001E991F /* SYOnboarding.swift */,
+				6663019C1CFC3930001E991F /* SYOnboardingManager.swift */,
 				183FF6AA1CFA078D0086D011 /* Utils */,
 				1814CB391CEE53DE004D7540 /* Assets */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
+				666301A51CFC3A2B001E991F /* OnboardingViewControllers */,
 				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
 				18DEDE861CE5ED8100CE154F /* Components */,
 				1848F0111CF6446D000C45D6 /* Plant3D */,
@@ -282,6 +305,7 @@
 				18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */,
 				18CF55A21CE91D85008E8EC4 /* Settings.storyboard */,
 				18CF55971CE91CA9008E8EC4 /* LaunchScreen.storyboard */,
+				666301941CFC3815001E991F /* Onboarding.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -315,6 +339,22 @@
 				18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */,
 			);
 			path = SYGeoms;
+			sourceTree = "<group>";
+		};
+		666301A21CFC39C1001E991F /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				666301A01CFC39BB001E991F /* graine.gif */,
+			);
+			name = gif;
+			sourceTree = "<group>";
+		};
+		666301A51CFC3A2B001E991F /* OnboardingViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				666301A31CFC3A22001E991F /* IntroViewController.swift */,
+			);
+			name = OnboardingViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666301A11CFC39BB001E991F /* graine.gif in Resources */,
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
 				18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */,
 				18CF559E1CE91CA9008E8EC4 /* Main.storyboard in Resources */,
@@ -398,10 +439,12 @@
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
 				187FAD7E1CEF047A00B10224 /* tooning.fsh in Resources */,
 				18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */,
+				6663019F1CFC3982001E991F /* symbiosis.json in Resources */,
 				18F136411CF75AA30021CBF5 /* smoke.vsh in Resources */,
 				187FAD741CEF013800B10224 /* vignette.plist in Resources */,
 				18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */,
 				18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */,
+				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
 				18F136401CF75AA30021CBF5 /* smoke.plist in Resources */,
 				18CF559F1CE91CA9008E8EC4 /* Map.storyboard in Resources */,
 			);
@@ -443,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666301971CFC3897001E991F /* LoginViewController.swift in Sources */,
 				183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */,
 				18F136571CF7CC270021CBF5 /* SYGeomTige.swift in Sources */,
 				1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */,
@@ -456,20 +500,24 @@
 				18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */,
 				18F136551CF7CC270021CBF5 /* SYGeomEmpty.swift in Sources */,
 				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
+				6663019B1CFC390E001E991F /* SYOnboarding.swift in Sources */,
 				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
 				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
 				18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */,
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
+				6663019D1CFC3930001E991F /* SYOnboardingManager.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
+				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,
 				18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */,
 				1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */,
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
 				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
+				666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

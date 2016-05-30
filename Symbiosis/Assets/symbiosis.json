@@ -1,0 +1,47 @@
+    {
+    "Onboarding": [
+        {
+          "Intro": [
+            {
+              "name": "page1"
+            },
+            {
+              "name": "page2"
+              }
+            ]
+        },
+        {
+          "Graine": [
+            {
+              "name":"graine"
+            },
+            {
+              "name":"partage"
+            },
+            {
+              "name":"déplacement"
+              }
+            ]
+        },
+        {
+          "Pollen": [
+            {
+              "name":"dissemination"
+            },
+            {
+              "name":"récolte"
+              }
+            ]
+        },
+        {
+          "Fruit": [
+            {
+              "name":"éclosion"
+            },
+            {
+              "name":"partage"
+            }
+          ]
+        }
+      ]
+    }
