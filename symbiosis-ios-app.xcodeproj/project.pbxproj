@@ -12,6 +12,7 @@
 		183FF6A91CF8FB6F0086D011 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */; };
 		183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AB1CFA078D0086D011 /* SYPath.swift */; };
 		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
+		183FF6B11CFC728F0086D011 /* onboardings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B01CFC728F0086D011 /* onboardings.plist */; };
 		1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0121CF6446D000C45D6 /* SYElement.swift */; };
 		1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0151CF6446D000C45D6 /* SYGeom.swift */; };
 		1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0171CF6446D000C45D6 /* SYPlant.swift */; };
@@ -92,6 +93,7 @@
 		183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		183FF6AB1CFA078D0086D011 /* SYPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPath.swift; sourceTree = "<group>"; };
 		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		183FF6B01CFC728F0086D011 /* onboardings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = onboardings.plist; sourceTree = "<group>"; };
 		1848F0121CF6446D000C45D6 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		1848F0151CF6446D000C45D6 /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
 		1848F0171CF6446D000C45D6 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				6663019E1CFC3982001E991F /* symbiosis.json */,
+				183FF6B01CFC728F0086D011 /* onboardings.plist */,
 				187FAD7A1CEF047A00B10224 /* Shaders */,
 				187FAD5A1CEEFFE200B10224 /* Techniques */,
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
@@ -460,6 +463,7 @@
 				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
 				18F136401CF75AA30021CBF5 /* smoke.plist in Resources */,
 				18CF559F1CE91CA9008E8EC4 /* Map.storyboard in Resources */,
+				183FF6B11CFC728F0086D011 /* onboardings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,8 +12,9 @@ import UIKit
 class SYOnboarding : UIPageViewController {
     
     var initOnboardingData : [String : AnyObject]!
-    init(data onboardingData : [String : AnyObject]) {
-        
+    var onboardingDelegate: protocolPageViewControllerDelegate?
+    
+    init(data onboardingData: [String : AnyObject]) {
         self.initOnboardingData = onboardingData
         super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: onboardingData)
     }
@@ -22,9 +23,6 @@ class SYOnboarding : UIPageViewController {
         super.init(coder: aDecoder)
     }
     
-    
-    
-    var onboardingDelegate: protocolPageViewControllerDelegate?
     private(set) lazy var onboardingViewController : [UIViewController] = {
         var result :[UIViewController] = []
         
@@ -34,8 +32,6 @@ class SYOnboarding : UIPageViewController {
         
         return result
     }()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
