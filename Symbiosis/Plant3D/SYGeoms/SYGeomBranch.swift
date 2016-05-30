@@ -44,7 +44,7 @@ class SYGeomBranch: SYGeom {
         let myProps = self.props as! SYGeomBranchProps
         
         if myProps.size < 0.3 {
-            return SYBone(translation: GLKVector3Make(0, 0, 0), orientation: GLKMatrix4MakeRotation(0, 0, 1, 0), isLastStep: true)
+            return SYBone(translation: GLKVector3Make(0, 0, 0), orientation: GLKMatrix4MakeRotation(0, 0, 1, 0), size: nil, isLastStep: true, isAbsolute: nil)
         }
         
         var isLastStep: Bool = false
@@ -75,7 +75,7 @@ class SYGeomBranch: SYGeom {
             translation = GLKVector3Make(0, stepSize*0.3, 0)
         }
         
-        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, size: nil, isLastStep: isLastStep, isAbsolute: nil)
     }
     
     override func stepFunc (options: SYStepFuncOptions) -> SYStep {

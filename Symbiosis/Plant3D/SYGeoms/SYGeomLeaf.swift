@@ -47,7 +47,7 @@ class SYGeomLeaf: SYGeom {
             translation = GLKVector3Make(0, stepSize/2.0, 0)
         }
         
-        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, size: nil, isLastStep: isLastStep, isAbsolute: nil)
     }
     
     override func stepFunc (options: SYStepFuncOptions) -> SYStep {

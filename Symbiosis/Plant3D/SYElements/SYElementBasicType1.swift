@@ -45,8 +45,8 @@ class SYElementBasicType1: SYElement {
             let childProps = SYGeomLeafProps(size: 1, bend: 0.3)
             self.addInElems("leaf", type: "leafShape", index: index, options: nil, props: childProps, position: nil, orientation: nil)
             
-            let tigeProps = SYGeomTigeProps(size: 1, bend: 0.1, width: 0.04)
-            let pos = GLKVector3Make(0, myProps.size * 0.3, 0)
+            let tigeProps = SYGeomTigeProps(size: myProps.size, bend: 0.1, width: 0.04)
+            let pos = GLKVector3Make(0, 0, 0)
             self.addInElems("tige", type: "tigeShape", index: index, options: nil, props: tigeProps, position: pos, orientation: nil)
         }
     }

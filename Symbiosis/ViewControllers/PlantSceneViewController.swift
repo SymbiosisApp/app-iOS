@@ -21,18 +21,10 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     
     var plant: SYPlant!
     var annimProgress: Float = 0
-    var states: [Float] = [0, 1, 2, 2.5, 3]
+    var states: [Float] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // -----
-        let path: UIBezierPath = UIBezierPath()
-        path.moveToPoint(CGPoint(x: 0, y: 0))
-        path.addCurveToPoint(CGPoint(x: 10, y: 10), controlPoint1: CGPoint(x: 0, y: 10), controlPoint2: CGPoint(x: 0, y: 10))
-        path.moveToPoint(CGPoint(x: 20, y: 20))
-        path.addLineToPoint(CGPoint(x: 15, y: 15))
-        // -----
 
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -125,25 +117,11 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
         
-        let rotateY = GLKMatrix4MakeRotation(0.3, 0, 1, 0)
-        let rotateX = GLKMatrix4MakeRotation(0.3, 1, 0, 0)
-        let rotateZ = GLKMatrix4MakeRotation(0.3, 0, 0, 1)
-        
-        var rotateResult = GLKMatrix4Multiply(rotateY, rotateZ)
-        rotateResult = GLKMatrix4Multiply(rotateResult, rotateX)
-        
-        print("Vect 1 : " + NSStringFromGLKVector3(GLKMatrix4MultiplyVector3(rotateResult, GLKVector3Make(1, 0, 0))))
-        
-        var vect2 = GLKMatrix4MultiplyVector3(rotateX, GLKVector3Make(1, 0, 0))
-        vect2 = GLKMatrix4MultiplyVector3(rotateZ, vect2)
-        vect2 = GLKMatrix4MultiplyVector3(rotateY, vect2)
-        print("Vect 5 : " + NSStringFromGLKVector3(vect2))
-        
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
-        print("Tap")
-        annimProgress = annimProgress + 0.25
+        // print("Tap")
+        annimProgress = annimProgress + 1
         if annimProgress >  Float(states.count - 1) {
             annimProgress = 0
         }

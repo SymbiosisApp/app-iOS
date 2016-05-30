@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import GLKit
+import SceneKit
 
 func UtilsRandom(withRandom random: Int, between min: Float, and max: Float) -> Float {
     let diff = max - min
     return min + (Float(random / 1000) % diff)
 }
-
 
 class RequestData {
     
@@ -119,3 +120,31 @@ class OnboardingGif {
     
 }
 
+func CGPointDistanceSquared(from from: CGPoint, to: CGPoint) -> CGFloat {
+    return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y);
+}
+
+func CGPointDistance(from from: CGPoint, to: CGPoint) -> CGFloat {
+    return sqrt(CGPointDistanceSquared(from: from, to: to));
+}
+
+func CGPointLerp(from from: CGPoint, to: CGPoint, progress: CGFloat) -> CGPoint {
+    let x = from.x + ((to.x - from.x) * progress)
+    let y = from.y + ((to.y - from.y) * progress)
+    return CGPoint(x: x, y: y)
+}
+
+func GLKMatrix4MakeRotationToAlign(target: GLKVector3, plan: GLKVector3, axisRotation: Float) -> GLKMatrix4 {
+    let targetNor = GLKVector3Normalize(target)
+    let planNor = GLKVector3Normalize(plan)
+    let axis = GLKVector3Normalize(GLKVector3CrossProduct(targetNor, planNor))
+    let angle = acos(GLKVector3DotProduct(targetNor, planNor))
+    if isnan(angle) {
+        return GLKMatrix4MakeRotation(0, 0, 1, 0)
+    }
+    print(NSStringFromGLKVector3(targetNor))
+    print("angle : \(angle)")
+    var result = GLKMatrix4MakeRotation(-angle, axis.x, axis.y, axis.z)
+    result = GLKMatrix4Multiply(GLKMatrix4MakeRotation(axisRotation, target.x, target.y, target.z), result)
+    return result
+}

@@ -33,31 +33,32 @@ class SYGeomTige: SYGeom {
         let myProps = self.props as! SYGeomTigeProps
         
         if myProps.size == 0 {
-            return SYBone(translation: GLKVector3Make(0, 0, 0), orientation: GLKMatrix4MakeRotation(0, 0, 1, 0), isLastStep: true)
+            return SYBone(translation: GLKVector3Make(0, 0, 0), orientation: GLKMatrix4MakeRotation(0, 0, 1, 0), size: nil, isLastStep: true, isAbsolute: nil)
         }
         
         var isLastStep: Bool = false
-        let stepSize: Float = 0.3
-        
-        var translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
         var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
         
-        let bend: Float = myProps.bend * Float(pow(0.9, Float(options.index)))
-        orientation = GLKMatrix4Multiply(orientation, GLKMatrix4MakeRotation(bend, 1, 0, 0))
+        let path: UIBezierPath = UIBezierPath()
+        path.moveToPoint(CGPoint(x: 0, y: 0))
+        path.addCurveToPoint(CGPoint(x: 2, y: 0), controlPoint1: CGPoint(x: 0, y: 1), controlPoint2: CGPoint(x: 2, y: 1))
+        let myBezier = SYPath(withCGPath: path.CGPath)
         
-        if (options.index == 0) {
-            translation = GLKVector3Make(0, 0, 0)
-            orientation = GLKMatrix4MakeYRotation(0)
-        }
-        if (options.index == 1) {
-            translation = GLKVector3Make(0, stepSize*0.3, 0)
-        }
+        let maxSize: Float = 10
+        let progressOnMax = myProps.size / maxSize
+        let progressCurve = progressOnMax * (options.boneSizeFromStart / myProps.size)
+        
+        let point = myBezier.valueAtTime(progressCurve)
+        let nextPoint = myBezier.valueAtTime(progressCurve + 0.01)
+        let translation = GLKVector3Make(Float(point.y) * 1, Float(point.x) * 1, 0)
+        let nextTranslate = GLKVector3Make(Float(nextPoint.y) * 1, Float(nextPoint.x) * 1, 0)
+        orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
+        
         if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true
-            translation = GLKVector3Make(0, stepSize*0.3, 0)
         }
         
-        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, size: 0.1, isLastStep: isLastStep, isAbsolute: true)
     }
     
     override func stepFunc (options: SYStepFuncOptions) -> SYStep {
@@ -73,7 +74,13 @@ class SYGeomTige: SYGeom {
         
         var points: [GLKVector3] = []
         
-        let width = myProps.width * myProps.size * (1 - progress)
+        let path: UIBezierPath = UIBezierPath()
+        path.moveToPoint(CGPoint(x: 0, y: 1))
+        path.addCurveToPoint(CGPoint(x: 1, y: 0.5), controlPoint1: CGPoint(x: 0, y: 0.5), controlPoint2: CGPoint(x: 1, y: 0.5))
+        let myBezier = SYPath(withCGPath: path.CGPath)
+        let width: Float = (Float(myBezier.valueAtTime(progress).y) / 10) * (myProps.size / 5)
+        
+        // let width = myProps.width * myProps.size * (1 - progress)
         
         // Last step
         if progressNum == 1 {

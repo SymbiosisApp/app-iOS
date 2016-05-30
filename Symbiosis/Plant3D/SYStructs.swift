@@ -11,7 +11,7 @@ import GLKit
 
 //MARK: - Structures
 
-/// A bone element of a SYShape
+/// A bone element of a SYGeom
 struct SYBone {
     
     /// Bone index
@@ -38,15 +38,24 @@ struct SYBone {
     /// The rotation of the bone (after generate)
     var rotation: GLKMatrix4
     
-    init (translation: GLKVector3, orientation: GLKMatrix4, isLastStep: Bool) {
+    var isAbsolute: Bool = false
+    
+    init (translation: GLKVector3, orientation: GLKMatrix4, size: Float?, isLastStep: Bool, isAbsolute: Bool?) {
         self.index = nil
         self.translation = translation
         self.orientation = orientation
         self.isLastStep = isLastStep
-        self.size = GLKVector3Length(translation);
         // Init position and rotation
         self.position = GLKVector3Make(0, 0, 0)
         self.rotation = GLKMatrix4MakeRotation(0, 0, 0, 0)
+        if (isAbsolute != nil) {
+            self.isAbsolute = isAbsolute!
+        }
+        if size != nil {
+            self.size = size!
+        } else {
+            self.size = GLKVector3Length(translation)
+        }
     }
 }
 

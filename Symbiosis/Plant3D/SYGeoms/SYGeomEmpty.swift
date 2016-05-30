@@ -25,7 +25,7 @@ class SYGeomEmpty: SYGeom {
     override func boneFunc (options: SYBoneFuncOptions) -> SYBone {
         let translation: GLKVector3 = GLKVector3Make(0, 0, 0)
         let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 0, 1)
-        return SYBone(translation: translation, orientation: orientation, isLastStep: true)
+        return SYBone(translation: translation, orientation: orientation, size: nil, isLastStep: true, isAbsolute: nil)
     }
     
     override func stepFunc (options: SYStepFuncOptions) -> SYStep {

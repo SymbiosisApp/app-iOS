@@ -51,7 +51,7 @@ class SYGeom {
         var isLastStep: Bool = false
         var stepIndex: Int = 0;
         var boneSizeFromStart: Float = 0.0
-        
+
         // Run boneFunc
         repeat {
             // Create options struct
@@ -114,14 +114,19 @@ class SYGeom {
         for i in 0 ..< self.bones.count {
             let bone: SYBone = self.bones[i]
             
-            // Apply bone
-            var boneTranslationAfterRotation: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(bone.orientation, bone.translation)
-            boneTranslationAfterRotation = GLKMatrix4MultiplyAndProjectVector3(boneRotation, boneTranslationAfterRotation)
-            bonePosition = GLKVector3Add(bonePosition, boneTranslationAfterRotation)
-            boneRotation = GLKMatrix4Multiply(boneRotation, bone.orientation)
-            
+            if bone.isAbsolute == false {
+                // Apply bone
+                var boneTranslationAfterRotation: GLKVector3 = GLKMatrix4MultiplyAndProjectVector3(bone.orientation, bone.translation)
+                boneTranslationAfterRotation = GLKMatrix4MultiplyAndProjectVector3(boneRotation, boneTranslationAfterRotation)
+                bonePosition = GLKVector3Add(bonePosition, boneTranslationAfterRotation)
+                boneRotation = GLKMatrix4Multiply(boneRotation, bone.orientation)
+            } else {
+                bonePosition = bone.translation
+                boneRotation = bone.orientation
+            }
             self.bones[i].rotation = boneRotation
             self.bones[i].position = bonePosition
+
         }
     }
     
@@ -305,7 +310,7 @@ class SYGeom {
         let translation: GLKVector3 = GLKVector3Make(0, size, 0)
         let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
         
-        return SYBone(translation: translation, orientation: orientation, isLastStep: isLastStep)
+        return SYBone(translation: translation, orientation: orientation, size: nil, isLastStep: isLastStep, isAbsolute: nil)
     }
     
     func stepFunc (options: SYStepFuncOptions) -> SYStep {
