@@ -153,8 +153,8 @@ extension SYOnboarding: UIPageViewControllerDelegate {
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        //initOnboardingData
-        return 2
+        
+        return initOnboardingData.count
         
     }
     

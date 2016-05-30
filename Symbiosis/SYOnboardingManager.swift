@@ -12,22 +12,7 @@ class SYOnboardingManager: UIViewController {
     
     @IBOutlet weak var pageIndexControl: UIPageControl!
     @IBOutlet weak var pageContainer: UIView!
-    
-    
-    
-    //    var initOnboardingData : [String : AnyObject]!
-    //    init(data onboardingData : [String : AnyObject]) {
-    //
-    //        self.initOnboardingData = onboardingData
-    //         super.init(nibName: nil, bundle: nil)
-    //    }
-    //
-    //
-    //    required init?(coder aDecoder: NSCoder) {
-    //        super.init(coder: aDecoder)
-    //    }
-    
-    
+
     
     var pageViewController: SYOnboarding? {
         didSet {
@@ -39,7 +24,6 @@ class SYOnboardingManager: UIViewController {
         if let pageViewController = segue.destinationViewController as? SYOnboarding {
             
             self.pageViewController = pageViewController
-            //topass = parameter
         }
     }
     

@@ -101,3 +101,21 @@ class SymbiosisJsonSingleton {
     
 }
 
+
+class OnboardingGif {
+
+    func addGifBackground(view:UIView, gifView:UIWebView, gifSource: String){
+        
+        let filePath = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource(gifSource, withExtension:"gif")!)
+        
+        let webViewBG = gifView
+        
+        
+        webViewBG.loadData(filePath!, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
+        webViewBG.userInteractionEnabled = false;
+        view.addSubview(webViewBG)
+        
+    }
+    
+}
+

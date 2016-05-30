@@ -16,10 +16,10 @@
               "name":"graine"
             },
             {
-              "name":"partage"
+              "name":"commentaires"
             },
             {
-              "name":"déplacement"
+              "name":"deplacement"
               }
             ]
         },
@@ -29,14 +29,14 @@
               "name":"dissemination"
             },
             {
-              "name":"récolte"
+                "name":"recolte"
               }
             ]
         },
         {
           "Fruit": [
             {
-              "name":"éclosion"
+              "name":"eclosion"
             },
             {
               "name":"partage"
