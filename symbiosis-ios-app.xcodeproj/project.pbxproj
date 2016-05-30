@@ -13,6 +13,7 @@
 		183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AB1CFA078D0086D011 /* SYPath.swift */; };
 		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
 		183FF6B11CFC728F0086D011 /* onboardings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B01CFC728F0086D011 /* onboardings.plist */; };
+		183FF6B31CFC75970086D011 /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B21CFC75970086D011 /* symbiosis.json */; };
 		1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0121CF6446D000C45D6 /* SYElement.swift */; };
 		1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0151CF6446D000C45D6 /* SYGeom.swift */; };
 		1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0171CF6446D000C45D6 /* SYPlant.swift */; };
@@ -61,7 +62,6 @@
 		666301991CFC38EA001E991F /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301981CFC38EA001E991F /* UserSingleton.swift */; };
 		6663019B1CFC390E001E991F /* SYOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663019A1CFC390E001E991F /* SYOnboarding.swift */; };
 		6663019D1CFC3930001E991F /* SYOnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663019C1CFC3930001E991F /* SYOnboardingManager.swift */; };
-		6663019F1CFC3982001E991F /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 6663019E1CFC3982001E991F /* symbiosis.json */; };
 		666301A11CFC39BB001E991F /* graine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666301A01CFC39BB001E991F /* graine.gif */; };
 		666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A31CFC3A22001E991F /* IntroViewController.swift */; };
 		666301A71CFC4232001E991F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301A61CFC4232001E991F /* Login.storyboard */; };
@@ -94,6 +94,7 @@
 		183FF6AB1CFA078D0086D011 /* SYPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPath.swift; sourceTree = "<group>"; };
 		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		183FF6B01CFC728F0086D011 /* onboardings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = onboardings.plist; sourceTree = "<group>"; };
+		183FF6B21CFC75970086D011 /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
 		1848F0121CF6446D000C45D6 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		1848F0151CF6446D000C45D6 /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
 		1848F0171CF6446D000C45D6 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		6663019A1CFC390E001E991F /* SYOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboarding.swift; sourceTree = "<group>"; };
 		6663019C1CFC3930001E991F /* SYOnboardingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboardingManager.swift; sourceTree = "<group>"; };
-		6663019E1CFC3982001E991F /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
 		666301A01CFC39BB001E991F /* graine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graine.gif; sourceTree = "<group>"; };
 		666301A31CFC3A22001E991F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = OnboardingViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
 		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		1814CB391CEE53DE004D7540 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				6663019E1CFC3982001E991F /* symbiosis.json */,
+				183FF6B21CFC75970086D011 /* symbiosis.json */,
 				183FF6B01CFC728F0086D011 /* onboardings.plist */,
 				187FAD7A1CEF047A00B10224 /* Shaders */,
 				187FAD5A1CEEFFE200B10224 /* Techniques */,
@@ -455,7 +455,6 @@
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
 				187FAD7E1CEF047A00B10224 /* tooning.fsh in Resources */,
 				18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */,
-				6663019F1CFC3982001E991F /* symbiosis.json in Resources */,
 				18F136411CF75AA30021CBF5 /* smoke.vsh in Resources */,
 				187FAD741CEF013800B10224 /* vignette.plist in Resources */,
 				18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */,
@@ -463,6 +462,7 @@
 				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
 				18F136401CF75AA30021CBF5 /* smoke.plist in Resources */,
 				18CF559F1CE91CA9008E8EC4 /* Map.storyboard in Resources */,
+				183FF6B31CFC75970086D011 /* symbiosis.json in Resources */,
 				183FF6B11CFC728F0086D011 /* onboardings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

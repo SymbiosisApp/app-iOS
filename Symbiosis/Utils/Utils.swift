@@ -77,14 +77,17 @@ class SymbiosisJsonSingleton {
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(filePath!, options: .AllowFragments)
             
-            if let jsonArray = json as? [Any] {
-                if let allOnboardings = jsonArray[firstArray] as? [Any] {
-                    for selectedOnboardings in allOnboardings{
-                        if let onboarding = selectedOnboardings[secondArray] as? Array<Any>  {
-                            for (index, value) in onboarding.enumerate() {
-                                if let names = value["name"] as? String {
-                                    self.result[String(index)] = names
-                                }
+            
+            if let allOnboardings = json[firstArray] as? Array<AnyObject> {
+                
+                for selectedOnboardings in allOnboardings{
+                    
+                    if let onboarding = selectedOnboardings[secondArray] as? Array<AnyObject>  {
+                        
+                        for (index, value) in onboarding.enumerate() {
+                            
+                            if let names = value["name"] as? String {
+                                self.result[String(index)] = names
                             }
                         }
                     }
@@ -96,7 +99,6 @@ class SymbiosisJsonSingleton {
         }
         return result
     }
-    
 }
 
 
