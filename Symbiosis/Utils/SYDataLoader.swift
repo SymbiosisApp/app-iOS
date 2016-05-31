@@ -9,11 +9,11 @@
 import Foundation
 
 //GET JSON SYMBIOSIS
-class SYOnboardingDataLoader {
+class SYDataLoader {
     
     var result = [String : AnyObject]()
     
-    func loadJson(firstArray: String, secondArray: String) -> [String : AnyObject] {
+    func loadJson(firstArray: String, secondArray: String, name:String) -> [String : AnyObject] {
         let filePath = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("symbiosis", withExtension:"json")!)
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(filePath!, options: .AllowFragments)
@@ -26,7 +26,7 @@ class SYOnboardingDataLoader {
                         
                         for (index, value) in onboarding.enumerate() {
                             
-                            if let names = value["name"] as? String {
+                            if let names = value[name] as? String {
                                 self.result[String(index)] = names
                             }
                         }

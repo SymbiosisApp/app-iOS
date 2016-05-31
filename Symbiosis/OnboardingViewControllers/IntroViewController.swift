@@ -12,6 +12,7 @@ class IntroViewController: UIViewController {
     
     
     @IBOutlet weak var introFirst: UIWebView!
+    let background = Background()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +20,30 @@ class IntroViewController: UIViewController {
         
     }
     
-    
     override func viewDidAppear(animated: Bool) {
-        let gif = OnboardingGif()
-        gif.addGifBackground(self.view, gifView: self.introFirst, gifSource: "graine")
     }
-    
     
     override func viewDidDisappear(animated: Bool) {
-        self.introFirst.hidden = true
+
     }
-   
     
 }
+
+
+class IntroPag1ViewController: IntroViewController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        background.addGifBackground(self.view, gifView: self.introFirst, gifSource: "graine")
+    }
+    
+}
+
+class IntroPag2ViewController: IntroViewController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        background.adddImageBaclground(self.view, imageSource: "login")
+    }
+    
+}
+
+

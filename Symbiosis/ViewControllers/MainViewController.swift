@@ -38,6 +38,13 @@ class MainViewController: UIViewController {
         
         //call notification with texte
         showNotifications("texte yolo notif")
+        
+        //testing:
+        let dataLoarder = SYDataLoader()
+        dispatch_async(dispatch_get_main_queue(), {
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+            self.showOnboarding(onboardingData)
+        })
     }
     
     
@@ -47,9 +54,9 @@ class MainViewController: UIViewController {
     
     func showOnboardingIntro() {
         //showonboarding et path onborading's name
-        let JsonDataConfig = SYOnboardingDataLoader()
+        let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
             self.showOnboarding(onboardingData)
         })
     }
