@@ -12,6 +12,7 @@ class IntroViewController: UIViewController {
     
     
     @IBOutlet weak var introFirst: UIWebView!
+    
     let background = Background()
     
     override func viewDidLoad() {
@@ -22,15 +23,25 @@ class IntroViewController: UIViewController {
     }
     
     override func viewDidDisappear(animated: Bool) {
+
     }
     
 }
 
 
 class IntroPag1ViewController: IntroViewController{
+    
+
+    @IBOutlet weak var imageEclosion: UIImageView!
+    @IBOutlet weak var pageControle: UIPageControl!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imageEclosion.layer.zPosition = 1
         background.addGifBackground(self.view, gifView: self.introFirst, gifSource: "graine")
+        
+        pageControle.layer.zPosition = 2
+        pageControle.numberOfPages = 2
+        pageControle.currentPage = 0
     }
     
 }
@@ -38,7 +49,7 @@ class IntroPag1ViewController: IntroViewController{
 class IntroPag2ViewController: IntroViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        background.adddImageBaclground(self.view, imageSource: "login")
+        //background.adddImageBaclground(self.view, imageSource: "fruit")
     }
     
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class PollenViewController: UIViewController {
+    let background = Background()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -76,10 +76,10 @@ class Background {
         
         let webViewBG = gifView
         
-        
         webViewBG.loadData(filePath!, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
         webViewBG.userInteractionEnabled = false;
         view.addSubview(webViewBG)
+        
         
     }
     
@@ -91,6 +91,8 @@ class Background {
         imageView.clipsToBounds = true
         imageView.image = background
         imageView.center = view.center
+        //view.layer.zPosition = 1
+        
         view.addSubview(imageView)
         view.sendSubviewToBack(imageView)
     }

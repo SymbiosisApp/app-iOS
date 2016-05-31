@@ -9,6 +9,7 @@
 import UIKit
 
 class GrainesViewController: UIViewController {
+    let background = Background()
 
     override func viewDidLoad() {
         super.viewDidLoad()

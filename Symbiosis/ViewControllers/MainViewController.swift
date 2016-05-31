@@ -40,11 +40,11 @@ class MainViewController: UIViewController {
         showNotifications("texte yolo notif")
         
         //testing:
-        let dataLoarder = SYDataLoader()
-        dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
-            self.showOnboarding(onboardingData)
-        })
+//        let dataLoarder = SYDataLoader()
+//        dispatch_async(dispatch_get_main_queue(), {
+//            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+//            self.showOnboarding(onboardingData)
+//        })
 
     }
     
