@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="shZ-OK-2yM">
             <objects>
-                <viewController id="QCK-uk-jkG" customClass="LoginViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="QCK-uk-jkG" customClass="LoginViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tm7-Xa-dTp"/>
                         <viewControllerLayoutGuide type="bottom" id="nS7-6k-BWX"/>
@@ -17,23 +17,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="pseudo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vlw-3i-hYt">
-                                <rect key="frame" x="252" y="212" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="pseudo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vlw-3i-hYt">
+                                <rect key="frame" x="181" y="160" width="238" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.046237980749999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Hx-ukC">
-                                <rect key="frame" x="252" y="259" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Hx-ukC">
+                                <rect key="frame" x="181" y="207" width="238" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.046237980749999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1L-IR-fKN">
-                                <rect key="frame" x="252" y="309" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1L-IR-fKN">
+                                <rect key="frame" x="182" y="256" width="237" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.046237980753846164" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qc0-Lf-TIW"/>
+                                    <constraint firstAttribute="width" constant="237" id="iEq-3m-kkl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2f-iE-G4g">
-                                <rect key="frame" x="252" y="358" width="97" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2f-iE-G4g">
+                                <rect key="frame" x="182" y="306" width="237" height="30"/>
+                                <color key="backgroundColor" red="0.59607843137254901" green="0.75686274509803919" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Valider"/>
                                 <connections>
                                     <action selector="loginValidation:" destination="QCK-uk-jkG" eventType="touchUpInside" id="D9A-ng-VDF"/>
@@ -41,6 +49,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="trailing" secondItem="vlw-3i-hYt" secondAttribute="trailing" id="Dzr-Tr-svB"/>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="leading" secondItem="Y2f-iE-G4g" secondAttribute="leading" id="Gsa-Ma-U3M"/>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="trailing" secondItem="Y2f-iE-G4g" secondAttribute="trailing" id="KwH-rB-enr"/>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="centerX" secondItem="WcV-mk-V1o" secondAttribute="centerX" id="OnI-Jt-Puu"/>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="centerX" secondItem="7ec-Hx-ukC" secondAttribute="centerX" id="Yzu-j7-F8V"/>
+                            <constraint firstItem="7ec-Hx-ukC" firstAttribute="top" secondItem="vlw-3i-hYt" secondAttribute="bottom" constant="17" id="dDj-Eh-Uou"/>
+                            <constraint firstItem="Y2f-iE-G4g" firstAttribute="top" secondItem="B1L-IR-fKN" secondAttribute="bottom" constant="20" id="ghl-kK-QdD"/>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="top" secondItem="7ec-Hx-ukC" secondAttribute="bottom" constant="19" id="jGJ-qc-iM9"/>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="trailing" secondItem="7ec-Hx-ukC" secondAttribute="trailing" id="lSF-rf-CIz"/>
+                            <constraint firstAttribute="bottom" secondItem="B1L-IR-fKN" secondAttribute="bottom" constant="314" id="udK-gD-31z"/>
+                            <constraint firstItem="B1L-IR-fKN" firstAttribute="centerX" secondItem="vlw-3i-hYt" secondAttribute="centerX" id="vSm-ot-Pwf"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="email" destination="7ec-Hx-ukC" id="6Gm-Nd-3Ch"/>

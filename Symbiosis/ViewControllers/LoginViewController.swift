@@ -22,52 +22,35 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        background.adddImageBaclground(self.view, imageSource: "loginBackground.png")
-        
-        //if isset login
-//        if(self.user.getUserData()["userId"] != nil){
-//            let id:Int = Int(self.user.getUserData()["userId"]! as! NSNumber);
-//            print(request.getData("http://localhost:8080/users/id=\(id)&param=all"));
-//
-//            dispatch_async(dispatch_get_main_queue()) {
-//                self.performSegueWithIdentifier("loginCheked", sender: self)
-//            }
-//        }
-        
+        background.adddImageBaclground(self.view, imageSource: "login.png")
         
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if "loginCheked" == segue.identifier {
-//            print("login cheked go to map");
-//        }
-//    }
-    
+
 
     @IBAction func loginValidation(sender: AnyObject) {
         
-//        if(!pseudo.text!.isEmpty && !email.text!.isEmpty && !mdp.text!.isEmpty){
-//            let data:[String:AnyObject] = [
-//                "pseudo":pseudo.text!,
-//                "email":email.text!,
-//                "mdp":mdp.text!
-//            ]
+        if(!pseudo.text!.isEmpty && !email.text!.isEmpty && !mdp.text!.isEmpty){
+            let data:[String:AnyObject] = [
+                "pseudo":pseudo.text!,
+                "email":email.text!,
+                "mdp":mdp.text!
+            ]
             
             //POST and callaback PostResponse
-//            request.postData(data, url: "http://localhost:8080/user/"){
-//                (result: String) in
-//                 //use server response
-//                self.user.setUserData(Int(result)!, pseudo: self.pseudo.text!, email: self.email.text!, mdp: self.mdp.text!)
-//                print("getSingleton ", UserSingleton.sharedInstance.getUserData());
-//            }
-//        }
-        
-//        self.performSegueWithIdentifier("loginCheked", sender: self)
+            request.postData(data, url: "http://localhost:8080/user/"){
+                (result: String) in
+                 //use server response
+                self.user.setUserData(Int(result)!, pseudo: self.pseudo.text!, email: self.email.text!, mdp: self.mdp.text!)
+                print("getSingleton ", UserSingleton.sharedInstance.getUserData());
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
         
     }
 
     //TODO post userParent after seed choice
-//    self.user.setUserData(Int(parent))
+    //self.user.setUserData(Int(parent))
 
 }
 

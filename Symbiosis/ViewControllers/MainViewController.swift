@@ -40,17 +40,33 @@ class MainViewController: UIViewController {
         showNotifications("texte yolo notif")
         
         //testing:
-//        let dataLoarder = SYDataLoader()
-//        dispatch_async(dispatch_get_main_queue(), {
-//            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
-//            self.showOnboarding(onboardingData)
-//        })
+        let dataLoarder = SYDataLoader()
+        dispatch_async(dispatch_get_main_queue(), {
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+            self.showOnboarding(onboardingData)
+        })
+        
+        //LOGIN
+        let user = UserSingleton.sharedInstance;
+        if(user.getUserData()["userId"] == nil){
+            //showLogin()
+        }
 
     }
     
     
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
+    }
+    
+    func showLogin(){
+        dispatch_async(dispatch_get_main_queue(), {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+            let vc :UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login")
+            let navigationController = UINavigationController(rootViewController: vc)
+            self.presentViewController(navigationController, animated: true, completion: nil)
+        })
+        
     }
     
     func showOnboardingIntro() {

@@ -29,12 +29,15 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         
         
-        
         //GRAINE
         let dataMap = request.getData("http://localhost:8080/graines/")
         var latitude:Double = 0
         var longitude:Double = 0
         var name:String = ""
+        var date:NSDate? = NSDate()
+        
+        let formater = NSDateFormatter()
+        formater.dateFormat = "dd/MM/yyyy"
         
         if let data = dataMap as? [AnyObject]{
             for graine in data {
@@ -48,11 +51,35 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
                 if let graineInfo = graine["nom"] as? String {
                     name = String(UTF8String: graineInfo)!
                 }
+                if let graineInfo = graine["date"] as? String {
+
+                    if var dateF = formater.dateFromString(graineInfo){
+                        dateF = addUnitToDate(.Day, number: +7, date: dateF)
+                        date = dateF
+                    }
+                }
                 
-                let graine = MGLPointAnnotation()
-                graine.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-                graine.title = name
-                mapView.addAnnotation(graine)
+                let dateNow = NSDate()
+                let compareDateResult = date!.compare(dateNow)
+                //if current date > dateformated = AUJOUR > date + 7jours
+                if compareDateResult == NSComparisonResult.OrderedDescending{
+                    
+                    let graineOld = MGLPointAnnotation()
+                    graineOld.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                    graineOld.title = name
+                    mapView.addStyleClass("graineOld")
+                    graineOld.subtitle = String("old")
+                    mapView.addAnnotation(graineOld)
+
+                }else{
+                    let graine = MGLPointAnnotation()
+                    graine.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                    graine.title = name
+                    mapView.addStyleClass("graine")
+                    graine.subtitle = String("new")
+                    mapView.addAnnotation(graine)
+                }
+    
             }
         }
         
@@ -74,7 +101,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
               
                 let pollen = MGLPointAnnotation()
                 pollen.coordinate = CLLocationCoordinate2DMake(pollenLatitude, pollenLongitude)
-                //mapView.addAnnotation(pollen)
+                mapView.addStyleClass("pollen")
+                mapView.addAnnotation(pollen)
             }
         }
     }
@@ -85,20 +113,52 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
 
         var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier("graine")
         
-        if (annotationImage == nil) {
-            var image = UIImage(named: "pin-map-green")!
-            image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
-            annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "graine")
+        
+        for mapStyle in mapView.styleClasses{
+            
+            if(mapStyle == "graine"){
+                //print(mapStyle, "-----")
+                var image = UIImage(named: "pin-map-green")!
+                image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
+                annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "graine")
+                mapView.removeStyleClass("graine")
+            }
+            if(mapStyle == "pollen"){
+                //print(mapStyle, "-----")
+                var image = UIImage(named: "pollen")!
+                image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
+                annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "pollen")
+                mapView.removeStyleClass("pollen")
+            }
+            if(mapStyle == "graineOld"){
+                //print(mapStyle, "-----")
+                var image = UIImage(named: "pin-map-yellow")!
+                image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
+                annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "graineOld")
+                mapView.removeStyleClass("graineOld")
+            }
         }
+        
+
         
         return annotationImage
     }
     
-    //POLLEN
     
     
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
+    }
+    
+    
+    func addUnitToDate(unitType: NSCalendarUnit, number: Int, date:NSDate) -> NSDate {
+        
+        return NSCalendar.currentCalendar().dateByAddingUnit(
+            unitType,
+            value: number,
+            toDate: date,
+            options: NSCalendarOptions(rawValue: 0))!
+        
     }
     
   
