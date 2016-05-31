@@ -231,11 +231,39 @@ class SYElement: SCNNode, SYRederable {
 
     // Overide this to convert a SYElemShadow to a SYElem or a SYShape
     // then append them to self.elems
-    func generateElemFromShadow(shadow: SYElementShadow) {}
+    func generateElemFromShadow(shadow: SYElementShadow) {
+        switch shadow.type {
+        case "branchShape":
+            let branch = SYShapeBranch(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            self.elems.append(branch)
+        case "leafShape":
+            let leaf = SYShapeLeaf(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            self.elems.append(leaf)
+        case "tigeShape":
+            let tige = SYShapeTige(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            self.elems.append(tige)
+        case "trunkShape":
+            let trunk = SYShapeTrunk(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            self.elems.append(trunk)
+        default:
+            break
+        }
+    }
     
     // Overide to verify the type of props
     func generateZeroElemItemFromShadow(shadow: SYElementShadow, atIndex index: Int) -> (props: Any, position: GLKVector3?, orientation: GLKVector4?) {
-        return (SYElemEmptyProps(), nil, nil)
+        switch shadow.type {
+        case "branchShape":
+            return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
+        case "leafShape":
+            return (SYGeomLeafProps(size: 0, bend: 0.3), nil, nil)
+        case "leafShape":
+            return (SYGeomTigeProps(size: 0, width: 0), nil, nil)
+        case "trunkShape":
+            return (SYGeomTrunkProps(size: 0), nil, nil)
+        default:
+            return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
+        }
     }
     
 }

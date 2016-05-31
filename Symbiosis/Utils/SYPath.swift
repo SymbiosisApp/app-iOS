@@ -97,9 +97,10 @@ struct SYPathElement {
         var index = 0;
         while (currentLength + self.segmentsLength[index]) < targetLength {
             currentLength += self.segmentsLength[index]
-            index += 1
-            if index == self.segmentsLength.count - 2 {
+            if index >= self.segmentsLength.count - 2 {
                 break;
+            } else {
+                index += 1
             }
         }
         let pos = self.positions[index]
@@ -128,8 +129,8 @@ class SYPath {
             var points: [CGPoint] = []
             switch (element.type) {
             case CGPathElementType.MoveToPoint:
-                points.append(nextStartPoint)
-                points.append(element.points[0])
+                // points.append(nextStartPoint)
+                // points.append(element.points[0])
                 nextStartPoint = element.points[0]
             case .AddLineToPoint:
                 points.append(nextStartPoint)
@@ -149,7 +150,9 @@ class SYPath {
             case .CloseSubpath:
                 nextStartPoint = CGPoint(x: 0, y: 0)
             }
-            elements.append(SYPathElement(from: startPoint, type: element.type, points: points))
+            if element.type != CGPathElementType.MoveToPoint {
+                elements.append(SYPathElement(from: startPoint, type: element.type, points: points))
+            }
             startPoint = nextStartPoint
         }
         self.elements = elements
@@ -160,15 +163,16 @@ class SYPath {
         self.length = totalLength
     }
 
-    func valueAtTime(time: Float) -> CGPoint {
+    func valueAtTime(time: Float) -> CGPoint {        
         let targetLength: Float = self.length * time
         var currentLength: Float = 0
         var index = 0;
         while (currentLength + self.elements[index].length) < targetLength {
             currentLength += self.elements[index].length
-            index += 1
-            if index == self.elements.count - 1 {
+            if index >= self.elements.count - 1 {
                 break;
+            } else {
+                index += 1
             }
         }
         let elem = self.elements[index]
@@ -176,7 +180,8 @@ class SYPath {
         if elem.length > 0 {
             subTime = (targetLength - currentLength) / elem.length;
         }
-        return elem.valueAtTime(subTime);
+        let result = elem.valueAtTime(subTime)
+        return result;
     }
     
 }

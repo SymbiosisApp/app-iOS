@@ -42,42 +42,13 @@ class SYElementBasicType1: SYElement {
             //                let name = "subBranch-\(i)"
             //                self.addInElems(name, type: "branchShape", index: index, options: nil, props: childProps, position: nil, orientation: nil)
             //            }
-            let childProps = SYGeomLeafProps(size: 1, bend: 0.3)
-            self.addInElems("leaf", type: "leafShape", index: index, options: nil, props: childProps, position: nil, orientation: nil)
+
+            //            let childProps = SYGeomLeafProps(size: 1, bend: 0.3)
+            //            self.addInElems("leaf", type: "leafShape", index: index, options: nil, props: childProps, position: nil, orientation: nil)
             
-            let tigeProps = SYGeomTigeProps(size: myProps.size, bend: 0.1, width: 0.04)
+            let trunkProps = SYGeomTrunkProps(size: myProps.size)
             let pos = GLKVector3Make(0, 0, 0)
-            self.addInElems("tige", type: "tigeShape", index: index, options: nil, props: tigeProps, position: pos, orientation: nil)
-        }
-    }
-    
-    override func generateZeroElemItemFromShadow(shadow: SYElementShadow, atIndex index: Int) -> (props: Any, position: GLKVector3?, orientation: GLKVector4?) {
-        // let myProps = self.propsList[index] as! SYElementRootProps
-        switch shadow.type {
-        case "branchShape":
-            return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
-        case "leafShape":
-            return (SYGeomLeafProps(size: 0, bend: 0.3), nil, nil)
-        case "leafShape":
-            return (SYGeomTigeProps(size: 0, bend: 0.3, width: 0), nil, nil)
-        default:
-            return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
-        }
-    }
-    
-    override func generateElemFromShadow(shadow: SYElementShadow) {
-        switch shadow.type {
-        case "branchShape":
-            let branch = SYShapeBranch(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
-            self.elems.append(branch)
-        case "leafShape":
-            let leaf = SYShapeLeaf(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
-            self.elems.append(leaf)
-        case "tigeShape":
-            let tige = SYShapeTige(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
-            self.elems.append(tige)
-        default:
-            break
+            self.addInElems("trunk", type: "trunkShape", index: index, options: nil, props: trunkProps, position: pos, orientation: nil)
         }
     }
     

@@ -15,69 +15,79 @@ import SceneKit
  **/
 struct SYGeomTrunkProps {
     var size: Float = 1
-    var width: Float = 1
-    var random: Int = 55666
 }
 
 class SYGeomTrunk: SYGeom {
     
-    let randomsList: [Int] = [421626, 958276, 652741, 340260, 622321, 286666, 74036, 396259, 6922, 485244, 254853, 978128, 618979, 958665, 236668, 868926, 291654, 121005, 612641, 380127, 344277, 456451, 795313, 674856, 418176, 770711, 694530, 491493, 684997, 88605, 631175, 675345, 478007, 142562, 949583, 941762, 484228, 482105, 714422, 995574, 324293, 200815, 521246, 279399, 611019, 699535, 584250, 685657, 320580, 712210]
-    
-    var randomIndex: Int = 0
-    
-    func getRandom() -> Int {
-        let myProps = self.props as! SYGeomBranchProps
-        
-        randomIndex = (randomIndex + 1) % randomsList.count
-        return randomsList[randomIndex] + myProps.random
-    }
-    
     override func verifyProps() {
-        if !(self.props is SYGeomBranchProps) {
+        if !(self.props is SYGeomTrunkProps) {
             fatalError("Incorrect Props")
         }
     }
     
     override func boneFunc (options: SYBoneFuncOptions) -> SYBone {
         
-        let myProps = self.props as! SYGeomBranchProps
+        let myProps = self.props as! SYGeomTrunkProps
+        
+        // Return 0
+        if myProps.size == 0 {
+            return SYBone(translation: GLKVector3Make(0, 0, 0), orientation: GLKMatrix4MakeRotation(0, 0, 1, 0), size: nil, isLastStep: true, isAbsolute: nil)
+        }
         
         var isLastStep: Bool = false
-        let stepSize: Float = 0.1
-        let nbrOfSteps = Int(floor(Double(myProps.size) / Double(stepSize)))
+        var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
         
-        var translation: GLKVector3 = GLKVector3Make(0, stepSize, 0)
-        var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
+        // Path
+        let path: UIBezierPath = UIBezierPath()
+        path.moveToPoint(CGPoint(x: 0.3, y: 0.2))
+        path.addCurveToPoint(CGPoint(x: 0, y: 0), controlPoint1: CGPoint(x: 0.3, y: 0.1), controlPoint2: CGPoint(x: 0.2, y: 0))
+//        path.addCurveToPoint(CGPoint(x: -0.2, y: 0.2), controlPoint1: CGPoint(x: -0.1, y: 0), controlPoint2: CGPoint(x: -0.2, y: 0.1))
+//        path.addCurveToPoint(CGPoint(x: 0.2, y: 0.8), controlPoint1: CGPoint(x: -0.2, y: 0.5), controlPoint2: CGPoint(x: 0.2, y: 0.6))
+//        path.addCurveToPoint(CGPoint(x: 0, y: 1), controlPoint1: CGPoint(x: 0.2, y: 0.9), controlPoint2: CGPoint(x: 0.1, y: 1))
+        let myPath = SYPath(withCGPath: path.CGPath)
         
-        let xAngle = (Float((getRandom() % 2000)-1000) / 1000.0) * 0.2;
-        orientation = GLKMatrix4Multiply(orientation, GLKMatrix4MakeRotation(xAngle, 1, 0, 0))
+        let maxSize: Float = 10
+        let progressOnMax = myProps.size / maxSize
+        let progressCurve = progressOnMax * (options.boneSizeFromStart / myProps.size)
         
-        let zAngle = (Float((getRandom() % 2000)-1000) / 1000.0) * 0.2;
-        orientation = GLKMatrix4Multiply(orientation, GLKMatrix4MakeRotation(zAngle, 0, 0, 1))
+        let multiplier: Float = 3
+        let point = myPath.valueAtTime(progressCurve)
+        let nextPoint = myPath.valueAtTime(progressCurve + 0.01)
+        let translation = GLKVector3Make(Float(point.y) * multiplier, Float(point.x) * multiplier, 0)
+        let nextTranslate = GLKVector3Make(Float(nextPoint.y) * multiplier, Float(nextPoint.x) * multiplier, 0)
+        orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
         
-        if (options.index == 0) {
-            translation = GLKVector3Make(0, 0, 0)
-        }
+        // print(point)
+        // print("\(progressCurve) => \(point)")
         
-        if (options.index == nbrOfSteps-1) {
+        if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true
-            translation = GLKVector3Make(0, stepSize*0.3, 0)
         }
         
-        return SYBone(translation: translation, orientation: orientation,  size: nil, isLastStep: isLastStep, isAbsolute: nil)
+        return SYBone(translation: translation, orientation: orientation, size: 0.1, isLastStep: isLastStep, isAbsolute: true)
+        
     }
     
     override func stepFunc (options: SYStepFuncOptions) -> SYStep {
         
-        let myProps = self.props as! SYGeomBranchProps
+        let myProps = self.props as! SYGeomTrunkProps
+        
+        if myProps.size == 0 {
+            return SYStep(points: [])
+        }
         
         let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
         let progressNum: Float = Float(options.bone.index) / Float(options.nbrOfSteps - 1)
         
         var points: [GLKVector3] = []
         
-        let endWidth = myProps.width * 0.5
-        let width = myProps.width - ((myProps.width - endWidth) * progress)
+        let path: UIBezierPath = UIBezierPath()
+        path.moveToPoint(CGPoint(x: 0, y: 1))
+        path.addCurveToPoint(CGPoint(x: 1, y: 0.5), controlPoint1: CGPoint(x: 0, y: 0.5), controlPoint2: CGPoint(x: 1, y: 0.5))
+        let myBezier = SYPath(withCGPath: path.CGPath)
+        let width: Float = (Float(myBezier.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
+        
+        // let width = myProps.width * myProps.size * (1 - progress)
         
         // Last step
         if progressNum == 1 {
@@ -97,6 +107,7 @@ class SYGeomTrunk: SYGeom {
         }
         
         return SYStep(points: points)
+        
     }
     
     override func generateMaterial() {
@@ -135,7 +146,7 @@ class SYShapeTrunk: SYShape {
     override func generateAllGeomStructure() {
         for props in propsList {
             let newProps = props as! SYGeomTrunkProps
-            self.geoms.append(SYGeomTige(props: newProps)  )
+            self.geoms.append(SYGeomTrunk(props: newProps)  )
         }
     }
     

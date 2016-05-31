@@ -16,7 +16,6 @@ import SceneKit
  **/
 struct SYGeomTigeProps {
     let size: Float;
-    let bend: Float;
     let width: Float;
 }
 
