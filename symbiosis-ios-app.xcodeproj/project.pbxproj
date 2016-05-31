@@ -75,6 +75,7 @@
 		66BBFCFC1CFD86A100D6923A /* pin map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF61CFD86A100D6923A /* pin map@3x.png */; };
 		66BBFCFF1CFD8ED200D6923A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCFE1CFD8ED200D6923A /* login.png */; };
 		66BBFD011CFD8F6800D6923A /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFD001CFD8F6800D6923A /* ProgressBar.swift */; };
+		66BBFD031CFD9DA200D6923A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFD021CFD9DA200D6923A /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -164,6 +165,7 @@
 		66BBFCF61CFD86A100D6923A /* pin map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map@3x.png"; path = "../Map/Pin/pin map@3x.png"; sourceTree = "<group>"; };
 		66BBFCFE1CFD8ED200D6923A /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		66BBFD001CFD8F6800D6923A /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		66BBFD021CFD9DA200D6923A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +335,7 @@
 				18CF55A21CE91D85008E8EC4 /* Settings.storyboard */,
 				18CF55971CE91CA9008E8EC4 /* LaunchScreen.storyboard */,
 				666301941CFC3815001E991F /* Onboarding.storyboard */,
+				66BBFD021CFD9DA200D6923A /* Login.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
 				66BBFCF81CFD86A100D6923A /* pin map yellow@2x.png in Resources */,
 				18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */,
+				66BBFD031CFD9DA200D6923A /* Login.storyboard in Resources */,
 				18CF559E1CE91CA9008E8EC4 /* Main.storyboard in Resources */,
 				66BBFCF71CFD86A100D6923A /* pin map yellow.png in Resources */,
 				18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */,

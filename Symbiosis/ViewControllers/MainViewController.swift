@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
             let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
             self.showOnboarding(onboardingData)
         })
+
     }
     
     

@@ -23,6 +23,9 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
         // set the map’s center coordinate and zoom level
         mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06), zoomLevel: 9, animated: false)
         view.addSubview(mapView)
+        
     }
-    
 }
+
+
+
