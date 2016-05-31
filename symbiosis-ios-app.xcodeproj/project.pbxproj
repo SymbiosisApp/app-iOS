@@ -69,6 +69,12 @@
 		666301A91CFC443A001E991F /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A81CFC443A001E991F /* GraineViewController.swift */; };
 		666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AA1CFC44AF001E991F /* PollenViewController.swift */; };
 		666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AC1CFC44F1001E991F /* FruitViewController.swift */; };
+		66BBFCF71CFD86A100D6923A /* pin map yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF11CFD86A100D6923A /* pin map yellow.png */; };
+		66BBFCF81CFD86A100D6923A /* pin map yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF21CFD86A100D6923A /* pin map yellow@2x.png */; };
+		66BBFCF91CFD86A100D6923A /* pin map yellow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF31CFD86A100D6923A /* pin map yellow@3x.png */; };
+		66BBFCFA1CFD86A100D6923A /* pin map.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF41CFD86A100D6923A /* pin map.png */; };
+		66BBFCFB1CFD86A100D6923A /* pin map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF51CFD86A100D6923A /* pin map@2x.png */; };
+		66BBFCFC1CFD86A100D6923A /* pin map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF61CFD86A100D6923A /* pin map@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -152,6 +158,12 @@
 		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
 		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
 		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
+		66BBFCF11CFD86A100D6923A /* pin map yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map yellow.png"; path = "../Map/Pin/pin map yellow.png"; sourceTree = "<group>"; };
+		66BBFCF21CFD86A100D6923A /* pin map yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map yellow@2x.png"; path = "../Map/Pin/pin map yellow@2x.png"; sourceTree = "<group>"; };
+		66BBFCF31CFD86A100D6923A /* pin map yellow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map yellow@3x.png"; path = "../Map/Pin/pin map yellow@3x.png"; sourceTree = "<group>"; };
+		66BBFCF41CFD86A100D6923A /* pin map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map.png"; path = "../Map/Pin/pin map.png"; sourceTree = "<group>"; };
+		66BBFCF51CFD86A100D6923A /* pin map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map@2x.png"; path = "../Map/Pin/pin map@2x.png"; sourceTree = "<group>"; };
+		66BBFCF61CFD86A100D6923A /* pin map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map@3x.png"; path = "../Map/Pin/pin map@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +191,8 @@
 		1814CB391CEE53DE004D7540 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				66BBFCEF1CFD867000D6923A /* Backgrounds */,
+				66BBFCEE1CFD866500D6923A /* Map */,
 				183FF6B21CFC75970086D011 /* symbiosis.json */,
 				183FF6B01CFC728F0086D011 /* onboardings.plist */,
 				187FAD7A1CEF047A00B10224 /* Shaders */,
@@ -375,6 +389,34 @@
 			name = OnboardingViewControllers;
 			sourceTree = "<group>";
 		};
+		66BBFCEE1CFD866500D6923A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				66BBFCF01CFD86A100D6923A /* Pin */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		66BBFCEF1CFD867000D6923A /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Backgrounds;
+			sourceTree = "<group>";
+		};
+		66BBFCF01CFD86A100D6923A /* Pin */ = {
+			isa = PBXGroup;
+			children = (
+				66BBFCF11CFD86A100D6923A /* pin map yellow.png */,
+				66BBFCF21CFD86A100D6923A /* pin map yellow@2x.png */,
+				66BBFCF31CFD86A100D6923A /* pin map yellow@3x.png */,
+				66BBFCF41CFD86A100D6923A /* pin map.png */,
+				66BBFCF51CFD86A100D6923A /* pin map@2x.png */,
+				66BBFCF61CFD86A100D6923A /* pin map@3x.png */,
+			);
+			path = Pin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -445,11 +487,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66BBFCFB1CFD86A100D6923A /* pin map@2x.png in Resources */,
 				666301A11CFC39BB001E991F /* graine.gif in Resources */,
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
 				666301A71CFC4232001E991F /* Login.storyboard in Resources */,
+				66BBFCF81CFD86A100D6923A /* pin map yellow@2x.png in Resources */,
 				18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */,
 				18CF559E1CE91CA9008E8EC4 /* Main.storyboard in Resources */,
+				66BBFCF71CFD86A100D6923A /* pin map yellow.png in Resources */,
 				18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */,
 				187FAD701CEF013800B10224 /* vignette.fsh in Resources */,
 				187FAD711CEF013800B10224 /* vignette.vsh in Resources */,
@@ -462,8 +507,11 @@
 				187FAD741CEF013800B10224 /* vignette.plist in Resources */,
 				18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */,
 				18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */,
+				66BBFCFA1CFD86A100D6923A /* pin map.png in Resources */,
+				66BBFCFC1CFD86A100D6923A /* pin map@3x.png in Resources */,
 				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
 				18F136401CF75AA30021CBF5 /* smoke.plist in Resources */,
+				66BBFCF91CFD86A100D6923A /* pin map yellow@3x.png in Resources */,
 				18CF559F1CE91CA9008E8EC4 /* Map.storyboard in Resources */,
 				183FF6B31CFC75970086D011 /* symbiosis.json in Resources */,
 				183FF6B11CFC728F0086D011 /* onboardings.plist in Resources */,
