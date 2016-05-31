@@ -21,7 +21,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ouk-5U-jwS" secondAttribute="height" multiplier="6:1" id="sJG-uh-L2P"/>

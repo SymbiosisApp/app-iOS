@@ -19,12 +19,18 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     var currentCameraRotationHor: Float = 0
     let rotationNode = SCNNode()
     
+    // State
+    let state = SYStateManager.sharedInstance
+    
     var plant: SYPlant!
     var annimProgress: Float = 0
     var states: [Float] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Listen to events
+        state.listenTo(.Update, action: self.onStateUpdate)
 
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -153,7 +159,41 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
             currentCameraRotationVert = vertRotate
         }
     }
-
+    
+    
+    
+    
+    /**
+     * State Update
+     **/
+    
+    func onStateUpdate() {
+        print("Plant update")
+        if state.plantShouldAnimate() {
+            print("Animate the plant !")
+            state.plantStartAnimate()
+            dispatch_after(
+                dispatch_time(
+                    DISPATCH_TIME_NOW,
+                    Int64(2.0 * Double(NSEC_PER_SEC))
+                ),
+                dispatch_get_main_queue(),
+                {
+                    print("end animate the plant !")
+                    self.state.plantEndAnimating()
+                }
+            )
+        } else if state.plantIsAnimating() {
+            print("Wait for end")
+        } else {
+            print("Can do somethinf else :)")
+        }
+    }
+    
+    /**
+     * Other
+     **/
+    
     override func shouldAutorotate() -> Bool {
         return true
     }

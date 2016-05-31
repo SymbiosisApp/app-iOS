@@ -32,7 +32,6 @@ class SYLocationManager : NSObject, CLLocationManagerDelegate {
                 self.natifLocationManager!.requestAlwaysAuthorization()
             }
         } else {
-            
             self.socket.io.on("UPDATE_ME_POSITION") {data, ack in
                 let first = data[0] as! NSMutableDictionary
                 var dict = [String : Any]()

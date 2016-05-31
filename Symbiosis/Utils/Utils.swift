@@ -66,6 +66,9 @@ class RequestData {
     
 }
 
+
+
+
 class OnboardingGif {
 
     func addGifBackground(view:UIView, gifView:UIWebView, gifSource: String){
@@ -105,8 +108,8 @@ func GLKMatrix4MakeRotationToAlign(target: GLKVector3, plan: GLKVector3, axisRot
     if isnan(angle) {
         return GLKMatrix4MakeRotation(0, 0, 1, 0)
     }
-    print(NSStringFromGLKVector3(targetNor))
-    print("angle : \(angle)")
+    // print(NSStringFromGLKVector3(targetNor))
+    // print("angle : \(angle)")
     var result = GLKMatrix4MakeRotation(-angle, axis.x, axis.y, axis.z)
     result = GLKMatrix4Multiply(GLKMatrix4MakeRotation(axisRotation, target.x, target.y, target.z), result)
     return result

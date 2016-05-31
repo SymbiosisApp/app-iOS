@@ -25,7 +25,6 @@ class SYTabBar: UIView {
     // MARK: State
     let state = SYStateManager.sharedInstance
     
-    
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,7 +38,7 @@ class SYTabBar: UIView {
     
     // MARK: Setup
     func setup() {
-        state.listenTo(.TabChanged, action: self.onTabChanged)
+        state.listenTo(.Update, action: self.onStateUpdate)
         
         view = loadViewFromNib()
     
@@ -59,7 +58,6 @@ class SYTabBar: UIView {
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         
         return view
-        
     }
     
     // This is called by the ViewController in viewDidLayoutSubviews
@@ -89,7 +87,7 @@ class SYTabBar: UIView {
     
     func updateStyle() {
         for (index, button) in buttons.enumerate() {
-            if index == state.selectedTab {
+            if state.isSelectedTab(index) {
                 button.selected = true
             } else {
                 button.selected = false
@@ -97,32 +95,19 @@ class SYTabBar: UIView {
         }
     }
     
-//    func selectItem(index: Int) {
-//        if index != selectedItem {
-//            lastSelectedItem = selectedItem
-//            selectedItem = index
-//            updateStyle()
-//            self.delegate?.onTabSelected(selectedItem)
-//        }
-//    }
-    
-    
     @IBAction func buttonTouched(sender: AnyObject) {
         let button = sender as! UIButton
         if let index = buttons.indexOf(button) {
             state.selectTab(index)
-            // selectItem(index)
         }
     }
     
-    // - MARK: Events listener
+    // - MARK: Update
     
-    func onTabChanged() {
-        updateStyle()
+    func onStateUpdate() {
+        if state.tabHasChanged() {
+            updateStyle()
+        }
     }
-    
-}
 
-//protocol SYTabBarDelegate: class {
-//    func onTabSelected(tabIndex: Int)
-//}
+}

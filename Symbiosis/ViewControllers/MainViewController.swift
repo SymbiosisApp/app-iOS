@@ -31,18 +31,10 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         // Listen to events
-        state.listenTo(.TabChanged, action: self.onTabChanged)
+        state.listenTo(.Update, action: self.onStateUpdate)
         
         // Init the tabBar on plant
         state.selectTab(2)
-        
-        
-        //showonboarding et path onborading's name
-        let JsonDataConfig = SYOnboardingDataLoader()
-        dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
-            self.showOnboarding(onboardingData)
-        })
         
         //call notification with texte
         showNotifications("texte yolo notif")
@@ -51,6 +43,15 @@ class MainViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
+    }
+    
+    func showOnboardingIntro() {
+        //showonboarding et path onborading's name
+        let JsonDataConfig = SYOnboardingDataLoader()
+        dispatch_async(dispatch_get_main_queue(), {
+            let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
+            self.showOnboarding(onboardingData)
+        })
     }
     
     
@@ -98,18 +99,21 @@ class MainViewController: UIViewController {
             self.addSubview(tabView.view, toView: self.containerView)
         } else {
             // Animate transition
-            let invertDirection = tabIndex < state.lastSelectedTab
+            let invertDirection = tabIndex < state.getLastSelectedTab()
             self.cycleFromViewController(self.currentTabView!, toViewController: tabView, inverseDirection: invertDirection)
         }
         self.currentTabView = tabView
         
     }
     
-    // - MARK: Events listener
+    // - MARK: Update
     
-    func onTabChanged() {
-        if state.selectedTab < viewsNames.count {
-            setTabNavigation(state.selectedTab)
+    func onStateUpdate() {
+        if state.tabHasChanged() {
+            let currentTab = state.getSelectedTab()
+            if currentTab < viewsNames.count {
+                setTabNavigation(currentTab)
+            }
         }
     }
     
@@ -170,14 +174,14 @@ class MainViewController: UIViewController {
         print("Memory Warning !!!!")
         var hasReleaseSomething = false
         for (index, view) in tabViews.enumerate() {
-            if index != state.selectedTab && view != nil && hasReleaseSomething == false {
+            if index != state.getSelectedTab() && view != nil && hasReleaseSomething == false {
                 tabViews[index] = nil
                 hasReleaseSomething = true
             }
         }
         if hasReleaseSomething == false {
             for (index, strboard) in tabStoryboards.enumerate() {
-                if index != state.selectedTab && strboard != nil && hasReleaseSomething == false {
+                if index != state.getSelectedTab() && strboard != nil && hasReleaseSomething == false {
                     tabStoryboards[index] = nil
                     hasReleaseSomething = true
                 }

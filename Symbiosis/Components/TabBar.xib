@@ -40,7 +40,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKR-iK-gaf" userLabel="FirstButton">
-                                    <rect key="frame" x="18" y="23.5" width="50" height="50"/>
+                                    <rect key="frame" x="18" y="24" width="50" height="50"/>
                                     <state key="normal" image="profil"/>
                                     <state key="selected" image="profil_selected"/>
                                     <connections>
@@ -48,7 +48,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3t-c1-wec" userLabel="SecondButton">
-                                    <rect key="frame" x="85" y="23.5" width="50" height="50"/>
+                                    <rect key="frame" x="84" y="24" width="50" height="50"/>
                                     <state key="normal" image="map"/>
                                     <state key="selected" image="map_selected"/>
                                     <connections>
@@ -56,10 +56,10 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-7f-boM" userLabel="PlantButtonBack">
-                                    <rect key="frame" x="152" y="-0.5" width="97.5" height="98"/>
+                                    <rect key="frame" x="151" y="0.0" width="98" height="98"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRp-BO-5hA" userLabel="PlantButton">
-                                            <rect key="frame" x="23.5" y="23.5" width="50" height="50"/>
+                                            <rect key="frame" x="24" y="24" width="50" height="50"/>
                                             <state key="normal" image="plant"/>
                                             <state key="selected" image="plant_selected"/>
                                             <connections>
@@ -75,7 +75,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcz-6F-KUb" userLabel="ThirdButton">
-                                    <rect key="frame" x="266" y="23.5" width="50" height="50"/>
+                                    <rect key="frame" x="266" y="24" width="50" height="50"/>
                                     <state key="normal" image="chat"/>
                                     <state key="selected" image="chat_selected"/>
                                     <connections>
@@ -83,7 +83,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbZ-nM-sMl" userLabel="FourthButton">
-                                    <rect key="frame" x="333" y="23.5" width="50" height="50"/>
+                                    <rect key="frame" x="333" y="24" width="50" height="50"/>
                                     <state key="normal" image="settings"/>
                                     <state key="selected" image="settings_selected"/>
                                     <connections>
