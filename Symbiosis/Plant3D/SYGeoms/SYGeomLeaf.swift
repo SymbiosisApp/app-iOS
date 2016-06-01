@@ -105,7 +105,7 @@ class SYShapeLeaf: SYShape {
     override func generateAllGeomStructure() {
         for props in propsList {
             let newProps = props as! SYGeomLeafProps
-            self.geoms.append(SYGeomLeaf(props: newProps)  )
+            self.geoms.append(SYGeomLeaf(props: newProps, parent: self))
         }
     }
     

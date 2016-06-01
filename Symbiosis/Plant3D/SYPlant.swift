@@ -16,6 +16,7 @@ class SYPlant: SCNNode, SYRederable {
     
     var rootSYElem: SYElement! = nil
     let randomManager: SYRandomManager = SYRandomManager()
+    let bezierManager: SYBezierManager = SYBezierManager()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,6 +40,10 @@ class SYPlant: SCNNode, SYRederable {
     
     func getRandomManager() -> SYRandomManager {
         return self.randomManager
+    }
+    
+    func getBezierManager() -> SYBezierManager {
+        return self.bezierManager
     }
     
 }

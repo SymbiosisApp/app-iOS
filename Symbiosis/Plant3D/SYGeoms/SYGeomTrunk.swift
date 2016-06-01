@@ -37,21 +37,14 @@ class SYGeomTrunk: SYGeom {
         var isLastStep: Bool = false
         var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
         
-        // Path
-        let path: UIBezierPath = UIBezierPath()
-        path.moveToPoint(CGPoint(x: 0.3, y: 0.2))
-        path.addCurveToPoint(CGPoint(x: 0, y: 0), controlPoint1: CGPoint(x: 0.3, y: 0.1), controlPoint2: CGPoint(x: 0.2, y: 0))
-        path.addLineToPoint(CGPoint(x: 0, y: 4))
-//        path.addCurveToPoint(CGPoint(x: -0.2, y: 0.2), controlPoint1: CGPoint(x: -0.1, y: 0), controlPoint2: CGPoint(x: -0.2, y: 0.1))
-//        path.addCurveToPoint(CGPoint(x: 0.2, y: 0.8), controlPoint1: CGPoint(x: -0.2, y: 0.5), controlPoint2: CGPoint(x: 0.2, y: 0.6))
-//        path.addCurveToPoint(CGPoint(x: 0, y: 1), controlPoint1: CGPoint(x: 0.2, y: 0.9), controlPoint2: CGPoint(x: 0.1, y: 1))
-        let myPath = SYPath(withCGPath: path.CGPath)
+        let myPath = self.parent.getBezierManager().get("trunk", options: nil)
         
-        let maxSize: Float = 10.2
-        let progressOnMax = myProps.size / maxSize
+        let maxSize: Float = 9
+        let progressOnMax = (8 + (1 - pow(Float(M_E), (-0.1 * myProps.size)))) / maxSize
         let progressCurve = progressOnMax * (options.boneSizeFromStart / myProps.size)
         
-        let multiplier: Float = 3
+        let multiplier: Float = (1 - pow(Float(M_E), (-0.1 * myProps.size))) * 3
+        
         let point = myPath.valueAtTime(progressCurve)
         let nextPoint = myPath.valueAtTime(progressCurve + 0.01)
         let translation = GLKVector3Make(Float(point.x) * multiplier, Float(point.y) * multiplier, 0)
@@ -84,13 +77,14 @@ class SYGeomTrunk: SYGeom {
         
         var points: [GLKVector3] = []
         
-        let path: UIBezierPath = UIBezierPath()
-        path.moveToPoint(CGPoint(x: 0, y: 1))
-        path.addCurveToPoint(CGPoint(x: 1, y: 0.5), controlPoint1: CGPoint(x: 0, y: 0.5), controlPoint2: CGPoint(x: 1, y: 0.5))
-        let myBezier = SYPath(withCGPath: path.CGPath)
-        let width: Float = (Float(myBezier.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
+        let myPath = self.parent.getBezierManager().get("trunk-width", options: nil)
         
-        // let width = myProps.width * myProps.size * (1 - progress)
+        // let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
+  
+        // let width = 0.1 * (1 - progress)
+        
+        var width = (1 - pow(Float(M_E), (-0.1 * myProps.size))) * 0.1
+        width = width * (1 - progress)
         
         // Last step
         if progressNum == 1 {
@@ -149,7 +143,7 @@ class SYShapeTrunk: SYShape {
     override func generateAllGeomStructure() {
         for props in propsList {
             let newProps = props as! SYGeomTrunkProps
-            self.geoms.append(SYGeomTrunk(props: newProps)  )
+            self.geoms.append(SYGeomTrunk(props: newProps, parent: self))
         }
     }
     

@@ -93,6 +93,11 @@ struct SYPathElement {
     }
     
     func valueAtTime(time: Float) -> CGPoint {
+        if time < 0 || time > 1 {
+            // If outbound compute the result
+            return self.precomputeForT(CGFloat(time))
+        }
+        // Else use the precompute to match the correct length
         let targetLength: Float = self.length * time
         var currentLength: Float = 0
         var index = 0;
@@ -126,15 +131,18 @@ class SYPath {
         var elements: [SYPathElement] = []
         var startPoint = CGPoint(x: 0, y: 0)
         var nextStartPoint = CGPoint(x: 0, y: 0)
+        print("Gooo")
         self.path.forEach { element in
+            print("loop")
             var points: [CGPoint] = []
             switch (element.type) {
             case CGPathElementType.MoveToPoint:
                 // points.append(nextStartPoint)
                 // points.append(element.points[0])
-                print("Move to")
+                // print("Move to")
                 nextStartPoint = element.points[0]
             case .AddLineToPoint:
+                print("=============")
                 points.append(nextStartPoint)
                 points.append(element.points[0])
                 nextStartPoint = element.points[0]
@@ -144,20 +152,29 @@ class SYPath {
                 points.append(element.points[1])
                 nextStartPoint = element.points[0]
             case .AddCurveToPoint:
+                print("Add Curve")
                 points.append(nextStartPoint)
                 points.append(element.points[0])
                 points.append(element.points[1])
                 points.append(element.points[2])
-                nextStartPoint = element.points[0]
+                nextStartPoint = element.points[2]
             case .CloseSubpath:
                 nextStartPoint = CGPoint(x: 0, y: 0)
             }
+            print(points)
             if element.type != CGPathElementType.MoveToPoint {
                 elements.append(SYPathElement(from: startPoint, type: element.type, points: points))
             }
             startPoint = nextStartPoint
         }
         self.elements = elements
+        
+        print("------")
+        for elem in elements {
+            print(elem.points)
+        }
+        
+        print(path)
         var totalLength: Float = 0
         for elem in self.elements {
             totalLength += elem.length
@@ -187,9 +204,4 @@ class SYPath {
         return result;
     }
     
-}
-
-func ==(lhs: SYPath, rhs: SYPath) -> Bool {
-    let areEqual = false
-    return areEqual;
 }

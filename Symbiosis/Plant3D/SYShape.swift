@@ -47,7 +47,7 @@ class SYShape: SCNNode, SYRederable {
     func generateAllGeomStructure() {
         for props in propsList {
             let newProps = props as! SYGeomEmptyProps
-            self.geoms.append(SYGeomEmpty(props: newProps)  )
+            self.geoms.append(SYGeomEmpty(props: newProps, parent: self))
         }
     }
     
@@ -92,6 +92,10 @@ class SYShape: SCNNode, SYRederable {
     
     func getRandomManager() -> SYRandomManager {
         return self.parent.getRandomManager()
+    }
+    
+    func getBezierManager() -> SYBezierManager {
+        return self.parent.getBezierManager()
     }
     
     private func createMorpher() {

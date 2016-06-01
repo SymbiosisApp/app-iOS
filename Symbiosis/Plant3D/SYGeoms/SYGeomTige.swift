@@ -131,7 +131,7 @@ class SYShapeTige: SYShape {
     override func generateAllGeomStructure() {
         for props in propsList {
             let newProps = props as! SYGeomTigeProps
-            self.geoms.append(SYGeomTige(props: newProps)  )
+            self.geoms.append(SYGeomTige(props: newProps, parent: self))
         }
     }
     

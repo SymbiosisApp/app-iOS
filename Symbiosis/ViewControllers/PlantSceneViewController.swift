@@ -24,7 +24,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     
     var plant: SYPlant!
     var annimProgress: Float = 0
-    var states: [Float] = [10]
+    var states: [Float] = [1, 3, 5, 8, 10, 20, 30, 40, 50]
     
     override func viewDidLoad() {
         super.viewDidLoad()

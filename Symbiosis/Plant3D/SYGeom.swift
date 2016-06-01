@@ -24,9 +24,11 @@ class SYGeom {
     var materials: [SCNMaterial] = []
     var props: Any
     var geometry: SCNGeometry?
+    let parent: SYRederable
     
-    init (props: Any) {
+    init (props: Any, parent: SYRederable) {
         self.props = props
+        self.parent = parent
         
         verifyProps()
         

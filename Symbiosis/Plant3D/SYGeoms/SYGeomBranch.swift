@@ -151,7 +151,7 @@ class SYShapeBranch: SYShape {
     override func generateAllGeomStructure() {
         for props in propsList {
             let newProps = props as! SYGeomBranchProps
-            self.geoms.append(SYGeomBranch(props: newProps)  )
+            self.geoms.append(SYGeomBranch(props: newProps, parent: self))
         }
     }
     

@@ -220,6 +220,10 @@ class SYElement: SCNNode, SYRederable {
         return self.parent.getRandomManager()
     }
     
+    func getBezierManager() -> SYBezierManager {
+        return self.parent.getBezierManager()
+    }
+    
     // Overide to verify the type of props
     func verifyProps() {}
     

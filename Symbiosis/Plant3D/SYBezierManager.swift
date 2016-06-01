@@ -8,44 +8,75 @@
 
 import Foundation
 
-//struct SYBezier {
-//    let name: String
-//    let path: SYPath
-//    let options: Equatable?
-//    
-//    func valueAtTime(time: Float) -> CGPoint {
-//        return path.valueAtTime(time)
-//    }
-//}
+struct SYBezierOptions {
+    let yolo: Int = 0
+}
+func ==(lhs: SYBezierOptions, rhs: SYBezierOptions) -> Bool {
+    let isEqual = (lhs.yolo == rhs.yolo)
+    return isEqual
+}
 
-//func ==(lhs: SYBezier, rhs: SYBezier) -> Bool {
-//    let areEqual = (lhs.name == rhs.name &&
-//        lhs.path == rhs.path &&
-//        lhs.options! == rhs.options!)
-//    return areEqual;
-//}
+struct SYBezier {
+    let name: String
+    let path: SYPath
+    let options: SYBezierOptions
+    
+    func valueAtTime(time: Float) -> CGPoint {
+        return path.valueAtTime(time)
+    }
+}
 
-//class SYBezierManager {
-//    
-//    var beziers: [String: SYBezier] = [:]
-//    
-//    func get(key: String, options: Any?) -> SYBezier {
-//        if self.beziers[key] == nil {
-//            self.beziers[key] = self.generateBezier(key, options: options);
-//        }
-//        return self.beziers[key]!
-//    }
-//    
-//    func generateBezier(key: String, options: Any?) -> SYBezier {
-//        let path = UIBezierPath()
-//        switch key {
-//        case "trunk":
-//            path.addLineToPoint(CGPoint(x: 2, y: 2))
-//        default:
-//            fatalError("Not register ")
-//        }
-//        let sypath = SYPath(withCGPath: path.CGPath)
-//        return SYBezier(name: key, path: sypath, options: options)
-//    }
-//
-//}
+class SYBezierManager {
+    
+    var beziers: [SYBezier] = []
+    
+    func get(key: String, options: SYBezierOptions?) -> SYBezier {
+        var opt: SYBezierOptions
+        if options == nil {
+            opt = SYBezierOptions()
+        } else {
+            opt = options!
+        }
+        var bezier = self.findBezier(key, options: opt)
+        if bezier == nil {
+            bezier = generateBezier(key, options: opt)
+            self.beziers.append(bezier!)
+        }
+        return bezier!
+    }
+    
+    func findBezier(key: String, options: SYBezierOptions) -> SYBezier? {
+        for bezier in self.beziers {
+            let finded = bezier.name == key && options == options
+            if finded {
+                return bezier
+            }
+        }
+        return nil
+        
+    }
+    
+    func generateBezier(key: String, options: SYBezierOptions) -> SYBezier {
+        print("generate bezier")
+        let path = UIBezierPath()
+        switch key {
+        
+        case "trunk":
+            path.moveToPoint(CGPoint(x: 0.3, y: 0.2))
+            path.addCurveToPoint(CGPoint(x: 0, y: 0), controlPoint1: CGPoint(x: 0.3, y: 0.1), controlPoint2: CGPoint(x: 0.2, y: 0))
+            path.addCurveToPoint(CGPoint(x: -0.2, y: 0.2), controlPoint1: CGPoint(x: -0.15, y: 0), controlPoint2: CGPoint(x: -0.2, y: 0.1))
+            path.addCurveToPoint(CGPoint(x: 0.2, y: 0.8), controlPoint1: CGPoint(x: -0.2, y: 0.5), controlPoint2: CGPoint(x: 0.2, y: 0.6))
+            path.addCurveToPoint(CGPoint(x: 0, y: 1), controlPoint1: CGPoint(x: 0.2, y: 0.9), controlPoint2: CGPoint(x: 0.1, y: 1))
+        
+        case "trunk-width":
+            path.moveToPoint(CGPoint(x: 0, y: 1))
+            path.addCurveToPoint(CGPoint(x: 1, y: 0.1), controlPoint1: CGPoint(x: 0, y: 0.5), controlPoint2: CGPoint(x: 1, y: 0.5))
+        
+        default:
+            fatalError("Not register ")
+        }
+        let sypath = SYPath(withCGPath: path.CGPath)
+        return SYBezier(name: key, path: sypath, options: options)
+    }
+
+}
