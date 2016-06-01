@@ -121,9 +121,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func triggerUpdate() {
         self.trigger(.Update)
-        print("=======> Replace states")
         self.previousState = self.currentState
-        print("=> After Replace states")
     }
     
     

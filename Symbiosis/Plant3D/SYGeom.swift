@@ -37,6 +37,14 @@ class SYGeom {
         self.generateMaterial()
     }
     
+    
+    init (withoutGenerateWithProps props: Any, parent: SYRederable) {
+        self.props = props
+        self.parent = parent
+        
+        verifyProps()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -297,6 +305,13 @@ class SYGeom {
         return (vertexSource, normalSource, [element])
     }
     
+    func getBones() -> [SYBone] {
+        if self.bones.count == 0 {
+            self.generateBones()
+        }
+        return self.bones
+    }
+    
     
     // MARK: Default generate func
     
@@ -350,5 +365,7 @@ class SYGeom {
         
         self.materials = [mat]
     }
+    
+    
     
 }
