@@ -40,10 +40,10 @@ class MainViewController: UIViewController {
         showNotifications("texte yolo notif")
         
         //testing:
-        let dataLoarder = SYDataLoader()
+        //let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
-            self.showOnboarding(onboardingData)
+            //let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+            //self.showOnboarding(onboardingData)
         })
         
         //LOGIN
@@ -51,7 +51,19 @@ class MainViewController: UIViewController {
         if(user.getUserData()["userId"] == nil){
             //showLogin()
         }
-
+        
+        //POPUP
+        //showPopup()
+        
+    }
+    
+    
+    func showPopup(){
+        dispatch_async(dispatch_get_main_queue(), {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Popup", bundle: nil)
+            let vc :UIViewController = storyboard.instantiateViewControllerWithIdentifier("Popup")
+            self.presentViewController(vc, animated: true, completion: nil)
+        })
     }
     
     
@@ -63,10 +75,8 @@ class MainViewController: UIViewController {
         dispatch_async(dispatch_get_main_queue(), {
             let storyboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
             let vc :UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login")
-            let navigationController = UINavigationController(rootViewController: vc)
-            self.presentViewController(navigationController, animated: true, completion: nil)
+            self.presentViewController(vc, animated: true, completion: nil)
         })
-        
     }
     
     func showOnboardingIntro() {
@@ -101,7 +111,6 @@ class MainViewController: UIViewController {
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
-
     
     func setTabNavigation(tabIndex: Int) {
         if tabViews[tabIndex] == nil {
@@ -213,3 +222,5 @@ class MainViewController: UIViewController {
         }
     }
 }
+
+

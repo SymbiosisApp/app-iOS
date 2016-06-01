@@ -139,17 +139,12 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
             }
         }
         
-
-        
         return annotationImage
     }
-    
-    
     
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
-    
     
     func addUnitToDate(unitType: NSCalendarUnit, number: Int, date:NSDate) -> NSDate {
         
@@ -158,10 +153,38 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
             value: number,
             toDate: date,
             options: NSCalendarOptions(rawValue: 0))!
-        
     }
     
-  
+    
+    
+}
+
+
+class MapPopup : MapViewController{
+
+    let background = Background()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("popup")
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.2
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.addSubview(blurEffectView)
+    }
+    
+    //add imageview
+    //import nav
+    //add transition
+    
+    //NB attention notification ouvre la page voulu
+    //if notification or si popup jamais visisté alors tabBar add bullet
+    //scoll view for image
+    //if distance < x subtitle (or link) = commenter or if > s'y rendre
+    //if went in sedd's direction and your position = position of one graine -> push notification vous etes arrivé...
+    
 }
 
 
