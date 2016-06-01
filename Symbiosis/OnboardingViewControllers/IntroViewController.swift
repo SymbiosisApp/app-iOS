@@ -13,22 +13,44 @@ class IntroViewController: UIViewController {
     
     @IBOutlet weak var introFirst: UIWebView!
     
+    let background = Background()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
-    
     
     override func viewDidAppear(animated: Bool) {
-        let gif = OnboardingGif()
-        gif.addGifBackground(self.view, gifView: self.introFirst, gifSource: "graine")
     }
-    
     
     override func viewDidDisappear(animated: Bool) {
-        self.introFirst.hidden = true
+
     }
-   
     
 }
+
+
+class IntroPag1ViewController: IntroViewController{
+
+    @IBOutlet weak var imageEclosion: UIImageView!
+    @IBOutlet weak var pageControle: UIPageControl!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.imageEclosion.layer.zPosition = 1
+        background.addGifBackground(self.view, gifView: self.introFirst, gifSource: "graine")
+        
+        pageControle.layer.zPosition = 2
+        pageControle.numberOfPages = 2
+        pageControle.currentPage = 0
+    }
+    
+}
+
+class IntroPag2ViewController: IntroViewController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //background.adddImageBaclground(self.view, imageSource: "fruit")
+    }
+    
+}
+
+

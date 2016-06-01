@@ -13,8 +13,9 @@
 		183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AB1CFA078D0086D011 /* SYPath.swift */; };
 		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
 		183FF6B31CFC75970086D011 /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B21CFC75970086D011 /* symbiosis.json */; };
-		183FF6B51CFC77240086D011 /* SYOnboardingDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */; };
 		183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6B61CFDE0630086D011 /* SYRandomManager.swift */; };
+		183FF6B91CFF18640086D011 /* SYDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6B81CFF18640086D011 /* SYDataLoader.swift */; };
+		183FF6BC1CFF187E0086D011 /* graine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6BB1CFF187E0086D011 /* graine.gif */; };
 		1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0121CF6446D000C45D6 /* SYElement.swift */; };
 		1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0151CF6446D000C45D6 /* SYGeom.swift */; };
 		1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0171CF6446D000C45D6 /* SYPlant.swift */; };
@@ -63,18 +64,11 @@
 		666301991CFC38EA001E991F /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301981CFC38EA001E991F /* UserSingleton.swift */; };
 		6663019B1CFC390E001E991F /* SYOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663019A1CFC390E001E991F /* SYOnboarding.swift */; };
 		6663019D1CFC3930001E991F /* SYOnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663019C1CFC3930001E991F /* SYOnboardingManager.swift */; };
-		666301A11CFC39BB001E991F /* graine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666301A01CFC39BB001E991F /* graine.gif */; };
 		666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A31CFC3A22001E991F /* IntroViewController.swift */; };
 		666301A71CFC4232001E991F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301A61CFC4232001E991F /* Login.storyboard */; };
 		666301A91CFC443A001E991F /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A81CFC443A001E991F /* GraineViewController.swift */; };
 		666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AA1CFC44AF001E991F /* PollenViewController.swift */; };
 		666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AC1CFC44F1001E991F /* FruitViewController.swift */; };
-		66BBFCF71CFD86A100D6923A /* pin map yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF11CFD86A100D6923A /* pin map yellow.png */; };
-		66BBFCF81CFD86A100D6923A /* pin map yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF21CFD86A100D6923A /* pin map yellow@2x.png */; };
-		66BBFCF91CFD86A100D6923A /* pin map yellow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF31CFD86A100D6923A /* pin map yellow@3x.png */; };
-		66BBFCFA1CFD86A100D6923A /* pin map.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF41CFD86A100D6923A /* pin map.png */; };
-		66BBFCFB1CFD86A100D6923A /* pin map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF51CFD86A100D6923A /* pin map@2x.png */; };
-		66BBFCFC1CFD86A100D6923A /* pin map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFCF61CFD86A100D6923A /* pin map@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -101,8 +95,9 @@
 		183FF6AB1CFA078D0086D011 /* SYPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPath.swift; sourceTree = "<group>"; };
 		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		183FF6B21CFC75970086D011 /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
-		183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboardingDataLoader.swift; sourceTree = "<group>"; };
 		183FF6B61CFDE0630086D011 /* SYRandomManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRandomManager.swift; sourceTree = "<group>"; };
+		183FF6B81CFF18640086D011 /* SYDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYDataLoader.swift; sourceTree = "<group>"; };
+		183FF6BB1CFF187E0086D011 /* graine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graine.gif; sourceTree = "<group>"; };
 		1848F0121CF6446D000C45D6 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		1848F0151CF6446D000C45D6 /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
 		1848F0171CF6446D000C45D6 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
@@ -152,18 +147,11 @@
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		6663019A1CFC390E001E991F /* SYOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboarding.swift; sourceTree = "<group>"; };
 		6663019C1CFC3930001E991F /* SYOnboardingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboardingManager.swift; sourceTree = "<group>"; };
-		666301A01CFC39BB001E991F /* graine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graine.gif; sourceTree = "<group>"; };
 		666301A31CFC3A22001E991F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = OnboardingViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
 		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
 		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
 		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
-		66BBFCF11CFD86A100D6923A /* pin map yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map yellow.png"; path = "../Map/Pin/pin map yellow.png"; sourceTree = "<group>"; };
-		66BBFCF21CFD86A100D6923A /* pin map yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map yellow@2x.png"; path = "../Map/Pin/pin map yellow@2x.png"; sourceTree = "<group>"; };
-		66BBFCF31CFD86A100D6923A /* pin map yellow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map yellow@3x.png"; path = "../Map/Pin/pin map yellow@3x.png"; sourceTree = "<group>"; };
-		66BBFCF41CFD86A100D6923A /* pin map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map.png"; path = "../Map/Pin/pin map.png"; sourceTree = "<group>"; };
-		66BBFCF51CFD86A100D6923A /* pin map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map@2x.png"; path = "../Map/Pin/pin map@2x.png"; sourceTree = "<group>"; };
-		66BBFCF61CFD86A100D6923A /* pin map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin map@3x.png"; path = "../Map/Pin/pin map@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,11 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				183FF6B21CFC75970086D011 /* symbiosis.json */,
-				66BBFCEF1CFD867000D6923A /* Backgrounds */,
-				66BBFCEE1CFD866500D6923A /* Map */,
+				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
+				183FF6BA1CFF187E0086D011 /* gif */,
 				187FAD7A1CEF047A00B10224 /* Shaders */,
 				187FAD5A1CEEFFE200B10224 /* Techniques */,
-				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -204,12 +191,19 @@
 		183FF6AA1CFA078D0086D011 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				666301A21CFC39C1001E991F /* gif */,
 				183FF6AB1CFA078D0086D011 /* SYPath.swift */,
 				183FF6AC1CFA078D0086D011 /* Utils.swift */,
-				183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */,
+				183FF6B81CFF18640086D011 /* SYDataLoader.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		183FF6BA1CFF187E0086D011 /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				183FF6BB1CFF187E0086D011 /* graine.gif */,
+			);
+			path = gif;
 			sourceTree = "<group>";
 		};
 		1848F0111CF6446D000C45D6 /* Plant3D */ = {
@@ -370,14 +364,6 @@
 			path = SYGeoms;
 			sourceTree = "<group>";
 		};
-		666301A21CFC39C1001E991F /* gif */ = {
-			isa = PBXGroup;
-			children = (
-				666301A01CFC39BB001E991F /* graine.gif */,
-			);
-			name = gif;
-			sourceTree = "<group>";
-		};
 		666301A51CFC3A2B001E991F /* OnboardingViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,34 +373,6 @@
 				666301AC1CFC44F1001E991F /* FruitViewController.swift */,
 			);
 			name = OnboardingViewControllers;
-			sourceTree = "<group>";
-		};
-		66BBFCEE1CFD866500D6923A /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				66BBFCF01CFD86A100D6923A /* Pin */,
-			);
-			name = Map;
-			sourceTree = "<group>";
-		};
-		66BBFCEF1CFD867000D6923A /* Backgrounds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Backgrounds;
-			sourceTree = "<group>";
-		};
-		66BBFCF01CFD86A100D6923A /* Pin */ = {
-			isa = PBXGroup;
-			children = (
-				66BBFCF11CFD86A100D6923A /* pin map yellow.png */,
-				66BBFCF21CFD86A100D6923A /* pin map yellow@2x.png */,
-				66BBFCF31CFD86A100D6923A /* pin map yellow@3x.png */,
-				66BBFCF41CFD86A100D6923A /* pin map.png */,
-				66BBFCF51CFD86A100D6923A /* pin map@2x.png */,
-				66BBFCF61CFD86A100D6923A /* pin map@3x.png */,
-			);
-			path = Pin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,14 +445,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66BBFCFB1CFD86A100D6923A /* pin map@2x.png in Resources */,
-				666301A11CFC39BB001E991F /* graine.gif in Resources */,
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
 				666301A71CFC4232001E991F /* Login.storyboard in Resources */,
-				66BBFCF81CFD86A100D6923A /* pin map yellow@2x.png in Resources */,
 				18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */,
 				18CF559E1CE91CA9008E8EC4 /* Main.storyboard in Resources */,
-				66BBFCF71CFD86A100D6923A /* pin map yellow.png in Resources */,
 				18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */,
 				187FAD701CEF013800B10224 /* vignette.fsh in Resources */,
 				187FAD711CEF013800B10224 /* vignette.vsh in Resources */,
@@ -507,11 +461,9 @@
 				187FAD741CEF013800B10224 /* vignette.plist in Resources */,
 				18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */,
 				18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */,
-				66BBFCFA1CFD86A100D6923A /* pin map.png in Resources */,
-				66BBFCFC1CFD86A100D6923A /* pin map@3x.png in Resources */,
+				183FF6BC1CFF187E0086D011 /* graine.gif in Resources */,
 				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
 				18F136401CF75AA30021CBF5 /* smoke.plist in Resources */,
-				66BBFCF91CFD86A100D6923A /* pin map yellow@3x.png in Resources */,
 				18CF559F1CE91CA9008E8EC4 /* Map.storyboard in Resources */,
 				183FF6B31CFC75970086D011 /* symbiosis.json in Resources */,
 			);
@@ -585,11 +537,11 @@
 				183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */,
 				666301A91CFC443A001E991F /* GraineViewController.swift in Sources */,
 				18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */,
+				183FF6B91CFF18640086D011 /* SYDataLoader.swift in Sources */,
 				1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */,
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
 				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
 				666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */,
-				183FF6B51CFC77240086D011 /* SYOnboardingDataLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

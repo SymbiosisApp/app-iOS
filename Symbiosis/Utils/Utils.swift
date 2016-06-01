@@ -68,8 +68,7 @@ class RequestData {
 
 
 
-
-class OnboardingGif {
+class Background {
 
     func addGifBackground(view:UIView, gifView:UIWebView, gifSource: String){
         
@@ -77,14 +76,30 @@ class OnboardingGif {
         
         let webViewBG = gifView
         
-        
         webViewBG.loadData(filePath!, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
         webViewBG.userInteractionEnabled = false;
         view.addSubview(webViewBG)
         
+        
+    }
+    
+    func adddImageBaclground(view:UIView, imageSource: String){
+        let background = UIImage(named: imageSource as String)
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        //view.layer.zPosition = 1
+        
+        view.addSubview(imageView)
+        view.sendSubviewToBack(imageView)
     }
     
 }
+
+
 
 func CGPointDistanceSquared(from from: CGPoint, to: CGPoint) -> CGFloat {
     return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y);

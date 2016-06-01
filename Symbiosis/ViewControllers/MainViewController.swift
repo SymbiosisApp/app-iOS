@@ -38,6 +38,20 @@ class MainViewController: UIViewController {
         
         //call notification with texte
         showNotifications("texte yolo notif")
+        
+        //testing:
+        let dataLoarder = SYDataLoader()
+        dispatch_async(dispatch_get_main_queue(), {
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+            self.showOnboarding(onboardingData)
+        })
+        
+        //LOGIN
+        let user = UserSingleton.sharedInstance;
+        if(user.getUserData()["userId"] == nil){
+            //showLogin()
+        }
+
     }
     
     
@@ -45,11 +59,21 @@ class MainViewController: UIViewController {
         tabBar.applyStyle()
     }
     
+    func showLogin(){
+        dispatch_async(dispatch_get_main_queue(), {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+            let vc :UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login")
+            let navigationController = UINavigationController(rootViewController: vc)
+            self.presentViewController(navigationController, animated: true, completion: nil)
+        })
+        
+    }
+    
     func showOnboardingIntro() {
         //showonboarding et path onborading's name
-        let JsonDataConfig = SYOnboardingDataLoader()
+        let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = JsonDataConfig.loadJson("Onboarding", secondArray: "Intro")
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
             self.showOnboarding(onboardingData)
         })
     }
