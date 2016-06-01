@@ -20,10 +20,10 @@ class SYShape: SCNNode, SYRederable {
     var positionsList: [GLKVector3]
     var orientationsList: [GLKVector4]
     
-    let randomManager: SYRandomManager
+    let parent: SYRederable
     
-    init(propsList: [Any], positionsList: [GLKVector3], orientationsList: [GLKVector4], randomManager: SYRandomManager) {
-        self.randomManager = randomManager
+    init(propsList: [Any], positionsList: [GLKVector3], orientationsList: [GLKVector4], parent: SYRederable) {
+        self.parent = parent
         if propsList.count == 0 {
             fatalError("At least on props")
         }
@@ -88,6 +88,10 @@ class SYShape: SCNNode, SYRederable {
             self.position = SCNVector3FromGLKVector3(self.positionsList[0])
             self.orientation = SCNVector4FromGLKVector4(self.orientationsList[0])
         }
+    }
+    
+    func getRandomManager() -> SYRandomManager {
+        return self.parent.getRandomManager()
     }
     
     private func createMorpher() {

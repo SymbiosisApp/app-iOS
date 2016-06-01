@@ -14,10 +14,11 @@
 		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
 		183FF6B31CFC75970086D011 /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B21CFC75970086D011 /* symbiosis.json */; };
 		183FF6B51CFC77240086D011 /* SYOnboardingDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */; };
+		183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6B61CFDE0630086D011 /* SYRandomManager.swift */; };
 		1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0121CF6446D000C45D6 /* SYElement.swift */; };
 		1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0151CF6446D000C45D6 /* SYGeom.swift */; };
 		1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0171CF6446D000C45D6 /* SYPlant.swift */; };
-		1848F0221CF6446D000C45D6 /* SYRandomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0181CF6446D000C45D6 /* SYRandomManager.swift */; };
+		1848F0221CF6446D000C45D6 /* SYBezierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0181CF6446D000C45D6 /* SYBezierManager.swift */; };
 		1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F0191CF6446D000C45D6 /* SYShape.swift */; };
 		1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848F01B1CF6446D000C45D6 /* SYStructs.swift */; };
 		184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA85C1CE0CBC4007D5C6F /* SYState.swift */; };
@@ -101,10 +102,11 @@
 		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		183FF6B21CFC75970086D011 /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
 		183FF6B41CFC77240086D011 /* SYOnboardingDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboardingDataLoader.swift; sourceTree = "<group>"; };
+		183FF6B61CFDE0630086D011 /* SYRandomManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRandomManager.swift; sourceTree = "<group>"; };
 		1848F0121CF6446D000C45D6 /* SYElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElement.swift; sourceTree = "<group>"; };
 		1848F0151CF6446D000C45D6 /* SYGeom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeom.swift; sourceTree = "<group>"; };
 		1848F0171CF6446D000C45D6 /* SYPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPlant.swift; sourceTree = "<group>"; };
-		1848F0181CF6446D000C45D6 /* SYRandomManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRandomManager.swift; sourceTree = "<group>"; };
+		1848F0181CF6446D000C45D6 /* SYBezierManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBezierManager.swift; sourceTree = "<group>"; };
 		1848F0191CF6446D000C45D6 /* SYShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYShape.swift; sourceTree = "<group>"; };
 		1848F01B1CF6446D000C45D6 /* SYStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYStructs.swift; sourceTree = "<group>"; };
 		184FA85C1CE0CBC4007D5C6F /* SYState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYState.swift; sourceTree = "<group>"; };
@@ -215,7 +217,8 @@
 			children = (
 				18F136421CF7CAB40021CBF5 /* SYElements */,
 				18F1364E1CF7CC270021CBF5 /* SYGeoms */,
-				1848F0181CF6446D000C45D6 /* SYRandomManager.swift */,
+				1848F0181CF6446D000C45D6 /* SYBezierManager.swift */,
+				183FF6B61CFDE0630086D011 /* SYRandomManager.swift */,
 				1848F01B1CF6446D000C45D6 /* SYStructs.swift */,
 				1848F0171CF6446D000C45D6 /* SYPlant.swift */,
 				1848F0191CF6446D000C45D6 /* SYShape.swift */,
@@ -561,7 +564,7 @@
 				18F136541CF7CC270021CBF5 /* SYGeomBranch.swift in Sources */,
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
 				183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */,
-				1848F0221CF6446D000C45D6 /* SYRandomManager.swift in Sources */,
+				1848F0221CF6446D000C45D6 /* SYBezierManager.swift in Sources */,
 				18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */,
 				18F136551CF7CC270021CBF5 /* SYGeomEmpty.swift in Sources */,
 				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
@@ -579,6 +582,7 @@
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,
+				183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */,
 				666301A91CFC443A001E991F /* GraineViewController.swift in Sources */,
 				18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */,
 				1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */,

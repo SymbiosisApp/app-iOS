@@ -25,7 +25,7 @@ class SYElementRoot: SYElement {
     }
     
     override func generateElemsList() {
-        let plantType = self.randomManager.get("plantRootType") % 1
+        let plantType = self.getRandomManager().get("plantRootType") % 1
         for (index, props) in propsList.enumerate() {
             let myProps = props as! SYElementRootProps
             switch plantType {
@@ -54,7 +54,7 @@ class SYElementRoot: SYElement {
     override func generateElemFromShadow(shadow: SYElementShadow) {
         switch shadow.type {
         case "basicType1":
-            let branch = SYElementBasicType1(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            let branch = SYElementBasicType1(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(branch)
         default:
             break

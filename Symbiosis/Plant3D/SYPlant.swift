@@ -12,9 +12,9 @@ import SceneKit
 /**
  * This class just create a root SYElement and create a RandomManager.
  **/
-class SYPlant: SCNNode {
+class SYPlant: SCNNode, SYRederable {
     
-    var rootSYElem: SYElement
+    var rootSYElem: SYElement! = nil
     let randomManager: SYRandomManager = SYRandomManager()
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,15 +27,18 @@ class SYPlant: SCNNode {
         for state in states {
             propsList.append(SYElementRootProps(size: state))
         }
-        self.rootSYElem = SYElementRoot(propsList: propsList, positionsList: nil, orientationsList: nil, randomManager: self.randomManager)
-        
         super.init()
+        self.rootSYElem = SYElementRoot(propsList: propsList, positionsList: nil, orientationsList: nil, parent: self)
         
         self.addChildNode(self.rootSYElem)
     }
     
     func render(progress: Float) {
         self.rootSYElem.render(progress)
+    }
+    
+    func getRandomManager() -> SYRandomManager {
+        return self.randomManager
     }
     
 }

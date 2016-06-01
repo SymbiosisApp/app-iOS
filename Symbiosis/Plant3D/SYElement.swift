@@ -78,13 +78,13 @@ class SYElement: SCNNode, SYRederable {
     var positionsList: [GLKVector3]
     var orientationsList: [GLKVector4]
     
-    let randomManager: SYRandomManager;
+    let parent: SYRederable
     
     var shadows: [SYElementShadow] = []
     var elems: [SYRederable] = []
     
-    init(propsList: [Any], positionsList: [GLKVector3]?, orientationsList: [GLKVector4]?, randomManager: SYRandomManager) {
-        self.randomManager = randomManager
+    init(propsList: [Any], positionsList: [GLKVector3]?, orientationsList: [GLKVector4]?, parent: SYRederable) {
+        self.parent = parent
         if propsList.count == 0 {
             fatalError("At least on props")
         }
@@ -216,6 +216,10 @@ class SYElement: SCNNode, SYRederable {
         }
     }
     
+    func getRandomManager() -> SYRandomManager {
+        return self.parent.getRandomManager()
+    }
+    
     // Overide to verify the type of props
     func verifyProps() {}
     
@@ -234,16 +238,16 @@ class SYElement: SCNNode, SYRederable {
     func generateElemFromShadow(shadow: SYElementShadow) {
         switch shadow.type {
         case "branchShape":
-            let branch = SYShapeBranch(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            let branch = SYShapeBranch(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(branch)
         case "leafShape":
-            let leaf = SYShapeLeaf(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            let leaf = SYShapeLeaf(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(leaf)
         case "tigeShape":
-            let tige = SYShapeTige(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            let tige = SYShapeTige(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(tige)
         case "trunkShape":
-            let trunk = SYShapeTrunk(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, randomManager: self.randomManager)
+            let trunk = SYShapeTrunk(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(trunk)
         default:
             break

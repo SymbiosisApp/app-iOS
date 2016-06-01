@@ -41,20 +41,21 @@ class SYGeomTrunk: SYGeom {
         let path: UIBezierPath = UIBezierPath()
         path.moveToPoint(CGPoint(x: 0.3, y: 0.2))
         path.addCurveToPoint(CGPoint(x: 0, y: 0), controlPoint1: CGPoint(x: 0.3, y: 0.1), controlPoint2: CGPoint(x: 0.2, y: 0))
+        path.addLineToPoint(CGPoint(x: 0, y: 4))
 //        path.addCurveToPoint(CGPoint(x: -0.2, y: 0.2), controlPoint1: CGPoint(x: -0.1, y: 0), controlPoint2: CGPoint(x: -0.2, y: 0.1))
 //        path.addCurveToPoint(CGPoint(x: 0.2, y: 0.8), controlPoint1: CGPoint(x: -0.2, y: 0.5), controlPoint2: CGPoint(x: 0.2, y: 0.6))
 //        path.addCurveToPoint(CGPoint(x: 0, y: 1), controlPoint1: CGPoint(x: 0.2, y: 0.9), controlPoint2: CGPoint(x: 0.1, y: 1))
         let myPath = SYPath(withCGPath: path.CGPath)
         
-        let maxSize: Float = 10
+        let maxSize: Float = 10.2
         let progressOnMax = myProps.size / maxSize
         let progressCurve = progressOnMax * (options.boneSizeFromStart / myProps.size)
         
         let multiplier: Float = 3
         let point = myPath.valueAtTime(progressCurve)
         let nextPoint = myPath.valueAtTime(progressCurve + 0.01)
-        let translation = GLKVector3Make(Float(point.y) * multiplier, Float(point.x) * multiplier, 0)
-        let nextTranslate = GLKVector3Make(Float(nextPoint.y) * multiplier, Float(nextPoint.x) * multiplier, 0)
+        let translation = GLKVector3Make(Float(point.x) * multiplier, Float(point.y) * multiplier, 0)
+        let nextTranslate = GLKVector3Make(Float(nextPoint.x) * multiplier, Float(nextPoint.y) * multiplier, 0)
         orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
         
         // print(point)
@@ -63,6 +64,8 @@ class SYGeomTrunk: SYGeom {
         if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true
         }
+        
+        // print(NSStringFromGLKVector3(translation))
         
         return SYBone(translation: translation, orientation: orientation, size: 0.1, isLastStep: isLastStep, isAbsolute: true)
         

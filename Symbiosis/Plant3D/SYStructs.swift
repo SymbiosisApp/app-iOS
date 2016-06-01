@@ -112,4 +112,6 @@ struct SYStepFuncOptions {
 
 protocol SYRederable: class {
     func render(progress: Float)
+    func getRandomManager() -> SYRandomManager
+    // func getBezierManager() -> SYRandomManager
 }

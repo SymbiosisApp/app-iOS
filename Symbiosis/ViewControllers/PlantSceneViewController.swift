@@ -45,6 +45,10 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         scnView.scene = scene
         
         let startTime = CFAbsoluteTimeGetCurrent()
+        
+//        let props1 = SYGeomTigeProps(size: 4.5, width: 6)
+//        let props2 = SYGeomTigeProps(size: 4.5, width: 6)
+//        print(props1 == props2)
 
 //        let plant = SYElementBranch()
 //        scene.rootNode.addChildNode(plant)

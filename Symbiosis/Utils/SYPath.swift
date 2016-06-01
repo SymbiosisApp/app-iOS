@@ -34,8 +34,9 @@ struct SYPathElement {
         self.points = points
         
         // Precompute
-        for i in 0..<100 {
-            let t: CGFloat = CGFloat(Float(i)) / 100;
+        let precision: Int = 100
+        for i in 0..<precision {
+            let t: CGFloat = CGFloat(Float(i)) / CGFloat(precision);
             self.positions.append(self.precomputeForT(t))
         }
         for (index, pos) in self.positions.enumerate() {
@@ -131,6 +132,7 @@ class SYPath {
             case CGPathElementType.MoveToPoint:
                 // points.append(nextStartPoint)
                 // points.append(element.points[0])
+                print("Move to")
                 nextStartPoint = element.points[0]
             case .AddLineToPoint:
                 points.append(nextStartPoint)
@@ -168,10 +170,10 @@ class SYPath {
         var currentLength: Float = 0
         var index = 0;
         while (currentLength + self.elements[index].length) < targetLength {
-            currentLength += self.elements[index].length
             if index >= self.elements.count - 1 {
                 break;
             } else {
+                currentLength += self.elements[index].length
                 index += 1
             }
         }
@@ -180,8 +182,14 @@ class SYPath {
         if elem.length > 0 {
             subTime = (targetLength - currentLength) / elem.length;
         }
+        print("\(time) => \(index) & \(subTime)")
         let result = elem.valueAtTime(subTime)
         return result;
     }
     
+}
+
+func ==(lhs: SYPath, rhs: SYPath) -> Bool {
+    let areEqual = false
+    return areEqual;
 }
