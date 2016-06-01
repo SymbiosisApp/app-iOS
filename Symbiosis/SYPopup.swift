@@ -15,7 +15,7 @@ class SYPopup: UIViewController{
         super.viewDidLoad()
         print("popup")
         
-        background.adddImageBaclground(self.view, imageSource: "page1.png")
+        //background.adddImageBaclground(self.view, imageSource: "page1.png")
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0.9
