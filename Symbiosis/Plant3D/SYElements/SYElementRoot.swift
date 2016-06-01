@@ -35,7 +35,7 @@ class SYElementRoot: SYElement {
                 let props = SYElementBasicType1Props(id: "rootBranch", size: size)
                 self.addInElems("root", type: "basicType1", index: index, options: nil, props: props, position: nil, orientation: nil)
             default:
-                print("Whaaaat ?")
+                fatalError("Whaaaat ?")
             }
         }
         

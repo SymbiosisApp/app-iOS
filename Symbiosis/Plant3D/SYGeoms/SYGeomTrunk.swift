@@ -51,14 +51,9 @@ class SYGeomTrunk: SYGeom {
         let nextTranslate = GLKVector3Make(Float(nextPoint.x) * multiplier, Float(nextPoint.y) * multiplier, 0)
         orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
         
-        // print(point)
-        // print("\(progressCurve) => \(point)")
-        
         if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true
         }
-        
-        // print(NSStringFromGLKVector3(translation))
         
         return SYBone(translation: translation, orientation: orientation, size: 0.1, isLastStep: isLastStep, isAbsolute: true)
         

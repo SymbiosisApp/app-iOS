@@ -41,7 +41,7 @@ class LoginViewController: UIViewController{
                 (result: String) in
                  //use server response
                 self.user.setUserData(Int(result)!, pseudo: self.pseudo.text!, email: self.email.text!, mdp: self.mdp.text!)
-                print("getSingleton ", UserSingleton.sharedInstance.getUserData());
+                // print("getSingleton ", UserSingleton.sharedInstance.getUserData());
                 
                 self.dismissViewControllerAnimated(true, completion: nil)
             }

@@ -77,9 +77,10 @@ class SYGeom {
             
             if (!isLastStep) {
                 stepIndex += 1
-            } else {
-                // print("last step")
             }
+//            else {
+//                //last step
+//            }
             
         } while (!isLastStep)
         
@@ -149,7 +150,7 @@ class SYGeom {
     private func createFaces () {
         
         if self.steps.count == 0 {
-            print("No steps :/")
+            // print("No steps :/")
             return
         }
         
@@ -262,7 +263,7 @@ class SYGeom {
         // print(totalVerticeCount)
         
         if (normalsCount != verticesCount) {
-            print("normalsCount !== verticesCount : %i !== %i", normalsCount, verticesCount)
+            fatalError("normalsCount !== verticesCount : %i !== %i -- normalsCount : \(normalsCount) - verticesCount : \(verticesCount)")
         }
         
         let positions :[SCNVector3] = verticesList.map { (vertice) -> SCNVector3 in
@@ -317,8 +318,7 @@ class SYGeom {
     
     func stepFunc (options: SYStepFuncOptions) -> SYStep {
         let progress: Float = options.bone.sizeFromStart! / options.totalBoneSize
-        //        print(progress)
-        
+
         var points: [GLKVector3] = []
         
         // Last step

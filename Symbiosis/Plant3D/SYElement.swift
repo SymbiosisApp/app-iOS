@@ -56,7 +56,6 @@ class SYElementShadow {
     }
     
     init(type: String, name: String, options: Any?, size: Int) {
-        // print("init shadow with size \(size)")
         self.name = name
         self.type = type
         self.options = options
@@ -159,7 +158,6 @@ class SYElement: SCNNode, SYRederable {
                 fatalError("ShadowElems are not valid !")
             }
             if elem.positions.count != propsSize {
-                // print(self.shadows)
                 fatalError("ShadowElems are not valid !")
             }
         }

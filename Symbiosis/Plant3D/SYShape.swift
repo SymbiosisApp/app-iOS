@@ -172,12 +172,13 @@ class SYShape: SCNNode, SYRederable {
         }
         for i in 1..<keys.count {
             if keys[i] != keys[i-1] {
-                print("Not same structure !")
                 print(keys[i-1])
                 print(keys[i])
-            } else {
-                // print("Same Structure !")
+                fatalError("Not same structure !")
             }
+//            else {
+//                // Same Structure :)
+//            }
         }
     }
     

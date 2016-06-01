@@ -57,7 +57,6 @@ class SYBezierManager {
     }
     
     func generateBezier(key: String, options: SYBezierOptions) -> SYBezier {
-        print("generate bezier")
         let path = UIBezierPath()
         switch key {
         

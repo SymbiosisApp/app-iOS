@@ -29,10 +29,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="400" height="75"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4r7-rE-N9B">
-                            <rect key="frame" x="0.0" y="-11" width="400" height="98"/>
+                            <rect key="frame" x="0.0" y="-12" width="400" height="98"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="960-Rb-gdv" userLabel="DumbView">
-                                    <rect key="frame" x="0.0" y="48" width="1" height="1"/>
+                                    <rect key="frame" x="0.0" y="48.5" width="1" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="BEG-tT-BNC"/>

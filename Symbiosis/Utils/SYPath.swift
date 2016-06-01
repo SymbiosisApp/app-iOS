@@ -131,18 +131,12 @@ class SYPath {
         var elements: [SYPathElement] = []
         var startPoint = CGPoint(x: 0, y: 0)
         var nextStartPoint = CGPoint(x: 0, y: 0)
-        print("Gooo")
         self.path.forEach { element in
-            print("loop")
             var points: [CGPoint] = []
             switch (element.type) {
             case CGPathElementType.MoveToPoint:
-                // points.append(nextStartPoint)
-                // points.append(element.points[0])
-                // print("Move to")
                 nextStartPoint = element.points[0]
             case .AddLineToPoint:
-                print("=============")
                 points.append(nextStartPoint)
                 points.append(element.points[0])
                 nextStartPoint = element.points[0]
@@ -152,7 +146,6 @@ class SYPath {
                 points.append(element.points[1])
                 nextStartPoint = element.points[0]
             case .AddCurveToPoint:
-                print("Add Curve")
                 points.append(nextStartPoint)
                 points.append(element.points[0])
                 points.append(element.points[1])
@@ -161,7 +154,6 @@ class SYPath {
             case .CloseSubpath:
                 nextStartPoint = CGPoint(x: 0, y: 0)
             }
-            print(points)
             if element.type != CGPathElementType.MoveToPoint {
                 elements.append(SYPathElement(from: startPoint, type: element.type, points: points))
             }
@@ -169,12 +161,6 @@ class SYPath {
         }
         self.elements = elements
         
-        print("------")
-        for elem in elements {
-            print(elem.points)
-        }
-        
-        print(path)
         var totalLength: Float = 0
         for elem in self.elements {
             totalLength += elem.length
@@ -199,7 +185,6 @@ class SYPath {
         if elem.length > 0 {
             subTime = (targetLength - currentLength) / elem.length;
         }
-        print("\(time) => \(index) & \(subTime)")
         let result = elem.valueAtTime(subTime)
         return result;
     }

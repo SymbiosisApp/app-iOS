@@ -181,7 +181,6 @@ class MainViewController: UIViewController {
                 newViewController.view.layoutIfNeeded()
             },
             completion: { finished in
-                print("End : \(finished)")
                 if finished == false {
                     newViewController.view.alpha = 1
                     leftConstraint.constant = 0

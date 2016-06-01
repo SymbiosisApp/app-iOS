@@ -35,7 +35,7 @@ class SYDataLoader {
             }
             
         } catch {
-            print("error serializing JSON: \(error)")
+            fatalError("error serializing JSON: \(error)")
         }
         return result
     }

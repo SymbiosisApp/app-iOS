@@ -45,10 +45,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         scnView.scene = scene
         
         let startTime = CFAbsoluteTimeGetCurrent()
-        
-//        let props1 = SYGeomTigeProps(size: 4.5, width: 6)
-//        let props2 = SYGeomTigeProps(size: 4.5, width: 6)
-//        print(props1 == props2)
 
 //        let plant = SYElementBranch()
 //        scene.rootNode.addChildNode(plant)
@@ -58,20 +54,14 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //        dispatch_async(dispatch_get_global_queue(priority, 0)) {
 //            plant.render(1.6)
 //        }
-        
-        
 
-//        let propList: [Any] = [SYElementBranchProps(size: 1), SYElementBranchProps(size: 5)]
-//        let positions = [GLKVector3Make(0, 0, 0), GLKVector3Make(0, 1, 0)]
-//        let orient = [GLKVector4Make(0, 1, 0, 0), GLKVector4Make(0, 1, 0, 0.5)]
-//        plant = SYElementBranch(propsList: propList, positionsList: positions, orientationsList: orient)
         self.plant = SYPlant(states: self.states)
         scene.rootNode.addChildNode(plant)
         plant.render(0)
         
         
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-        print("Render time : \(timeElapsed)")
+        // print("Render time : \(timeElapsed)")
 
         let cameraTarget = SCNNode()
         cameraTarget.position = SCNVector3Make(0, 0.5, 0)
@@ -115,7 +105,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         if let path = NSBundle.mainBundle().pathForResource("vignette", ofType: "plist") {
             if let dico1 = NSDictionary(contentsOfFile: path)  {
                 let dico = dico1 as! [String : AnyObject]
-                //println(dico)
                 let technique = SCNTechnique(dictionary:dico)
                 //Need the screen size
                 technique?.setValue(NSValue(CGSize: CGSizeApplyAffineTransform(self.view.frame.size, CGAffineTransformMakeScale(2.0, 2.0))), forKeyPath: "size_screen")
@@ -172,9 +161,9 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
      **/
     
     func onStateUpdate() {
-        print("Plant update")
+        // print("Plant update")
         if state.plantShouldAnimate() {
-            print("Animate the plant !")
+            // print("Animate the plant !")
             state.plantStartAnimate()
             dispatch_after(
                 dispatch_time(
@@ -183,14 +172,14 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
                 ),
                 dispatch_get_main_queue(),
                 {
-                    print("end animate the plant !")
+                    // print("end animate the plant !")
                     self.state.plantEndAnimating()
                 }
             )
         } else if state.plantIsAnimating() {
-            print("Wait for end")
+            // print("Wait for end")
         } else {
-            print("Can do somethinf else :)")
+            // print("Can do somethinf else :)")
         }
     }
     
