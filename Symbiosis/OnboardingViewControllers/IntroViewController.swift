@@ -30,7 +30,6 @@ class IntroViewController: UIViewController {
 
 
 class IntroPag1ViewController: IntroViewController{
-    
 
     @IBOutlet weak var imageEclosion: UIImageView!
     @IBOutlet weak var pageControle: UIPageControl!

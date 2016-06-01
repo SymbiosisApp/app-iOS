@@ -22,7 +22,7 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        background.adddImageBaclground(self.view, imageSource: "login.png")
+        background.adddImageBaclground(self.view, imageSource: "Formulaire.png")
         
     }
 

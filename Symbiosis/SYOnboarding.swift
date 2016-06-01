@@ -35,19 +35,14 @@ class SYOnboarding : UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for (key, value) in initOnboardingData {
-            print("\(key): \(value)")
-        }
-        
+   
         dataSource = self
         delegate = self
         
         scrollToViewController(onboardingViewController.first!)
         onboardingDelegate?.PageViewController(self, didUpdatePageCount: onboardingViewController.count)
         
-        //set pagecontroler style
-        
+        //set natif pagecontroler style
         let pageControl: UIPageControl  = UIPageControl.appearance()
         pageControl.backgroundColor = UIColor( red:255,
                                                green:255,
@@ -134,18 +129,6 @@ extension SYOnboarding : UIPageViewControllerDataSource {
         
     }
     
-    
-    func assignbackground(background:NSString){
-        let background = UIImage(named: background as String)
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.ScaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubviewToBack(imageView)
-    }
 }
 
 

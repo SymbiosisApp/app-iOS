@@ -22,7 +22,6 @@
 //    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if let pageViewController = segue.destinationViewController as? SYOnboarding {
-//            
 //            self.pageViewController = pageViewController
 //        }
 //    }
