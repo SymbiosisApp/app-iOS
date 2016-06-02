@@ -25,6 +25,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
         mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 48.853138550976446, longitude: 2.348756790161133), zoomLevel: 12, animated: false)
         
         mapView.tintColor = .darkGrayColor()
+        
         view.addSubview(mapView)
         mapView.delegate = self
         

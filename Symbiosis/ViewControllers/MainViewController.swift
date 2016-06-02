@@ -54,8 +54,8 @@ class MainViewController: UIViewController {
         }
         
         //POPUP : commenter, fruit, decouverte, merci, lieu, suggerer, dispersion, photo, commencer
-        let popupData:NSDictionary = ["Map" : "commencer"]
-        self.performSegueWithIdentifier("popupSegue", sender: popupData)
+        //let popupData:NSDictionary = ["Map" : "commencer"]
+        //self.performSegueWithIdentifier("popupSegue", sender: popupData)
         
     }
     
