@@ -40,11 +40,11 @@ class MainViewController: UIViewController {
         //call notification with texte
         showNotifications("texte yolo notif")
         
-        //testing:
-        let dataLoarder = SYDataLoader()
+        //ONBOARDING : Intro, Graine, Pollen, Fruit
+        //let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray:"Graine", name:"name")
-            self.showOnboarding(onboardingData)
+            //let onboardingData = dataLoarder.loadJson("Onboarding", secondArray:"Graine", name:"name")
+            //self.showOnboarding(onboardingData)
         })
         
         //LOGIN
@@ -53,8 +53,8 @@ class MainViewController: UIViewController {
             //showLogin()
         }
         
-        //POPUP
-        let popupData:NSDictionary = ["Map" : "commentaires"]
+        //POPUP : commenter, fruit, decouverte, merci, lieu, suggerer, dispersion, photo, commencer
+        let popupData:NSDictionary = ["Map" : "commencer"]
         self.performSegueWithIdentifier("popupSegue", sender: popupData)
         
     }
@@ -106,7 +106,7 @@ class MainViewController: UIViewController {
     @IBAction func closeOnboarding(segue: UIStoryboardSegue)    {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     
     func showNotifications(textNotification : String){
         let now = NSDate(timeIntervalSinceNow: 10)

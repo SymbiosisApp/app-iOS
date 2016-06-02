@@ -81,24 +81,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
-                                <rect key="frame" x="15" y="0.0" width="600" height="600"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
+                                <rect key="frame" x="4" y="0.0" width="600" height="600"/>
                                 <accessibility key="accessibilityConfiguration" identifier="blurPopupView"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
-                                <rect key="frame" x="16" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
+                                <rect key="frame" x="4" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-5" id="2TV-Du-ubw"/>
-                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="bottom" id="Gc3-DN-RMe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="M7f-90-Cie" secondAttribute="trailing" constant="-35" id="TEh-O7-FaA"/>
-                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="UZv-BM-FTY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FGd-GP-5Fk" secondAttribute="trailing" constant="-36" id="Wg6-ds-lfs"/>
-                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-4" id="YPj-n8-aZq"/>
-                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="FGd-GP-5Fk" secondAttribute="bottom" id="eVV-up-7G5"/>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="iTf-mp-fQd"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="blurPopupView" destination="M7f-90-Cie" id="fWk-VF-JL0"/>

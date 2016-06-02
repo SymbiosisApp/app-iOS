@@ -19,7 +19,6 @@ class PopupViewController: UIViewController{
 
     @IBOutlet weak var blurPopupView: UIView!
     @IBOutlet weak var imagePopup: UIImageView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +33,7 @@ class PopupViewController: UIViewController{
         }
                 
         blurEffect()
+        
     }
 
     func blurEffect(){
