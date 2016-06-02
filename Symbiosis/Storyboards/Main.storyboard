@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="144" y="1355"/>
         </scene>
-        <!--Popup-->
+        <!--Popup View Controller-->
         <scene sceneID="FPn-6j-sNw">
             <objects>
-                <viewController storyboardIdentifier="PopupViewCtrl" id="kMm-eA-Lto" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupViewCtrl" id="kMm-eA-Lto" customClass="PopupViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wnB-yk-Y80"/>
                         <viewControllerLayoutGuide type="bottom" id="Atl-6j-pVL"/>

@@ -74,7 +74,7 @@
 		6677B1A71CFFD7B6000D455F /* fruitToGraine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */; };
 		6677B1A81CFFD7B6000D455F /* graineToPousse.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A11CFFD7B6000D455F /* graineToPousse.gif */; };
 		6677B1A91CFFD7B6000D455F /* marche.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A21CFFD7B6000D455F /* marche.gif */; };
-		66BBFD1B1CFF83F500D6923A /* SYPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFD1A1CFF83F500D6923A /* SYPopup.swift */; };
+		66BBFD1B1CFF83F500D6923A /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFD1A1CFF83F500D6923A /* PopupViewController.swift */; };
 		66BBFD1D1CFF841F00D6923A /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFD1C1CFF841F00D6923A /* Popup.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -164,7 +164,7 @@
 		6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fruitToGraine.gif; sourceTree = "<group>"; };
 		6677B1A11CFFD7B6000D455F /* graineToPousse.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousse.gif; sourceTree = "<group>"; };
 		6677B1A21CFFD7B6000D455F /* marche.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marche.gif; sourceTree = "<group>"; };
-		66BBFD1A1CFF83F500D6923A /* SYPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPopup.swift; sourceTree = "<group>"; };
+		66BBFD1A1CFF83F500D6923A /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupViewController.swift; path = ../PopupViewController.swift; sourceTree = "<group>"; };
 		66BBFD1C1CFF841F00D6923A /* Popup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,6 +250,7 @@
 				1854398F1CEBC60800B1D86C /* MapViewController.swift */,
 				183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */,
 				666301961CFC3897001E991F /* LoginViewController.swift */,
+				66BBFD1A1CFF83F500D6923A /* PopupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -315,7 +316,6 @@
 				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
 				666301981CFC38EA001E991F /* UserSingleton.swift */,
 				6663019A1CFC390E001E991F /* SYOnboarding.swift */,
-				66BBFD1A1CFF83F500D6923A /* SYPopup.swift */,
 				183FF6AA1CFA078D0086D011 /* Utils */,
 				1814CB391CEE53DE004D7540 /* Assets */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
@@ -558,7 +558,7 @@
 				666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
-				66BBFD1B1CFF83F500D6923A /* SYPopup.swift in Sources */,
+				66BBFD1B1CFF83F500D6923A /* PopupViewController.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,

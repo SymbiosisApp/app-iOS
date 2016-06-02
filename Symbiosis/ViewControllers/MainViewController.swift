@@ -41,10 +41,10 @@ class MainViewController: UIViewController {
         showNotifications("texte yolo notif")
         
         //testing:
-        //let dataLoarder = SYDataLoader()
+        let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
-            //let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
-            //self.showOnboarding(onboardingData)
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray:"Graine", name:"name")
+            self.showOnboarding(onboardingData)
         })
         
         //LOGIN
@@ -54,7 +54,6 @@ class MainViewController: UIViewController {
         }
         
         //POPUP
-        //sender = array popup + destination
         let popupData:NSDictionary = ["Map" : "commentaires"]
         self.performSegueWithIdentifier("popupSegue", sender: popupData)
         
@@ -67,7 +66,7 @@ class MainViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "popupSegue") {
-            let secondViewController = segue.destinationViewController as! SYPopup
+            let secondViewController = segue.destinationViewController as! PopupViewController
             
             let popupData = sender as! NSDictionary
             secondViewController.popupData = popupData
@@ -77,7 +76,6 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
     }
-    
     
     func showLogin(){
         dispatch_async(dispatch_get_main_queue(), {
@@ -90,7 +88,7 @@ class MainViewController: UIViewController {
     }
     
     func showOnboardingIntro() {
-        //showonboarding et path onborading's name
+        //showonboarding et path onborading's name: Intro, Graine, Pollen, Fruit
         let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
             let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")

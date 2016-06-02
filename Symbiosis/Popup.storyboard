@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Popup-->
+        <!--Popup View Controller-->
         <scene sceneID="e5F-nu-sRe">
             <objects>
-                <viewController id="aTj-vZ-y0F" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aTj-vZ-y0F" customClass="PopupViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2My-U7-Xdp"/>
                         <viewControllerLayoutGuide type="bottom" id="6sj-7Z-YqK"/>

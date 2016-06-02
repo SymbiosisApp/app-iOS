@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SYPopup: UIViewController{
+class PopupViewController: UIViewController{
     
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]

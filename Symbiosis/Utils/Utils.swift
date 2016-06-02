@@ -75,7 +75,6 @@ class Background {
         let filePath = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource(gifSource, withExtension:"gif")!)
         
         let webViewBG = gifView
-        
         webViewBG.loadData(filePath!, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
         webViewBG.userInteractionEnabled = false;
         view.addSubview(webViewBG)
