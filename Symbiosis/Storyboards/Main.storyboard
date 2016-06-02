@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -20,6 +21,12 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-hP-GFL" userLabel="Popup Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="kMm-eA-Lto" kind="embed" identifier="popupSegue" id="qkm-eg-2Ao"/>
+                                </connections>
                             </containerView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
@@ -42,10 +49,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ouk-5U-jwS" secondAttribute="trailing" id="1Td-BN-aYR"/>
                             <constraint firstItem="ouk-5U-jwS" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="1rs-2E-iXS"/>
+                            <constraint firstItem="x1G-hP-GFL" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leadingMargin" constant="-20" id="2VS-44-T7n"/>
                             <constraint firstAttribute="trailing" secondItem="mqZ-7N-97i" secondAttribute="trailing" id="HGc-Ko-u5R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x1G-hP-GFL" secondAttribute="trailing" constant="-20" id="JS9-Vg-JNz"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="Mic-Ru-Y0X"/>
                             <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="mqZ-7N-97i" secondAttribute="bottom" id="My5-8y-hwB"/>
+                            <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="x1G-hP-GFL" secondAttribute="bottom" id="dRN-QM-pYE"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="tdf-L4-z10"/>
+                            <constraint firstItem="x1G-hP-GFL" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="topMargin" id="uah-fK-Kfd"/>
                             <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="ouk-5U-jwS" secondAttribute="bottom" id="vXb-Lb-M57"/>
                         </constraints>
                     </view>
@@ -57,6 +68,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53T-iL-6OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144" y="1355"/>
+        </scene>
+        <!--Popup-->
+        <scene sceneID="FPn-6j-sNw">
+            <objects>
+                <viewController storyboardIdentifier="PopupViewCtrl" id="kMm-eA-Lto" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wnB-yk-Y80"/>
+                        <viewControllerLayoutGuide type="bottom" id="Atl-6j-pVL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NTy-fa-Gxf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
+                                <rect key="frame" x="15" y="0.0" width="600" height="600"/>
+                                <accessibility key="accessibilityConfiguration" identifier="blurPopupView"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
+                                <rect key="frame" x="16" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="M7f-90-Cie" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-5" id="2TV-Du-ubw"/>
+                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="bottom" id="Gc3-DN-RMe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M7f-90-Cie" secondAttribute="trailing" constant="-35" id="TEh-O7-FaA"/>
+                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="UZv-BM-FTY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FGd-GP-5Fk" secondAttribute="trailing" constant="-36" id="Wg6-ds-lfs"/>
+                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-4" id="YPj-n8-aZq"/>
+                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="FGd-GP-5Fk" secondAttribute="bottom" id="eVV-up-7G5"/>
+                            <constraint firstItem="M7f-90-Cie" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="iTf-mp-fQd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurPopupView" destination="M7f-90-Cie" id="fWk-VF-JL0"/>
+                        <outlet property="imagePopup" destination="FGd-GP-5Fk" id="6Y5-mW-Mjc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JTO-fU-7SQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="144" y="2079"/>
         </scene>
     </scenes>
 </document>

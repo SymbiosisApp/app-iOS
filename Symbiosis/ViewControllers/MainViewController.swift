@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     weak var currentTabView: UIViewController?
+    var pushPopup:Bool=false
     
     // State
     let state = SYStateManager.sharedInstance
@@ -40,10 +41,10 @@ class MainViewController: UIViewController {
         showNotifications("texte yolo notif")
         
         //testing:
-        let dataLoarder = SYDataLoader()
+        //let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
-            self.showOnboarding(onboardingData)
+            //let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+            //self.showOnboarding(onboardingData)
         })
         
         //LOGIN
@@ -51,13 +52,32 @@ class MainViewController: UIViewController {
         if(user.getUserData()["userId"] == nil){
             //showLogin()
         }
-
+        
+        //POPUP
+        //sender = array popup + destination
+        let popupData:NSDictionary = ["Map" : "commentaires"]
+        self.performSegueWithIdentifier("popupSegue", sender: popupData)
+        
     }
     
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        return false
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "popupSegue") {
+            let secondViewController = segue.destinationViewController as! SYPopup
+            
+            let popupData = sender as! NSDictionary
+            secondViewController.popupData = popupData
+        }
+    }
     
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
     }
+    
     
     func showLogin(){
         dispatch_async(dispatch_get_main_queue(), {
