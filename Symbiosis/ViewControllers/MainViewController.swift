@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
+    @IBOutlet weak var popupContainer: UIView!
     
     // For tabs (ViewControllers names)
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
@@ -20,7 +21,8 @@ class MainViewController: UIViewController {
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     weak var currentTabView: UIViewController?
     var pushPopup:Bool=false
-    
+    var popupViewCtrl: UIViewController?
+
     // State
     let state = SYStateManager.sharedInstance
     
@@ -57,20 +59,7 @@ class MainViewController: UIViewController {
         //let popupData:NSDictionary = ["Map" : "commencer"]
         //self.performSegueWithIdentifier("popupSegue", sender: popupData)
         
-    }
-    
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        return false
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "popupSegue") {
-            let secondViewController = segue.destinationViewController as! PopupViewController
-            
-            let popupData = sender as! NSDictionary
-            secondViewController.popupData = popupData
-        }
+        self.showPopu("Yolo")
     }
     
     override func viewDidLayoutSubviews() {
@@ -100,11 +89,47 @@ class MainViewController: UIViewController {
     func showOnboarding(onboardingData:NSDictionary)   {
         let viewController: UIViewController = SYOnboarding(data: onboardingData as! [String : AnyObject])
         presentViewController(viewController, animated: true, completion: nil)
+        
     }
     
     
     @IBAction func closeOnboarding(segue: UIStoryboardSegue)    {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func showPopu(name: String) {
+        if popupViewCtrl != nil {
+            self.destroyPopup()
+        }
+        self.popupViewCtrl = UIStoryboard(name: "Popup", bundle: nil).instantiateViewControllerWithIdentifier("Popup")
+        
+        // self.popupViewCtrl!.showPopupWithName()
+        self.addChildViewController(popupViewCtrl!)
+        let subView = popupViewCtrl!.view
+        let parentView = self.popupContainer
+        
+        self.popupContainer.addSubview(subView)
+//         AutoLayout
+        
+        subView.removeConstraints(subView.constraints)
+        parentView.removeConstraints(parentView.constraints)
+        
+        subView.backgroundColor = UIColor.greenColor()
+        print(subView.constraints)
+        print(parentView.constraints)
+        
+        print(subView.frame.width)
+        // TODO : :/
+        subView.frame = parentView.frame
+        
+        print(subView.nextResponder())
+        
+    }
+    
+    func destroyPopup() {
+        if popupViewCtrl != nil {
+            // popupViewCtrl = nil
+        }
     }
 
     

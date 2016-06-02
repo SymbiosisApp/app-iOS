@@ -50,9 +50,9 @@ class SYElementBasicType1: SYElement {
             
             let trunkBones: [SYBone] = SYGeomTrunk(withoutGenerateWithProps: trunkProps, parent: self).getBones()
             
-            for bone in trunkBones {
-                print(bone)
-            }
+//            for bone in trunkBones {
+//                print(bone)
+//            }
             
             let pos = GLKVector3Make(0, 0, 0)
             self.addInElems("trunk", type: "trunkShape", index: index, options: nil, props: trunkProps, position: pos, orientation: nil)

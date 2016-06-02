@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--Popup View Controller-->
         <scene sceneID="e5F-nu-sRe">
             <objects>
-                <viewController id="aTj-vZ-y0F" customClass="PopupViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Popup" id="aTj-vZ-y0F" customClass="PopupViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2My-U7-Xdp"/>
                         <viewControllerLayoutGuide type="bottom" id="6sj-7Z-YqK"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.17434722185134888" green="0.59072256088256836" blue="0.86913794279098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CGn-Yc-oEj" firstAttribute="leading" secondItem="4HC-3Q-jqv" secondAttribute="leadingMargin" constant="-20" id="Wx0-Hu-kWg"/>
                             <constraint firstItem="CGn-Yc-oEj" firstAttribute="top" secondItem="4HC-3Q-jqv" secondAttribute="topMargin" id="acn-W1-bxc"/>
@@ -30,6 +30,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="CGn-Yc-oEj" secondAttribute="trailing" constant="-20" id="rhR-Mj-6Do"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vT9-7v-gsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

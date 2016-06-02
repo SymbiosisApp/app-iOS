@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -24,9 +24,7 @@
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-hP-GFL" userLabel="Popup Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <connections>
-                                    <segue destination="kMm-eA-Lto" kind="embed" identifier="popupSegue" id="qkm-eg-2Ao"/>
-                                </connections>
+                                <color key="backgroundColor" red="0.91545593738555908" green="0.29308891296386719" blue="0.20751205086708069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </containerView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
@@ -47,21 +45,48 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="x1G-hP-GFL" firstAttribute="leading" secondItem="mqZ-7N-97i" secondAttribute="leading" id="0N7-tb-QWd"/>
                             <constraint firstAttribute="trailing" secondItem="ouk-5U-jwS" secondAttribute="trailing" id="1Td-BN-aYR"/>
                             <constraint firstItem="ouk-5U-jwS" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="1rs-2E-iXS"/>
                             <constraint firstItem="x1G-hP-GFL" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leadingMargin" constant="-20" id="2VS-44-T7n"/>
+                            <constraint firstItem="x1G-hP-GFL" firstAttribute="bottom" secondItem="KXH-Dg-W4J" secondAttribute="top" id="6ib-eg-O4y">
+                                <variation key="widthClass=compact" constant="-478"/>
+                            </constraint>
+                            <constraint firstItem="x1G-hP-GFL" firstAttribute="top" secondItem="mqZ-7N-97i" secondAttribute="top" id="Fkf-Sd-7cN"/>
                             <constraint firstAttribute="trailing" secondItem="mqZ-7N-97i" secondAttribute="trailing" id="HGc-Ko-u5R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x1G-hP-GFL" secondAttribute="trailing" constant="-20" id="JS9-Vg-JNz"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="Mic-Ru-Y0X"/>
                             <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="mqZ-7N-97i" secondAttribute="bottom" id="My5-8y-hwB"/>
                             <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="x1G-hP-GFL" secondAttribute="bottom" id="dRN-QM-pYE"/>
+                            <constraint firstItem="x1G-hP-GFL" firstAttribute="trailing" secondItem="mqZ-7N-97i" secondAttribute="trailing" id="m6P-w1-KC0"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="tdf-L4-z10"/>
                             <constraint firstItem="x1G-hP-GFL" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="topMargin" id="uah-fK-Kfd"/>
                             <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="ouk-5U-jwS" secondAttribute="bottom" id="vXb-Lb-M57"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0N7-tb-QWd"/>
+                                <exclude reference="6ib-eg-O4y"/>
+                                <exclude reference="Fkf-Sd-7cN"/>
+                                <exclude reference="m6P-w1-KC0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="0N7-tb-QWd"/>
+                                <exclude reference="2VS-44-T7n"/>
+                                <include reference="6ib-eg-O4y"/>
+                                <include reference="Fkf-Sd-7cN"/>
+                                <exclude reference="JS9-Vg-JNz"/>
+                                <include reference="m6P-w1-KC0"/>
+                                <exclude reference="uah-fK-Kfd"/>
+                                <exclude reference="dRN-QM-pYE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="mqZ-7N-97i" id="yMy-un-Jdv"/>
+                        <outlet property="popupContainer" destination="x1G-hP-GFL" id="Eev-F6-9Pb"/>
                         <outlet property="tabBar" destination="ouk-5U-jwS" id="o04-ZV-9PE"/>
                     </connections>
                 </viewController>

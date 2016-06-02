@@ -114,12 +114,12 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
+        self.view.addGestureRecognizer(tapGesture)
         
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
-        // print("Tap")
+        print("Tap")
         annimProgress = annimProgress + 1
         if annimProgress >  Float(states.count - 1) {
             annimProgress = 0
