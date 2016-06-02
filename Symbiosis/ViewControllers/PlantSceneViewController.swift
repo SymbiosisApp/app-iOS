@@ -125,7 +125,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
-        // print("Tap")
+        print("Tap")
         annimProgress = annimProgress + 1
         if annimProgress >  Float(plantProps.count - 1) {
             annimProgress = 0
