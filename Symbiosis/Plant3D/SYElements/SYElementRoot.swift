@@ -11,7 +11,11 @@ import GLKit
 
 
 struct SYElementRootProps {
-    var size: Float = 1
+    let size: Float;
+    let hasLeefs: Bool;
+    let nbrOfFlower: Int;
+    let nbrOfFruits: Int;
+    let nbrOfSeed: Int;
 }
 
 class SYElementRoot: SYElement {
@@ -26,14 +30,13 @@ class SYElementRoot: SYElement {
     
     override func generateElemsList() {
         let plantType = self.getRandomManager().get("plantRootType") % 1
-        for (index, props) in propsList.enumerate() {
-            let myProps = props as! SYElementRootProps
+        for (propsIndex, props) in propsList.enumerate() {
+            let rootProps = props as! SYElementRootProps
             switch plantType {
             case 0:
                 // Branch
-                let size = myProps.size
-                let props = SYElementBasicType1Props(id: "rootBranch", size: size)
-                self.addInElems("root", type: "basicType1", index: index, options: nil, props: props, position: nil, orientation: nil)
+                let props = SYElementBasicType1Props(id: "rootBranch", rootProps: rootProps)
+                self.addInElems("root", type: "basicType1", propsIndex: propsIndex, options: nil, props: props, position: nil, orientation: nil)
             default:
                 fatalError("Whaaaat ?")
             }
@@ -42,12 +45,12 @@ class SYElementRoot: SYElement {
     }
     
     override func generateZeroElemItemFromShadow(shadow: SYElementShadow, atIndex index: Int) -> (props: Any, position: GLKVector3?, orientation: GLKVector4?) {
-        // let myProps = self.propsList[index] as! SYElementRootProps
+        let rootProps = self.propsList[index] as! SYElementRootProps
         switch shadow.type {
         case "basicType1":
-            return (SYElementBasicType1Props(id: "rootBranch", size: 0), nil, nil)
+            return (SYElementBasicType1Props(id: "rootBranch", rootProps: rootProps), nil, nil)
         default:
-            return (SYElementBasicType1Props(id: "rootBranch", size: 0), nil, nil)
+            return (SYElementBasicType1Props(id: "rootBranch", rootProps: rootProps), nil, nil)
         }
     }
     

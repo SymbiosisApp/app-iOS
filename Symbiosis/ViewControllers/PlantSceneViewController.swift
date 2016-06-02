@@ -24,7 +24,13 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     
     var plant: SYPlant!
     var annimProgress: Float = 0
-    var states: [Float] = [1, 3, 5, 8, 10, 20, 30, 40, 50]
+    var plantProps: [SYElementRootProps] = [
+        SYElementRootProps(size: 0, hasLeefs: false, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0),
+        SYElementRootProps(size: 1, hasLeefs: true, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0),
+        SYElementRootProps(size: 4, hasLeefs: true, nbrOfFlower: 1, nbrOfFruits: 0, nbrOfSeed: 0),
+        SYElementRootProps(size: 6, hasLeefs: true, nbrOfFlower: 0, nbrOfFruits: 1, nbrOfSeed: 0),
+        SYElementRootProps(size: 6, hasLeefs: true, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 1)
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +50,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         // set the scene to the view
         scnView.scene = scene
         
-        let startTime = CFAbsoluteTimeGetCurrent()
+//        let startTime = CFAbsoluteTimeGetCurrent()
 
 //        let plant = SYElementBranch()
 //        scene.rootNode.addChildNode(plant)
@@ -55,12 +61,12 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //            plant.render(1.6)
 //        }
 
-        self.plant = SYPlant(states: self.states)
+        self.plant = SYPlant(states: self.plantProps)
         scene.rootNode.addChildNode(plant)
         plant.render(0)
         
         
-        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+//        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         // print("Render time : \(timeElapsed)")
 
         let cameraTarget = SCNNode()
@@ -71,7 +77,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.camera?.xFov = 30.0
-        cameraNode.position = SCNVector3Make(0, 1.5, 5)
+        cameraNode.position = SCNVector3Make(0, 0.5, 2)
         // add rotationNode
         rotationNode.addChildNode(cameraNode)
         rotationNode.position = SCNVector3Make(0, 0, 0)
@@ -121,7 +127,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         // print("Tap")
         annimProgress = annimProgress + 1
-        if annimProgress >  Float(states.count - 1) {
+        if annimProgress >  Float(plantProps.count - 1) {
             annimProgress = 0
         }
         SCNTransaction.begin()

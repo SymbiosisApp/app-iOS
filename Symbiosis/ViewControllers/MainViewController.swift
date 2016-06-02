@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         state.selectTab(2)
         
         //call notification with texte
-        showNotifications("texte yolo notif")
+//        showNotifications("texte yolo notif")
         
         //testing:
         //let dataLoarder = SYDataLoader()

@@ -164,31 +164,31 @@ class SYElement: SCNNode, SYRederable {
     }
     
     // NOTE : options are only use the first time and are not replaced even if they are differents
-    func addInElems(name: String, type: String, index: Int, options: Any?, props: Any, position: GLKVector3?, orientation: GLKVector4? ) {
+    func addInElems(name: String, type: String, propsIndex: Int, options: Any?, props: Any, position: GLKVector3?, orientation: GLKVector4? ) {
         let shadow = self.findShadow(type, name: name, options: options)
-        if index >= self.propsList.count {
+        if propsIndex >= self.propsList.count {
             fatalError("Gné ? Index > propsList.count (\(self.propsList.count)) get \(index)")
         }
-        shadow.props[index] = props
+        shadow.props[propsIndex] = props
         if position == nil {
-            shadow.positions[index] = GLKVector3Make(0, 0, 0)
+            shadow.positions[propsIndex] = GLKVector3Make(0, 0, 0)
         } else {
-            shadow.positions[index] = position!
+            shadow.positions[propsIndex] = position!
         }
         if orientation == nil {
-            shadow.orientations[index] = GLKVector4Make(0, 1, 0, 0)
+            shadow.orientations[propsIndex] = GLKVector4Make(0, 1, 0, 0)
         } else {
-            shadow.orientations[index] = orientation!
+            shadow.orientations[propsIndex] = orientation!
         }
     }
     
     func resolveElemsList() {
         for shadow in shadows {
             // props
-            for (index, prop) in shadow.props.enumerate() {
+            for (propsIndex, prop) in shadow.props.enumerate() {
                 if prop == nil {
-                    let emptyData = generateZeroElemItemFromShadow(shadow, atIndex: index)
-                    self.addInElems(shadow.name, type: shadow.type, index: index, options: nil, props: emptyData.props, position: emptyData.position, orientation: emptyData.orientation)
+                    let emptyData = generateZeroElemItemFromShadow(shadow, atIndex: propsIndex)
+                    self.addInElems(shadow.name, type: shadow.type, propsIndex: propsIndex, options: nil, props: emptyData.props, position: emptyData.position, orientation: emptyData.orientation)
                 }
             }
         }
@@ -228,10 +228,10 @@ class SYElement: SCNNode, SYRederable {
     // Override to generate elems list from propsList
     func generateElemsList() {
         // Exemple
-        for props in propsList {
+        for (propsIndex, props) in propsList.enumerate() {
             // use self.addInElems to generate elems
             let newProps = props as! SYElemEmptyProps
-            self.addInElems("yolo", type: "yoloType", index: 0, options: nil, props: newProps, position: nil, orientation: nil)
+            self.addInElems("yolo", type: "yoloType", propsIndex: propsIndex, options: nil, props: newProps, position: nil, orientation: nil)
         }
     }
 
@@ -262,7 +262,7 @@ class SYElement: SCNNode, SYRederable {
         case "branchShape":
             return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
         case "leafShape":
-            return (SYGeomLeafProps(size: 0, bend: 0.3), nil, nil)
+            return (SYGeomLeafProps(size: 0), nil, nil)
         case "leafShape":
             return (SYGeomTigeProps(size: 0, width: 0), nil, nil)
         case "trunkShape":

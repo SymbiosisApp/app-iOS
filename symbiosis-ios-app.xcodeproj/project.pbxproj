@@ -378,8 +378,8 @@
 			children = (
 				18F1364F1CF7CC270021CBF5 /* SYGeomBranch.swift */,
 				18F136501CF7CC270021CBF5 /* SYGeomEmpty.swift */,
-				18F136511CF7CC270021CBF5 /* SYGeomLeaf.swift */,
 				18F136521CF7CC270021CBF5 /* SYGeomTige.swift */,
+				18F136511CF7CC270021CBF5 /* SYGeomLeaf.swift */,
 				18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */,
 			);
 			path = SYGeoms;

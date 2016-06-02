@@ -66,13 +66,17 @@ class SYBezierManager {
             path.addCurveToPoint(CGPoint(x: -0.2, y: 0.2), controlPoint1: CGPoint(x: -0.15, y: 0), controlPoint2: CGPoint(x: -0.2, y: 0.1))
             path.addCurveToPoint(CGPoint(x: 0.2, y: 0.8), controlPoint1: CGPoint(x: -0.2, y: 0.5), controlPoint2: CGPoint(x: 0.2, y: 0.6))
             path.addCurveToPoint(CGPoint(x: 0, y: 1), controlPoint1: CGPoint(x: 0.2, y: 0.9), controlPoint2: CGPoint(x: 0.1, y: 1))
-        
+            
         case "trunk-width":
             path.moveToPoint(CGPoint(x: 0, y: 1))
             path.addCurveToPoint(CGPoint(x: 1, y: 0.1), controlPoint1: CGPoint(x: 0, y: 0.5), controlPoint2: CGPoint(x: 1, y: 0.5))
+            
+        case "leaf":
+            path.moveToPoint(CGPoint(x: 0, y: 0))
+            path.addCurveToPoint(CGPoint(x: 0.5, y: 0.1), controlPoint1: CGPoint(x: 0.2, y: 0.2), controlPoint2: CGPoint(x: 0.4, y: 0.3))
         
         default:
-            fatalError("Not register ")
+            fatalError("Not registered Bezier \(key)")
         }
         let sypath = SYPath(withCGPath: path.CGPath)
         return SYBezier(name: key, path: sypath, options: options)

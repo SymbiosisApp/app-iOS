@@ -72,7 +72,7 @@ class SYGeomTrunk: SYGeom {
         
         var points: [GLKVector3] = []
         
-        let myPath = self.parent.getBezierManager().get("trunk-width", options: nil)
+        // let myPath = self.parent.getBezierManager().get("trunk-width", options: nil)
         
         // let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
   

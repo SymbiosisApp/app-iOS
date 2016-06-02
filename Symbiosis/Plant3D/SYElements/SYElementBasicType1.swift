@@ -12,8 +12,8 @@ import SceneKit
 
 
 struct SYElementBasicType1Props {
-    let id: String;
-    var size: Float = 1;
+    let id: String
+    var rootProps: SYElementRootProps
 }
 
 class SYElementBasicType1: SYElement {
@@ -27,7 +27,7 @@ class SYElementBasicType1: SYElement {
     }
     
     override func generateElemsList() {
-        for (index, props) in propsList.enumerate() {
+        for (propsIndex, props) in propsList.enumerate() {
             let myProps = props as! SYElementBasicType1Props
             //            let numberOfElems = Int((1 + myProps.size) * (1 + myProps.size))
             //            for i in 1...numberOfElems {
@@ -46,17 +46,25 @@ class SYElementBasicType1: SYElement {
             //            let childProps = SYGeomLeafProps(size: 1, bend: 0.3)
             //            self.addInElems("leaf", type: "leafShape", index: index, options: nil, props: childProps, position: nil, orientation: nil)
             
-            let trunkProps = SYGeomTrunkProps(size: myProps.size)
+            let trunkProps = SYGeomTrunkProps(size: myProps.rootProps.size)
             
             let trunkBones: [SYBone] = SYGeomTrunk(withoutGenerateWithProps: trunkProps, parent: self).getBones()
-            
-            for bone in trunkBones {
-                print(bone)
+
+            if myProps.rootProps.hasLeefs {
+                for (index, bone) in trunkBones.enumerate() {
+                    let pos = GLKVector3Make(bone.position.x, bone.position.y, bone.position.z)
+                    let props = SYGeomLeafProps(size: 0.5)
+//                    var orient = GLKVector4Make(0, 1, 0, 0)
+//                    let rotate = GLKMatrix4MakeRotationToAlign(GLKVector3Make(0, 1, 0), plan: bone.translation, axisRotation: 0)
+//                    let orient = GLKQuaternionMakeWithMatrix4(rotate)
+//                    let orient = GLKVector4Make(bone.translation.x, bone.translation.y, bone.translation.z, 0)
+                    let orient = GLKVector4Make(0, 1, 0, 0)
+                    
+                    self.addInElems("leaf\(index)", type: "leafShape", propsIndex: propsIndex, options: nil, props: props, position: pos, orientation: GLKVector4Normalize(orient))
+                }
             }
             
-            let pos = GLKVector3Make(0, 0, 0)
-            self.addInElems("trunk", type: "trunkShape", index: index, options: nil, props: trunkProps, position: pos, orientation: nil)
-            
+            self.addInElems("trunk", type: "trunkShape", propsIndex: propsIndex, options: nil, props: trunkProps, position: GLKVector3Make(0, 0, 0), orientation: nil )
             
         }
     }

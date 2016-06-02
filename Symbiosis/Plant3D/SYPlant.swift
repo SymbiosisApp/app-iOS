@@ -22,11 +22,11 @@ class SYPlant: SCNNode, SYRederable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(states: [Float]) {
+    init(states: [SYElementRootProps]) {
         
         var propsList: [Any] = []
         for state in states {
-            propsList.append(SYElementRootProps(size: state))
+            propsList.append(state)
         }
         super.init()
         self.rootSYElem = SYElementRoot(propsList: propsList, positionsList: nil, orientationsList: nil, parent: self)
