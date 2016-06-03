@@ -56,10 +56,6 @@ class MainViewController: UIViewController {
         
     }
     
-<<<<<<< ours
-=======
-    
->>>>>>> theirs
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
     }

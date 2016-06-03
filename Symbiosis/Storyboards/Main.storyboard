@@ -67,35 +67,5 @@
             </objects>
             <point key="canvasLocation" x="144" y="1355"/>
         </scene>
-        <!--Popup View Controller-->
-        <scene sceneID="FPn-6j-sNw">
-            <objects>
-                <viewController storyboardIdentifier="PopupViewCtrl" id="kMm-eA-Lto" customClass="PopupViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wnB-yk-Y80"/>
-                        <viewControllerLayoutGuide type="bottom" id="Atl-6j-pVL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NTy-fa-Gxf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
-                                <rect key="frame" x="4" y="0.0" width="600" height="600"/>
-                                <accessibility key="accessibilityConfiguration" identifier="blurPopupView"/>
-                            </view>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
-                                <rect key="frame" x="4" y="0.0" width="600" height="600"/>
-                            </imageView>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="blurPopupView" destination="M7f-90-Cie" id="fWk-VF-JL0"/>
-                        <outlet property="imagePopup" destination="FGd-GP-5Fk" id="6Y5-mW-Mjc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JTO-fU-7SQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="144" y="2079"/>
-        </scene>
     </scenes>
 </document>
