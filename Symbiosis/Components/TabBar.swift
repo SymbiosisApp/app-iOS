@@ -16,7 +16,9 @@ class SYTabBar: UIView {
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var plantButton: UIView!
     @IBOutlet weak var firstButton: UIButton!
-    @IBOutlet var buttons: Array<UIButton>!
+    @IBOutlet var buttons: [UIButton]!
+    
+    var notifs: [UIView] = []
     
     // MARK: Properties
 //    var delegate: SYTabBarDelegate?
@@ -44,6 +46,31 @@ class SYTabBar: UIView {
     
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        // create Notifs
+        for (index, button) in buttons.enumerate() {
+            
+            let notif = UIView()
+            notifs.append(notif)
+            button.addSubview(notif)
+            // Width
+            notif.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .Width, relatedBy: .Equal, toItem: notif, attribute: .Height, multiplier: 1, constant: 0))
+            // Height
+            notif.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0, constant: 10))
+            // centerX
+            button.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .CenterX, relatedBy: .Equal, toItem: button, attribute: .CenterX, multiplier: 1, constant: 0))
+            if index == 2 {
+                plantButton.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .CenterY, relatedBy: .Equal, toItem: plantButton, attribute: .Top, multiplier: 1, constant: 0))
+            } else {
+                background.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .CenterY, relatedBy: .Equal, toItem: background, attribute: .Top, multiplier: 1, constant: 0))
+            }
+            
+            button.layoutSubviews()
+            
+            notif.layer.backgroundColor = UIColor.redColor().CGColor
+            notif.layer.cornerRadius = 5
+            notif.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         self.addSubview(view)
     }
@@ -88,6 +115,12 @@ class SYTabBar: UIView {
                 button.selected = true
             } else {
                 button.selected = false
+            }
+            let notif = notifs[index]
+            if state.isNotifiedTab(index) {
+                notif.hidden = false
+            } else {
+                notif.hidden = true
             }
         }
     }
