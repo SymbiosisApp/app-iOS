@@ -137,6 +137,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.selectedTab == index
     }
     
+    func isNotifiedTab(index: Int) -> Bool {
+        // TODO : implement real condiftion !
+        return currentState.selectedTab == index
+    }
+    
     func getSelectedTab() -> Int {
         return currentState.selectedTab
     }

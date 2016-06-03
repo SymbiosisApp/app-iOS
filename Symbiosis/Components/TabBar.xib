@@ -32,15 +32,18 @@
                             <rect key="frame" x="0.0" y="-12" width="400" height="98"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="960-Rb-gdv" userLabel="DumbView">
-                                    <rect key="frame" x="0.0" y="48" width="1" height="1"/>
+                                    <rect key="frame" x="0.0" y="49" width="0.0" height="0.0"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="1" id="BEG-tT-BNC"/>
-                                        <constraint firstAttribute="height" constant="1" id="aGG-mv-GMI"/>
+                                        <constraint firstAttribute="width" id="BEG-tT-BNC"/>
+                                        <constraint firstAttribute="height" id="aGG-mv-GMI"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKR-iK-gaf" userLabel="FirstButton">
-                                    <rect key="frame" x="18" y="24" width="50" height="50"/>
+                                    <rect key="frame" x="11" y="19.5" width="59" height="59"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="LKR-iK-gaf" secondAttribute="height" id="kJw-4e-UMd"/>
+                                    </constraints>
                                     <state key="normal" image="profil"/>
                                     <state key="selected" image="profil_selected"/>
                                     <connections>
@@ -48,7 +51,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3t-c1-wec" userLabel="SecondButton">
-                                    <rect key="frame" x="84.5" y="24" width="50" height="50"/>
+                                    <rect key="frame" x="81" y="19.5" width="59" height="59"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="N3t-c1-wec" secondAttribute="height" id="znY-zO-JWe"/>
+                                    </constraints>
                                     <state key="normal" image="map"/>
                                     <state key="selected" image="map_selected"/>
                                     <connections>
@@ -59,7 +65,10 @@
                                     <rect key="frame" x="151" y="0.0" width="98" height="98"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRp-BO-5hA" userLabel="PlantButton">
-                                            <rect key="frame" x="24" y="24" width="50" height="50"/>
+                                            <rect key="frame" x="19.5" y="19.5" width="59" height="59"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="uRp-BO-5hA" secondAttribute="height" id="ogk-8U-umg"/>
+                                            </constraints>
                                             <state key="normal" image="plant"/>
                                             <state key="selected" image="plant_selected"/>
                                             <connections>
@@ -67,15 +76,19 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.17434722185134888" green="0.59072256088256836" blue="0.86913794279098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.8699958394970414" green="0.86579296104536496" blue="0.87419871794871795" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
+                                        <constraint firstItem="uRp-BO-5hA" firstAttribute="height" secondItem="UZh-7f-boM" secondAttribute="height" multiplier="0.6" id="1du-rp-iVk"/>
                                         <constraint firstItem="uRp-BO-5hA" firstAttribute="centerX" secondItem="UZh-7f-boM" secondAttribute="centerX" id="99e-e6-JDT"/>
                                         <constraint firstAttribute="width" secondItem="UZh-7f-boM" secondAttribute="height" multiplier="1:1" id="DmC-2I-iw5"/>
                                         <constraint firstItem="uRp-BO-5hA" firstAttribute="centerY" secondItem="UZh-7f-boM" secondAttribute="centerY" id="rBM-Dv-W9h"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcz-6F-KUb" userLabel="ThirdButton">
-                                    <rect key="frame" x="266" y="24" width="50" height="50"/>
+                                    <rect key="frame" x="260" y="19.5" width="59" height="59"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="qcz-6F-KUb" secondAttribute="height" id="g1r-G3-E3x"/>
+                                    </constraints>
                                     <state key="normal" image="chat"/>
                                     <state key="selected" image="chat_selected"/>
                                     <connections>
@@ -83,7 +96,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbZ-nM-sMl" userLabel="FourthButton">
-                                    <rect key="frame" x="333" y="24" width="50" height="50"/>
+                                    <rect key="frame" x="330" y="19.5" width="59" height="59"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="AbZ-nM-sMl" secondAttribute="height" id="Nkd-tR-Pgn"/>
+                                    </constraints>
                                     <state key="normal" image="settings"/>
                                     <state key="selected" image="settings_selected"/>
                                     <connections>
@@ -91,17 +107,23 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGO-iD-vvQ" userLabel="DumbView">
-                                    <rect key="frame" x="400" y="48" width="0.0" height="1"/>
+                                    <rect key="frame" x="400" y="49" width="0.0" height="0.0"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="8Pn-h6-fM7"/>
+                                        <constraint firstAttribute="height" id="8Pn-h6-fM7"/>
                                         <constraint firstAttribute="width" id="fxh-93-44l"/>
                                     </constraints>
                                 </view>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="uRp-BO-5hA" firstAttribute="height" secondItem="AbZ-nM-sMl" secondAttribute="height" id="2sB-l1-HVQ"/>
+                                <constraint firstItem="uRp-BO-5hA" firstAttribute="height" secondItem="qcz-6F-KUb" secondAttribute="height" id="B4j-ED-06l"/>
+                                <constraint firstItem="uRp-BO-5hA" firstAttribute="height" secondItem="N3t-c1-wec" secondAttribute="height" id="HP4-LS-LTN"/>
+                                <constraint firstItem="uRp-BO-5hA" firstAttribute="height" secondItem="LKR-iK-gaf" secondAttribute="height" id="Qlf-Gf-B9v"/>
+                            </constraints>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" red="0.91545593738555908" green="0.29308891296386719" blue="0.20751205086708069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="4r7-rE-N9B" firstAttribute="centerY" secondItem="c6a-Su-YkX" secondAttribute="centerY" id="HaB-qF-ifu"/>
                         <constraint firstItem="UZh-7f-boM" firstAttribute="height" secondItem="c6a-Su-YkX" secondAttribute="height" multiplier="1.3" id="bb6-CT-gr8"/>
