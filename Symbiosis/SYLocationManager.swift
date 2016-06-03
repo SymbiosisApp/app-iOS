@@ -18,7 +18,7 @@ class SYLocationManager : NSObject, CLLocationManagerDelegate {
     var fakeCurrentLocation = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
     var fakeCurrentLocationTarget = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
     var fakeCurrentLocationFrom = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
-    var fakeAnimateInterval = NSTimeInterval(Double(1.0/2.0))
+    var fakeAnimateInterval = NSTimeInterval(Double(1.0/15.0))
     var fakeAnimateFrame: Int = 0
     var fakeAnimateFrameTarget: Int = 0
     
@@ -71,7 +71,7 @@ class SYLocationManager : NSObject, CLLocationManagerDelegate {
 //                let dist = sqrt(abs(latDiff * lngDiff))
 //                let duration = dist * 10
                 
-                let duration: Float = 10
+                let duration: Float = 0.3
                 self.fakeCurrentLocationFrom = self.fakeCurrentLocation
                 self.fakeAnimateFrameTarget = Int(floor(duration / Float(self.fakeAnimateInterval)))
                 self.fakeAnimateFrame = 0
