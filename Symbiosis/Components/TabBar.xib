@@ -32,7 +32,7 @@
                             <rect key="frame" x="0.0" y="-12" width="400" height="98"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="960-Rb-gdv" userLabel="DumbView">
-                                    <rect key="frame" x="0.0" y="48.5" width="1" height="1"/>
+                                    <rect key="frame" x="0.0" y="48" width="1" height="1"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="BEG-tT-BNC"/>
@@ -48,7 +48,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3t-c1-wec" userLabel="SecondButton">
-                                    <rect key="frame" x="84" y="24" width="50" height="50"/>
+                                    <rect key="frame" x="84.5" y="24" width="50" height="50"/>
                                     <state key="normal" image="map"/>
                                     <state key="selected" image="map_selected"/>
                                     <connections>
