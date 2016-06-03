@@ -13,19 +13,11 @@ class SYPopup: UIView {
     
     // MARK: Outlets
     @IBOutlet var view: UIView!
-    @IBOutlet weak var background: UIView!
-    @IBOutlet weak var plantButton: UIView!
-    @IBOutlet weak var firstButton: UIButton!
-    @IBOutlet var buttons: Array<UIButton>!
-    
-    
     @IBOutlet weak var buttonclose: UIButton!
 
-    
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
-
     
     // MARK: Properties
     var nibName: String = "Popup"
@@ -38,7 +30,6 @@ class SYPopup: UIView {
         super.init(frame: frame)
         setup()
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -53,30 +44,19 @@ class SYPopup: UIView {
         view = loadViewFromNib()
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
         addSubview(view)
-        
-        print("------yolo---------")
-        
         
         state.listenTo(.Update, action: self.onStateUpdate)
         onStateUpdate()
         
         buttonclose.addTarget(self, action:#selector(self.closePopup), forControlEvents: .TouchUpInside)
-
         
-        
+        //TODO set background image
     }
-    
-    func someAction(sender:UITapGestureRecognizer){
-
-        print("yolo")
-        
-    }
-
+   
     
     func closePopup(){
-        //view?.removefromsuperView
+        // TODO add transition
         view?.superview!.removeFromSuperview()
         view.removeFromSuperview()
     }
@@ -87,7 +67,7 @@ class SYPopup: UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: nibName, bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        
+
         return view
     }
 
@@ -95,17 +75,22 @@ class SYPopup: UIView {
     // - MARK: Update
     func onStateUpdate() {
         let parentView = view.superview
-
+        
+        //TODO For on the states
         if state.tabHasChanged() {
-
         let currentTab = state.getSelectedTab()
         if currentTab < viewsNames.count {
-                if("Plant" == viewsNames[currentTab]){
+                if("Map" == viewsNames[currentTab]){
                     
                     parentView?.hidden = false
+                    
+                    //TODO
+                    //if view = "Map" && popup = "time" -> userinterfaceenabled = false
+                    //parentView?.userInteractionEnabled = false
+                    
                 }else{
                     parentView?.hidden = true
-
+                    
                 }
             }
         }

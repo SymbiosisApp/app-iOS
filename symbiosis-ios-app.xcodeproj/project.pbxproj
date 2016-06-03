@@ -74,8 +74,6 @@
 		6677B1A71CFFD7B6000D455F /* fruitToGraine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */; };
 		6677B1A81CFFD7B6000D455F /* graineToPousse.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A11CFFD7B6000D455F /* graineToPousse.gif */; };
 		6677B1A91CFFD7B6000D455F /* marche.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A21CFFD7B6000D455F /* marche.gif */; };
-		66BBFD1B1CFF83F500D6923A /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFD1A1CFF83F500D6923A /* PopupViewController.swift */; };
-		66BBFD1D1CFF841F00D6923A /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFD1C1CFF841F00D6923A /* Popup.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,10 +151,10 @@
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		6663019A1CFC390E001E991F /* SYOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboarding.swift; sourceTree = "<group>"; };
 		666301A31CFC3A22001E991F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = OnboardingViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
-		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
-		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
-		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
+		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
+		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraineViewController.swift; path = OnboardingViewControllers/GraineViewController.swift; sourceTree = "<group>"; };
+		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollenViewController.swift; path = OnboardingViewControllers/PollenViewController.swift; sourceTree = "<group>"; };
+		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FruitViewController.swift; path = OnboardingViewControllers/FruitViewController.swift; sourceTree = "<group>"; };
 		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
 		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
 		6677B19E1CFFD7B6000D455F /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
@@ -164,8 +162,6 @@
 		6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fruitToGraine.gif; sourceTree = "<group>"; };
 		6677B1A11CFFD7B6000D455F /* graineToPousse.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousse.gif; sourceTree = "<group>"; };
 		6677B1A21CFFD7B6000D455F /* marche.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marche.gif; sourceTree = "<group>"; };
-		66BBFD1A1CFF83F500D6923A /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupViewController.swift; path = ../PopupViewController.swift; sourceTree = "<group>"; };
-		66BBFD1C1CFF841F00D6923A /* Popup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,7 +246,6 @@
 				1854398F1CEBC60800B1D86C /* MapViewController.swift */,
 				183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */,
 				666301961CFC3897001E991F /* LoginViewController.swift */,
-				66BBFD1A1CFF83F500D6923A /* PopupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -349,7 +344,6 @@
 				18CF55971CE91CA9008E8EC4 /* LaunchScreen.storyboard */,
 				666301941CFC3815001E991F /* Onboarding.storyboard */,
 				666301A61CFC4232001E991F /* Login.storyboard */,
-				66BBFD1C1CFF841F00D6923A /* Popup.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -474,7 +468,6 @@
 				18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */,
 				187FAD701CEF013800B10224 /* vignette.fsh in Resources */,
 				187FAD711CEF013800B10224 /* vignette.vsh in Resources */,
-				66BBFD1D1CFF841F00D6923A /* Popup.storyboard in Resources */,
 				6677B1A61CFFD7B6000D455F /* courses.gif in Resources */,
 				6677B1A91CFFD7B6000D455F /* marche.gif in Resources */,
 				18CF559D1CE91CA9008E8EC4 /* LaunchScreen.storyboard in Resources */,
@@ -558,7 +551,6 @@
 				666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
-				66BBFD1B1CFF83F500D6923A /* PopupViewController.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,

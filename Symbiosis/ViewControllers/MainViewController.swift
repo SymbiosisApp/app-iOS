@@ -55,12 +55,14 @@ class MainViewController: UIViewController {
             //showLogin()
         }
         
-        //POPUP : commenter, fruit, decouverte, merci, lieu, suggerer, dispersion, photo, commencer
-//        let popupData:NSDictionary = ["Map" : "commencer"]
-//        self.performSegueWithIdentifier("popupSegue", sender: popupData)
+        //TODO SET DATA: String on Popup component
                
     }
     
+<<<<<<< ours
+=======
+    
+>>>>>>> theirs
     override func viewDidLayoutSubviews() {
         tabBar.applyStyle()
     }

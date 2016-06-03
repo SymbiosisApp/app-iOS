@@ -18,17 +18,25 @@
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commencer" translatesAutoresizingMaskIntoConstraints="NO" id="hon-2P-Njf" customClass="SY">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="button" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltL-6K-oSe">
-                    <rect key="frame" x="0.0" y="539" width="174" height="61"/>
-                    <color key="backgroundColor" red="0.96078431369999995" green="0.42150952732243607" blue="0.16942087607911605" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Button"/>
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="button" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltL-6K-oSe">
+                    <rect key="frame" x="0.0" y="539" width="600" height="60"/>
+                    <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ZLg-OS-2Yj"/>
+                    </constraints>
+                    <state key="normal" title="J'AI COMPRIS">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hon-2P-Njf" secondAttribute="bottom" id="4n3-36-ADh"/>
+                <constraint firstAttribute="bottom" secondItem="ltL-6K-oSe" secondAttribute="bottom" constant="1" id="C4a-DX-p0Q"/>
                 <constraint firstItem="hon-2P-Njf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WpJ-wZ-Fii"/>
+                <constraint firstItem="ltL-6K-oSe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aeb-pN-1Iq"/>
                 <constraint firstItem="hon-2P-Njf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eqZ-WN-QmA"/>
                 <constraint firstAttribute="trailing" secondItem="hon-2P-Njf" secondAttribute="trailing" id="heb-Ro-a6p"/>
+                <constraint firstAttribute="trailing" secondItem="ltL-6K-oSe" secondAttribute="trailing" id="yCO-vE-RYu"/>
             </constraints>
             <point key="canvasLocation" x="262" y="225"/>
         </view>
