@@ -177,6 +177,15 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.plantIsAnimating
     }
     
+    func locationHasChanged() -> Bool {
+        return (currentState.location.latitude != previousState.location.latitude ||
+            currentState.location.longitude != previousState.location.longitude)
+    }
+    
+    func getCurrentLocation() -> CLLocationCoordinate2D {
+        return currentState.location
+    }
+    
     
     
     /**
@@ -211,6 +220,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.triggerUpdate()
     }
     
+    func updateGeoloc(location: CLLocationCoordinate2D) {
+        currentState.location = location
+        self.triggerUpdate()
+    }
+    
     
     
     /**
@@ -219,12 +233,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: SYLocationManager Delegate
     
     func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Location updated !")
-        currentState.location = locations[0].coordinate
-        print(locations[0].coordinate)
-        
-        self.triggerUpdate()
-        // self.trigger(.ShowOnboarding)
+        self.updateGeoloc(locations[0].coordinate)
     }
     
     func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
