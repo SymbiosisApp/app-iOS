@@ -22,12 +22,6 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-hP-GFL" userLabel="Popup Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <connections>
-                                    <segue destination="kMm-eA-Lto" kind="embed" identifier="popupSegue" id="qkm-eg-2Ao"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <constraints>
@@ -49,14 +43,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ouk-5U-jwS" secondAttribute="trailing" id="1Td-BN-aYR"/>
                             <constraint firstItem="ouk-5U-jwS" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="1rs-2E-iXS"/>
-                            <constraint firstItem="x1G-hP-GFL" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leadingMargin" constant="-20" id="2VS-44-T7n"/>
                             <constraint firstAttribute="trailing" secondItem="mqZ-7N-97i" secondAttribute="trailing" id="HGc-Ko-u5R"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="x1G-hP-GFL" secondAttribute="trailing" constant="-20" id="JS9-Vg-JNz"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="Mic-Ru-Y0X"/>
                             <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="mqZ-7N-97i" secondAttribute="bottom" id="My5-8y-hwB"/>
-                            <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="x1G-hP-GFL" secondAttribute="bottom" id="dRN-QM-pYE"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="tdf-L4-z10"/>
-                            <constraint firstItem="x1G-hP-GFL" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="topMargin" id="uah-fK-Kfd"/>
                             <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="ouk-5U-jwS" secondAttribute="bottom" id="vXb-Lb-M57"/>
                         </constraints>
                     </view>

@@ -37,41 +37,6 @@ class MainViewController: UIViewController {
         // Init the tabBar on plant
         state.selectTab(2)
         
-        //call notification with texte
-//        showNotifications("texte yolo notif")
-        
-        //testing:
-        //let dataLoarder = SYDataLoader()
-        dispatch_async(dispatch_get_main_queue(), {
-            //let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
-            //self.showOnboarding(onboardingData)
-        })
-        
-        //LOGIN
-        let user = UserSingleton.sharedInstance;
-        if(user.getUserData()["userId"] == nil){
-            //showLogin()
-        }
-        
-        //POPUP
-        //sender = array popup + destination
-        let popupData:NSDictionary = ["Map" : "commentaires"]
-        self.performSegueWithIdentifier("popupSegue", sender: popupData)
-        
-    }
-    
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        return false
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "popupSegue") {
-            let secondViewController = segue.destinationViewController as! SYPopup
-            
-            let popupData = sender as! NSDictionary
-            secondViewController.popupData = popupData
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -158,6 +123,27 @@ class MainViewController: UIViewController {
             if currentTab < viewsNames.count {
                 setTabNavigation(currentTab)
             }
+        }
+        
+        
+        if false /* TODO : state.needLogin ? */ {
+            //LOGIN
+            let user = UserSingleton.sharedInstance;
+            if(user.getUserData()["userId"] == nil){
+                //showLogin()
+            }
+        }
+        
+        if false /* TODO : state.getNotification ? */ {
+            //call notification with texte
+            showNotifications("texte yolo notif")
+        }
+        
+        if false /* TODO : state.showOnboarding() ? */ {
+            //testing:
+            let dataLoarder = SYDataLoader()
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+            self.showOnboarding(onboardingData)
         }
     }
     
