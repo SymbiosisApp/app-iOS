@@ -11,10 +11,17 @@ import CoreLocation
 
 class SYLocationManager : NSObject, CLLocationManagerDelegate {
     var useNatif: Bool
+    var socket = SYSocket.sharedInstance
     var natifLocationManager: CLLocationManager?
     var natifLocationManagerStatus: CLAuthorizationStatus? = nil
-    var currentFakeLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
-    var socket = SYSocket.sharedInstance
+    
+    var fakeCurrentLocation = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
+    var fakeCurrentLocationTarget = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
+    var fakeCurrentLocationFrom = CLLocationCoordinate2D(latitude: 48.872473, longitude: 2.387603)
+    var fakeAnimateInterval = NSTimeInterval(Double(1.0/60.0))
+    var fakeAnimateFrame: Int = 0
+    var fakeAnimateFrameTarget: Int = 0
+    
     weak var delegate: SYLocationManagerDelegate?
     weak var timer = NSTimer()
     
@@ -32,18 +39,49 @@ class SYLocationManager : NSObject, CLLocationManagerDelegate {
                 self.natifLocationManager!.requestAlwaysAuthorization()
             }
         } else {
-            self.socket.io.on("UPDATE_ME_POSITION") {data, ack in
+//            self.socket.io.on("UPDATE_ME_POSITION") {data, ack in
+//                let first = data[0] as! NSMutableDictionary
+//                var dict = [String : Any]()
+//                for (key, value) in first {
+//                    dict[key as! String] = value
+//                }
+//                let lat = dict["lat"] as! Double
+//                let lng = dict["lng"] as! Double
+//                self.fakeCurrentLocation.latitude = lat
+//                self.fakeCurrentLocation.longitude = lng
+//                
+//                self.fakeLocationUpdate()
+//            }
+            self.socket.io.on("STATE_UPDATED") {data, ack in
                 let first = data[0] as! NSMutableDictionary
                 var dict = [String : Any]()
                 for (key, value) in first {
                     dict[key as! String] = value
                 }
-                let lat = dict["lat"] as! Double
-                let lng = dict["lng"] as! Double
-                self.currentFakeLocation.latitude = lat
-                self.currentFakeLocation.longitude = lng
+                let geoloc = dict["geoloc"]! as! [String : Double]
+                let lat = geoloc["lat"]!
+                let lng = geoloc["lng"]!
                 
-                self.fakeLocationUpdate()
+                self.fakeCurrentLocationTarget.latitude = lat
+                self.fakeCurrentLocationTarget.longitude = lng
+                
+                let latDiff = Float(self.fakeCurrentLocationTarget.latitude) - Float(self.fakeCurrentLocation.latitude)
+                let lngDiff = Float(self.fakeCurrentLocationTarget.longitude) - Float(self.fakeCurrentLocation.longitude)
+                
+                let dist = sqrt(abs(latDiff * lngDiff))
+                print(dist)
+                let duration = dist * 1
+                print(duration)
+                self.fakeCurrentLocationFrom = self.fakeCurrentLocation
+                self.fakeAnimateFrameTarget = Int(floor(duration / Float(self.fakeAnimateInterval)))
+                self.fakeAnimateFrame = 0
+                
+                self.timer?.invalidate()
+                self.loopFakeLocationUpdate()
+                
+                // self.fakeCurrentLocation.latitude = lat
+                // self.fakeCurrentLocation.longitude = lng
+                // self.fakeLocationUpdate()
             }
             
             self.delegate?.syLocationManagerDidGetAuthorization(self)
@@ -68,18 +106,42 @@ class SYLocationManager : NSObject, CLLocationManagerDelegate {
     func fakeLocationUpdate () {
         //        let addLat = (drand48() - 0.5) / 10000.0
         //        let addLon = (drand48() - 0.5) / 10000.0
-        //        self.currentFakeLocation.latitude += addLat
-        //        self.currentFakeLocation.longitude += addLon
+        //        self.fakeCurrentLocation.latitude += addLat
+        //        self.fakeCurrentLocation.longitude += addLon
         let altitude = 40.0
         let course = 0.0
         let timestamp = NSDate()
         
-        let location = CLLocation(coordinate: self.currentFakeLocation, altitude: altitude, horizontalAccuracy: 1.0, verticalAccuracy: 1.0, course: course, speed: 0.5, timestamp: timestamp)
+        let location = CLLocation(coordinate: self.fakeCurrentLocation, altitude: altitude, horizontalAccuracy: 1.0, verticalAccuracy: 1.0, course: course, speed: 0.5, timestamp: timestamp)
         
         self.syLocationUpdate([location])
         
-        //        let nextUpdate = 5.3
-        //        timer = NSTimer.scheduledTimerWithTimeInterval(nextUpdate, target: self, selector: "fakeLocationUpdate", userInfo: nil, repeats: false)
+    }
+    
+    
+    func loopFakeLocationUpdate() {
+        
+        print("\(fakeAnimateFrame) / \(fakeAnimateFrameTarget)")
+        
+        if fakeAnimateFrame >= fakeAnimateFrameTarget {
+            fakeCurrentLocation.latitude = fakeCurrentLocationTarget.latitude
+            fakeCurrentLocation.longitude = fakeCurrentLocationTarget.longitude
+        } else {
+            let progress: Float = Float(fakeAnimateFrame) / Float(fakeAnimateFrameTarget)
+            print(progress)
+            
+            let latDiff = Float(self.fakeCurrentLocationTarget.latitude) - Float(self.fakeCurrentLocation.latitude)
+            let lngDiff = Float(self.fakeCurrentLocationTarget.longitude) - Float(self.fakeCurrentLocation.longitude)
+            
+            fakeCurrentLocation.latitude = fakeCurrentLocationFrom.latitude + Double(latDiff * progress)
+            fakeCurrentLocation.longitude = fakeCurrentLocationFrom.longitude + Double(lngDiff * progress)
+            
+            fakeLocationUpdate()
+            
+            self.fakeAnimateFrame += 1
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(self.fakeAnimateInterval, target: self, selector: #selector(SYLocationManager.loopFakeLocationUpdate), userInfo: nil, repeats: false)
+        }
+        
     }
     
     

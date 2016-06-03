@@ -26,6 +26,7 @@ struct SYState {
     var onboardingOpen: Bool = false
     var steps: [SYStateSteps] = []
     var plantIsAnimating: Bool = false
+    var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
 }
 
 /// Events types
@@ -116,9 +117,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         }
     }
     
-    
-    
-    
+
     func triggerUpdate() {
         self.trigger(.Update)
         self.previousState = self.currentState
@@ -216,6 +215,10 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Location updated !")
+        currentState.location = locations[0].coordinate
+        print(locations[0].coordinate)
+        
+        self.triggerUpdate()
         // self.trigger(.ShowOnboarding)
     }
     
