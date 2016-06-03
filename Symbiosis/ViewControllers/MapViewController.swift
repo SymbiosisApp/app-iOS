@@ -14,7 +14,7 @@ import Mapbox
 
 class MapViewController: UIViewController, MGLMapViewDelegate {
     let request = RequestData()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
