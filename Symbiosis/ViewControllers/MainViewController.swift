@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
+    @IBOutlet weak var popup: SYPopup!
     
     // For tabs (ViewControllers names)
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
@@ -43,7 +44,6 @@ class MainViewController: UIViewController {
         tabBar.applyStyle()
     }
     
-    
     func showLogin(){
         dispatch_async(dispatch_get_main_queue(), {
             let storyboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
@@ -55,7 +55,7 @@ class MainViewController: UIViewController {
     }
     
     func showOnboardingIntro() {
-        //showonboarding et path onborading's name
+        //showonboarding et path onborading's name: Intro, Graine, Pollen, Fruit
         let dataLoarder = SYDataLoader()
         dispatch_async(dispatch_get_main_queue(), {
             let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
     @IBAction func closeOnboarding(segue: UIStoryboardSegue)    {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     
     func showNotifications(textNotification : String){
         let now = NSDate(timeIntervalSinceNow: 10)
@@ -124,7 +124,6 @@ class MainViewController: UIViewController {
                 setTabNavigation(currentTab)
             }
         }
-        
         
         if false /* TODO : state.needLogin ? */ {
             //LOGIN

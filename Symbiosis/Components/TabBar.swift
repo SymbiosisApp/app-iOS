@@ -45,7 +45,7 @@ class SYTabBar: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
-        addSubview(view)
+        self.addSubview(view)
     }
     
     func loadViewFromNib() -> UIView {

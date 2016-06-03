@@ -120,7 +120,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
+        self.view.addGestureRecognizer(tapGesture)
         
     }
     

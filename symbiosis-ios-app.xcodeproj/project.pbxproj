@@ -46,8 +46,11 @@
 		18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */; };
 		18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */; };
 		18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55A21CE91D85008E8EC4 /* Settings.storyboard */; };
-		18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DEDE841CE5ED1300CE154F /* TabBar.xib */; };
-		18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEDE871CE5EDD100CE154F /* TabBar.swift */; };
+		18DCFAFD1D01AE64007FEDAB /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCFAF81D01AE64007FEDAB /* Popup.swift */; };
+		18DCFAFE1D01AE64007FEDAB /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCFAF91D01AE64007FEDAB /* Popup.xib */; };
+		18DCFAFF1D01AE64007FEDAB /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCFAFA1D01AE64007FEDAB /* ProgressBar.swift */; };
+		18DCFB001D01AE64007FEDAB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCFAFB1D01AE64007FEDAB /* TabBar.swift */; };
+		18DCFB011D01AE64007FEDAB /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCFAFC1D01AE64007FEDAB /* TabBar.xib */; };
 		18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 18F1363C1CF75AA30021CBF5 /* smoke.fsh */; };
 		18F136401CF75AA30021CBF5 /* smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F1363D1CF75AA30021CBF5 /* smoke.plist */; };
 		18F136411CF75AA30021CBF5 /* smoke.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 18F1363E1CF75AA30021CBF5 /* smoke.vsh */; };
@@ -74,8 +77,6 @@
 		6677B1A71CFFD7B6000D455F /* fruitToGraine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */; };
 		6677B1A81CFFD7B6000D455F /* graineToPousse.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A11CFFD7B6000D455F /* graineToPousse.gif */; };
 		6677B1A91CFFD7B6000D455F /* marche.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A21CFFD7B6000D455F /* marche.gif */; };
-		66BBFD1B1CFF83F500D6923A /* SYPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFD1A1CFF83F500D6923A /* SYPopup.swift */; };
-		66BBFD1D1CFF841F00D6923A /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66BBFD1C1CFF841F00D6923A /* Popup.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -136,8 +137,11 @@
 		18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Plant.storyboard; path = Storyboards/Plant.storyboard; sourceTree = "<group>"; };
 		18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profil.storyboard; path = Storyboards/Profil.storyboard; sourceTree = "<group>"; };
 		18CF55A21CE91D85008E8EC4 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
-		18DEDE841CE5ED1300CE154F /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
-		18DEDE871CE5EDD100CE154F /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		18DCFAF81D01AE64007FEDAB /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		18DCFAF91D01AE64007FEDAB /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
+		18DCFAFA1D01AE64007FEDAB /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		18DCFAFB1D01AE64007FEDAB /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		18DCFAFC1D01AE64007FEDAB /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		18F1363C1CF75AA30021CBF5 /* smoke.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = smoke.fsh; sourceTree = "<group>"; };
 		18F1363D1CF75AA30021CBF5 /* smoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smoke.plist; sourceTree = "<group>"; };
 		18F1363E1CF75AA30021CBF5 /* smoke.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = smoke.vsh; sourceTree = "<group>"; };
@@ -153,10 +157,10 @@
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		6663019A1CFC390E001E991F /* SYOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboarding.swift; sourceTree = "<group>"; };
 		666301A31CFC3A22001E991F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = OnboardingViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
-		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
-		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
-		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
+		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
+		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraineViewController.swift; path = OnboardingViewControllers/GraineViewController.swift; sourceTree = "<group>"; };
+		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollenViewController.swift; path = OnboardingViewControllers/PollenViewController.swift; sourceTree = "<group>"; };
+		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FruitViewController.swift; path = OnboardingViewControllers/FruitViewController.swift; sourceTree = "<group>"; };
 		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
 		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
 		6677B19E1CFFD7B6000D455F /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
@@ -164,8 +168,6 @@
 		6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fruitToGraine.gif; sourceTree = "<group>"; };
 		6677B1A11CFFD7B6000D455F /* graineToPousse.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousse.gif; sourceTree = "<group>"; };
 		6677B1A21CFFD7B6000D455F /* marche.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marche.gif; sourceTree = "<group>"; };
-		66BBFD1A1CFF83F500D6923A /* SYPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPopup.swift; sourceTree = "<group>"; };
-		66BBFD1C1CFF841F00D6923A /* Popup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,24 +317,26 @@
 				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
 				666301981CFC38EA001E991F /* UserSingleton.swift */,
 				6663019A1CFC390E001E991F /* SYOnboarding.swift */,
-				66BBFD1A1CFF83F500D6923A /* SYPopup.swift */,
 				183FF6AA1CFA078D0086D011 /* Utils */,
 				1814CB391CEE53DE004D7540 /* Assets */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
 				666301A51CFC3A2B001E991F /* OnboardingViewControllers */,
 				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
-				18DEDE861CE5ED8100CE154F /* Components */,
 				1848F0111CF6446D000C45D6 /* Plant3D */,
+				18DCFAF71D01AE64007FEDAB /* Components */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
 			);
 			path = Symbiosis;
 			sourceTree = "<group>";
 		};
-		18DEDE861CE5ED8100CE154F /* Components */ = {
+		18DCFAF71D01AE64007FEDAB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				18DEDE841CE5ED1300CE154F /* TabBar.xib */,
-				18DEDE871CE5EDD100CE154F /* TabBar.swift */,
+				18DCFAF81D01AE64007FEDAB /* Popup.swift */,
+				18DCFAF91D01AE64007FEDAB /* Popup.xib */,
+				18DCFAFA1D01AE64007FEDAB /* ProgressBar.swift */,
+				18DCFAFB1D01AE64007FEDAB /* TabBar.swift */,
+				18DCFAFC1D01AE64007FEDAB /* TabBar.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -349,7 +353,6 @@
 				18CF55971CE91CA9008E8EC4 /* LaunchScreen.storyboard */,
 				666301941CFC3815001E991F /* Onboarding.storyboard */,
 				666301A61CFC4232001E991F /* Login.storyboard */,
-				66BBFD1C1CFF841F00D6923A /* Popup.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -469,16 +472,17 @@
 				18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */,
 				666301A71CFC4232001E991F /* Login.storyboard in Resources */,
 				18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */,
+				18DCFB011D01AE64007FEDAB /* TabBar.xib in Resources */,
 				18CF559E1CE91CA9008E8EC4 /* Main.storyboard in Resources */,
 				6677B1A51CFFD7B6000D455F /* chat.gif in Resources */,
 				18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */,
 				187FAD701CEF013800B10224 /* vignette.fsh in Resources */,
 				187FAD711CEF013800B10224 /* vignette.vsh in Resources */,
-				66BBFD1D1CFF841F00D6923A /* Popup.storyboard in Resources */,
 				6677B1A61CFFD7B6000D455F /* courses.gif in Resources */,
 				6677B1A91CFFD7B6000D455F /* marche.gif in Resources */,
 				18CF559D1CE91CA9008E8EC4 /* LaunchScreen.storyboard in Resources */,
 				187FAD7D1CEF047A00B10224 /* test.fsh in Resources */,
+				18DCFAFE1D01AE64007FEDAB /* Popup.xib in Resources */,
 				6677B1A41CFFD7B6000D455F /* carte.gif in Resources */,
 				6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */,
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
@@ -487,7 +491,6 @@
 				18F136411CF75AA30021CBF5 /* smoke.vsh in Resources */,
 				6677B1A71CFFD7B6000D455F /* fruitToGraine.gif in Resources */,
 				187FAD741CEF013800B10224 /* vignette.plist in Resources */,
-				18DEDE851CE5ED1300CE154F /* TabBar.xib in Resources */,
 				6677B1A81CFFD7B6000D455F /* graineToPousse.gif in Resources */,
 				18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */,
 				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
@@ -541,6 +544,7 @@
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
 				183FF6A91CF8FB6F0086D011 /* ProfilViewController.swift in Sources */,
 				1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */,
+				18DCFAFF1D01AE64007FEDAB /* ProgressBar.swift in Sources */,
 				18F136541CF7CC270021CBF5 /* SYGeomBranch.swift in Sources */,
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
 				183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */,
@@ -551,20 +555,20 @@
 				6663019B1CFC390E001E991F /* SYOnboarding.swift in Sources */,
 				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
+				18DCFAFD1D01AE64007FEDAB /* Popup.swift in Sources */,
 				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
+				18DCFB001D01AE64007FEDAB /* TabBar.swift in Sources */,
 				18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */,
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
 				666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
-				66BBFD1B1CFF83F500D6923A /* SYPopup.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,
 				183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */,
 				666301A91CFC443A001E991F /* GraineViewController.swift in Sources */,
-				18DEDE881CE5EDD100CE154F /* TabBar.swift in Sources */,
 				183FF6B91CFF18640086D011 /* SYDataLoader.swift in Sources */,
 				1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */,
 				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,

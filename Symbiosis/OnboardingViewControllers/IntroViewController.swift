@@ -10,47 +10,37 @@ import UIKit
 
 class IntroViewController: UIViewController {
     
-    
-    @IBOutlet weak var introFirst: UIWebView!
-    
-    let background = Background()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    
-    override func viewDidDisappear(animated: Bool) {
-
-    }
-    
 }
 
+class BienvenueViewController: IntroViewController{
+    
+    @IBOutlet weak var pageControl: UIPageControl!
 
-class IntroPag1ViewController: IntroViewController{
-
-    @IBOutlet weak var imageEclosion: UIImageView!
-    @IBOutlet weak var pageControle: UIPageControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageEclosion.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.introFirst, gifSource: "graine")
         
-        pageControle.layer.zPosition = 2
-        pageControle.numberOfPages = 2
-        pageControle.currentPage = 0
+        pageControl.layer.zPosition = 2
+        pageControl.numberOfPages = 2
+        pageControl.currentPage = 0
     }
-    
 }
 
-class IntroPag2ViewController: IntroViewController{
+class StartViewController: IntroViewController{
+    
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //background.adddImageBaclground(self.view, imageSource: "fruit")
+        
+        button.layer.zPosition = 2
     }
-    
 }
 
 

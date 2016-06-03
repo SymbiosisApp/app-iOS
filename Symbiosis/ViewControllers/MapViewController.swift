@@ -14,7 +14,7 @@ import Mapbox
 
 class MapViewController: UIViewController, MGLMapViewDelegate {
     let request = RequestData()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +25,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
         mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 48.853138550976446, longitude: 2.348756790161133), zoomLevel: 12, animated: false)
         
         mapView.tintColor = .darkGrayColor()
+        
         view.addSubview(mapView)
         mapView.delegate = self
         
@@ -63,7 +64,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
                 let compareDateResult = date!.compare(dateNow)
                 //if current date > dateformated = AUJOUR > date + 7jours
                 if compareDateResult == NSComparisonResult.OrderedDescending{
-                    
                     let graineOld = MGLPointAnnotation()
                     graineOld.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
                     graineOld.title = name
@@ -105,60 +105,66 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
                 mapView.addAnnotation(pollen)
             }
         }
+        
+        //POINTEUR
+        //TODO SET POSITION
+        let pointeur = MGLPointAnnotation()
+        pointeur.coordinate = CLLocationCoordinate2DMake(48.853138550976446, 2.348756790161133)
+        mapView.addStyleClass("pointeur")
+        mapView.addAnnotation(pointeur)
+        
     }
     
     
-    //GRAINE
+    //PIN'S STYLE
     func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage? {
 
         var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier("graine")
         
-        
         for mapStyle in mapView.styleClasses{
             
             if(mapStyle == "graine"){
-                //print(mapStyle, "-----")
                 var image = UIImage(named: "pin-map-green")!
                 image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
                 annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "graine")
                 mapView.removeStyleClass("graine")
             }
             if(mapStyle == "pollen"){
-                //print(mapStyle, "-----")
                 var image = UIImage(named: "pollen")!
                 image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
                 annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "pollen")
                 mapView.removeStyleClass("pollen")
             }
             if(mapStyle == "graineOld"){
-                //print(mapStyle, "-----")
                 var image = UIImage(named: "pin-map-yellow")!
                 image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
                 annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "graineOld")
                 mapView.removeStyleClass("graineOld")
             }
+            if(mapStyle == "pointeur"){
+                var image = UIImage(named: "pointeur")!
+                image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
+                annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "pointeur")
+                mapView.removeStyleClass("pointeur")
+            }
         }
-        
-
         
         return annotationImage
     }
     
     
-    
+    //ADD INFORMATIONS FOR ONE PIN
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
     
-    
+    //ADD DAYS AT ONE DATE
     func addUnitToDate(unitType: NSCalendarUnit, number: Int, date:NSDate) -> NSDate {
-        
         return NSCalendar.currentCalendar().dateByAddingUnit(
             unitType,
             value: number,
             toDate: date,
             options: NSCalendarOptions(rawValue: 0))!
-        
     }
     
   

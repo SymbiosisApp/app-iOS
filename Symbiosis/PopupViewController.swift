@@ -8,31 +8,51 @@
 
 import UIKit
 
-class SYPopup: UIViewController{
+class PopupViewController: UIViewController{
     
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     let state = SYStateManager.sharedInstance
     
-    var popupData: NSDictionary?
+    var popupData: [String:String]?
 
     @IBOutlet weak var blurPopupView: UIView!
     @IBOutlet weak var imagePopup: UIImageView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        state.listenTo(.Update, action: self.onStateUpdate)
-        onStateUpdate()
+//        state.listenTo(.Update, action: self.onStateUpdate)
+//        onStateUpdate()
         
-        for (_, value) in popupData! {
+        // add a tap gesture recognizer
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+//        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    func handleTap(gestureRecognize: UIGestureRecognizer) {
+        print("Tap")
+    }
+    
+    override func nextResponder() -> UIResponder? {
+        let mainViewCtrl = self.parentViewController as! MainViewController
+        if mainViewCtrl.containerView != nil {
+            print("Return container")
+            return mainViewCtrl.containerView
+        }
+        return nil
+    }
+    
+    func start() {
+
+        
+        for (index, value) in popupData!.enumerate() {
             let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
             backgroundImage.image = UIImage(named: value as! String)
             imagePopup.insertSubview(backgroundImage, atIndex: 0)
         }
-                
+        
         blurEffect()
     }
 
