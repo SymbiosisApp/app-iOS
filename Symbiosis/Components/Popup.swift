@@ -22,7 +22,6 @@ class SYPopup: UIView {
     let popupNames : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer"]
     
     let background = Background()
-    var popupData: [String: String] = ["":""]
     
     // MARK: Properties
     var nibName: String = "Popup"
@@ -78,16 +77,19 @@ class SYPopup: UIView {
     func onStateUpdate() {
         let parentView = view.superview
         
-        //TODO For on the states
         if state.tabHasChanged() {
         let currentTab = state.getSelectedTab()
+        //let currentPopup = state.getPopup()
+            
         if currentTab < viewsNames.count {
+                //TODO replace "Map" by popNames[currentPopup]
                 if("Map" == viewsNames[currentTab]){
                     parentView?.hidden = false
-                    //TODO
-                    //if view = "Map" && popup = "time" -> userinterfaceenabled = false
+                    
+                    //if("Map" == viewsNames[currentTab] && popupNames[currentPopup] = "timer"){
                     //parentView?.userInteractionEnabled = false
                     //buttonClose hidden
+                    //}
                     
                 }else{
                     parentView?.hidden = true
@@ -99,7 +101,7 @@ class SYPopup: UIView {
     
     func addBackgroundPopup(image:String){
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: "partage")
+        backgroundImage.image = UIImage(named: image)
         imagePopup.insertSubview(backgroundImage, atIndex: 0)
     }
 
