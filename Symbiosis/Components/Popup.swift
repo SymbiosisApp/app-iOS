@@ -14,10 +14,15 @@ class SYPopup: UIView {
     // MARK: Outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var buttonclose: UIButton!
-
+    @IBOutlet weak var imagePopup: UIImageView!
+    
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
+    let popupNames : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer"]
+    
+    let background = Background()
+    var popupData: [String: String] = ["":""]
     
     // MARK: Properties
     var nibName: String = "Popup"
@@ -50,8 +55,7 @@ class SYPopup: UIView {
         onStateUpdate()
         
         buttonclose.addTarget(self, action:#selector(self.closePopup), forControlEvents: .TouchUpInside)
-        
-        //TODO set background image
+        //addBackgroundPopup("partage")
     }
    
     
@@ -63,11 +67,9 @@ class SYPopup: UIView {
 
 
     func loadViewFromNib() -> UIView {
-    
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: nibName, bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-
         return view
     }
 
@@ -81,12 +83,11 @@ class SYPopup: UIView {
         let currentTab = state.getSelectedTab()
         if currentTab < viewsNames.count {
                 if("Map" == viewsNames[currentTab]){
-                    
                     parentView?.hidden = false
-                    
                     //TODO
                     //if view = "Map" && popup = "time" -> userinterfaceenabled = false
                     //parentView?.userInteractionEnabled = false
+                    //buttonClose hidden
                     
                 }else{
                     parentView?.hidden = true
@@ -95,6 +96,13 @@ class SYPopup: UIView {
             }
         }
     }
+    
+    func addBackgroundPopup(image:String){
+        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        backgroundImage.image = UIImage(named: "partage")
+        imagePopup.insertSubview(backgroundImage, atIndex: 0)
+    }
+
 
     
 }

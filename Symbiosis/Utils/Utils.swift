@@ -82,7 +82,7 @@ class Background {
         
     }
     
-    func adddImageBaclground(view:UIView, imageSource: String){
+    func adddImageBackground(view:UIView, imageSource: String){
         let background = UIImage(named: imageSource as String)
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -90,8 +90,6 @@ class Background {
         imageView.clipsToBounds = true
         imageView.image = background
         imageView.center = view.center
-        //view.layer.zPosition = 1
-        
         view.addSubview(imageView)
         view.sendSubviewToBack(imageView)
     }

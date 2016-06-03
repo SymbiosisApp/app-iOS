@@ -59,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="mqZ-7N-97i" id="yMy-un-Jdv"/>
+                        <outlet property="popup" destination="U2O-yC-4aY" id="wpV-78-DHf"/>
                         <outlet property="tabBar" destination="ouk-5U-jwS" id="o04-ZV-9PE"/>
                     </connections>
                 </viewController>

@@ -13,8 +13,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
-    @IBOutlet weak var button: UIButton!
-
+    @IBOutlet weak var popup: SYPopup!
     
     // For tabs (ViewControllers names)
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
@@ -55,8 +54,6 @@ class MainViewController: UIViewController {
             //showLogin()
         }
         
-        //TODO SET DATA: String on Popup component
-               
     }
     
 <<<<<<< ours
