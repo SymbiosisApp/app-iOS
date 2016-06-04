@@ -19,6 +19,7 @@ class SYTabBar: UIView, SYStateListener {
     @IBOutlet var buttons: [UIButton]!
     
     var notifs: [UIView] = []
+    var centerConstraints: [NSLayoutConstraint] = []
     
     // MARK: Properties
 //    var delegate: SYTabBarDelegate?
@@ -60,9 +61,13 @@ class SYTabBar: UIView, SYStateListener {
             // centerX
             button.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .CenterX, relatedBy: .Equal, toItem: button, attribute: .CenterX, multiplier: 1, constant: 0))
             if index == 2 {
-                plantButton.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .CenterY, relatedBy: .Equal, toItem: plantButton, attribute: .Top, multiplier: 1, constant: 0))
+                let const = NSLayoutConstraint.init(item: notif, attribute: .CenterY, relatedBy: .Equal, toItem: plantButton, attribute: .Top, multiplier: 1, constant: 0)
+                plantButton.addConstraint(const)
+                self.centerConstraints.append(const)
             } else {
-                background.addConstraint(NSLayoutConstraint.init(item: notif, attribute: .CenterY, relatedBy: .Equal, toItem: background, attribute: .Top, multiplier: 1, constant: 0))
+                let const = NSLayoutConstraint.init(item: notif, attribute: .CenterY, relatedBy: .Equal, toItem: background, attribute: .Top, multiplier: 1, constant: 0)
+                background.addConstraint(const)
+                self.centerConstraints.append(const)
             }
             
             button.layoutSubviews()
@@ -70,6 +75,7 @@ class SYTabBar: UIView, SYStateListener {
             notif.layer.backgroundColor = UIColor.redColor().CGColor
             notif.layer.cornerRadius = 5
             notif.translatesAutoresizingMaskIntoConstraints = false
+            notif.hidden = true
         }
         
         self.addSubview(view)
@@ -121,11 +127,39 @@ class SYTabBar: UIView, SYStateListener {
     
     func updateNotifs() {
         for (index, _) in buttons.enumerate() {
-            let notif = notifs[index]
-            if state.isNotifiedTab(index) {
-                notif.hidden = false
-            } else {
-                notif.hidden = true
+            if state.tabNotificationHasChanged(index) {
+                print("has changed : \(state.isNotifiedTab(index))")
+                let notif = notifs[index]
+                let const = centerConstraints[index]
+                if state.isNotifiedTab(index) {
+                    // Show
+                    notif.hidden = false
+                    notif.alpha = 0
+                    const.constant = -20
+                    self.view.layoutIfNeeded()
+                    UIView.animateWithDuration(0.2, animations: {
+                        notif.alpha = 1
+                        const.constant = 0
+                        self.view.layoutIfNeeded()
+                    })
+                } else {
+                    // Hide
+                    notif.alpha = 1
+                    const.constant = 0
+                    self.view.layoutIfNeeded()
+                    UIView.animateWithDuration(0.2, animations: {
+                        notif.alpha = 0
+                        const.constant = -20
+                        self.view.layoutIfNeeded()
+                        }, completion: { (complete) in
+                            if complete == false {
+                                notif.alpha = 0
+                                const.constant = -20
+                                self.view.layoutIfNeeded()
+                            }
+                            notif.hidden = true
+                    })
+                }
             }
         }
     }

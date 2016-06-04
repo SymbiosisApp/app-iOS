@@ -180,6 +180,24 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         }
     }
     
+    func previousIsNotifiedTab(index: Int) -> Bool {
+        let popup = previousState.popups[index]
+        if popup != nil {
+            if previousState.selectedTab == index {
+                return false
+            } else {
+                return true
+            }
+        } else {
+            return false
+        }
+    }
+    
+    func tabNotificationHasChanged(index: Int) -> Bool {
+        return isNotifiedTab(index) != previousIsNotifiedTab(index)
+    }
+    
+    
     func getSelectedTab() -> Int {
         return currentState.selectedTab
     }

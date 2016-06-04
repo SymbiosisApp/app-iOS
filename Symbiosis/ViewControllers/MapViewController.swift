@@ -177,7 +177,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         if self.geolocPointer != nil {
             self.myMapView.removeAnnotations([self.geolocPointer])
         }
-        //TODO SET POSITION
         self.geolocPointer = MGLPointAnnotation()
         self.geolocPointer.coordinate = state.getCurrentLocation()
         myMapView.addStyleClass("pointeur")
