@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2B8E15CD-17C0-4A9C-929E-CC6518414684" translatesAutoresizingMaskIntoConstraints="NO" id="hon-2P-Njf">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D2F3D168-DE4D-4993-B670-C9C353E72A89" translatesAutoresizingMaskIntoConstraints="NO" id="hon-2P-Njf">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="button" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltL-6K-oSe">
@@ -44,7 +44,7 @@
         </view>
     </objects>
     <resources>
-        <image name="2B8E15CD-17C0-4A9C-929E-CC6518414684" width="375" height="667">
+        <image name="D2F3D168-DE4D-4993-B670-C9C353E72A89" width="375" height="667">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -16729,7 +16729,7 @@ AQIAAwAAAAQAD0TqAQMAAwAAAAEAAQAAAQYAAwAAAAEAAgAAAREABAAAAAgAD0USARIAAwAAAAEAAQAA
 ARUAAwAAAAEABAAAARYAAwAAAAEAVwAAARcABAAAAAgAD0TyARwAAwAAAAEAAQAAAVIAAwAAAAEAAgAA
 AVMAAwAAAAQAD0Uyh3MABwAADEgAD0U6AAAAAAAIAAgACAAIAAH9xAAB/cQAAf3EAAH9xAAB/cQAAf3E
 AAH9xAABU9gAAAAIAAH9zAAD+5AABflUAAf3GAAJ9NwAC/KgAA3wZAABAAEAAQABAAAMSExpbm8CEAAA
-bW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbW
+bW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAEAAPbW
 AAEAAAAA0y1IUCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
 Y3BydAAAAVAAAAAzZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAU
 Z1hZWgAAAiwAAAAUYlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACG

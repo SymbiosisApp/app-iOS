@@ -50,8 +50,8 @@ class SYPopup: UIView {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
         
-        state.listenTo(.Update, action: self.onStateUpdate)
-        onStateUpdate()
+        //state.listenTo(.Update, action: self.onStateUpdate)
+        //onStateUpdate()
         
         buttonclose.addTarget(self, action:#selector(self.closePopup), forControlEvents: .TouchUpInside)
         //addBackgroundPopup("partage")
@@ -77,24 +77,34 @@ class SYPopup: UIView {
     func onStateUpdate() {
         let parentView = view.superview
         
-        if state.tabHasChanged() {
-        let currentTab = state.getSelectedTab()
-        //let currentPopup = state.getPopup()
+        if state.popupHasChanged() {
+            let currentPopup = state.getCurrentPopup()
+            // si deja une popup on la tej
+            // sinon current popup est pas nil on la display
             
-        if currentTab < viewsNames.count {
+            print(currentPopup)
+            //print(popupNames[currentPopup])
+        }
+        
+        
+        if state.tabHasChanged() {
+            let currentTab = state.getSelectedTab()
+            
+            if currentTab < viewsNames.count {
+                
                 //TODO replace "Map" by popNames[currentPopup]
                 if("Map" == viewsNames[currentTab]){
                     parentView?.hidden = false
                     
-                    //if("Map" == viewsNames[currentTab] && popupNames[currentPopup] = "timer"){
-                    //parentView?.userInteractionEnabled = false
-                    //buttonClose hidden
+                    //if("Map" == viewsNames[currentTab] && popupNames[currentPopup] == "timer"){
+                        //parentView?.userInteractionEnabled = false
+                        //buttonClose hidden
                     //}
                     
                 }else{
                     parentView?.hidden = true
-                    
                 }
+                
             }
         }
     }

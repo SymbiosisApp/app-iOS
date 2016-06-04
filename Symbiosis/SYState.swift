@@ -27,6 +27,8 @@ struct SYState {
     var steps: [SYStateSteps] = []
     var plantIsAnimating: Bool = false
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
+    var popups: [String?] = [nil, nil, nil, nil, nil]
+    var notifs: [String?] = [nil, nil, nil, nil, nil]
 }
 
 /// Events types
@@ -146,6 +148,18 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.selectedTab
     }
     
+    func popupHasChanged() -> Bool {
+        return self.getCurrentPopup() != self.getPrevioustPopup()
+    }
+    
+    func getCurrentPopup() -> String? {
+        return self.currentState.popups[self.currentState.selectedTab]
+    }
+    
+    func getPrevioustPopup() -> String? {
+        return self.currentState.popups[self.currentState.selectedTab]
+    }
+    
     func getLastSelectedTab() -> Int {
         return currentState.lastSelectedTab
     }
@@ -211,6 +225,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.triggerUpdate()
     }
     
+    func addPopup(popupName: String){
+
+        self.triggerUpdate()
+    }
+    
     
     
     /**
@@ -224,7 +243,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         print(locations[0].coordinate)
         
         self.triggerUpdate()
-        // self.trigger(.ShowOnboarding)
     }
     
     func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
