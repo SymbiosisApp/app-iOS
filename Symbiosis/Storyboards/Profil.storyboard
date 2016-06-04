@@ -3,7 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Rene Bieder - Campton Light.otf">
+            <string>Campton-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Profil View Controller-->
         <scene sceneID="85n-rO-q5X">
@@ -17,17 +23,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jty-DY-ew7">
-                                <rect key="frame" x="277" y="28" width="46" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilFake" translatesAutoresizingMaskIntoConstraints="NO" id="N9z-Nr-fY1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXQ-9K-vgg">
+                                <rect key="frame" x="0.0" y="480" width="600" height="60"/>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="rYO-4L-fvp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="18"/>
+                                <state key="normal" title="SUGGESTION DE LIEUX">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="USR-BI-mqb" kind="show" id="bjt-E5-OGR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Jty-DY-ew7" firstAttribute="centerX" secondItem="PXT-5Y-Cdr" secondAttribute="centerX" id="2ou-QE-Q9x"/>
-                            <constraint firstItem="Jty-DY-ew7" firstAttribute="top" secondItem="9XR-ol-NR9" secondAttribute="bottom" constant="8" symbolic="YES" id="DYi-sZ-GKQ"/>
+                            <constraint firstItem="N9z-Nr-fY1" firstAttribute="top" secondItem="PXT-5Y-Cdr" secondAttribute="topMargin" id="8zQ-vn-oPB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="N9z-Nr-fY1" secondAttribute="trailing" constant="-20" id="B7S-dg-f6X"/>
+                            <constraint firstItem="oXQ-9K-vgg" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="-20" id="DXp-Fb-fhL"/>
+                            <constraint firstItem="N9z-Nr-fY1" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="-20" id="FRq-rK-mqc"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="oXQ-9K-vgg" secondAttribute="bottom" constant="60" id="GBq-Po-eeN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oXQ-9K-vgg" secondAttribute="trailing" constant="-20" id="KsD-tw-kL1"/>
+                            <constraint firstItem="EPc-bo-4OZ" firstAttribute="top" secondItem="N9z-Nr-fY1" secondAttribute="bottom" id="dXC-vs-43q"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -35,5 +57,54 @@
             </objects>
             <point key="canvasLocation" x="178" y="321"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="99D-Bv-eCd">
+            <objects>
+                <viewController id="USR-BI-mqb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TQM-iw-5ZS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suggestionFake" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-tP-wVS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUS-D1-89P">
+                                <rect key="frame" x="0.0" y="153" width="600" height="447"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="447" id="3fG-co-V5Y"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYK-ei-bof">
+                                <rect key="frame" x="20" y="40" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="EU0-wY-bdx"/>
+                                    <constraint firstAttribute="width" constant="46" id="rgC-Xm-5br"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eBP-tP-wVS" firstAttribute="top" secondItem="TQM-iw-5ZS" secondAttribute="topMargin" id="8s7-SR-u78"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uUS-D1-89P" secondAttribute="trailing" constant="-20" id="Lac-fs-yub"/>
+                            <constraint firstItem="eBP-tP-wVS" firstAttribute="leading" secondItem="TQM-iw-5ZS" secondAttribute="leadingMargin" constant="-20" id="Lu2-78-tLa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eBP-tP-wVS" secondAttribute="trailing" constant="-20" id="Xuf-5p-Y8A"/>
+                            <constraint firstItem="eBP-tP-wVS" firstAttribute="bottom" secondItem="TQM-iw-5ZS" secondAttribute="bottomMargin" id="a90-D4-a5F"/>
+                            <constraint firstItem="uUS-D1-89P" firstAttribute="bottom" secondItem="TQM-iw-5ZS" secondAttribute="bottomMargin" id="cLP-xE-0vx"/>
+                            <constraint firstItem="DYK-ei-bof" firstAttribute="top" secondItem="TQM-iw-5ZS" secondAttribute="topMargin" constant="40" id="kjv-47-I5Y"/>
+                            <constraint firstItem="uUS-D1-89P" firstAttribute="leading" secondItem="TQM-iw-5ZS" secondAttribute="leadingMargin" constant="-20" id="tkl-UC-gX9"/>
+                            <constraint firstItem="DYK-ei-bof" firstAttribute="leading" secondItem="TQM-iw-5ZS" secondAttribute="leadingMargin" id="xlc-dQ-JvL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7T3-5j-oiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="321"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="back" width="60" height="60"/>
+        <image name="profilFake" width="375" height="667"/>
+        <image name="suggestionFake" width="750" height="1464"/>
+    </resources>
 </document>

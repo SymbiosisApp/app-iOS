@@ -3,7 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Rene Bieder - Campton Light.otf">
+            <string>Campton-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="nbn-H1-R3K">
@@ -17,24 +23,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen1" translatesAutoresizingMaskIntoConstraints="NO" id="G4A-0X-Liv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colonyFake" translatesAutoresizingMaskIntoConstraints="NO" id="G4A-0X-Liv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colony" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIC-6g-hd5">
-                                <rect key="frame" x="261" y="20" width="79" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXI-Ly-X8z">
+                                <rect key="frame" x="0.0" y="480" width="600" height="60"/>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="81J-xF-8eU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="18"/>
+                                <state key="normal" title="ACCÉDER A LA CONVERSATION">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ifK-mW-zvY" kind="show" id="ie4-Uc-x3k"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cIC-6g-hd5" firstAttribute="top" secondItem="KH0-zn-F2x" secondAttribute="bottom" id="0K9-93-LWo"/>
-                            <constraint firstItem="G4A-0X-Liv" firstAttribute="bottom" secondItem="Qx1-Sx-6eR" secondAttribute="top" id="B1Q-Qv-TYs"/>
-                            <constraint firstItem="cIC-6g-hd5" firstAttribute="centerX" secondItem="2BT-b9-cuN" secondAttribute="centerX" id="Q5U-KC-BYY"/>
-                            <constraint firstItem="G4A-0X-Liv" firstAttribute="centerX" secondItem="cIC-6g-hd5" secondAttribute="centerX" id="WSk-1u-E03"/>
-                            <constraint firstItem="G4A-0X-Liv" firstAttribute="top" secondItem="2BT-b9-cuN" secondAttribute="top" id="gaR-vR-CPj"/>
-                            <constraint firstItem="G4A-0X-Liv" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leading" id="tlG-WV-NFh"/>
+                            <constraint firstItem="G4A-0X-Liv" firstAttribute="top" secondItem="2BT-b9-cuN" secondAttribute="topMargin" id="1rl-eh-SrP"/>
+                            <constraint firstItem="Qx1-Sx-6eR" firstAttribute="top" secondItem="G4A-0X-Liv" secondAttribute="bottom" id="4Gj-JW-tD6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zXI-Ly-X8z" secondAttribute="trailing" constant="-20" id="6N8-Pe-eRX"/>
+                            <constraint firstItem="Qx1-Sx-6eR" firstAttribute="top" secondItem="zXI-Ly-X8z" secondAttribute="bottom" constant="60" id="S9O-7f-Gc7"/>
+                            <constraint firstItem="G4A-0X-Liv" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" constant="-20" id="c0O-ot-KsS"/>
+                            <constraint firstItem="zXI-Ly-X8z" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" constant="-20" id="st0-Fq-hC0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G4A-0X-Liv" secondAttribute="trailing" constant="-20" id="vUR-qh-fON"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,8 +57,43 @@
             </objects>
             <point key="canvasLocation" x="360" y="349"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="mDV-a8-4ub">
+            <objects>
+                <viewController id="ifK-mW-zvY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MVh-Lk-jrN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nqq-Fl-yZI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5cF-aS-VN1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatFake" translatesAutoresizingMaskIntoConstraints="NO" id="1TF-pu-d3Z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzw-Fd-Ylx">
+                                <rect key="frame" x="20" y="40" width="46" height="46"/>
+                                <state key="normal" backgroundImage="back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1TF-pu-d3Z" firstAttribute="top" secondItem="5cF-aS-VN1" secondAttribute="topMargin" id="HHh-8M-hjl"/>
+                            <constraint firstItem="1TF-pu-d3Z" firstAttribute="leading" secondItem="5cF-aS-VN1" secondAttribute="leadingMargin" constant="-20" id="L0W-PW-0KC"/>
+                            <constraint firstItem="Nqq-Fl-yZI" firstAttribute="top" secondItem="1TF-pu-d3Z" secondAttribute="bottom" id="hRK-5O-jME"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1TF-pu-d3Z" secondAttribute="trailing" constant="-20" id="oYA-W4-fJq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gun-Zb-NfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1145" y="349"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="screen1" width="750" height="1334"/>
+        <image name="back" width="60" height="60"/>
+        <image name="chatFake" width="375" height="667"/>
+        <image name="colonyFake" width="375" height="667"/>
     </resources>
 </document>

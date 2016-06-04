@@ -70,6 +70,7 @@
 		666301A91CFC443A001E991F /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A81CFC443A001E991F /* GraineViewController.swift */; };
 		666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AA1CFC44AF001E991F /* PollenViewController.swift */; };
 		666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AC1CFC44F1001E991F /* FruitViewController.swift */; };
+		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
 		6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */; };
 		6677B1A41CFFD7B6000D455F /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19D1CFFD7B6000D455F /* carte.gif */; };
 		6677B1A51CFFD7B6000D455F /* chat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19E1CFFD7B6000D455F /* chat.gif */; };
@@ -181,6 +182,7 @@
 		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraineViewController.swift; path = OnboardingViewControllers/GraineViewController.swift; sourceTree = "<group>"; };
 		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollenViewController.swift; path = OnboardingViewControllers/PollenViewController.swift; sourceTree = "<group>"; };
 		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FruitViewController.swift; path = OnboardingViewControllers/FruitViewController.swift; sourceTree = "<group>"; };
+		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
 		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
 		6677B19E1CFFD7B6000D455F /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		183FF6BA1CFF187E0086D011 /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				666C14561D031E72000201A4 /* bienvenue.gif */,
 				6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */,
 				6677B19D1CFFD7B6000D455F /* carte.gif */,
 				6677B19E1CFFD7B6000D455F /* chat.gif */,
@@ -590,6 +593,7 @@
 				66E3C7FC1D02F9CD00E0ED08 /* Rene Bieder - Campton Bold Italic.otf in Resources */,
 				6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */,
 				66E3C80B1D02F9CD00E0ED08 /* Rene Bieder - Campton Thin.otf in Resources */,
+				666C14571D031E72000201A4 /* bienvenue.gif in Resources */,
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
 				66E3C8041D02F9CD00E0ED08 /* Rene Bieder - Campton Light Italic.otf in Resources */,
 				187FAD7E1CEF047A00B10224 /* tooning.fsh in Resources */,

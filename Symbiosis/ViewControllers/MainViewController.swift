@@ -37,7 +37,6 @@ class MainViewController: UIViewController, SYStateListener {
         
         // Init the tabBar on plant
         state.selectTab(1)
-        
     }
     
     override func viewDidLayoutSubviews() {

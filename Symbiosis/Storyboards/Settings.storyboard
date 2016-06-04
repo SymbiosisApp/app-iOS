@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,17 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bd-JW-CIJ">
-                                <rect key="frame" x="251" y="20" width="99" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingsFake" translatesAutoresizingMaskIntoConstraints="NO" id="rPI-eC-l0K">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2Bd-JW-CIJ" firstAttribute="top" secondItem="S8k-C6-ufB" secondAttribute="bottom" id="4fw-c4-YZd"/>
-                            <constraint firstItem="2Bd-JW-CIJ" firstAttribute="centerX" secondItem="Ttx-bU-Fzz" secondAttribute="centerX" id="pcC-H1-z2K"/>
+                            <constraint firstItem="rPI-eC-l0K" firstAttribute="leading" secondItem="Ttx-bU-Fzz" secondAttribute="leadingMargin" constant="-20" id="A3u-hY-dXg"/>
+                            <constraint firstItem="EMh-pY-V9a" firstAttribute="top" secondItem="rPI-eC-l0K" secondAttribute="bottom" id="UJO-QE-V3s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rPI-eC-l0K" secondAttribute="trailing" constant="-20" id="dCf-Xy-ush"/>
+                            <constraint firstItem="rPI-eC-l0K" firstAttribute="top" secondItem="Ttx-bU-Fzz" secondAttribute="topMargin" id="kd0-Gg-70s"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,4 +36,7 @@
             <point key="canvasLocation" x="290" y="254"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settingsFake" width="375" height="667"/>
+    </resources>
 </document>

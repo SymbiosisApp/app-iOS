@@ -10,6 +10,8 @@ import UIKit
 
 class IntroViewController: UIViewController {
     
+    let background = Background()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,9 +25,12 @@ class BienvenueViewController: IntroViewController{
     
     @IBOutlet weak var pageControl: UIPageControl!
 
+    @IBOutlet weak var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        background.addGifBackground(self.view, gifView: self.webView, gifSource: "bienvenue")
+        webView.layer.zPosition = -1
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 2
         pageControl.currentPage = 0
@@ -35,10 +40,13 @@ class BienvenueViewController: IntroViewController{
 class StartViewController: IntroViewController{
     
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var webView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        background.addGifBackground(self.view, gifView: self.webView, gifSource: "bienvenue")
+        webView.layer.zPosition = -1
         button.layer.zPosition = 2
     }
 }

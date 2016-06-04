@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="69E9812A-65E5-4EB4-8FDE-3617A25A3DB4" translatesAutoresizingMaskIntoConstraints="NO" id="hon-2P-Njf">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="B3F92C3F-AE45-40FC-859A-7DA2D37A7707" translatesAutoresizingMaskIntoConstraints="NO" id="hon-2P-Njf">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="button" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltL-6K-oSe">
@@ -50,7 +50,7 @@
         </view>
     </objects>
     <resources>
-        <image name="69E9812A-65E5-4EB4-8FDE-3617A25A3DB4" width="375" height="667">
+        <image name="B3F92C3F-AE45-40FC-859A-7DA2D37A7707" width="375" height="667">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
