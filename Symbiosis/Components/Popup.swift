@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SYPopup: UIView {
+class SYPopup: UIView, SYStateListener {
     
     // MARK: Outlets
     @IBOutlet var view: UIView!
@@ -43,7 +43,7 @@ class SYPopup: UIView {
     
     // MARK: Setup
     func setup() {
-        state.listenTo(.Update, action: self.onStateUpdate)
+        state.addListener(self)
         
         view = loadViewFromNib()
         view.frame = bounds

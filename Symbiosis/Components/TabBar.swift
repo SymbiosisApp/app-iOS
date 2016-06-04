@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SYTabBar: UIView {
+class SYTabBar: UIView, SYStateListener {
     
     // MARK: Outlets
     @IBOutlet var view: UIView!
@@ -40,7 +40,7 @@ class SYTabBar: UIView {
     
     // MARK: Setup
     func setup() {
-        state.listenTo(.Update, action: self.onStateUpdate)
+        state.addListener(self)
         
         view = loadViewFromNib()
     

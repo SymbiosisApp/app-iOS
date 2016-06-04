@@ -12,7 +12,7 @@ import UIKit
 // Mapbox is added "manualy", not with carthage
 import Mapbox
 
-class MapViewController: UIViewController, MGLMapViewDelegate {
+class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     let request = RequestData()
     
     var myMapView: MGLMapView!
@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
         
         // Listen to events
-        state.listenTo(.Update, action: self.onStateUpdate)
+        state.addListener(self)
         
         self.myMapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
         myMapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
@@ -37,7 +37,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
         
         view.addSubview(myMapView)
         myMapView.delegate = self
-        
         
         //GRAINE
         let dataMap = request.getData("http://localhost:8080/graines/")

@@ -9,8 +9,30 @@
 import Foundation
 import UIKit
 
-class SYProgressBar: UIView {
+class SYProgressBar: UIView, SYStateListener {
 
-
+    // MARK: State
+    let state = SYStateManager.sharedInstance
+    
+    // MARK: Init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup() {
+        state.addListener(self)
+        
+        
+    }
+    
+    func onStateUpdate() {
+        
+    }
 
 }

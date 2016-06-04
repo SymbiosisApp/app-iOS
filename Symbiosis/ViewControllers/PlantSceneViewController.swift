@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
+class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYStateListener {
     
     var animProgress: Float = 0
     var morpher: SCNMorpher?
@@ -35,6 +35,9 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Listen to events
+        state.addListener(self)
 
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -119,10 +122,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.view.addGestureRecognizer(tapGesture)
-        
-        
-        // Listen to events
-        // state.listenTo(.Update, action: self.onStateUpdate)
+    
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {

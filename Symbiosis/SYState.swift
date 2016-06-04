@@ -31,11 +31,6 @@ struct SYState {
     var notifs: [String?] = [nil, nil, nil, nil, nil]
 }
 
-/// Events types
-enum SYStateEvent {
-    case Update
-}
-
 class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     private var currentState = SYState()
@@ -58,72 +53,28 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.pedometer.delegate = self
         
         self.locationManager.start()
-    } //This prevents others from using the default '()' initializer for this class.
-    
-    // - MARK: EventManager
-    
-    // using NSMutableArray as Swift arrays can't change size inside dictionaries (yet, probably)
-    var listeners = Dictionary<SYStateEvent, NSMutableArray>();
-    
-    // Create a new event listener, not expecting information from the trigger
-    // + eventName: Matching trigger eventNames will cause this listener to fire
-    // + action: The block of code you want executed when the event triggers
-    func listenTo(event:SYStateEvent, action:(()->())) {
-        let newListener = EventListenerAction(callback: action);
-        addListener(event, newEventListener: newListener);
     }
     
-    internal func addListener(event:SYStateEvent, newEventListener:EventListenerAction) {
-        if let listenerArray = self.listeners[event] {
-            // action array exists for this event, add new action to it
-            listenerArray.addObject(newEventListener);
-        }
-        else {
-            // no listeners created for this event yet, create a new array
-            self.listeners[event] = [newEventListener] as NSMutableArray;
-        }
-    }
+    var listeners = [SYStateWeakListener]();
     
-    // Removes all listeners by default, or specific listeners through paramters
-    // + eventName: If an event name is passed, only listeners for that event will be removed
-    func removeListeners(eventToRemoveOrNil:SYStateEvent?) {
-        if let eventNameToRemove = eventToRemoveOrNil {
-            // remove listeners for a specific event
-            
-            if let actionArray = self.listeners[eventNameToRemove] {
-                // actions for this event exist
-                actionArray.removeAllObjects();
-            }
-        }
-        else {
-            // no specific parameters - remove all listeners on this object
-            self.listeners.removeAll(keepCapacity: false);
-        }
+    func addListener(listener: SYStateListener) {
+        let weakListener = SYStateWeakListener(listener: listener)
+        self.listeners.append(weakListener)
     }
-    
-    // Triggers an event
-    // + eventName: Matching listener eventNames will fire when this is called
-    // + information: pass values to your listeners
-    func trigger(event:SYStateEvent, information:Any? = nil) {
-        if let actionObjects = self.listeners[event] {
-            print(actionObjects)
-            for actionObject in actionObjects {
-                if let actionToPerform = actionObject as? EventListenerAction {
-                    if let methodToCall = actionToPerform.actionExpectsInfo {
-                        methodToCall(information);
-                    }
-                    else if let methodToCall = actionToPerform.action {
-                        methodToCall();
-                    }
-                }
-            }
-        }
-    }
-    
 
     func triggerUpdate() {
         print("Update")
-        self.trigger(.Update)
+        // Clean listeners
+        for (index, listener) in self.listeners.enumerate() {
+            if listener.isInMemory() == false {
+                self.listeners.removeAtIndex(index)
+            }
+        }
+        
+        for listener in self.listeners {
+            listener.tryUpdate()
+        }
+        
         self.previousState = self.currentState
     }
     
@@ -270,18 +221,23 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
 }
 
-// Class to hold actions to live in NSMutableArray
-class EventListenerAction {
-    let action:(() -> ())?;
-    let actionExpectsInfo:((Any?) -> ())?;
-    
-    init(callback:(() -> ())) {
-        self.action = callback;
-        self.actionExpectsInfo = nil;
+class SYStateWeakListener {
+    weak var listener : SYStateListener?
+    init (listener: SYStateListener) {
+        self.listener = listener
     }
     
-    init(callback:((Any?) -> ())) {
-        self.actionExpectsInfo = callback;
-        self.action = nil;
+    func isInMemory() -> Bool {
+        return self.listener != nil
     }
+    
+    func tryUpdate() {
+        if let myListener = self.listener {
+            myListener.onStateUpdate()
+        }
+    }
+}
+
+protocol SYStateListener: class {
+    func onStateUpdate()
 }

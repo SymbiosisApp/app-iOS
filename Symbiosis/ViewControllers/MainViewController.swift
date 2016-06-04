@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, SYStateListener {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: SYTabBar!
@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         // Listen to events
-        state.listenTo(.Update, action: self.onStateUpdate)
+        state.addListener(self)
         
         // Init the tabBar on plant
         state.selectTab(1)
