@@ -15,19 +15,28 @@ import Mapbox
 class MapViewController: UIViewController, MGLMapViewDelegate {
     let request = RequestData()
     
+    var myMapView: MGLMapView!
+    var geolocPointer: MGLPointAnnotation!
+    
+    // State
+    let state = SYStateManager.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
-        mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        // Listen to events
+        state.listenTo(.Update, action: self.onStateUpdate)
+        
+        self.myMapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
+        myMapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         // set the map’s center coordinate and zoom level
-        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 48.853138550976446, longitude: 2.348756790161133), zoomLevel: 12, animated: false)
+        myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 48.853138550976446, longitude: 2.348756790161133), zoomLevel: 12, animated: false)
         
-        mapView.tintColor = .darkGrayColor()
+        myMapView.tintColor = .darkGrayColor()
         
-        view.addSubview(mapView)
-        mapView.delegate = self
+        view.addSubview(myMapView)
+        myMapView.delegate = self
         
         
         //GRAINE
@@ -67,17 +76,17 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
                     let graineOld = MGLPointAnnotation()
                     graineOld.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
                     graineOld.title = name
-                    mapView.addStyleClass("graineOld")
+                    myMapView.addStyleClass("graineOld")
                     graineOld.subtitle = String("old")
-                    mapView.addAnnotation(graineOld)
+                    myMapView.addAnnotation(graineOld)
 
                 }else{
                     let graine = MGLPointAnnotation()
                     graine.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
                     graine.title = name
-                    mapView.addStyleClass("graine")
+                    myMapView.addStyleClass("graine")
                     graine.subtitle = String("new")
-                    mapView.addAnnotation(graine)
+                    myMapView.addAnnotation(graine)
                 }
     
             }
@@ -101,18 +110,13 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
               
                 let pollen = MGLPointAnnotation()
                 pollen.coordinate = CLLocationCoordinate2DMake(pollenLatitude, pollenLongitude)
-                mapView.addStyleClass("pollen")
-                mapView.addAnnotation(pollen)
+                myMapView.addStyleClass("pollen")
+                myMapView.addAnnotation(pollen)
             }
         }
         
         //POINTEUR
-        //TODO SET POSITION
-        let pointeur = MGLPointAnnotation()
-        pointeur.coordinate = CLLocationCoordinate2DMake(48.853138550976446, 2.348756790161133)
-        mapView.addStyleClass("pointeur")
-        mapView.addAnnotation(pointeur)
-        
+        self.updateGeoloc()
     }
     
     
@@ -156,6 +160,29 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
     //ADD INFORMATIONS FOR ONE PIN
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
+    }
+    
+    /**
+     * State Update
+     **/
+    
+    func onStateUpdate() {
+        if state.locationHasChanged() {
+            self.myMapView.removeAnnotations([self.geolocPointer])
+            self.updateGeoloc()
+        }
+    }
+    
+    func updateGeoloc() {
+        print("Update geoloc")
+        if self.geolocPointer != nil {
+            self.myMapView.removeAnnotations([self.geolocPointer])
+        }
+        //TODO SET POSITION
+        self.geolocPointer = MGLPointAnnotation()
+        self.geolocPointer.coordinate = state.getCurrentLocation()
+        myMapView.addStyleClass("pointeur")
+        myMapView.addAnnotation(geolocPointer)
     }
     
     //ADD DAYS AT ONE DATE

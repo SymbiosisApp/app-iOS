@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         state.listenTo(.Update, action: self.onStateUpdate)
         
         // Init the tabBar on plant
-        state.selectTab(2)
+        state.selectTab(1)
         
     }
     
