@@ -13,8 +13,6 @@ class SuggestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("yolooooo")
-
     }
 
     override func didReceiveMemoryWarning() {
