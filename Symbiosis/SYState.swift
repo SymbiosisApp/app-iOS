@@ -20,8 +20,8 @@ struct SYState {
     var plantProgress: Float = 0
     var nextPlantProgress: Float = 0
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
-    var popups: [String?] = [nil, nil, nil, nil, nil]
-    var notifs: [String?] = [nil, nil, nil, nil, nil]
+    var popups: Array<String?> = [nil, nil, nil, nil, nil]
+    var notifs: [Bool] = [Bool].init(count: 5, repeatedValue: false)
 }
 
 class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
@@ -82,12 +82,14 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             currentState.lastSelectedTab = currentState.selectedTab
             currentState.selectedTab = newSelectedTab
         }
+        self.updateNotifs()
         self.triggerUpdate()
     }
     
     func setSteps(newSteps: Int) {
         currentState.steps = newSteps
         self.updatePlantProgress()
+        self.setPopup("commencer", onTab: 3)
         self.triggerUpdate()
     }
     
@@ -118,12 +120,14 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.triggerUpdate()
     }
     
-    func addPopup(popupName: String){
-        
-    }
-    
     func updateGeoloc(location: CLLocationCoordinate2D) {
         currentState.location = location
+        self.triggerUpdate()
+    }
+    
+    func hideCurrentPopup() {
+        let tab = getSelectedTab()
+        self.currentState.popups[tab] = nil
         self.triggerUpdate()
     }
     
@@ -140,6 +144,26 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         }
     }
     
+    func setPopup(popupName: String, onTab tabIndex: Int) {
+        currentState.popups[tabIndex] = popupName
+        if self.getSelectedTab() != tabIndex {
+            currentState.notifs[tabIndex] = true
+        }
+    }
+    
+    func updateNotifs() {
+        for (index, popup) in currentState.popups.enumerate() {
+            if popup != nil {
+                if self.isSelectedTab(index) {
+                    currentState.notifs[index] = false
+                } else {
+                    currentState.notifs[index] = true
+                }
+            } else {
+                currentState.notifs[index] = false
+            }
+        }
+    }
     
     /**
      * Get tools
@@ -157,11 +181,22 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func isNotifiedTab(index: Int) -> Bool {
         // TODO : implement real condiftion !
-        return currentState.selectedTab == index
+        return currentState.notifs[index]
     }
     
     func getSelectedTab() -> Int {
         return currentState.selectedTab
+    }
+    
+    func notifsHasChanged() -> Bool {
+        var result = false
+        for i in 0..<currentState.notifs.count {
+            if currentState.notifs[i] != previousState.notifs[i] {
+                result = true
+                break
+            }
+        }
+        return result
     }
     
     func popupHasChanged() -> Bool {
@@ -173,7 +208,12 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getPrevioustPopup() -> String? {
-        return self.currentState.popups[self.currentState.selectedTab]
+        if self.previousState.selectedTab >= 0 {
+            return self.previousState.popups[self.previousState.selectedTab]
+        } else {
+            return nil
+        }
+        
     }
     
     func getPlantProgresses() -> [Float] {
@@ -231,7 +271,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: SYPedometer Delegate
     
     func syPedometer(didReveiveData data: NSNumber) {
-        print("setSteps")
         self.setSteps(Int(data))
     }
     

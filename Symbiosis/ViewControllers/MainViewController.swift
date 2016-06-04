@@ -20,7 +20,7 @@ class MainViewController: UIViewController, SYStateListener {
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     weak var currentTabView: UIViewController?
-    var pushPopup:Bool=false
+    // var pushPopup: Bool = false
     
     // State
     let state = SYStateManager.sharedInstance

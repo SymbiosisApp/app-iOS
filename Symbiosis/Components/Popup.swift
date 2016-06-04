@@ -16,10 +16,10 @@ class SYPopup: UIView, SYStateListener {
     @IBOutlet weak var buttonclose: UIButton!
     @IBOutlet weak var imagePopup: UIImageView!
     
-    let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
-    var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
-    var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
-    let popupNames : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer"]
+//    let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
+//    var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
+//    var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
+    let validPopups : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer"]
     
     let background = Background()
     
@@ -40,7 +40,6 @@ class SYPopup: UIView, SYStateListener {
         setup()
     }
     
-    
     // MARK: Setup
     func setup() {
         state.addListener(self)
@@ -50,8 +49,14 @@ class SYPopup: UIView, SYStateListener {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
         
-        buttonclose.addTarget(self, action:#selector(self.closePopup), forControlEvents: .TouchUpInside)
+        view.superview!.hidden = true
+        
+        buttonclose.addTarget(self, action:#selector(self.hideCurrentPopup), forControlEvents: .TouchUpInside)
         //addBackgroundPopup("partage")
+    }
+    
+    func hideCurrentPopup() {
+        state.hideCurrentPopup()
     }
    
     
@@ -72,43 +77,62 @@ class SYPopup: UIView, SYStateListener {
     
     // - MARK: Update
     func onStateUpdate() {
-        let parentView = view.superview
         
         if state.popupHasChanged() {
-            //let currentPopup = state.getCurrentPopup()
-            // si deja une popup on la tej
-            // sinon current popup est pas nil on la display
-            
-            //print(popupNames[currentPopup])
-        }
-        
-        
-        if state.tabHasChanged() {
-            let currentTab = state.getSelectedTab()
-            
-            if currentTab < viewsNames.count {
-                
-                //TODO replace "Map" by popNames[currentPopup]
-                if("Map" == viewsNames[currentTab]){
-                    parentView?.hidden = false
-                    
-                    //if("Map" == viewsNames[currentTab] && popupNames[currentPopup] == "timer"){
-                        //parentView?.userInteractionEnabled = false
-                        //buttonClose hidden
-                    //}
-                    
-                }else{
-                    parentView?.hidden = true
+            let currentPopup = state.getCurrentPopup()
+            if let popupName = currentPopup {
+                if validPopups.indexOf(popupName) != nil {
+                    showPopup(popupName)
+                } else {
+                    print("Invalid popup name : \(popupName)")
                 }
-                
+            } else {
+                hidePopup()
             }
         }
+        
+//        let parentView = view.superview
+//        if state.tabHasChanged() {
+//            let currentTab = state.getSelectedTab()
+//            
+//            if currentTab < viewsNames.count {
+//                
+//                //TODO replace "Map" by popNames[currentPopup]
+//                if("Map" == viewsNames[currentTab]){
+//                    parentView?.hidden = false
+//                    
+//                    //if("Map" == viewsNames[currentTab] && popupNames[currentPopup] == "timer"){
+//                        //parentView?.userInteractionEnabled = false
+//                        //buttonClose hidden
+//                    //}
+//                    
+//                }else{
+//                    parentView?.hidden = true
+//                }
+//                
+//            }
+//        }
     }
     
     func addBackgroundPopup(image:String){
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
         backgroundImage.image = UIImage(named: image)
         imagePopup.insertSubview(backgroundImage, atIndex: 0)
+    }
+    
+    func hidePopup() {
+        if let parentView = view.superview {
+            parentView.hidden = true
+        }
+    }
+    
+    func showPopup(name: String) {
+        addBackgroundPopup(name)
+        if let parentView = view.superview {
+            parentView.hidden = false
+        } else {
+            print("No parent view, snif :'(")
+        }
     }
 
 

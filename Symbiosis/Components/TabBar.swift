@@ -116,6 +116,11 @@ class SYTabBar: UIView, SYStateListener {
             } else {
                 button.selected = false
             }
+        }
+    }
+    
+    func updateNotifs() {
+        for (index, _) in buttons.enumerate() {
             let notif = notifs[index]
             if state.isNotifiedTab(index) {
                 notif.hidden = false
@@ -137,6 +142,10 @@ class SYTabBar: UIView, SYStateListener {
     func onStateUpdate() {
         if state.tabHasChanged() {
             updateStyle()
+        }
+        updateNotifs()
+        if state.notifsHasChanged() {
+            
         }
     }
 
