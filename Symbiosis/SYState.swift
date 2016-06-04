@@ -12,8 +12,6 @@ import CoreLocation
 struct SYState {
     var selectedTab: Int = -1
     var lastSelectedTab: Int = -1
-    var nextOnboarding: String = "Intro"
-    var onboardingOpen: Bool = false
     var steps: Int = 0
     var plantIsAnimating: Bool = false
     var plantIsGenerating: Bool = false
@@ -21,7 +19,7 @@ struct SYState {
     var nextPlantProgress: Float = 0
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
-    var notifs: [Bool] = [Bool].init(count: 5, repeatedValue: false)
+    var displayedOnboarding: String? = nil
 }
 
 class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
@@ -82,7 +80,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             currentState.lastSelectedTab = currentState.selectedTab
             currentState.selectedTab = newSelectedTab
         }
-        self.updateNotifs()
         self.triggerUpdate()
     }
     
@@ -131,6 +128,14 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.triggerUpdate()
     }
     
+    func hideOnboarding() {
+        currentState.displayedOnboarding = nil
+    }
+    
+    func showOnboarding(name: String) {
+        currentState.displayedOnboarding = name
+    }
+    
     /**
      * State modif tool
      * -> Update the state but don't trigger update
@@ -146,23 +151,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func setPopup(popupName: String, onTab tabIndex: Int) {
         currentState.popups[tabIndex] = popupName
-        if self.getSelectedTab() != tabIndex {
-            currentState.notifs[tabIndex] = true
-        }
-    }
-    
-    func updateNotifs() {
-        for (index, popup) in currentState.popups.enumerate() {
-            if popup != nil {
-                if self.isSelectedTab(index) {
-                    currentState.notifs[index] = false
-                } else {
-                    currentState.notifs[index] = true
-                }
-            } else {
-                currentState.notifs[index] = false
-            }
-        }
     }
     
     /**
@@ -180,23 +168,20 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func isNotifiedTab(index: Int) -> Bool {
-        // TODO : implement real condiftion !
-        return currentState.notifs[index]
+        let popup = currentState.popups[index]
+        if popup != nil {
+            if self.isSelectedTab(index) {
+                return false
+            } else {
+                return true
+            }
+        } else {
+            return false
+        }
     }
     
     func getSelectedTab() -> Int {
         return currentState.selectedTab
-    }
-    
-    func notifsHasChanged() -> Bool {
-        var result = false
-        for i in 0..<currentState.notifs.count {
-            if currentState.notifs[i] != previousState.notifs[i] {
-                result = true
-                break
-            }
-        }
-        return result
     }
     
     func popupHasChanged() -> Bool {
@@ -251,6 +236,15 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func getCurrentLocation() -> CLLocationCoordinate2D {
         return currentState.location
+    }
+    
+    func getOnboardingToDisplay() -> String? {
+        if currentState.displayedOnboarding != nil {
+            return nil
+        }
+        
+        
+        return nil
     }
     
     

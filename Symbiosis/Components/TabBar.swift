@@ -144,9 +144,6 @@ class SYTabBar: UIView, SYStateListener {
             updateStyle()
         }
         updateNotifs()
-        if state.notifsHasChanged() {
-            
-        }
     }
 
 }

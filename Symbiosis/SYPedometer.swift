@@ -48,7 +48,6 @@ class SYPedometer {
             //        }
             
             self.socket.io.on("STATE_UPDATED") {data, ack in
-                print("STATE_UPDATED")
                 let first = data[0] as! NSMutableDictionary
                 var dict = [String : Any]()
                 for (key, value) in first {
