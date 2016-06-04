@@ -40,11 +40,25 @@ class SYPedometer {
     init(useNatif: Bool){
         self.useNatif = useNatif
         
-        //USE Socket
-        self.socket.io.on("UPDATE_PEDOMETER") { data, ack in
-            let step = data[0].integerValue;
-            self.delegate?.syPedometer(didReveiveData: step);
+        if self.useNatif == false {
+            //USE Socket
+            //        self.socket.io.on("UPDATE_PEDOMETER") { data, ack in
+            //            let step = data[0].integerValue;
+            //            self.delegate?.syPedometer(didReveiveData: step);
+            //        }
+            
+            self.socket.io.on("STATE_UPDATED") {data, ack in
+                print("STATE_UPDATED")
+                let first = data[0] as! NSMutableDictionary
+                var dict = [String : Any]()
+                for (key, value) in first {
+                    dict[key as! String] = value
+                }
+                let steps = dict["steps"]! as! Double
+                self.delegate?.syPedometer(didReveiveData: NSNumber(double: steps))
+            }
         }
+
     }
     
 //    func getPedometerData (fromDate: NSDate, toDate: NSDate) -> SYPedometerData {

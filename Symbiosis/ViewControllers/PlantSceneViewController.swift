@@ -25,13 +25,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     var plant: SYPlant! = nil
     var annimProgress: Float = 0
     var scene: SCNScene!
-    var plantProps: [SYElementRootProps] = [
-        SYElementRootProps(size: 0, hasLeefs: false, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0),
-        SYElementRootProps(size: 1, hasLeefs: true, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0),
-        SYElementRootProps(size: 4, hasLeefs: true, nbrOfFlower: 1, nbrOfFruits: 0, nbrOfSeed: 0),
-        SYElementRootProps(size: 6, hasLeefs: true, nbrOfFlower: 0, nbrOfFruits: 1, nbrOfSeed: 0),
-        SYElementRootProps(size: 6, hasLeefs: true, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 1)
-    ]
+    var plantProps: [SYElementRootProps] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,16 +121,16 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         print("Tap")
-        if self.plant != nil {
-            annimProgress = annimProgress + 1
-            if annimProgress >  Float(plantProps.count - 1) {
-                annimProgress = 0
-            }
-            SCNTransaction.begin()
-            SCNTransaction.setAnimationDuration(0.5)
-            plant.render(annimProgress)
-            SCNTransaction.commit()
-        }
+//        if self.plant != nil {
+//            annimProgress = annimProgress + 1
+//            if annimProgress >  Float(plantProps.count - 1) {
+//                annimProgress = 0
+//            }
+//            SCNTransaction.begin()
+//            SCNTransaction.setAnimationDuration(0.5)
+//            plant.render(annimProgress)
+//            SCNTransaction.commit()
+//        }
     }
     
     @IBAction func onPlantPan(gestureRecognize: UIPanGestureRecognizer) {
@@ -162,6 +156,13 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         }
     }
     
+    func animatePlant() {
+        print("animate")
+        SCNTransaction.begin()
+        SCNTransaction.setAnimationDuration(0.5)
+        self.plant.render(1)
+        SCNTransaction.commit()
+    }
     
     
     
@@ -170,25 +171,35 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
      **/
     
     func onStateUpdate() {
-//        print("Plant update")
-        if state.plantShouldAnimate() {
-            print("Animate the plant !")
-            state.plantStartAnimate()
+        if state.plantShouldEvolve() {
+            print("Envolve the plant !")
+            state.plantStartGenerating()
+            let progresses = state.getPlantProgresses()
+            self.plantProps = generateProps(progresses)
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                print("Start generate !")
+                print(self.plantProps)
                 let nextPlant = SYPlant(states: self.plantProps)
-                self.plant.removeFromParentNode()
+                print("Generate Done !")
+                if self.plant != nil {
+                    self.plant.removeFromParentNode()
+                }
                 self.plant = nextPlant
                 self.scene.rootNode.addChildNode(self.plant)
-                self.plant.render(2)
-                self.state.plantEndAnimating()
+                self.plant.render(0)
+                self.animatePlant()
+                self.state.plantEndGenerating()
             }
         }
-        else if state.plantIsAnimating() {
-            print("Wait for end")
-        } else {
-            print("Can do somethinf else :)")
+    }
+    
+    func generateProps(progresses: [Float]) -> [SYElementRootProps] {
+        var result :[SYElementRootProps] = []
+        for progress in progresses {
+            result.append(SYElementRootProps(size: progress, hasLeefs: false, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0))
         }
+        return result
     }
     
     /**

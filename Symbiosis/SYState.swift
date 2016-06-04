@@ -9,23 +9,16 @@
 import Foundation
 import CoreLocation
 
-/// Steps struct
-struct SYStateSteps {
-    let date: NSDate
-    let steps: Int
-}
-
-struct SYStatePlant {
-    let values: [Float]
-}
-
 struct SYState {
     var selectedTab: Int = -1
     var lastSelectedTab: Int = -1
     var nextOnboarding: String = "Intro"
     var onboardingOpen: Bool = false
-    var steps: [SYStateSteps] = []
+    var steps: Int = 0
     var plantIsAnimating: Bool = false
+    var plantIsGenerating: Bool = false
+    var plantProgress: Float = 0
+    var nextPlantProgress: Float = 0
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
     var popups: [String?] = [nil, nil, nil, nil, nil]
     var notifs: [String?] = [nil, nil, nil, nil, nil]
@@ -63,7 +56,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
 
     func triggerUpdate() {
-        print("Update")
+        // print("Update")
         // Clean listeners
         for (index, listener) in self.listeners.enumerate() {
             if listener.isInMemory() == false {
@@ -78,9 +71,79 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.previousState = self.currentState
     }
     
+    /**
+     * State Actions
+     * -> Update the state and trigger Update
+     **/
+    // - MARK: State Actions
+    
+    func selectTab(newSelectedTab: Int) {
+        if newSelectedTab != currentState.selectedTab {
+            currentState.lastSelectedTab = currentState.selectedTab
+            currentState.selectedTab = newSelectedTab
+        }
+        self.triggerUpdate()
+    }
+    
+    func setSteps(newSteps: Int) {
+        currentState.steps = newSteps
+        self.updatePlantProgress()
+        self.triggerUpdate()
+    }
+    
+    func plantStartAnimate() {
+        if self.currentState.plantIsAnimating {
+            fatalError("Plant is already animating !")
+        }
+        self.currentState.plantIsAnimating = true
+        self.triggerUpdate()
+    }
+    
+    func plantEndAnimating() {
+        self.currentState.plantIsAnimating = false
+        self.triggerUpdate()
+    }
+    
+    func plantStartGenerating() {
+        if self.currentState.plantIsGenerating {
+            fatalError("Plant is already animating !")
+        }
+        self.currentState.plantIsGenerating = true
+        self.triggerUpdate()
+    }
+    
+    func plantEndGenerating() {
+        self.currentState.plantIsGenerating = false
+        self.currentState.plantProgress = self.currentState.nextPlantProgress
+        self.triggerUpdate()
+    }
+    
+    func addPopup(popupName: String){
+        
+    }
+    
+    func updateGeoloc(location: CLLocationCoordinate2D) {
+        currentState.location = location
+        self.triggerUpdate()
+    }
     
     /**
-     * Get special properties
+     * State modif tool
+     * -> Update the state but don't trigger update
+     **/
+    
+    func updatePlantProgress() {
+        let nextProgress = 5 * log10( ( Float(currentState.steps) + 10000 ) / 10000 )
+        let diff = abs(nextProgress - currentState.plantProgress)
+        if diff > 0.1 {
+            currentState.nextPlantProgress = nextProgress
+        }
+    }
+    
+    
+    /**
+     * Get tools
+     * -> Don't change the state, just read it
      **/
     // - MARK: Get special properties
     
@@ -113,35 +176,30 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return self.currentState.popups[self.currentState.selectedTab]
     }
     
+    func getPlantProgresses() -> [Float] {
+        return [currentState.plantProgress, currentState.nextPlantProgress]
+    }
+    
     func getLastSelectedTab() -> Int {
         return currentState.lastSelectedTab
     }
     
-    func plantShouldAnimate() -> Bool {
-        if currentState.plantIsAnimating {
+    func plantShouldEvolve() -> Bool {
+        if currentState.plantIsGenerating {
             return false
         }
-        return getCurrentTotalSteps() != getPreviousTotalSteps()
+        return (currentState.plantProgress != currentState.nextPlantProgress)
     }
     
     func getCurrentTotalSteps() -> Int {
-        var result: Int = 0
-        for step in self.currentState.steps {
-            result += step.steps
-        }
-        return result
+        return currentState.steps
     }
     
     func getPreviousTotalSteps() -> Int {
-        var result: Int = 0
-        for step in self.previousState.steps {
-            result += step.steps
-        }
-        return result
+        return previousState.steps
     }
     
     func plantIsAnimating() -> Bool {
-        print(currentState.selectedTab)
         return false
         // return currentState.plantIsAnimating
     }
@@ -153,49 +211,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func getCurrentLocation() -> CLLocationCoordinate2D {
         return currentState.location
-    }
-    
-    
-    
-    /**
-     * State Actions
-     **/
-    // - MARK: State Actions
-    
-    func selectTab(newSelectedTab: Int) {
-        if newSelectedTab != currentState.selectedTab {
-            currentState.lastSelectedTab = currentState.selectedTab
-            currentState.selectedTab = newSelectedTab
-        }
-        self.triggerUpdate()
-    }
-    
-    func addSteps(newSteps: Int) {
-        print("Add steps")
-        currentState.steps.append(SYStateSteps(date: NSDate(), steps: newSteps))
-        self.triggerUpdate()
-    }
-    
-    func plantStartAnimate() {
-        if self.currentState.plantIsAnimating {
-            fatalError("Plant is already animating !")
-        }
-        self.currentState.plantIsAnimating = true
-        self.triggerUpdate()
-    }
-    
-    func plantEndAnimating() {
-        self.currentState.plantIsAnimating = false
-        self.triggerUpdate()
-    }
-    
-    func addPopup(popupName: String){
-        
-    }
-
-    func updateGeoloc(location: CLLocationCoordinate2D) {
-        currentState.location = location
-        self.triggerUpdate()
     }
     
     
@@ -216,7 +231,8 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: SYPedometer Delegate
     
     func syPedometer(didReveiveData data: NSNumber) {
-        self.addSteps(Int(data))
+        print("setSteps")
+        self.setSteps(Int(data))
     }
     
 }
