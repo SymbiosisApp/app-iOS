@@ -234,13 +234,12 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.triggerUpdate()
     }
     
-<<<<<<< HEAD
     func addPopup(popupName: String){
+        
+    }
 
-=======
     func updateGeoloc(location: CLLocationCoordinate2D) {
         currentState.location = location
->>>>>>> 435877fe4c109bd61eea5d140f843c93505af7d6
         self.triggerUpdate()
     }
     
@@ -252,15 +251,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: SYLocationManager Delegate
     
     func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
-<<<<<<< HEAD
-        print("Location updated !")
-        currentState.location = locations[0].coordinate
-        print(locations[0].coordinate)
-        
-        self.triggerUpdate()
-=======
         self.updateGeoloc(locations[0].coordinate)
->>>>>>> 435877fe4c109bd61eea5d140f843c93505af7d6
     }
     
     func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
