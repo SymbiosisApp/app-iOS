@@ -22,8 +22,9 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     // State
     let state = SYStateManager.sharedInstance
     
-    var plant: SYPlant!
+    var plant: SYPlant! = nil
     var annimProgress: Float = 0
+    var scene: SCNScene!
     var plantProps: [SYElementRootProps] = [
         SYElementRootProps(size: 0, hasLeefs: false, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0),
         SYElementRootProps(size: 1, hasLeefs: true, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0),
@@ -34,9 +35,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Listen to events
-        state.listenTo(.Update, action: self.onStateUpdate)
 
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -46,7 +44,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         scnView.delegate = self
         
         // create a new scene
-        let scene = SCNScene()
+        scene = SCNScene()
         // set the scene to the view
         scnView.scene = scene
         
@@ -61,9 +59,9 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
 //            plant.render(1.6)
 //        }
 
-        self.plant = SYPlant(states: self.plantProps)
-        scene.rootNode.addChildNode(plant)
-        plant.render(0)
+//        self.plant = SYPlant(states: self.plantProps)
+//        scene.rootNode.addChildNode(plant)
+//        plant.render(0)
         
         
 //        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
@@ -122,18 +120,23 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.view.addGestureRecognizer(tapGesture)
         
+        
+        // Listen to events
+        // state.listenTo(.Update, action: self.onStateUpdate)
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         print("Tap")
-        annimProgress = annimProgress + 1
-        if annimProgress >  Float(plantProps.count - 1) {
-            annimProgress = 0
+        if self.plant != nil {
+            annimProgress = annimProgress + 1
+            if annimProgress >  Float(plantProps.count - 1) {
+                annimProgress = 0
+            }
+            SCNTransaction.begin()
+            SCNTransaction.setAnimationDuration(0.5)
+            plant.render(annimProgress)
+            SCNTransaction.commit()
         }
-        SCNTransaction.begin()
-        SCNTransaction.setAnimationDuration(0.5)
-        plant.render(annimProgress)
-        SCNTransaction.commit()
     }
     
     @IBAction func onPlantPan(gestureRecognize: UIPanGestureRecognizer) {
@@ -167,25 +170,24 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate {
      **/
     
     func onStateUpdate() {
-        // print("Plant update")
+//        print("Plant update")
         if state.plantShouldAnimate() {
-            // print("Animate the plant !")
+            print("Animate the plant !")
             state.plantStartAnimate()
-            dispatch_after(
-                dispatch_time(
-                    DISPATCH_TIME_NOW,
-                    Int64(2.0 * Double(NSEC_PER_SEC))
-                ),
-                dispatch_get_main_queue(),
-                {
-                    // print("end animate the plant !")
-                    self.state.plantEndAnimating()
-                }
-            )
-        } else if state.plantIsAnimating() {
-            // print("Wait for end")
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                let nextPlant = SYPlant(states: self.plantProps)
+                self.plant.removeFromParentNode()
+                self.plant = nextPlant
+                self.scene.rootNode.addChildNode(self.plant)
+                self.plant.render(2)
+                self.state.plantEndAnimating()
+            }
+        }
+        else if state.plantIsAnimating() {
+            print("Wait for end")
         } else {
-            // print("Can do somethinf else :)")
+            print("Can do somethinf else :)")
         }
     }
     

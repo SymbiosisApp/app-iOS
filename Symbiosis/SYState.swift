@@ -106,6 +106,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // + information: pass values to your listeners
     func trigger(event:SYStateEvent, information:Any? = nil) {
         if let actionObjects = self.listeners[event] {
+            print(actionObjects)
             for actionObject in actionObjects {
                 if let actionToPerform = actionObject as? EventListenerAction {
                     if let methodToCall = actionToPerform.actionExpectsInfo {
@@ -121,6 +122,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
 
     func triggerUpdate() {
+        print("Update")
         self.trigger(.Update)
         self.previousState = self.currentState
     }
@@ -188,7 +190,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func plantIsAnimating() -> Bool {
-        return currentState.plantIsAnimating
+        print(currentState.selectedTab)
+        return false
+        // return currentState.plantIsAnimating
     }
     
     func locationHasChanged() -> Bool {
