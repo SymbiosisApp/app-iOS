@@ -71,6 +71,8 @@
 		666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AA1CFC44AF001E991F /* PollenViewController.swift */; };
 		666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AC1CFC44F1001E991F /* FruitViewController.swift */; };
 		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
+		666C14591D033AF9000201A4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C14581D033AF9000201A4 /* ChatViewController.swift */; };
+		666C145B1D033B83000201A4 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C145A1D033B83000201A4 /* SuggestionViewController.swift */; };
 		6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */; };
 		6677B1A41CFFD7B6000D455F /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19D1CFFD7B6000D455F /* carte.gif */; };
 		6677B1A51CFFD7B6000D455F /* chat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19E1CFFD7B6000D455F /* chat.gif */; };
@@ -183,6 +185,8 @@
 		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollenViewController.swift; path = OnboardingViewControllers/PollenViewController.swift; sourceTree = "<group>"; };
 		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FruitViewController.swift; path = OnboardingViewControllers/FruitViewController.swift; sourceTree = "<group>"; };
 		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
+		666C14581D033AF9000201A4 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		666C145A1D033B83000201A4 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
 		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
 		6677B19E1CFFD7B6000D455F /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 				1854398F1CEBC60800B1D86C /* MapViewController.swift */,
 				183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */,
 				666301961CFC3897001E991F /* LoginViewController.swift */,
+				666C14581D033AF9000201A4 /* ChatViewController.swift */,
+				666C145A1D033B83000201A4 /* SuggestionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -674,7 +680,9 @@
 				18DCFAFD1D01AE64007FEDAB /* Popup.swift in Sources */,
 				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
 				18DCFB001D01AE64007FEDAB /* TabBar.swift in Sources */,
+				666C14591D033AF9000201A4 /* ChatViewController.swift in Sources */,
 				18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */,
+				666C145B1D033B83000201A4 /* SuggestionViewController.swift in Sources */,
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
 				666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */,

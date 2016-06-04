@@ -37,7 +37,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="USR-BI-mqb" kind="show" id="bjt-E5-OGR"/>
+                                    <segue destination="USR-BI-mqb" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="bjt-E5-OGR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="178" y="321"/>
         </scene>
-        <!--View Controller-->
+        <!--Suggestion View Controller-->
         <scene sceneID="99D-Bv-eCd">
             <objects>
-                <viewController id="USR-BI-mqb" sceneMemberID="viewController">
+                <viewController id="USR-BI-mqb" customClass="SuggestionViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQM-iw-5ZS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,6 +81,9 @@
                                     <constraint firstAttribute="width" constant="46" id="rgC-Xm-5br"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="back"/>
+                                <connections>
+                                    <action selector="closeSuggestion:" destination="USR-BI-mqb" eventType="touchUpInside" id="WyF-fk-FXP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

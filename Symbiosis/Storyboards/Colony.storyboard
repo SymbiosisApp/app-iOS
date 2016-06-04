@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="360" y="349"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="mDV-a8-4ub">
             <objects>
-                <viewController id="ifK-mW-zvY" sceneMemberID="viewController">
+                <viewController id="ifK-mW-zvY" customClass="ChatViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MVh-Lk-jrN"/>
                         <viewControllerLayoutGuide type="bottom" id="Nqq-Fl-yZI"/>
@@ -75,6 +75,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzw-Fd-Ylx">
                                 <rect key="frame" x="20" y="40" width="46" height="46"/>
                                 <state key="normal" backgroundImage="back"/>
+                                <connections>
+                                    <action selector="closeChat:" destination="ifK-mW-zvY" eventType="touchUpInside" id="OQi-g6-YsX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
