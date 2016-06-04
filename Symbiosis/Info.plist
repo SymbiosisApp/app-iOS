@@ -43,8 +43,25 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
-		<string></string>
+		<string>Rene Bieder - Campton Light Italic.otf</string>
+		<string>Rene Bieder - Campton Light.otf</string>
+		<string>Rene Bieder - Campton Medium Italic.otf</string>
+		<string>Rene Bieder - Campton Medium.otf</string>
+		<string>Rene Bieder - Campton SemiBold Italic.otf</string>
+		<string>Rene Bieder - Campton SemiBold.otf</string>
+		<string>Rene Bieder - Campton Thin Italic.otf</string>
+		<string>Rene Bieder - Campton Thin.otf</string>
+		<string>Rene Bieder - Campton Black Italic.otf</string>
+		<string>Rene Bieder - Campton Black.otf</string>
+		<string>Rene Bieder - Campton Bold Italic.otf</string>
+		<string>Rene Bieder - Campton Bold.otf</string>
+		<string>Rene Bieder - Campton Book Italic.otf</string>
+		<string>Rene Bieder - Campton Book.otf</string>
+		<string>Rene Bieder - Campton ExtraBold Italic.otf</string>
+		<string>Rene Bieder - Campton ExtraBold.otf</string>
+		<string>Rene Bieder - Campton ExtraLight Italic.otf</string>
+		<string>Rene Bieder - Campton ExtraLight.otf</string>
+		<string>CaslonGraphiqueEF.otf</string>
 	</array>
 </dict>
 </plist>

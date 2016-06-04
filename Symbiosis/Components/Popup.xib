@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Rene Bieder - Campton Light.otf">
+            <string>Campton-Light</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target">
             <connections>
@@ -17,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D2F3D168-DE4D-4993-B670-C9C353E72A89" translatesAutoresizingMaskIntoConstraints="NO" id="hon-2P-Njf">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="69E9812A-65E5-4EB4-8FDE-3617A25A3DB4" translatesAutoresizingMaskIntoConstraints="NO" id="hon-2P-Njf">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="button" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltL-6K-oSe">
@@ -26,6 +31,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="ZLg-OS-2Yj"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="18"/>
                     <state key="normal" title="J'AI COMPRIS">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -44,7 +50,7 @@
         </view>
     </objects>
     <resources>
-        <image name="D2F3D168-DE4D-4993-B670-C9C353E72A89" width="375" height="667">
+        <image name="69E9812A-65E5-4EB4-8FDE-3617A25A3DB4" width="375" height="667">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

@@ -50,9 +50,6 @@ class SYPopup: UIView {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
         
-        //state.listenTo(.Update, action: self.onStateUpdate)
-        //onStateUpdate()
-        
         buttonclose.addTarget(self, action:#selector(self.closePopup), forControlEvents: .TouchUpInside)
         //addBackgroundPopup("partage")
     }
@@ -78,11 +75,10 @@ class SYPopup: UIView {
         let parentView = view.superview
         
         if state.popupHasChanged() {
-            let currentPopup = state.getCurrentPopup()
+            //let currentPopup = state.getCurrentPopup()
             // si deja une popup on la tej
             // sinon current popup est pas nil on la display
             
-            print(currentPopup)
             //print(popupNames[currentPopup])
         }
         
