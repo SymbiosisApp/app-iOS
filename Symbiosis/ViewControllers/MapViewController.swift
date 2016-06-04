@@ -173,7 +173,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     }
     
     func updateGeoloc() {
-        print("Update geoloc")
+        // print("Update geoloc")
         if self.geolocPointer != nil {
             self.myMapView.removeAnnotations([self.geolocPointer])
         }
