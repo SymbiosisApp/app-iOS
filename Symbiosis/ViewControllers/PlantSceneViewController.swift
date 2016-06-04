@@ -45,25 +45,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         // set the scene to the view
         scnView.scene = scene
         
-//        let startTime = CFAbsoluteTimeGetCurrent()
-
-//        let plant = SYElementBranch()
-//        scene.rootNode.addChildNode(plant)
-//        
-//        // Async task
-//        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-//        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-//            plant.render(1.6)
-//        }
-
-//        self.plant = SYPlant(states: self.plantProps)
-//        scene.rootNode.addChildNode(plant)
-//        plant.render(0)
-        
-        
-//        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-        // print("Render time : \(timeElapsed)")
-
         let cameraTarget = SCNNode()
         cameraTarget.position = SCNVector3Make(0, 0.5, 0)
         scene.rootNode.addChildNode(cameraTarget)
@@ -116,21 +97,13 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        // evolveThePlant()
     
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         print("Tap")
-//        if self.plant != nil {
-//            annimProgress = annimProgress + 1
-//            if annimProgress >  Float(plantProps.count - 1) {
-//                annimProgress = 0
-//            }
-//            SCNTransaction.begin()
-//            SCNTransaction.setAnimationDuration(0.5)
-//            plant.render(annimProgress)
-//            SCNTransaction.commit()
-//        }
     }
     
     @IBAction func onPlantPan(gestureRecognize: UIPanGestureRecognizer) {
@@ -164,6 +137,27 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         SCNTransaction.commit()
     }
     
+    func evolveThePlant() {
+        // print("Envolve the plant !")
+        state.plantStartGenerating()
+        let progresses = state.getPlantProgresses()
+        self.plantProps = generateProps(progresses)
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // print("Start generate !")
+            print(self.plantProps)
+            let nextPlant = SYPlant(states: self.plantProps)
+            // print("Generate Done !")
+            if self.plant != nil {
+                self.plant.removeFromParentNode()
+            }
+            self.plant = nextPlant
+            self.scene.rootNode.addChildNode(self.plant)
+            self.plant.render(0)
+            self.animatePlant()
+            self.state.plantEndGenerating()
+        }
+    }
     
     
     /**
@@ -172,25 +166,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     
     func onStateUpdate() {
         if state.plantShouldEvolve() {
-            print("Envolve the plant !")
-            state.plantStartGenerating()
-            let progresses = state.getPlantProgresses()
-            self.plantProps = generateProps(progresses)
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                print("Start generate !")
-                print(self.plantProps)
-                let nextPlant = SYPlant(states: self.plantProps)
-                print("Generate Done !")
-                if self.plant != nil {
-                    self.plant.removeFromParentNode()
-                }
-                self.plant = nextPlant
-                self.scene.rootNode.addChildNode(self.plant)
-                self.plant.render(0)
-                self.animatePlant()
-                self.state.plantEndGenerating()
-            }
+            evolveThePlant()
         }
     }
     

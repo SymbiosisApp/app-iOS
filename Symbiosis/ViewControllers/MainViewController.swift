@@ -150,12 +150,15 @@ class MainViewController: UIViewController, SYStateListener {
     func addSubview(subView:UIView, toView parentView:UIView) {
         parentView.addSubview(subView)
         
-        var viewBindingsDict = [String: AnyObject]()
-        viewBindingsDict["subView"] = subView
-        parentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[subView]|",
-            options: [], metrics: nil, views: viewBindingsDict))
-        parentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
-            options: [], metrics: nil, views: viewBindingsDict))
+        subView.removeConstraints(subView.constraints)
+        
+        // subView.translatesAutoresizingMaskIntoConstraints = false
+        
+        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0))
+        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0))
+        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0))
+        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
+        
     }
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController, inverseDirection: Bool) {
@@ -167,15 +170,19 @@ class MainViewController: UIViewController, SYStateListener {
         let directionMultiplier: Float = inverseDirection ? -1.0 : 1.0
         
         // Add new constraints
+        
+        // newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
         var viewBindingsDict = [String: AnyObject]()
         viewBindingsDict["subView"] = newViewController.view
-        self.containerView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
-            options: [], metrics: nil, views: viewBindingsDict))
+        self.containerView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|", options: [], metrics: nil, views: viewBindingsDict))
+        
         let leftConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.containerView!, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0);
         leftConstraint.active = true
-        let widthConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.containerView!, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0.0);
+        let widthConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.containerView!, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0 );
+        // 100 * CGFloat(directionMultiplier)
         widthConstraint.active = true;
-        leftConstraint.constant = 100 * CGFloat(directionMultiplier)
+        
         newViewController.view.alpha = 0
         newViewController.view.layoutIfNeeded()
         
@@ -195,6 +202,8 @@ class MainViewController: UIViewController, SYStateListener {
                 newViewController.didMoveToParentViewController(self)
         })
     }
+    
+    
     
     // - MARK: Memory warning
     override func didReceiveMemoryWarning() {
