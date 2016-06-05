@@ -10,11 +10,9 @@ import Foundation
 import CoreLocation
 
 struct SYState {
-    var selectedTab: Int = 2
-    var lastSelectedTab: Int = -1
+    var tab: Int = 3
     var steps: Int = 0
-    var plantIsAnimating: Bool = false
-    var plantIsGenerating: Bool = false
+    var plantStatus: SYStatePlantStatus = .NotGenerated
     var plantProgress: Float = 0
     var nextPlantProgress: Float = 0
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
@@ -25,10 +23,37 @@ struct SYState {
     var tabBarHidden: Bool = false
 }
 
+enum SYStateActionType {
+    case SelectTab
+    case SetPlantStep
+    case SetPlantStatus
+    case SetTabBarHidden
+    case SetGeoloc
+    case HideCurrentPopup
+    case ShowOnboarding
+    case HideOnboarding
+}
+
+enum SYStatePlantStatus {
+    case NotGenerated
+    case Generating
+    case Generated
+    case Animating
+    case Animated
+}
+
+struct SYStateAction {
+    let type: SYStateActionType
+    let payload: Any?
+}
+
 class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     private var currentState = SYState()
     private var previousState = SYState()
+    
+    private var actionsQueue: [SYStateAction] = []
+    private var dequeInProgress: Bool = false
     
     /**
      * This is the Events part
@@ -49,10 +74,10 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         self.locationManager.start()
     }
     
-    var listeners = [SYStateWeakListener]();
+    var listeners = [SYStateListenerWrapper]();
     
     func addListener(listener: SYStateListener) {
-        let weakListener = SYStateWeakListener(listener: listener)
+        let weakListener = SYStateListenerWrapper(listener: listener)
         self.listeners.append(weakListener)
     }
 
@@ -69,96 +94,97 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             listener.tryUpdate()
         }
         
+        print("=>  State cycle")
         self.previousState = self.currentState
     }
     
+    func dequeueActions() {
+        dequeInProgress = true
+        if actionsQueue.count > 0 {
+            let action = self.actionsQueue.removeAtIndex(0)
+            // Copy state
+            self.previousState = self.currentState
+            self.currentState = reducer(currentState, action: action)
+            self.triggerUpdate()
+            dequeueActions()
+        }
+        dequeInProgress = false
+    }
+    
+    func dispatchAction(type: SYStateActionType, payload: Any?) {
+        let action = SYStateAction(type: type, payload: payload)
+        self.actionsQueue.append(action)
+        if dequeInProgress == false {
+            dequeueActions()
+        }
+    }
+    
     /**
-     * State Actions
-     * -> Update the state and trigger Update
+     * Reducer
+     * -> Update the state
+     * make changes in state
+     * you can check value of currentState
      **/
     // - MARK: State Actions
     
-    func selectTab(newSelectedTab: Int) {
-        if newSelectedTab != currentState.selectedTab {
-            currentState.lastSelectedTab = currentState.selectedTab
-            currentState.selectedTab = newSelectedTab
+    func reducer(previousState: SYState, action: SYStateAction) -> SYState {
+        var state = previousState
+        let payload = action.payload
+        switch action.type {
+        case .SelectTab:
+            let newSelectedTab = payload as! Int
+            if newSelectedTab != state.tab {
+                state.tab = newSelectedTab
+            }
+        case .SetPlantStep:
+            let newSteps = payload as! Int
+            state.steps = newSteps
+            state = self.updatePlantProgress(state)
+            state = self.setPopup(state, popupName: "commencer", onTab: 3)
+        case .SetPlantStatus:
+            let status = payload as! SYStatePlantStatus
+            // TODO verif status
+//            if status == true && self.currentState.plantIsAnimating {
+//                fatalError("Plant is already animating !")
+//            }
+            state.plantStatus = status
+        case .SetTabBarHidden:
+            let status = payload as! Bool
+            state.tabBarHidden = status
+        case .SetGeoloc:
+            let newGeoloc = payload as! CLLocationCoordinate2D
+            state.location = newGeoloc
+        case .HideCurrentPopup:
+            let tab = getCurrentTab()
+            state.popups[tab] = nil
+        case .ShowOnboarding:
+            let onboardingName = payload as! String
+            state.displayedOnboarding = onboardingName
+        case .HideOnboarding:
+            state.displayedOnboarding = nil
         }
-        self.triggerUpdate()
-    }
-    
-    func setSteps(newSteps: Int) {
-        currentState.steps = newSteps
-        self.updatePlantProgress()
-        self.setPopup("commencer", onTab: 3)
-        self.triggerUpdate()
-    }
-    
-    func plantStartAnimate() {
-        if self.currentState.plantIsAnimating {
-            fatalError("Plant is already animating !")
-        }
-        self.currentState.plantIsAnimating = true
-        self.triggerUpdate()
-    }
-    
-    func setTabBarHidden(newValue: Bool) {
-        currentState.tabBarHidden = newValue
-        self.triggerUpdate()
-    }
-    
-    func plantEndAnimating() {
-        self.currentState.plantIsAnimating = false
-        self.triggerUpdate()
-    }
-    
-    func plantStartGenerating() {
-        if self.currentState.plantIsGenerating {
-            fatalError("Plant is already animating !")
-        }
-        self.currentState.plantIsGenerating = true
-        self.triggerUpdate()
-    }
-    
-    func plantEndGenerating() {
-        self.currentState.plantIsGenerating = false
-        self.currentState.plantProgress = self.currentState.nextPlantProgress
-        self.triggerUpdate()
-    }
-    
-    func updateGeoloc(location: CLLocationCoordinate2D) {
-        currentState.location = location
-        self.triggerUpdate()
-    }
-    
-    func hideCurrentPopup() {
-        let tab = getSelectedTab()
-        self.currentState.popups[tab] = nil
-        self.triggerUpdate()
-    }
-    
-    func hideOnboarding() {
-        currentState.displayedOnboarding = nil
-    }
-    
-    func showOnboarding(name: String) {
-        currentState.displayedOnboarding = name
+        return state
     }
     
     /**
-     * State modif tool
+     * Sub reducer
      * -> Update the state but don't trigger update
      **/
     
-    func updatePlantProgress() {
+    func updatePlantProgress(state: SYState) -> SYState {
+        var state = state
         let nextProgress = 5 * log10( ( Float(currentState.steps) + 10000 ) / 10000 )
         let diff = abs(nextProgress - currentState.plantProgress)
         if diff > 0.1 {
-            currentState.nextPlantProgress = nextProgress
+            state.nextPlantProgress = nextProgress
         }
+        return state
     }
     
-    func setPopup(popupName: String, onTab tabIndex: Int) {
-        currentState.popups[tabIndex] = popupName
+    func setPopup(state: SYState, popupName: String, onTab tabIndex: Int) -> SYState {
+        var state = state
+        state.popups[tabIndex] = popupName
+        return state
     }
     
     /**
@@ -168,11 +194,19 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: Get special properties
     
     func tabHasChanged() -> Bool {
-        return currentState.selectedTab != previousState.selectedTab
+        return currentState.tab != previousState.tab
     }
     
     func isSelectedTab(index: Int) -> Bool {
-        return currentState.selectedTab == index
+        return currentState.tab == index
+    }
+    
+    func getCurrentTab() -> Int {
+        return currentState.tab
+    }
+    
+    func getPreviousTab() -> Int {
+        return previousState.tab
     }
     
     func isNotifiedTab(index: Int) -> Bool {
@@ -191,7 +225,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     func previousIsNotifiedTab(index: Int) -> Bool {
         let popup = previousState.popups[index]
         if popup != nil {
-            if previousState.selectedTab == index {
+            if previousState.tab == index {
                 return false
             } else {
                 return true
@@ -203,11 +237,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func tabNotificationHasChanged(index: Int) -> Bool {
         return isNotifiedTab(index) != previousIsNotifiedTab(index)
-    }
-    
-    
-    func getSelectedTab() -> Int {
-        return currentState.selectedTab
     }
     
     func popupHasChanged() -> Bool {
@@ -223,28 +252,27 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getCurrentPopup() -> String? {
-        return self.currentState.popups[self.currentState.selectedTab]
+        return self.currentState.popups[self.currentState.tab]
     }
     
     func getPrevioustPopup() -> String? {
-        if self.previousState.selectedTab >= 0 {
-            return self.previousState.popups[self.previousState.selectedTab]
+        if self.previousState.tab >= 0 {
+            return self.previousState.popups[self.previousState.tab]
         } else {
             return nil
         }
-        
+    }
+    
+    func plantIsGenerating() -> Bool {
+        return currentState.plantStatus == .Generating
     }
     
     func getPlantProgresses() -> [Float] {
         return [currentState.plantProgress, currentState.nextPlantProgress]
     }
     
-    func getLastSelectedTab() -> Int {
-        return currentState.lastSelectedTab
-    }
-    
     func plantShouldEvolve() -> Bool {
-        if currentState.plantIsGenerating {
+        if self.plantIsGenerating() {
             return false
         }
         return (currentState.plantProgress != currentState.nextPlantProgress)
@@ -274,11 +302,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func getOnboardingToDisplay() -> String? {
         return nil
-        if currentState.displayedOnboarding != nil {
-            return nil
-        } else {
-            return "Graine"
-        }
+//        if currentState.displayedOnboarding != nil {
+//            return nil
+//        } else {
+//            return "Graine"
+//        }
     }
     
     
@@ -289,7 +317,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: SYLocationManager Delegate
     
     func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.updateGeoloc(locations[0].coordinate)
+        self.dispatchAction(.SetGeoloc, payload: locations[0].coordinate)
     }
     
     func syLocationManagerDidGetAuthorization(manager: SYLocationManager) {
@@ -299,15 +327,19 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     // - MARK: SYPedometer Delegate
     
     func syPedometer(didReveiveData data: NSNumber) {
-        self.setSteps(Int(data))
+        self.dispatchAction(.SetPlantStep, payload: Int(data))
     }
     
 }
 
-class SYStateWeakListener {
+class SYStateListenerWrapper {
+    
     weak var listener : SYStateListener?
+    var setUpDone: Bool = false
+    
     init (listener: SYStateListener) {
         self.listener = listener
+        self.tryUpdate()
     }
     
     func isInMemory() -> Bool {
@@ -316,11 +348,17 @@ class SYStateWeakListener {
     
     func tryUpdate() {
         if let myListener = self.listener {
-            myListener.onStateUpdate()
+            if setUpDone {
+                myListener.onStateUpdate()
+            } else {
+                myListener.onStateSetup()
+                setUpDone = true
+            }
         }
     }
 }
 
 protocol SYStateListener: class {
     func onStateUpdate()
+    func onStateSetup()
 }

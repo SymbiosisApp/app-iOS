@@ -29,8 +29,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("View did load")
 
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -99,16 +97,12 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         
         // Listen to events
         state.addListener(self)
-        
-        // evolveThePlant()
-        
-        print("End View did load")
     
     }
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         print("Tap")
-        state.setTabBarHidden(state.tabBarIsHidden() == false)
+        state.dispatchAction(SYStateActionType.SetTabBarHidden, payload: !state.tabBarIsHidden())
     }
     
     @IBAction func onPlantPan(gestureRecognize: UIPanGestureRecognizer) {
@@ -135,7 +129,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     }
     
     func animatePlant() {
-        print("animate")
+        // print("animate")
         SCNTransaction.begin()
         SCNTransaction.setAnimationDuration(0.5)
         self.plant.render(1)
@@ -144,7 +138,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     
     func evolveThePlant() {
         print("Envolve the plant !")
-        state.plantStartGenerating()
+        state.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generating)
         let progresses = state.getPlantProgresses()
         self.plantProps = generateProps(progresses)
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
@@ -160,7 +154,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
             self.scene.rootNode.addChildNode(self.plant)
             self.plant.render(0)
             self.animatePlant()
-            self.state.plantEndGenerating()
+            self.state.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generated)
         }
     }
     
@@ -169,8 +163,11 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
      * State Update
      **/
     
+    func onStateSetup() {
+        
+    }
+    
     func onStateUpdate() {
-        print("State update")
         if state.plantShouldEvolve() {
             evolveThePlant()
         }

@@ -56,7 +56,7 @@ class SYPopup: UIView, SYStateListener {
     }
     
     func hideCurrentPopup() {
-        state.hideCurrentPopup()
+        state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
    
     
@@ -76,6 +76,11 @@ class SYPopup: UIView, SYStateListener {
 
     
     // - MARK: Update
+    
+    func onStateSetup() {
+        
+    }
+    
     func onStateUpdate() {
         
         if state.popupHasChanged() {
@@ -93,7 +98,7 @@ class SYPopup: UIView, SYStateListener {
         
 //        let parentView = view.superview
 //        if state.tabHasChanged() {
-//            let currentTab = state.getSelectedTab()
+//            let currentTab = state.getCurrentTab()
 //            
 //            if currentTab < viewsNames.count {
 //                

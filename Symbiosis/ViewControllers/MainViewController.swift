@@ -25,7 +25,7 @@ class MainViewController: UIViewController, SYStateListener {
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
-    weak var currentTabView: UIViewController?
+    weak var mountedViewCtrl: UIViewController!
     
     var isLoaded: Bool = false
     
@@ -56,18 +56,6 @@ class MainViewController: UIViewController, SYStateListener {
         if self.isLoaded == false {
             // Listen to events
             state.addListener(self)
-            
-            // Init tab bar display
-            if state.tabBarIsHidden() {
-                self.hideTabBar(false)
-            } else {
-                self.showTabBar(false)
-            }
-            
-            // Init the tabBar on plant
-            //state.selectTab(1)
-            
-            setTabNavigation(state.getSelectedTab())
             
             self.isLoaded = true
         }
@@ -109,9 +97,8 @@ class MainViewController: UIViewController, SYStateListener {
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
-
     
-    func setTabNavigation(tabIndex: Int) {
+    func getViewControllerForIndex(tabIndex: Int) -> UIViewController {
         if tabViews[tabIndex] == nil {
             let tabName = viewsNames[tabIndex]
             if tabStoryboards[tabIndex] == nil {
@@ -124,22 +111,42 @@ class MainViewController: UIViewController, SYStateListener {
         }
         
         let tabView = tabViews[tabIndex]!
+        return tabView
+    }
+
+    
+    func setTabNavigation() {
         
-        if currentTabView == nil {
-            // just set up
-            self.addChildViewController(tabView)
-            self.addSubview(tabView.view, toView: self.containerView)
-        } else {
-            // Animate transition
-            let invertDirection = tabIndex < state.getLastSelectedTab()
-            self.cycleFromViewController(self.currentTabView!, toViewController: tabView, inverseDirection: invertDirection)
-        }
-        self.currentTabView = tabView
+        
+//        if tabViews[tabIndex] == nil {
+//            let tabName = viewsNames[tabIndex]
+//            if tabStoryboards[tabIndex] == nil {
+//                tabStoryboards[tabIndex] = UIStoryboard(name: tabName, bundle: nil)
+//            }
+//            let strboard = tabStoryboards[tabIndex]!
+//            
+//            tabViews[tabIndex] = strboard.instantiateViewControllerWithIdentifier("\(tabName)ViewCtrl")
+//            tabViews[tabIndex]!.view.translatesAutoresizingMaskIntoConstraints = false
+//        }
+//        
+//        let tabView = tabViews[tabIndex]!
+//        
+//        if currentTabView == nil {
+//            // just set up
+//            self.addChildViewController(tabView)
+//            self.addSubview(tabView.view, toView: self.containerView)
+//            self.containerView.layoutIfNeeded()
+//            self.containerView.layoutSubviews()
+//        } else {
+//            // Animate transition
+//            let invertDirection = tabIndex < state.getPreviousTab()
+//            self.cycleFromViewController(self.currentTabView!, toViewController: tabView, inverseDirection: invertDirection)
+//        }
+//        self.currentTabView = tabView
         
     }
     
     func hideTabBar(animated: Bool) {
-        print("Hide tabbar")
         var duration = 0.3
         if animated == false {
             duration = 0
@@ -180,12 +187,23 @@ class MainViewController: UIViewController, SYStateListener {
     
     // - MARK: Update
     
+    func onStateSetup() {
+        
+        // Init tab bar display
+        if state.tabBarIsHidden() {
+            self.hideTabBar(false)
+        } else {
+            self.showTabBar(false)
+        }
+        
+        updateViewContainer(false)
+
+    }
+    
     func onStateUpdate() {
+        
         if state.tabHasChanged() {
-            let currentTab = state.getSelectedTab()
-            if currentTab < viewsNames.count {
-                setTabNavigation(currentTab)
-            }
+            updateViewContainer(true)
         }
         
         if state.tabBarHiddenHasChanged() {
@@ -195,6 +213,10 @@ class MainViewController: UIViewController, SYStateListener {
                 self.showTabBar(true)
             }
         }
+        
+//        self.didReceiveMemoryWarning()
+//        self.didReceiveMemoryWarning()
+//        self.didReceiveMemoryWarning()
         
         if false /* TODO : state.needLogin ? */ {
             //LOGIN
@@ -210,12 +232,67 @@ class MainViewController: UIViewController, SYStateListener {
         }
         
         if let onboarding = state.getOnboardingToDisplay() {
-            print("Present Onaboarding \(onboarding)")
-            state.showOnboarding(onboarding)
+            state.dispatchAction(SYStateActionType.ShowOnboarding, payload: onboarding)
             let dataLoarder = SYDataLoader()
             let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: onboarding, name:"name")
             self.showOnboarding(onboardingData)
         }
+    }
+    
+    func updateViewContainer(animated: Bool) {
+        let currentTab = state.getCurrentTab()
+        let previousTab = state.getPreviousTab()
+        
+        if mountedViewCtrl != nil {
+            mountedViewCtrl.willMoveToParentViewController(nil)
+        }
+        
+        let currentViewCtrl = getViewControllerForIndex(currentTab)
+        
+        self.addChildViewController(currentViewCtrl)
+        self.containerView.addSubview(currentViewCtrl.view)
+        
+        // Add new constraints
+        currentViewCtrl.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let subView = currentViewCtrl.view
+        let parentView = containerView
+        let constTop = NSLayoutConstraint.init(item: subView, attribute: .Top, relatedBy: .Equal, toItem: parentView, attribute: .Top, multiplier: 1, constant: 0)
+        constTop.active = true
+        let constBottom = NSLayoutConstraint.init(item: subView, attribute: .Bottom, relatedBy: .Equal, toItem: parentView, attribute: .Bottom, multiplier: 1, constant: 0)
+        constBottom.active = true
+        let constLeading = NSLayoutConstraint.init(item: subView, attribute: .Leading, relatedBy: .Equal, toItem: parentView, attribute: .Leading, multiplier: 1, constant: 0)
+        constLeading.active = true
+        let constTrailing = NSLayoutConstraint.init(item: subView, attribute: .Trailing, relatedBy: .Equal, toItem: parentView, attribute: .Trailing, multiplier: 1, constant: 0)
+        constTrailing.active = true
+        
+        containerView.layoutIfNeeded()
+        containerView.layoutSubviews()
+        
+        if mountedViewCtrl != nil {
+            mountedViewCtrl.view.removeFromSuperview()
+            mountedViewCtrl.removeFromParentViewController()
+        }
+        currentViewCtrl.didMoveToParentViewController(self)
+        
+        mountedViewCtrl = currentViewCtrl
+        
+//        UIView.animateWithDuration(0.3, animations: {
+//            newViewController.view.alpha = 1
+//            leftConstraint.constant = 0
+//            newViewController.view.layoutIfNeeded()
+//            },
+//                                   completion: { finished in
+//                                    if finished == false {
+//                                        newViewController.view.alpha = 1
+//                                        leftConstraint.constant = 0
+//                                        newViewController.view.layoutIfNeeded()
+//                                    }
+//                                    oldViewController.view.removeFromSuperview()
+//                                    oldViewController.removeFromParentViewController()
+//                                    newViewController.didMoveToParentViewController(self)
+//        })
+        
     }
     
     // - MARK: Utils
@@ -232,6 +309,7 @@ class MainViewController: UIViewController, SYStateListener {
         parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0))
         parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
         
+        parentView.layoutIfNeeded()
     }
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController, inverseDirection: Bool) {
@@ -250,10 +328,12 @@ class MainViewController: UIViewController, SYStateListener {
         viewBindingsDict["subView"] = newViewController.view
         self.containerView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|", options: [], metrics: nil, views: viewBindingsDict))
         
-        let leftConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.containerView!, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0);
+        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leftConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: .Left, relatedBy: .Equal, toItem: self.containerView!, attribute: .Left, multiplier: 1.0, constant: 100 * CGFloat(directionMultiplier));
         leftConstraint.active = true
-        let widthConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.containerView!, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0 );
-        // 100 * CGFloat(directionMultiplier)
+        let widthConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: .Width, relatedBy: .Equal, toItem: self.containerView!, attribute: .Width, multiplier: 1.0, constant: 0 );
+//         100 * CGFloat(directionMultiplier)
         widthConstraint.active = true;
         
         newViewController.view.alpha = 0
@@ -283,14 +363,14 @@ class MainViewController: UIViewController, SYStateListener {
         print("Memory Warning !!!!")
         var hasReleaseSomething = false
         for (index, view) in tabViews.enumerate() {
-            if index != state.getSelectedTab() && view != nil && hasReleaseSomething == false {
+            if index != state.getCurrentTab() && view != nil && hasReleaseSomething == false {
                 tabViews[index] = nil
                 hasReleaseSomething = true
             }
         }
         if hasReleaseSomething == false {
             for (index, strboard) in tabStoryboards.enumerate() {
-                if index != state.getSelectedTab() && strboard != nil && hasReleaseSomething == false {
+                if index != state.getCurrentTab() && strboard != nil && hasReleaseSomething == false {
                     tabStoryboards[index] = nil
                     hasReleaseSomething = true
                 }

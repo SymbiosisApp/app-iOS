@@ -41,8 +41,6 @@ class SYTabBar: UIView, SYStateListener {
     
     // MARK: Setup
     func setup() {
-        state.addListener(self)
-        
         view = loadViewFromNib()
     
         view.frame = bounds
@@ -79,6 +77,8 @@ class SYTabBar: UIView, SYStateListener {
         }
         
         self.addSubview(view)
+        
+        state.addListener(self)
     }
     
     func loadViewFromNib() -> UIView {
@@ -139,6 +139,12 @@ class SYTabBar: UIView, SYStateListener {
                         notif.alpha = 1
                         const.constant = 0
                         self.view.layoutIfNeeded()
+                        }, completion: { (completed) in
+                            if completed == false {
+                                notif.alpha = 1
+                                const.constant = 0
+                                self.view.layoutIfNeeded()
+                            }
                     })
                 } else {
                     // Hide
@@ -149,8 +155,8 @@ class SYTabBar: UIView, SYStateListener {
                         notif.alpha = 0
                         const.constant = -20
                         self.view.layoutIfNeeded()
-                        }, completion: { (complete) in
-                            if complete == false {
+                        }, completion: { (completed) in
+                            if completed == false {
                                 notif.alpha = 0
                                 const.constant = -20
                                 self.view.layoutIfNeeded()
@@ -159,17 +165,34 @@ class SYTabBar: UIView, SYStateListener {
                     })
                 }
             }
+
         }
     }
     
     @IBAction func buttonTouched(sender: AnyObject) {
         let button = sender as! UIButton
         if let index = buttons.indexOf(button) {
-            state.selectTab(index)
+            state.dispatchAction(SYStateActionType.SelectTab, payload: index)
         }
     }
     
     // - MARK: Update
+    
+    func onStateSetup() {
+        
+        for (index, _) in buttons.enumerate() {
+            let notif = notifs[index]
+            if state.isNotifiedTab(index) {
+                notif.hidden = false
+                notif.alpha = 1
+            } else {
+                notif.hidden = true
+                notif.alpha = 0
+            }
+        }
+        
+        updateStyle()
+    }
     
     func onStateUpdate() {
         if state.tabHasChanged() {

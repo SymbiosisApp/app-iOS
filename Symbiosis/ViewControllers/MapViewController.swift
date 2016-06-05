@@ -165,6 +165,12 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
      * State Update
      **/
     
+    func onStateSetup() {
+        
+        
+        
+    }
+    
     func onStateUpdate() {
         if state.locationHasChanged() {
             self.myMapView.removeAnnotations([self.geolocPointer])

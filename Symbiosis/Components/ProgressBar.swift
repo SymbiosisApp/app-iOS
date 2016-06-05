@@ -31,6 +31,11 @@ class SYProgressBar: UIView, SYStateListener {
         
     }
     
+    
+    func onStateSetup() {
+        
+    }
+    
     func onStateUpdate() {
         
     }
