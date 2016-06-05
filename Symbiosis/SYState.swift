@@ -93,9 +93,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         for listener in self.listeners {
             listener.tryUpdate()
         }
-        
-        print("=>  State cycle")
-        self.previousState = self.currentState
     }
     
     func dequeueActions() {
