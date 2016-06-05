@@ -1,2 +1,3 @@
 # Socket.IO
 github "socketio/socket.io-client-swift" ~> 6.1.2 # Or latest version
+github "kaishin/Gifu"
