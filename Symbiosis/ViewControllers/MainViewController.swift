@@ -15,6 +15,12 @@ class MainViewController: UIViewController, SYStateListener {
     @IBOutlet weak var tabBar: SYTabBar!
     @IBOutlet weak var popup: SYPopup!
     
+    
+    // @IBOutlet weak var tabBatBottomConst: NSLayoutConstraint!
+    
+    var tabBarShowConst: NSLayoutConstraint!
+    var tabBarHiddentConst: NSLayoutConstraint!
+    
     // For tabs (ViewControllers names)
     let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
@@ -32,12 +38,31 @@ class MainViewController: UIViewController, SYStateListener {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // tabBatBottomConst.active = false;
+
+        self.tabBarHiddentConst = NSLayoutConstraint.init(item: self.tabBar, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+        self.tabBarHiddentConst.identifier = "tabBarHiddentConst"
+        self.tabBarShowConst = NSLayoutConstraint.init(item: self.tabBar, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+        self.tabBarShowConst.identifier = "tabBarShowConst"
+        
+        tabBarShowConst.active = true;
+        
+        self.view.layoutIfNeeded();
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         if self.isLoaded == false {
             // Listen to events
             state.addListener(self)
+            
+            // Init tab bar display
+            if state.tabBarIsHidden() {
+                self.hideTabBar(false)
+            } else {
+                self.showTabBar(false)
+            }
             
             // Init the tabBar on plant
             state.selectTab(1)
@@ -111,6 +136,46 @@ class MainViewController: UIViewController, SYStateListener {
         
     }
     
+    func hideTabBar(animated: Bool) {
+        print("Hide tabbar")
+        var duration = 0.3
+        if animated == false {
+            duration = 0.1
+        }
+        UIView.animateWithDuration(duration, animations: {
+            self.tabBarShowConst.active = false;
+            self.tabBarHiddentConst.active = true;
+            self.tabBar.alpha = 0;
+            self.view.layoutIfNeeded()
+            self.view.layoutSubviews()
+            }, completion: { (completed) in
+                self.tabBar.hidden = true
+                if completed == false {
+                    self.tabBar.alpha = 0;
+                }
+        })
+    }
+    
+    func showTabBar(animated: Bool) {
+        var duration = 0.3
+        if animated == false {
+            duration = 0
+        }
+        self.tabBar.hidden = false
+        UIView.animateWithDuration(duration, animations: {
+            self.tabBarHiddentConst.active = false;
+            self.tabBarShowConst.active = true;
+            self.tabBar.alpha = 1;
+            self.view.layoutIfNeeded()
+            self.tabBar.applyStyle()
+            }, completion: { (completed) in
+                self.tabBar.applyStyle()
+                if completed == false {
+                    self.tabBar.alpha = 1;
+                }
+        })
+    }
+    
     // - MARK: Update
     
     func onStateUpdate() {
@@ -118,6 +183,14 @@ class MainViewController: UIViewController, SYStateListener {
             let currentTab = state.getSelectedTab()
             if currentTab < viewsNames.count {
                 setTabNavigation(currentTab)
+            }
+        }
+        
+        if state.tabBarHiddenHasChanged() {
+            if state.tabBarIsHidden() {
+                self.hideTabBar(true)
+            } else {
+                self.showTabBar(true)
             }
         }
         

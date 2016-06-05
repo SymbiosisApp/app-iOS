@@ -20,6 +20,9 @@ struct SYState {
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
     var displayedOnboarding: String? = nil
+    
+    // Temp
+    var tabBarHidden: Bool = false
 }
 
 class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
@@ -95,6 +98,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             fatalError("Plant is already animating !")
         }
         self.currentState.plantIsAnimating = true
+        self.triggerUpdate()
+    }
+    
+    func setTabBarHidden(newValue: Bool) {
+        currentState.tabBarHidden = newValue
         self.triggerUpdate()
     }
     
@@ -206,6 +214,14 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return self.getCurrentPopup() != self.getPrevioustPopup()
     }
     
+    func tabBarIsHidden() -> Bool {
+        return currentState.tabBarHidden
+    }
+    
+    func tabBarHiddenHasChanged() -> Bool {
+        return currentState.tabBarHidden != previousState.tabBarHidden
+    }
+    
     func getCurrentPopup() -> String? {
         return self.currentState.popups[self.currentState.selectedTab]
     }
@@ -257,6 +273,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getOnboardingToDisplay() -> String? {
+        return nil
         if currentState.displayedOnboarding != nil {
             return nil
         } else {

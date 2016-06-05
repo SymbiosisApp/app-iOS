@@ -103,7 +103,6 @@ class SYTabBar: UIView, SYStateListener {
         let backShadowPath = UIBezierPath(rect: background.bounds)
         background.layer.shadowPath = backShadowPath.CGPath;
         
-        // PlantButton
         plantButton.layer.backgroundColor = UIColor.whiteColor().CGColor
         plantButton.layer.masksToBounds = false
         plantButton.layer.shadowColor = UIColor.blackColor().CGColor

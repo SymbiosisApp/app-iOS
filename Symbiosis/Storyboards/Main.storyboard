@@ -29,7 +29,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ouk-5U-jwS" secondAttribute="height" multiplier="6:1" id="sJG-uh-L2P"/>
+                                    <constraint firstAttribute="height" secondItem="ouk-5U-jwS" secondAttribute="width" multiplier="1:6" id="sJG-uh-L2P"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -48,18 +48,14 @@
                             <constraint firstAttribute="trailing" secondItem="ouk-5U-jwS" secondAttribute="trailing" id="1Td-BN-aYR"/>
                             <constraint firstItem="ouk-5U-jwS" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="1rs-2E-iXS"/>
                             <constraint firstItem="iYF-B8-sSK" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="topMargin" id="8A6-iF-72o"/>
-                            <constraint firstItem="mqZ-7N-97i" firstAttribute="bottom" secondItem="iYF-B8-sSK" secondAttribute="bottom" id="Bha-0y-yLW"/>
                             <constraint firstAttribute="trailing" secondItem="mqZ-7N-97i" secondAttribute="trailing" id="HGc-Ko-u5R"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="bottom" secondItem="ouk-5U-jwS" secondAttribute="top" id="I4F-bY-7Az"/>
-                            <constraint firstItem="iYF-B8-sSK" firstAttribute="leading" secondItem="mqZ-7N-97i" secondAttribute="leading" id="JCA-Bw-DO3"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="Mic-Ru-Y0X"/>
-                            <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="mqZ-7N-97i" secondAttribute="bottom" id="My5-8y-hwB">
-                                <variation key="widthClass=compact" constant="66.5"/>
-                            </constraint>
-                            <constraint firstItem="iYF-B8-sSK" firstAttribute="trailing" secondItem="mqZ-7N-97i" secondAttribute="trailing" id="T01-lU-OHt"/>
+                            <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="ouk-5U-jwS" secondAttribute="bottom" placeholder="YES" identifier="tabBarBottom" id="YeR-pZ-nuL"/>
+                            <constraint firstAttribute="trailing" secondItem="iYF-B8-sSK" secondAttribute="trailing" id="b8W-Yj-zgj"/>
                             <constraint firstItem="ouk-5U-jwS" firstAttribute="top" secondItem="iYF-B8-sSK" secondAttribute="bottom" id="grt-ty-ZSe"/>
+                            <constraint firstItem="iYF-B8-sSK" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="h5h-ZQ-imM"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="tdf-L4-z10"/>
-                            <constraint firstItem="KXH-Dg-W4J" firstAttribute="top" secondItem="ouk-5U-jwS" secondAttribute="bottom" id="vXb-Lb-M57"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -67,11 +63,11 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="8A6-iF-72o"/>
-                                <exclude reference="JCA-Bw-DO3"/>
-                                <exclude reference="T01-lU-OHt"/>
-                                <exclude reference="Bha-0y-yLW"/>
+                                <exclude reference="b8W-Yj-zgj"/>
+                                <exclude reference="h5h-ZQ-imM"/>
                                 <exclude reference="I4F-bY-7Az"/>
                                 <exclude reference="grt-ty-ZSe"/>
+                                <exclude reference="YeR-pZ-nuL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -80,12 +76,11 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="8A6-iF-72o"/>
-                                <include reference="JCA-Bw-DO3"/>
-                                <include reference="T01-lU-OHt"/>
-                                <exclude reference="Bha-0y-yLW"/>
+                                <include reference="b8W-Yj-zgj"/>
+                                <include reference="h5h-ZQ-imM"/>
                                 <include reference="I4F-bY-7Az"/>
                                 <include reference="grt-ty-ZSe"/>
-                                <exclude reference="My5-8y-hwB"/>
+                                <include reference="YeR-pZ-nuL"/>
                             </mask>
                         </variation>
                     </view>

@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         if let qApp = application as? QTouchposeApplication {
-            qApp.alwaysShowTouches = false
+            qApp.alwaysShowTouches = true
+            qApp.showTouches = true
         }
         
         //Notification push
