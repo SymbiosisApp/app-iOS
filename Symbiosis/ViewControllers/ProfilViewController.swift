@@ -40,7 +40,7 @@ class ProfilViewController: UIViewController {
         
         self.view.addSubview(animImg)
         
-        animImg.animateWithImage(named: "bienvenue.gif")
+        animImg.animateWithImage(named: "chat.gif")
         animImg.startAnimating()
         
     }
