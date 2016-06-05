@@ -1,6 +1,2 @@
-[submodule "Carthage/Checkouts/Gifu"]
-	path = Carthage/Checkouts/Gifu
-	url = https://github.com/kaishin/Gifu.git
 [submodule "Carthage/Checkouts/socket.io-client-swift"]
-	path = Carthage/Checkouts/socket.io-client-swift
 	url = https://github.com/socketio/socket.io-client-swift.git

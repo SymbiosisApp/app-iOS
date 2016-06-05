@@ -32,7 +32,6 @@
 		1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854399B1CEBCBA100B1D86C /* SYSocket.swift */; };
 		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
 		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1857FA131D03B4FC00C48E93 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1857FA111D03AB6400C48E93 /* Gifu.framework */; };
 		187FAD701CEF013800B10224 /* vignette.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6A1CEF013800B10224 /* vignette.fsh */; };
 		187FAD711CEF013800B10224 /* vignette.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6B1CEF013800B10224 /* vignette.vsh */; };
 		187FAD741CEF013800B10224 /* vignette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6E1CEF013800B10224 /* vignette.plist */; };
@@ -223,7 +222,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1857FA131D03B4FC00C48E93 /* Gifu.framework in Frameworks */,
 				185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */,
 				185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */,
 			);
