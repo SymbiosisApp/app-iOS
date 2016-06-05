@@ -15,6 +15,10 @@ import Mapbox
 class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     let request = RequestData()
     
+    @IBOutlet weak var suggest: UIButton!
+    @IBOutlet weak var search: UIButton!
+    @IBOutlet weak var localisation: UIButton!
+    
     var myMapView: MGLMapView!
     var geolocPointer: MGLPointAnnotation!
     
@@ -116,6 +120,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         
         //POINTEUR
         self.updateGeoloc()
+        
+        search.layer.zPosition = 1
+        localisation.layer.zPosition = 1
+        suggest.layer.zPosition = 1
+        
     }
     
     
