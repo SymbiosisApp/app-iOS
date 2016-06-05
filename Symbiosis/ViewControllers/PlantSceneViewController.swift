@@ -30,8 +30,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Listen to events
-        state.addListener(self)
+        print("View did load")
 
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -98,7 +97,12 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.view.addGestureRecognizer(tapGesture)
         
+        // Listen to events
+        state.addListener(self)
+        
         // evolveThePlant()
+        
+        print("End View did load")
     
     }
     
@@ -139,7 +143,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     }
     
     func evolveThePlant() {
-        // print("Envolve the plant !")
+        print("Envolve the plant !")
         state.plantStartGenerating()
         let progresses = state.getPlantProgresses()
         self.plantProps = generateProps(progresses)
@@ -166,6 +170,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
      **/
     
     func onStateUpdate() {
+        print("State update")
         if state.plantShouldEvolve() {
             evolveThePlant()
         }

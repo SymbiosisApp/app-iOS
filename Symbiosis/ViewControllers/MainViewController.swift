@@ -65,7 +65,9 @@ class MainViewController: UIViewController, SYStateListener {
             }
             
             // Init the tabBar on plant
-            state.selectTab(1)
+            //state.selectTab(1)
+            
+            setTabNavigation(state.getSelectedTab())
             
             self.isLoaded = true
         }
@@ -140,7 +142,7 @@ class MainViewController: UIViewController, SYStateListener {
         print("Hide tabbar")
         var duration = 0.3
         if animated == false {
-            duration = 0.1
+            duration = 0
         }
         UIView.animateWithDuration(duration, animations: {
             self.tabBarShowConst.active = false;

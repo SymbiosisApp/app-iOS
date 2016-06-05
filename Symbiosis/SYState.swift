@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 struct SYState {
-    var selectedTab: Int = -1
+    var selectedTab: Int = 2
     var lastSelectedTab: Int = -1
     var steps: Int = 0
     var plantIsAnimating: Bool = false
