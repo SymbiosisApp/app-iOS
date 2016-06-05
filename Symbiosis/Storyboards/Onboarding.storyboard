@@ -458,10 +458,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-fw-pea">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="EXc-FZ-G4S"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="HyQ-CI-4gM"/>
-                                </constraints>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -473,13 +469,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="91n-m5-KpO" firstAttribute="leading" secondItem="cxo-0I-V9G" secondAttribute="leading" id="23Z-Qu-dyu"/>
-                            <constraint firstItem="whN-eO-FAq" firstAttribute="top" secondItem="Cng-fw-pea" secondAttribute="bottom" id="5Y9-QH-Svm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Cng-fw-pea" secondAttribute="trailing" constant="-20" id="6Fm-a1-Ne7"/>
                             <constraint firstItem="91n-m5-KpO" firstAttribute="bottom" secondItem="whN-eO-FAq" secondAttribute="top" id="K3y-gY-rE7"/>
+                            <constraint firstItem="Cng-fw-pea" firstAttribute="trailing" secondItem="91n-m5-KpO" secondAttribute="trailing" id="MZJ-el-Zps"/>
+                            <constraint firstItem="Cng-fw-pea" firstAttribute="leading" secondItem="91n-m5-KpO" secondAttribute="leading" id="ZhR-rS-Dai"/>
                             <constraint firstItem="Cng-fw-pea" firstAttribute="leading" secondItem="cxo-0I-V9G" secondAttribute="leadingMargin" id="a2S-so-8Bk"/>
-                            <constraint firstItem="91n-m5-KpO" firstAttribute="trailing" secondItem="Cng-fw-pea" secondAttribute="trailing" id="dWg-Z6-JOE"/>
-                            <constraint firstItem="91n-m5-KpO" firstAttribute="leading" secondItem="Cng-fw-pea" secondAttribute="leading" id="iHy-ek-6Jk"/>
+                            <constraint firstItem="Cng-fw-pea" firstAttribute="top" secondItem="enl-fS-xAF" secondAttribute="bottom" constant="520" id="fBy-Dc-CHk"/>
                             <constraint firstItem="91n-m5-KpO" firstAttribute="leading" secondItem="cxo-0I-V9G" secondAttribute="leading" id="mJy-zX-6nL"/>
+                            <constraint firstItem="Cng-fw-pea" firstAttribute="bottom" secondItem="whN-eO-FAq" secondAttribute="top" id="mw4-gD-PrX"/>
+                            <constraint firstAttribute="trailing" secondItem="Cng-fw-pea" secondAttribute="trailing" id="nTC-i6-sLd"/>
                             <constraint firstItem="91n-m5-KpO" firstAttribute="top" secondItem="cxo-0I-V9G" secondAttribute="top" id="pj6-pt-2El"/>
                             <constraint firstItem="91n-m5-KpO" firstAttribute="leading" secondItem="Cng-fw-pea" secondAttribute="leading" id="tkw-95-Y5o"/>
                         </constraints>
