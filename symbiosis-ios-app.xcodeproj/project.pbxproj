@@ -241,9 +241,9 @@
 		1814CB391CEE53DE004D7540 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				66E3C7E51D02F9CD00E0ED08 /* Fonts */,
 				183FF6B21CFC75970086D011 /* symbiosis.json */,
 				18BC17FE1C722BBE008E6558 /* Assets.xcassets */,
+				66E3C7E51D02F9CD00E0ED08 /* Fonts */,
 				183FF6BA1CFF187E0086D011 /* gif */,
 				187FAD7A1CEF047A00B10224 /* Shaders */,
 				187FAD5A1CEEFFE200B10224 /* Techniques */,

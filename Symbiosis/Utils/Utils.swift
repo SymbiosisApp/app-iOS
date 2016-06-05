@@ -78,11 +78,9 @@ class Background {
         webViewBG.loadData(filePath!, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
         webViewBG.userInteractionEnabled = false;
         view.addSubview(webViewBG)
-        
-        
     }
     
-    func adddImageBackground(view:UIView, imageSource: String){
+    func addImageBackground(view:UIView, imageSource: String){
         let background = UIImage(named: imageSource as String)
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)

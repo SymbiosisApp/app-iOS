@@ -34,7 +34,9 @@ class MainViewController: UIViewController, SYStateListener {
 
         // Listen to events
         state.addListener(self)
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         // Init the tabBar on plant
         state.selectTab(1)
     }
@@ -52,16 +54,6 @@ class MainViewController: UIViewController, SYStateListener {
         })
         
     }
-    
-    func showOnboardingIntro() {
-        //showonboarding et path onborading's name: Intro, Graine, Pollen, Fruit
-        let dataLoarder = SYDataLoader()
-        dispatch_async(dispatch_get_main_queue(), {
-            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
-            self.showOnboarding(onboardingData)
-        })
-    }
-    
     
     func showOnboarding(onboardingData:NSDictionary)   {
         let viewController: UIViewController = SYOnboarding(data: onboardingData as! [String : AnyObject])
@@ -137,10 +129,11 @@ class MainViewController: UIViewController, SYStateListener {
             showNotifications("texte yolo notif")
         }
         
-        if false /* TODO : state.showOnboarding() ? */ {
-            //testing:
+        if let onboarding = state.getOnboardingToDisplay() {
+            print("Present Onaboarding \(onboarding)")
+            state.showOnboarding(onboarding)
             let dataLoarder = SYDataLoader()
-            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: "Intro", name:"name")
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: onboarding, name:"name")
             self.showOnboarding(onboardingData)
         }
     }

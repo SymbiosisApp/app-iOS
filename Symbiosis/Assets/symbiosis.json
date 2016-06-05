@@ -1,47 +1,29 @@
-    {
-    "Onboarding": [
-        {
-          "Intro": [
-            {
-              "name":"bienvenue"
-            },
-            {
-              "name":"start"
-              }
-            ]
-        },
-        {
-          "Graine": [
-            {
-              "name":"graine"
-            },
-            {
-              "name":"commentaires"
-            },
-            {
-              "name":"deplacement"
-              }
-            ]
-        },
-        {
-          "Pollen": [
-            {
-              "name":"dissemination"
-            },
-            {
-                "name":"recolte"
-              }
-            ]
-        },
-        {
-          "Fruit": [
-            {
-              "name":"eclosion"
-            },
-            {
-              "name":"partage"
-            }
-          ]
-        }
-      ]
-    }
+{
+    "Onboarding": [{
+        "Intro": [{
+            "name": "bienvenue"
+        }, {
+            "name": "start"
+        }]
+    }, {
+        "Graine": [{
+            "name": "graine"
+        }, {
+            "name": "commentaires"
+        }, {
+            "name": "deplacement"
+        }]
+    }, {
+        "Pollen": [{
+            "name": "dissemination"
+        }, {
+            "name": "recolte"
+        }]
+    }, {
+        "Fruit": [{
+            "name": "eclosion"
+        }, {
+            "name": "partage"
+        }]
+    }]
+}

@@ -128,7 +128,6 @@ class SYTabBar: UIView, SYStateListener {
     func updateNotifs() {
         for (index, _) in buttons.enumerate() {
             if state.tabNotificationHasChanged(index) {
-                print("has changed : \(state.isNotifiedTab(index))")
                 let notif = notifs[index]
                 let const = centerConstraints[index]
                 if state.isNotifiedTab(index) {

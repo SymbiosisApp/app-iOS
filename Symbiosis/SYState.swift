@@ -259,10 +259,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     func getOnboardingToDisplay() -> String? {
         if currentState.displayedOnboarding != nil {
             return nil
+        } else {
+            return "Graine"
         }
-        
-        
-        return nil
     }
     
     

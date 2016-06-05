@@ -32,7 +32,7 @@ class GraineViewController: GrainesViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "graineToPousse")
+        //background.addGifBackground(self.view, gifView: self.webView, gifSource: "graineToPousse")
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
@@ -50,7 +50,7 @@ class CommentaireViewController: GrainesViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "chat")
+        //background.addGifBackground(self.view, gifView: self.webView, gifSource: "chat")
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 3
         pageControl.currentPage = 1
@@ -69,6 +69,6 @@ class DeplacementViewController: GrainesViewController{
         
         self.button.layer.zPosition = 2
         self.image.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "marche")
+        //background.addGifBackground(self.view, gifView: self.webView, gifSource: "marche")
     }
 }
