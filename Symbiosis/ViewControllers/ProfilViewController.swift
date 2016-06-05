@@ -24,7 +24,7 @@ class ProfilViewController: UIViewController {
         let numberOfImages: Int = 50
         var images = [UIImage]()
         for i in 1...numberOfImages {
-            print("Load image \(i)")
+            //print("Load image \(i)")
             let imgName = String(format: "bienvenue-%05d.png", i)
             //let img = UIImage(named: "bienvenue-\(i)")!
             let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
@@ -35,21 +35,21 @@ class ProfilViewController: UIViewController {
         self.imageAnimTest.startAnimating()
         
         
-        self.imageAnimTest2.contentMode = UIViewContentMode.ScaleToFill
-        self.imageAnimTest2.clipsToBounds = true
-        self.imageAnimTest2.center = self.view.center
-        
-        var images2 = [UIImage]()
-        for i in 1...numberOfImages {
-            print("Load image \(i)")
-            let imgName = String(format: "bienvenue-%05d.png", i)
-            //let img = UIImage(named: "bienvenue-\(i)")!
-            let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
-            images2.append(img!)
-        }
-        self.imageAnimTest2.animationImages = images2
-        self.imageAnimTest2.animationDuration = Double(numberOfImages) * (1/15)
-        self.imageAnimTest2.startAnimating()
+//        self.imageAnimTest2.contentMode = UIViewContentMode.ScaleToFill
+//        self.imageAnimTest2.clipsToBounds = true
+//        self.imageAnimTest2.center = self.view.center
+//        
+//        var images2 = [UIImage]()
+//        for i in 1...numberOfImages {
+//            print("Load image \(i)")
+//            let imgName = String(format: "bienvenue-%05d.png", i)
+//            //let img = UIImage(named: "bienvenue-\(i)")!
+//            let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
+//            images2.append(img!)
+//        }
+//        self.imageAnimTest2.animationImages = images2
+//        self.imageAnimTest2.animationDuration = Double(numberOfImages) * (1/15)
+//        self.imageAnimTest2.startAnimating()
         
     }
     

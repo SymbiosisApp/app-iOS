@@ -170,6 +170,7 @@
 		666301A91CFC443A001E991F /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A81CFC443A001E991F /* GraineViewController.swift */; };
 		666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AA1CFC44AF001E991F /* PollenViewController.swift */; };
 		666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AC1CFC44F1001E991F /* FruitViewController.swift */; };
+		66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C001D04809E00AAFB8A /* SwiftGif.swift */; };
 		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
 		666C14591D033AF9000201A4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C14581D033AF9000201A4 /* ChatViewController.swift */; };
 		666C145B1D033B83000201A4 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C145A1D033B83000201A4 /* SuggestionViewController.swift */; };
@@ -244,7 +245,6 @@
 		185439971CEBCABC00B1D86C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		1854399B1CEBCBA100B1D86C /* SYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYSocket.swift; sourceTree = "<group>"; };
 		185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
-		1857FA111D03AB6400C48E93 /* Gifu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gifu.framework; path = Carthage/Build/iOS/Gifu.framework; sourceTree = "<group>"; };
 		187825B91D04454800D93485 /* bienvenue-00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00001.png"; sourceTree = "<group>"; };
 		187825BA1D04454800D93485 /* bienvenue-00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00002.png"; sourceTree = "<group>"; };
 		187825BB1D04454800D93485 /* bienvenue-00003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00003.png"; sourceTree = "<group>"; };
@@ -385,6 +385,7 @@
 		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraineViewController.swift; path = OnboardingViewControllers/GraineViewController.swift; sourceTree = "<group>"; };
 		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollenViewController.swift; path = OnboardingViewControllers/PollenViewController.swift; sourceTree = "<group>"; };
 		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FruitViewController.swift; path = OnboardingViewControllers/FruitViewController.swift; sourceTree = "<group>"; };
+		66670C001D04809E00AAFB8A /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
 		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		666C14581D033AF9000201A4 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		666C145A1D033B83000201A4 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
@@ -656,7 +657,6 @@
 			isa = PBXGroup;
 			children = (
 				185439971CEBCABC00B1D86C /* Cartfile */,
-				1857FA111D03AB6400C48E93 /* Gifu.framework */,
 				185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */,
 				185439841CEBC4EF00B1D86C /* Mapbox.framework */,
 				18BC17F41C722BBE008E6558 /* Symbiosis */,
@@ -685,6 +685,7 @@
 				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
 				666301981CFC38EA001E991F /* UserSingleton.swift */,
 				6663019A1CFC390E001E991F /* SYOnboarding.swift */,
+				66670C001D04809E00AAFB8A /* SwiftGif.swift */,
 				183FF6AA1CFA078D0086D011 /* Utils */,
 				1814CB391CEE53DE004D7540 /* Assets */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
@@ -1125,6 +1126,7 @@
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
+				66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,
 				183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */,

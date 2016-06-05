@@ -32,10 +32,14 @@ class GraineViewController: GrainesViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        //background.addGifBackground(self.view, gifView: self.webView, gifSource: "graineToPousse")
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
+        
+        let graineGif = UIImage.gifWithName("graineToPousse")
+        let imageView = UIImageView(image: graineGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
     }
 
 }
@@ -50,10 +54,14 @@ class CommentaireViewController: GrainesViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        //background.addGifBackground(self.view, gifView: self.webView, gifSource: "chat")
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 3
         pageControl.currentPage = 1
+        
+        let chatGif = UIImage.gifWithName("chat")
+        let imageView = UIImageView(image: chatGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
     }
 
 }
@@ -69,6 +77,10 @@ class DeplacementViewController: GrainesViewController{
         
         self.button.layer.zPosition = 2
         self.image.layer.zPosition = 1
-        //background.addGifBackground(self.view, gifView: self.webView, gifSource: "marche")
+        
+        let marcheGif = UIImage.gifWithName("marche")
+        let imageView = UIImageView(image: marcheGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
     }
 }
