@@ -41,25 +41,41 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-5T-hnR">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="203"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jY2-o2-38f">
+                                <rect key="frame" x="0.0" y="211" width="600" height="321"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="321" id="TwD-wX-wrC"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jY2-o2-38f" firstAttribute="trailing" secondItem="oXQ-9K-vgg" secondAttribute="trailing" id="2zb-qj-x3a"/>
+                            <constraint firstItem="jY2-o2-38f" firstAttribute="top" secondItem="SSu-5T-hnR" secondAttribute="bottom" constant="8" id="6f9-VS-3Dd"/>
                             <constraint firstItem="N9z-Nr-fY1" firstAttribute="top" secondItem="PXT-5Y-Cdr" secondAttribute="topMargin" id="8zQ-vn-oPB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N9z-Nr-fY1" secondAttribute="trailing" constant="-20" id="B7S-dg-f6X"/>
                             <constraint firstItem="oXQ-9K-vgg" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="-20" id="DXp-Fb-fhL"/>
+                            <constraint firstItem="oXQ-9K-vgg" firstAttribute="top" secondItem="jY2-o2-38f" secondAttribute="bottom" constant="8" symbolic="YES" id="DnW-m0-03D"/>
                             <constraint firstItem="N9z-Nr-fY1" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="-20" id="FRq-rK-mqc"/>
                             <constraint firstAttribute="bottomMargin" secondItem="oXQ-9K-vgg" secondAttribute="bottom" id="GBq-Po-eeN"/>
                             <constraint firstItem="SSu-5T-hnR" firstAttribute="trailing" secondItem="oXQ-9K-vgg" secondAttribute="trailing" id="Gcv-5X-vWm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oXQ-9K-vgg" secondAttribute="trailing" constant="-20" id="KsD-tw-kL1"/>
                             <constraint firstItem="SSu-5T-hnR" firstAttribute="leading" secondItem="N9z-Nr-fY1" secondAttribute="leading" id="OoZ-Nd-VE9"/>
                             <constraint firstItem="EPc-bo-4OZ" firstAttribute="top" secondItem="N9z-Nr-fY1" secondAttribute="bottom" id="dXC-vs-43q"/>
+                            <constraint firstItem="jY2-o2-38f" firstAttribute="leading" secondItem="oXQ-9K-vgg" secondAttribute="leading" id="ggS-wV-Igq"/>
                             <constraint firstItem="oXQ-9K-vgg" firstAttribute="top" secondItem="SSu-5T-hnR" secondAttribute="bottom" id="k9s-Sw-Yex"/>
                             <constraint firstItem="SSu-5T-hnR" firstAttribute="top" secondItem="N9z-Nr-fY1" secondAttribute="top" id="qWn-vj-k0I"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="k9s-Sw-Yex"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="gifuTest" destination="jY2-o2-38f" id="yw5-fo-TB4"/>
                         <outlet property="imageAnimTest" destination="SSu-5T-hnR" id="oIi-XK-fS5"/>
                     </connections>
                 </viewController>

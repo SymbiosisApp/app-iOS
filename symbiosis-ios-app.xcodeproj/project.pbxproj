@@ -32,7 +32,7 @@
 		1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854399B1CEBCBA100B1D86C /* SYSocket.swift */; };
 		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
 		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1857FA121D03AB6400C48E93 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1857FA111D03AB6400C48E93 /* Gifu.framework */; };
+		1857FA131D03B4FC00C48E93 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1857FA111D03AB6400C48E93 /* Gifu.framework */; };
 		187FAD701CEF013800B10224 /* vignette.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6A1CEF013800B10224 /* vignette.fsh */; };
 		187FAD711CEF013800B10224 /* vignette.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6B1CEF013800B10224 /* vignette.vsh */; };
 		187FAD741CEF013800B10224 /* vignette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6E1CEF013800B10224 /* vignette.plist */; };
@@ -223,9 +223,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1857FA131D03B4FC00C48E93 /* Gifu.framework in Frameworks */,
 				185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */,
 				185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */,
-				1857FA121D03AB6400C48E93 /* Gifu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,8 +341,8 @@
 		18BC17E91C722BBE008E6558 = {
 			isa = PBXGroup;
 			children = (
-				1857FA111D03AB6400C48E93 /* Gifu.framework */,
 				185439971CEBCABC00B1D86C /* Cartfile */,
+				1857FA111D03AB6400C48E93 /* Gifu.framework */,
 				185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */,
 				185439841CEBC4EF00B1D86C /* Mapbox.framework */,
 				18BC17F41C722BBE008E6558 /* Symbiosis */,
@@ -515,8 +515,9 @@
 				18BC17EF1C722BBE008E6558 /* Frameworks */,
 				18BC17F01C722BBE008E6558 /* Resources */,
 				185439871CEBC4F000B1D86C /* Embed Frameworks */,
-				185439891CEBC52500B1D86C /* ShellScript */,
-				183FF6AF1CFA0B000086D011 /* ShellScript */,
+				1857FA141D03B52C00C48E93 /* Run Script : Carthage */,
+				183FF6AF1CFA0B000086D011 /* Run Script : MapBox Token */,
+				185439891CEBC52500B1D86C /* Run Script : Build Mapbox */,
 			);
 			buildRules = (
 			);
@@ -629,31 +630,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		183FF6AF1CFA0B000086D011 /* ShellScript */ = {
+		183FF6AF1CFA0B000086D011 /* Run Script : MapBox Token */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script : MapBox Token";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "ls .\ntoken_file=$PROJECT_DIR/.mapboxToken\ntoken=\"$(cat $token_file)\"\nif [ \"$token\" ]; then\nplutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\necho 'error: Missing Mapbox access token'\nopen 'https://www.mapbox.com/studio/account/tokens/'\necho \"error: Get an access token from <https://www.mapbox.com/studio/account/tokens/>, then create a new file at $token_file that contains the access token.\"\nexit 1\nfi";
 		};
-		185439891CEBC52500B1D86C /* ShellScript */ = {
+		185439891CEBC52500B1D86C /* Run Script : Build Mapbox */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script : Build Mapbox";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework/strip-frameworks.sh\"";
+		};
+		1857FA141D03B52C00C48E93 /* Run Script : Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Gifu.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SocketIOClientSwift.framework",
+			);
+			name = "Run Script : Carthage";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
