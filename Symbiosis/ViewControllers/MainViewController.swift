@@ -20,7 +20,8 @@ class MainViewController: UIViewController, SYStateListener {
     var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     weak var currentTabView: UIViewController?
-    // var pushPopup: Bool = false
+    
+    var isLoaded: Bool = false
     
     // State
     let state = SYStateManager.sharedInstance
@@ -31,14 +32,18 @@ class MainViewController: UIViewController, SYStateListener {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Listen to events
-        state.addListener(self)
     }
     
     override func viewDidAppear(animated: Bool) {
-        // Init the tabBar on plant
-        state.selectTab(1)
+        if self.isLoaded == false {
+            // Listen to events
+            state.addListener(self)
+            
+            // Init the tabBar on plant
+            state.selectTab(1)
+            
+            self.isLoaded = true
+        }
     }
     
     override func viewDidLayoutSubviews() {
