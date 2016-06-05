@@ -32,6 +32,7 @@
 		1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854399B1CEBCBA100B1D86C /* SYSocket.swift */; };
 		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
 		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1857FA121D03AB6400C48E93 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1857FA111D03AB6400C48E93 /* Gifu.framework */; };
 		187FAD701CEF013800B10224 /* vignette.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6A1CEF013800B10224 /* vignette.fsh */; };
 		187FAD711CEF013800B10224 /* vignette.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6B1CEF013800B10224 /* vignette.vsh */; };
 		187FAD741CEF013800B10224 /* vignette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6E1CEF013800B10224 /* vignette.plist */; };
@@ -144,6 +145,7 @@
 		185439971CEBCABC00B1D86C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		1854399B1CEBCBA100B1D86C /* SYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYSocket.swift; sourceTree = "<group>"; };
 		185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
+		1857FA111D03AB6400C48E93 /* Gifu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gifu.framework; path = Carthage/Build/iOS/Gifu.framework; sourceTree = "<group>"; };
 		187FAD6A1CEF013800B10224 /* vignette.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vignette.fsh; sourceTree = "<group>"; };
 		187FAD6B1CEF013800B10224 /* vignette.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vignette.vsh; sourceTree = "<group>"; };
 		187FAD6E1CEF013800B10224 /* vignette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = vignette.plist; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			files = (
 				185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */,
 				185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */,
+				1857FA121D03AB6400C48E93 /* Gifu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +341,7 @@
 		18BC17E91C722BBE008E6558 = {
 			isa = PBXGroup;
 			children = (
+				1857FA111D03AB6400C48E93 /* Gifu.framework */,
 				185439971CEBCABC00B1D86C /* Cartfile */,
 				185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */,
 				185439841CEBC4EF00B1D86C /* Mapbox.framework */,
