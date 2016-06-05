@@ -458,6 +458,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-fw-pea">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gU7-67-b9s"/>
+                                </constraints>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -485,6 +488,7 @@
                                 <exclude reference="23Z-Qu-dyu"/>
                                 <exclude reference="tkw-95-Y5o"/>
                                 <exclude reference="a2S-so-8Bk"/>
+                                <exclude reference="fBy-Dc-CHk"/>
                             </mask>
                         </variation>
                     </view>
