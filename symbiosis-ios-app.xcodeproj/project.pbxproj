@@ -171,6 +171,9 @@
 		666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AA1CFC44AF001E991F /* PollenViewController.swift */; };
 		666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AC1CFC44F1001E991F /* FruitViewController.swift */; };
 		66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C001D04809E00AAFB8A /* SwiftGif.swift */; };
+		66670C061D0492D900AAFB8A /* chatLess.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66670C031D0492D900AAFB8A /* chatLess.gif */; };
+		66670C071D0492D900AAFB8A /* graineToPousseLess.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66670C041D0492D900AAFB8A /* graineToPousseLess.gif */; };
+		66670C0C1D0494AA00AAFB8A /* marcheLessSpeed.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66670C0B1D0494AA00AAFB8A /* marcheLessSpeed.gif */; };
 		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
 		666C14591D033AF9000201A4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C14581D033AF9000201A4 /* ChatViewController.swift */; };
 		666C145B1D033B83000201A4 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C145A1D033B83000201A4 /* SuggestionViewController.swift */; };
@@ -386,6 +389,9 @@
 		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollenViewController.swift; path = OnboardingViewControllers/PollenViewController.swift; sourceTree = "<group>"; };
 		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FruitViewController.swift; path = OnboardingViewControllers/FruitViewController.swift; sourceTree = "<group>"; };
 		66670C001D04809E00AAFB8A /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
+		66670C031D0492D900AAFB8A /* chatLess.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chatLess.gif; sourceTree = "<group>"; };
+		66670C041D0492D900AAFB8A /* graineToPousseLess.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousseLess.gif; sourceTree = "<group>"; };
+		66670C0B1D0494AA00AAFB8A /* marcheLessSpeed.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marcheLessSpeed.gif; sourceTree = "<group>"; };
 		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		666C14581D033AF9000201A4 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		666C145A1D033B83000201A4 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
@@ -467,6 +473,7 @@
 		183FF6BA1CFF187E0086D011 /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				66670C021D0492D900AAFB8A /* gifsCompressed */,
 				666C14561D031E72000201A4 /* bienvenue.gif */,
 				6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */,
 				6677B19D1CFFD7B6000D455F /* carte.gif */,
@@ -766,6 +773,16 @@
 			name = OnboardingViewControllers;
 			sourceTree = "<group>";
 		};
+		66670C021D0492D900AAFB8A /* gifsCompressed */ = {
+			isa = PBXGroup;
+			children = (
+				66670C031D0492D900AAFB8A /* chatLess.gif */,
+				66670C0B1D0494AA00AAFB8A /* marcheLessSpeed.gif */,
+				66670C041D0492D900AAFB8A /* graineToPousseLess.gif */,
+			);
+			path = gifsCompressed;
+			sourceTree = "<group>";
+		};
 		66E3C7E21D02F8C900E0ED08 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
@@ -966,6 +983,7 @@
 				18DCFAFE1D01AE64007FEDAB /* Popup.xib in Resources */,
 				66E3C8051D02F9CD00E0ED08 /* Rene Bieder - Campton Light.otf in Resources */,
 				187826341D04454800D93485 /* bienvenue-00024.png in Resources */,
+				66670C0C1D0494AA00AAFB8A /* marcheLessSpeed.gif in Resources */,
 				187826231D04454800D93485 /* bienvenue-00007.png in Resources */,
 				6677B1A41CFFD7B6000D455F /* carte.gif in Resources */,
 				1878266C1D04454800D93485 /* bienvenue-00080.png in Resources */,
@@ -1019,6 +1037,7 @@
 				18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */,
 				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
 				187826251D04454800D93485 /* bienvenue-00009.png in Resources */,
+				66670C071D0492D900AAFB8A /* graineToPousseLess.gif in Resources */,
 				18F136401CF75AA30021CBF5 /* smoke.plist in Resources */,
 				187826651D04454800D93485 /* bienvenue-00073.png in Resources */,
 				187826411D04454800D93485 /* bienvenue-00037.png in Resources */,
@@ -1037,6 +1056,7 @@
 				187826731D04454800D93485 /* bienvenue-00087.png in Resources */,
 				1878261F1D04454800D93485 /* bienvenue-00003.png in Resources */,
 				187826351D04454800D93485 /* bienvenue-00025.png in Resources */,
+				66670C061D0492D900AAFB8A /* chatLess.gif in Resources */,
 				1878266D1D04454800D93485 /* bienvenue-00081.png in Resources */,
 				1878266E1D04454800D93485 /* bienvenue-00082.png in Resources */,
 			);

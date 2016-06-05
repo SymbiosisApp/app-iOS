@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Map View Controller-->
@@ -16,12 +17,62 @@
                     <view key="view" contentMode="scaleToFill" id="Mpc-E9-8n0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="747" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRn-ti-hDm">
+                                <rect key="frame" x="534" y="93" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="K6y-tM-fDb"/>
+                                    <constraint firstAttribute="width" constant="46" id="ci9-m0-KAP"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="suggestion"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="746" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcl-NA-DBO">
+                                <rect key="frame" x="534" y="537" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="DYA-OE-CAg"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="localisation"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkW-08-ZRk">
+                                <rect key="frame" x="534" y="50" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="hlc-BI-n7Z"/>
+                                    <constraint firstAttribute="width" constant="46" id="ych-Dd-LCR"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="search"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dIs-9o-vNT" firstAttribute="top" secondItem="Mcl-NA-DBO" secondAttribute="bottom" constant="17" id="2nf-un-Kcf"/>
+                            <constraint firstItem="MRn-ti-hDm" firstAttribute="leading" secondItem="Mcl-NA-DBO" secondAttribute="leading" id="6Rt-Ee-hdz"/>
+                            <constraint firstItem="lkW-08-ZRk" firstAttribute="top" secondItem="Rza-NV-nk2" secondAttribute="bottom" constant="30" id="9xE-Rc-Fon"/>
+                            <constraint firstItem="MRn-ti-hDm" firstAttribute="trailing" secondItem="Mcl-NA-DBO" secondAttribute="trailing" id="KBc-QA-EFm"/>
+                            <constraint firstItem="MRn-ti-hDm" firstAttribute="top" secondItem="Rza-NV-nk2" secondAttribute="bottom" constant="73" id="N7c-94-Jrp"/>
+                            <constraint firstItem="lkW-08-ZRk" firstAttribute="trailing" secondItem="Mpc-E9-8n0" secondAttribute="trailingMargin" id="WCH-gs-IkF"/>
+                            <constraint firstItem="MRn-ti-hDm" firstAttribute="trailing" secondItem="Mpc-E9-8n0" secondAttribute="trailingMargin" id="cuS-Pk-zzU"/>
+                            <constraint firstItem="lkW-08-ZRk" firstAttribute="leading" secondItem="Mpc-E9-8n0" secondAttribute="leadingMargin" id="uwd-gq-LEP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uwd-gq-LEP"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="localisation" destination="Mcl-NA-DBO" id="UoB-ha-MYM"/>
+                        <outlet property="search" destination="lkW-08-ZRk" id="8Jn-YW-wEo"/>
+                        <outlet property="suggest" destination="MRn-ti-hDm" id="aZb-hq-tYj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nt5-l6-5zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="484" y="274"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="localisation" width="77" height="77"/>
+        <image name="search" width="77" height="77"/>
+        <image name="suggestion" width="77" height="77"/>
+    </resources>
 </document>
