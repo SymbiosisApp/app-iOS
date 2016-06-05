@@ -1,5 +1,5 @@
 //
-//  SYOnboarding.swift
+//  OnboardingViewControllerg.swift
 //  symbiosis-ios-app
 //
 //  Created by Quentin Tshaimanga on 19/05/2016.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SYOnboarding : UIPageViewController {
+class OnboardingViewController : UIPageViewController {
     
     var initOnboardingData : [String : AnyObject]!
     var onboardingDelegate: protocolPageViewControllerDelegate?
@@ -89,7 +89,7 @@ class SYOnboarding : UIPageViewController {
 }
 
 
-extension SYOnboarding : UIPageViewControllerDataSource {
+extension OnboardingViewController : UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = onboardingViewController.indexOf(viewController) else {
@@ -132,7 +132,7 @@ extension SYOnboarding : UIPageViewControllerDataSource {
 }
 
 
-extension SYOnboarding: UIPageViewControllerDelegate {
+extension OnboardingViewController: UIPageViewControllerDelegate {
     
     func pageViewController (pageViewController: UIPageViewController,
                              didFinishAnimating finished: Bool,
@@ -156,9 +156,9 @@ extension SYOnboarding: UIPageViewControllerDelegate {
 
 protocol protocolPageViewControllerDelegate {
     
-    func PageViewController (pageViewController : SYOnboarding, didUpdatePageCount count: Int)
+    func PageViewController (pageViewController : OnboardingViewController, didUpdatePageCount count: Int)
     
-    func PageViewController (pageViewController : SYOnboarding, didUpdatePageIndex index: Int)
+    func PageViewController (pageViewController : OnboardingViewController, didUpdatePageIndex index: Int)
     
 }
 

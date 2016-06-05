@@ -9,7 +9,21 @@
 /* Begin PBXBuildFile section */
 		1814CB351CEE0B47004D7540 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB341CEE0B47004D7540 /* main.swift */; };
 		1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */; };
-		183FF6A91CF8FB6F0086D011 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */; };
+		18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F1B1D04C752008EAC4A /* SYLocationManager.swift */; };
+		18180F1F1D04C752008EAC4A /* SYPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F1C1D04C752008EAC4A /* SYPedometer.swift */; };
+		18180F201D04C752008EAC4A /* SYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F1D1D04C752008EAC4A /* SYSocket.swift */; };
+		18180F2F1D04C75A008EAC4A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F221D04C75A008EAC4A /* ChatViewController.swift */; };
+		18180F301D04C75A008EAC4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F231D04C75A008EAC4A /* LoginViewController.swift */; };
+		18180F311D04C75A008EAC4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F241D04C75A008EAC4A /* MainViewController.swift */; };
+		18180F321D04C75A008EAC4A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F251D04C75A008EAC4A /* MapViewController.swift */; };
+		18180F331D04C75A008EAC4A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F261D04C75A008EAC4A /* OnboardingViewController.swift */; };
+		18180F341D04C75A008EAC4A /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F281D04C75A008EAC4A /* FruitViewController.swift */; };
+		18180F351D04C75A008EAC4A /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F291D04C75A008EAC4A /* GraineViewController.swift */; };
+		18180F361D04C75A008EAC4A /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2A1D04C75A008EAC4A /* IntroViewController.swift */; };
+		18180F371D04C75A008EAC4A /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2B1D04C75A008EAC4A /* PollenViewController.swift */; };
+		18180F381D04C75A008EAC4A /* PlantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2C1D04C75A008EAC4A /* PlantSceneViewController.swift */; };
+		18180F391D04C75A008EAC4A /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2D1D04C75A008EAC4A /* ProfilViewController.swift */; };
+		18180F3A1D04C75A008EAC4A /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2E1D04C75A008EAC4A /* SuggestionViewController.swift */; };
 		183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AB1CFA078D0086D011 /* SYPath.swift */; };
 		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
 		183FF6B31CFC75970086D011 /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B21CFC75970086D011 /* symbiosis.json */; };
@@ -24,12 +38,6 @@
 		184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FA85C1CE0CBC4007D5C6F /* SYState.swift */; };
 		185439851CEBC4EF00B1D86C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; };
 		185439861CEBC4EF00B1D86C /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854398B1CEBC5DD00B1D86C /* MainViewController.swift */; };
-		1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854398C1CEBC5DD00B1D86C /* PlantSceneViewController.swift */; };
-		185439901CEBC60800B1D86C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854398F1CEBC60800B1D86C /* MapViewController.swift */; };
-		185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185439911CEBC87800B1D86C /* SYPedometer.swift */; };
-		185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185439931CEBC8EA00B1D86C /* SYLocationManager.swift */; };
-		1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854399B1CEBCBA100B1D86C /* SYSocket.swift */; };
 		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
 		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1878261D1D04454800D93485 /* bienvenue-00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825B91D04454800D93485 /* bienvenue-00001.png */; };
@@ -162,18 +170,10 @@
 		18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F136591CF7CC460021CBF5 /* SYElementRoot.swift */; };
 		18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1365B1CF7CC630021CBF5 /* SYElementBasicType1.swift */; };
 		666301951CFC3815001E991F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301941CFC3815001E991F /* Onboarding.storyboard */; };
-		666301971CFC3897001E991F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301961CFC3897001E991F /* LoginViewController.swift */; };
 		666301991CFC38EA001E991F /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301981CFC38EA001E991F /* UserSingleton.swift */; };
-		6663019B1CFC390E001E991F /* SYOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663019A1CFC390E001E991F /* SYOnboarding.swift */; };
-		666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A31CFC3A22001E991F /* IntroViewController.swift */; };
 		666301A71CFC4232001E991F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301A61CFC4232001E991F /* Login.storyboard */; };
-		666301A91CFC443A001E991F /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301A81CFC443A001E991F /* GraineViewController.swift */; };
-		666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AA1CFC44AF001E991F /* PollenViewController.swift */; };
-		666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301AC1CFC44F1001E991F /* FruitViewController.swift */; };
 		66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C001D04809E00AAFB8A /* SwiftGif.swift */; };
 		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
-		666C14591D033AF9000201A4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C14581D033AF9000201A4 /* ChatViewController.swift */; };
-		666C145B1D033B83000201A4 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C145A1D033B83000201A4 /* SuggestionViewController.swift */; };
 		6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */; };
 		6677B1A41CFFD7B6000D455F /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19D1CFFD7B6000D455F /* carte.gif */; };
 		6677B1A51CFFD7B6000D455F /* chat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19E1CFFD7B6000D455F /* chat.gif */; };
@@ -223,7 +223,21 @@
 		1814CB341CEE0B47004D7540 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1814CB361CEE0DC3004D7540 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTouchposeApplication.h; path = Touchpose/QTouchposeApplication.h; sourceTree = "<group>"; };
 		1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTouchposeApplication.m; path = Touchpose/QTouchposeApplication.m; sourceTree = "<group>"; };
-		183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		18180F1B1D04C752008EAC4A /* SYLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYLocationManager.swift; sourceTree = "<group>"; };
+		18180F1C1D04C752008EAC4A /* SYPedometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPedometer.swift; sourceTree = "<group>"; };
+		18180F1D1D04C752008EAC4A /* SYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYSocket.swift; sourceTree = "<group>"; };
+		18180F221D04C75A008EAC4A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		18180F231D04C75A008EAC4A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		18180F241D04C75A008EAC4A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		18180F251D04C75A008EAC4A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		18180F261D04C75A008EAC4A /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		18180F281D04C75A008EAC4A /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
+		18180F291D04C75A008EAC4A /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
+		18180F2A1D04C75A008EAC4A /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		18180F2B1D04C75A008EAC4A /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
+		18180F2C1D04C75A008EAC4A /* PlantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSceneViewController.swift; sourceTree = "<group>"; };
+		18180F2D1D04C75A008EAC4A /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		18180F2E1D04C75A008EAC4A /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		183FF6AB1CFA078D0086D011 /* SYPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPath.swift; sourceTree = "<group>"; };
 		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		183FF6B21CFC75970086D011 /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
@@ -237,13 +251,7 @@
 		1848F01B1CF6446D000C45D6 /* SYStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYStructs.swift; sourceTree = "<group>"; };
 		184FA85C1CE0CBC4007D5C6F /* SYState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYState.swift; sourceTree = "<group>"; };
 		185439841CEBC4EF00B1D86C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
-		1854398B1CEBC5DD00B1D86C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		1854398C1CEBC5DD00B1D86C /* PlantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSceneViewController.swift; sourceTree = "<group>"; };
-		1854398F1CEBC60800B1D86C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		185439911CEBC87800B1D86C /* SYPedometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPedometer.swift; sourceTree = "<group>"; };
-		185439931CEBC8EA00B1D86C /* SYLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYLocationManager.swift; sourceTree = "<group>"; };
 		185439971CEBCABC00B1D86C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		1854399B1CEBCBA100B1D86C /* SYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYSocket.swift; sourceTree = "<group>"; };
 		185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
 		187825B91D04454800D93485 /* bienvenue-00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00001.png"; sourceTree = "<group>"; };
 		187825BA1D04454800D93485 /* bienvenue-00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00002.png"; sourceTree = "<group>"; };
@@ -377,18 +385,10 @@
 		18F136591CF7CC460021CBF5 /* SYElementRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElementRoot.swift; sourceTree = "<group>"; };
 		18F1365B1CF7CC630021CBF5 /* SYElementBasicType1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElementBasicType1.swift; sourceTree = "<group>"; };
 		666301941CFC3815001E991F /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Onboarding.storyboard; path = Storyboards/Onboarding.storyboard; sourceTree = "<group>"; };
-		666301961CFC3897001E991F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
-		6663019A1CFC390E001E991F /* SYOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYOnboarding.swift; sourceTree = "<group>"; };
-		666301A31CFC3A22001E991F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = OnboardingViewControllers/IntroViewController.swift; sourceTree = "<group>"; };
 		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
-		666301A81CFC443A001E991F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraineViewController.swift; path = OnboardingViewControllers/GraineViewController.swift; sourceTree = "<group>"; };
-		666301AA1CFC44AF001E991F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollenViewController.swift; path = OnboardingViewControllers/PollenViewController.swift; sourceTree = "<group>"; };
-		666301AC1CFC44F1001E991F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FruitViewController.swift; path = OnboardingViewControllers/FruitViewController.swift; sourceTree = "<group>"; };
 		66670C001D04809E00AAFB8A /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
 		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
-		666C14581D033AF9000201A4 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		666C145A1D033B83000201A4 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
 		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
 		6677B19E1CFFD7B6000D455F /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
@@ -454,6 +454,43 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		18180F1A1D04C752008EAC4A /* StateTools */ = {
+			isa = PBXGroup;
+			children = (
+				18180F1B1D04C752008EAC4A /* SYLocationManager.swift */,
+				18180F1C1D04C752008EAC4A /* SYPedometer.swift */,
+				18180F1D1D04C752008EAC4A /* SYSocket.swift */,
+			);
+			path = StateTools;
+			sourceTree = "<group>";
+		};
+		18180F211D04C75A008EAC4A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18180F271D04C75A008EAC4A /* OnboardingViewControllers */,
+				18180F221D04C75A008EAC4A /* ChatViewController.swift */,
+				18180F231D04C75A008EAC4A /* LoginViewController.swift */,
+				18180F241D04C75A008EAC4A /* MainViewController.swift */,
+				18180F251D04C75A008EAC4A /* MapViewController.swift */,
+				18180F261D04C75A008EAC4A /* OnboardingViewController.swift */,
+				18180F2C1D04C75A008EAC4A /* PlantSceneViewController.swift */,
+				18180F2D1D04C75A008EAC4A /* ProfilViewController.swift */,
+				18180F2E1D04C75A008EAC4A /* SuggestionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18180F271D04C75A008EAC4A /* OnboardingViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18180F281D04C75A008EAC4A /* FruitViewController.swift */,
+				18180F291D04C75A008EAC4A /* GraineViewController.swift */,
+				18180F2A1D04C75A008EAC4A /* IntroViewController.swift */,
+				18180F2B1D04C75A008EAC4A /* PollenViewController.swift */,
+			);
+			path = OnboardingViewControllers;
+			sourceTree = "<group>";
+		};
 		183FF6AA1CFA078D0086D011 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,20 +530,6 @@
 				1848F0121CF6446D000C45D6 /* SYElement.swift */,
 			);
 			path = Plant3D;
-			sourceTree = "<group>";
-		};
-		1854398A1CEBC5DD00B1D86C /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				1854398B1CEBC5DD00B1D86C /* MainViewController.swift */,
-				1854398C1CEBC5DD00B1D86C /* PlantSceneViewController.swift */,
-				1854398F1CEBC60800B1D86C /* MapViewController.swift */,
-				183FF6A81CF8FB6F0086D011 /* ProfilViewController.swift */,
-				666301961CFC3897001E991F /* LoginViewController.swift */,
-				666C14581D033AF9000201A4 /* ChatViewController.swift */,
-				666C145A1D033B83000201A4 /* SuggestionViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		187825B71D04454800D93485 /* ImagesSequences */ = {
@@ -680,17 +703,13 @@
 				1814CB341CEE0B47004D7540 /* main.swift */,
 				18BC17F51C722BBE008E6558 /* AppDelegate.swift */,
 				184FA85C1CE0CBC4007D5C6F /* SYState.swift */,
-				1854399B1CEBCBA100B1D86C /* SYSocket.swift */,
-				185439911CEBC87800B1D86C /* SYPedometer.swift */,
-				185439931CEBC8EA00B1D86C /* SYLocationManager.swift */,
 				666301981CFC38EA001E991F /* UserSingleton.swift */,
-				6663019A1CFC390E001E991F /* SYOnboarding.swift */,
 				66670C001D04809E00AAFB8A /* SwiftGif.swift */,
+				18180F211D04C75A008EAC4A /* ViewControllers */,
 				183FF6AA1CFA078D0086D011 /* Utils */,
 				1814CB391CEE53DE004D7540 /* Assets */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
-				666301A51CFC3A2B001E991F /* OnboardingViewControllers */,
-				1854398A1CEBC5DD00B1D86C /* ViewControllers */,
+				18180F1A1D04C752008EAC4A /* StateTools */,
 				1848F0111CF6446D000C45D6 /* Plant3D */,
 				18DCFAF71D01AE64007FEDAB /* Components */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
@@ -753,17 +772,6 @@
 				18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */,
 			);
 			path = SYGeoms;
-			sourceTree = "<group>";
-		};
-		666301A51CFC3A2B001E991F /* OnboardingViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				666301A31CFC3A22001E991F /* IntroViewController.swift */,
-				666301A81CFC443A001E991F /* GraineViewController.swift */,
-				666301AA1CFC44AF001E991F /* PollenViewController.swift */,
-				666301AC1CFC44F1001E991F /* FruitViewController.swift */,
-			);
-			name = OnboardingViewControllers;
 			sourceTree = "<group>";
 		};
 		66E3C7E21D02F8C900E0ED08 /* Popup */ = {
@@ -1095,47 +1103,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				666301971CFC3897001E991F /* LoginViewController.swift in Sources */,
-				666301AD1CFC44F1001E991F /* FruitViewController.swift in Sources */,
+				18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */,
+				18180F341D04C75A008EAC4A /* FruitViewController.swift in Sources */,
 				183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */,
 				18F136571CF7CC270021CBF5 /* SYGeomTige.swift in Sources */,
-				1854398D1CEBC5DD00B1D86C /* MainViewController.swift in Sources */,
+				18180F361D04C75A008EAC4A /* IntroViewController.swift in Sources */,
+				18180F331D04C75A008EAC4A /* OnboardingViewController.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
-				183FF6A91CF8FB6F0086D011 /* ProfilViewController.swift in Sources */,
 				1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */,
 				18DCFAFF1D01AE64007FEDAB /* ProgressBar.swift in Sources */,
 				18F136541CF7CC270021CBF5 /* SYGeomBranch.swift in Sources */,
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
 				183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */,
+				18180F1F1D04C752008EAC4A /* SYPedometer.swift in Sources */,
 				1848F0221CF6446D000C45D6 /* SYBezierManager.swift in Sources */,
 				18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */,
+				18180F381D04C75A008EAC4A /* PlantSceneViewController.swift in Sources */,
+				18180F391D04C75A008EAC4A /* ProfilViewController.swift in Sources */,
 				18F136551CF7CC270021CBF5 /* SYGeomEmpty.swift in Sources */,
-				185439901CEBC60800B1D86C /* MapViewController.swift in Sources */,
-				6663019B1CFC390E001E991F /* SYOnboarding.swift in Sources */,
+				18180F301D04C75A008EAC4A /* LoginViewController.swift in Sources */,
 				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
+				18180F371D04C75A008EAC4A /* PollenViewController.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
+				18180F351D04C75A008EAC4A /* GraineViewController.swift in Sources */,
 				18DCFAFD1D01AE64007FEDAB /* Popup.swift in Sources */,
-				185439921CEBC87800B1D86C /* SYPedometer.swift in Sources */,
+				18180F201D04C752008EAC4A /* SYSocket.swift in Sources */,
 				18DCFB001D01AE64007FEDAB /* TabBar.swift in Sources */,
-				666C14591D033AF9000201A4 /* ChatViewController.swift in Sources */,
+				18180F3A1D04C75A008EAC4A /* SuggestionViewController.swift in Sources */,
 				18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */,
-				666C145B1D033B83000201A4 /* SuggestionViewController.swift in Sources */,
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
-				666301AB1CFC44AF001E991F /* PollenViewController.swift in Sources */,
+				18180F321D04C75A008EAC4A /* MapViewController.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
-				185439941CEBC8EA00B1D86C /* SYLocationManager.swift in Sources */,
+				18180F311D04C75A008EAC4A /* MainViewController.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
 				66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,
 				183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */,
-				666301A91CFC443A001E991F /* GraineViewController.swift in Sources */,
 				183FF6B91CFF18640086D011 /* SYDataLoader.swift in Sources */,
-				1854399C1CEBCBA100B1D86C /* SYSocket.swift in Sources */,
-				1854398E1CEBC5DD00B1D86C /* PlantSceneViewController.swift in Sources */,
+				18180F2F1D04C75A008EAC4A /* ChatViewController.swift in Sources */,
 				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
-				666301A41CFC3A22001E991F /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

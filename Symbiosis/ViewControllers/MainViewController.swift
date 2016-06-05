@@ -76,7 +76,7 @@ class MainViewController: UIViewController, SYStateListener {
     }
     
     func showOnboarding(onboardingData:NSDictionary)   {
-        let viewController: UIViewController = SYOnboarding(data: onboardingData as! [String : AnyObject])
+        let viewController: UIViewController = OnboardingViewController(data: onboardingData as! [String : AnyObject])
         presentViewController(viewController, animated: true, completion: nil)
     }
     
