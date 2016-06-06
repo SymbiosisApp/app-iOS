@@ -184,10 +184,6 @@ class MainViewController: UIViewController, SYStateListener {
             }
         }
         
-//        self.didReceiveMemoryWarning()
-//        self.didReceiveMemoryWarning()
-//        self.didReceiveMemoryWarning()
-        
         if state.userIsAuthenticated() == false {
             //LOGIN
             // showLogin()

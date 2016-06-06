@@ -16,9 +16,6 @@ class SYPopup: UIView, SYStateListener {
     @IBOutlet weak var buttonclose: UIButton!
     @IBOutlet weak var imagePopup: UIImageView!
     
-//    let viewsNames: [String] = ["Profil", "Map", "Plant", "Colony", "Settings"]
-//    var tabStoryboards: [UIStoryboard?] = [nil, nil, nil, nil, nil]
-//    var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     let validPopups : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer"]
     
     let background = Background()
@@ -110,28 +107,6 @@ class SYPopup: UIView, SYStateListener {
                 hidePopup()
             }
         }
-        
-//        let parentView = view.superview
-//        if state.tabHasChanged() {
-//            let currentTab = state.getCurrentTab()
-//            
-//            if currentTab < viewsNames.count {
-//                
-//                //TODO replace "Map" by popNames[currentPopup]
-//                if("Map" == viewsNames[currentTab]){
-//                    parentView?.hidden = false
-//                    
-//                    //if("Map" == viewsNames[currentTab] && popupNames[currentPopup] == "timer"){
-//                        //parentView?.userInteractionEnabled = false
-//                        //buttonClose hidden
-//                    //}
-//                    
-//                }else{
-//                    parentView?.hidden = true
-//                }
-//                
-//            }
-//        }
     }
     
     func addBackgroundPopup(image:String){
