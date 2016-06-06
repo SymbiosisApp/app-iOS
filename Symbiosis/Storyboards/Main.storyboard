@@ -20,27 +20,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYF-B8-sSK" userLabel="Popup" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                             </containerView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="ouk-5U-jwS" secondAttribute="width" multiplier="1:6" id="sJG-uh-L2P"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="sJG-uh-L2P"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="sJG-uh-L2P"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,32 +47,6 @@
                             <constraint firstItem="iYF-B8-sSK" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="h5h-ZQ-imM"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="tdf-L4-z10"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="iYF-B8-sSK"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="8A6-iF-72o"/>
-                                <exclude reference="b8W-Yj-zgj"/>
-                                <exclude reference="h5h-ZQ-imM"/>
-                                <exclude reference="I4F-bY-7Az"/>
-                                <exclude reference="grt-ty-ZSe"/>
-                                <exclude reference="YeR-pZ-nuL"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="iYF-B8-sSK"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="8A6-iF-72o"/>
-                                <include reference="b8W-Yj-zgj"/>
-                                <include reference="h5h-ZQ-imM"/>
-                                <include reference="I4F-bY-7Az"/>
-                                <include reference="grt-ty-ZSe"/>
-                                <include reference="YeR-pZ-nuL"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="mqZ-7N-97i" id="yMy-un-Jdv"/>
