@@ -15,6 +15,9 @@ class SuggestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.showsVerticalScrollIndicator = false
+
     }
 
     override func didReceiveMemoryWarning() {

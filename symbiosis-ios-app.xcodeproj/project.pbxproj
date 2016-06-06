@@ -40,15 +40,15 @@
 		185439861CEBC4EF00B1D86C /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
 		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		186487CC1D05951700D3B199 /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487C11D05951700D3B199 /* Colony.swift */; };
-		186487CD1D05951700D3B199 /* Colony.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487C21D05951700D3B199 /* Colony.xib */; };
-		186487CE1D05951700D3B199 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487C41D05951700D3B199 /* Popup.swift */; };
-		186487D01D05951700D3B199 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487C71D05951700D3B199 /* ProgressBar.swift */; };
-		186487D11D05951700D3B199 /* ProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487C81D05951700D3B199 /* ProgressBar.xib */; };
-		186487D21D05951700D3B199 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487CA1D05951700D3B199 /* TabBar.swift */; };
-		186487D31D05951700D3B199 /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487CB1D05951700D3B199 /* TabBar.xib */; };
-		186487D71D059C8F00D3B199 /* ImagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487D51D059C8F00D3B199 /* ImagePopup.swift */; };
-		186487D81D059C8F00D3B199 /* ImagePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487D61D059C8F00D3B199 /* ImagePopup.xib */; };
+		186487EB1D05D43600D3B199 /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487DE1D05D43600D3B199 /* Colony.swift */; };
+		186487EC1D05D43600D3B199 /* Colony.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487DF1D05D43600D3B199 /* Colony.xib */; };
+		186487ED1D05D43600D3B199 /* ImagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487E11D05D43600D3B199 /* ImagePopup.swift */; };
+		186487EE1D05D43600D3B199 /* ImagePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487E21D05D43600D3B199 /* ImagePopup.xib */; };
+		186487EF1D05D43600D3B199 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487E41D05D43600D3B199 /* Popup.swift */; };
+		186487F01D05D43600D3B199 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487E61D05D43600D3B199 /* ProgressBar.swift */; };
+		186487F11D05D43600D3B199 /* ProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487E71D05D43600D3B199 /* ProgressBar.xib */; };
+		186487F21D05D43600D3B199 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487E91D05D43600D3B199 /* TabBar.swift */; };
+		186487F31D05D43600D3B199 /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487EA1D05D43600D3B199 /* TabBar.xib */; };
 		1878261D1D04454800D93485 /* bienvenue-00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825B91D04454800D93485 /* bienvenue-00001.png */; };
 		1878261E1D04454800D93485 /* bienvenue-00002.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BA1D04454800D93485 /* bienvenue-00002.png */; };
 		1878261F1D04454800D93485 /* bienvenue-00003.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BB1D04454800D93485 /* bienvenue-00003.png */; };
@@ -177,19 +177,15 @@
 		666301991CFC38EA001E991F /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301981CFC38EA001E991F /* UserSingleton.swift */; };
 		666301A71CFC4232001E991F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301A61CFC4232001E991F /* Login.storyboard */; };
 		66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C001D04809E00AAFB8A /* SwiftGif.swift */; };
-		66670C111D04CEDB00AAFB8A /* chatLess.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66670C0E1D04CEDB00AAFB8A /* chatLess.gif */; };
-		66670C121D04CEDB00AAFB8A /* graineToPousseLess.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66670C0F1D04CEDB00AAFB8A /* graineToPousseLess.gif */; };
-		66670C131D04CEDB00AAFB8A /* marcheLessSpeed.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66670C101D04CEDB00AAFB8A /* marcheLessSpeed.gif */; };
 		66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C191D0503D800AAFB8A /* ColonyViewController.swift */; };
-		666718981D0578E500AAFB8A /* graineReduce.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718971D0578E500AAFB8A /* graineReduce.gif */; };
-		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
-		6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */; };
-		6677B1A41CFFD7B6000D455F /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19D1CFFD7B6000D455F /* carte.gif */; };
-		6677B1A51CFFD7B6000D455F /* chat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19E1CFFD7B6000D455F /* chat.gif */; };
-		6677B1A61CFFD7B6000D455F /* courses.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19F1CFFD7B6000D455F /* courses.gif */; };
-		6677B1A71CFFD7B6000D455F /* fruitToGraine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */; };
-		6677B1A81CFFD7B6000D455F /* graineToPousse.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A11CFFD7B6000D455F /* graineToPousse.gif */; };
-		6677B1A91CFFD7B6000D455F /* marche.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B1A21CFFD7B6000D455F /* marche.gif */; };
+		666718A11D05BFC200AAFB8A /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718991D05BFC200AAFB8A /* bienvenue.gif */; };
+		666718A21D05BFC200AAFB8A /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189A1D05BFC200AAFB8A /* carte.gif */; };
+		666718A31D05BFC200AAFB8A /* fruitToGraine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */; };
+		666718A41D05BFC200AAFB8A /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189C1D05BFC200AAFB8A /* pollenToFruit.gif */; };
+		666718A51D05BFC200AAFB8A /* courses.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189D1D05BFC200AAFB8A /* courses.gif */; };
+		666718A61D05BFC200AAFB8A /* marche.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189E1D05BFC200AAFB8A /* marche.gif */; };
+		666718A71D05BFC200AAFB8A /* graineToPousse.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189F1D05BFC200AAFB8A /* graineToPousse.gif */; };
+		666718A81D05BFC200AAFB8A /* chat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718A01D05BFC200AAFB8A /* chat.gif */; };
 		66E3C7F91D02F9CD00E0ED08 /* CaslonGraphiqueEF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66E3C7E61D02F9CD00E0ED08 /* CaslonGraphiqueEF.otf */; };
 		66E3C7FA1D02F9CD00E0ED08 /* Rene Bieder - Campton Black Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66E3C7E71D02F9CD00E0ED08 /* Rene Bieder - Campton Black Italic.otf */; };
 		66E3C7FB1D02F9CD00E0ED08 /* Rene Bieder - Campton Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66E3C7E81D02F9CD00E0ED08 /* Rene Bieder - Campton Black.otf */; };
@@ -261,15 +257,15 @@
 		185439841CEBC4EF00B1D86C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		185439971CEBCABC00B1D86C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
-		186487C11D05951700D3B199 /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
-		186487C21D05951700D3B199 /* Colony.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Colony.xib; sourceTree = "<group>"; };
-		186487C41D05951700D3B199 /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
-		186487C71D05951700D3B199 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		186487C81D05951700D3B199 /* ProgressBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBar.xib; sourceTree = "<group>"; };
-		186487CA1D05951700D3B199 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		186487CB1D05951700D3B199 /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
-		186487D51D059C8F00D3B199 /* ImagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePopup.swift; sourceTree = "<group>"; };
-		186487D61D059C8F00D3B199 /* ImagePopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePopup.xib; sourceTree = "<group>"; };
+		186487DE1D05D43600D3B199 /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
+		186487DF1D05D43600D3B199 /* Colony.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Colony.xib; sourceTree = "<group>"; };
+		186487E11D05D43600D3B199 /* ImagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePopup.swift; sourceTree = "<group>"; };
+		186487E21D05D43600D3B199 /* ImagePopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePopup.xib; sourceTree = "<group>"; };
+		186487E41D05D43600D3B199 /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		186487E61D05D43600D3B199 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		186487E71D05D43600D3B199 /* ProgressBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBar.xib; sourceTree = "<group>"; };
+		186487E91D05D43600D3B199 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		186487EA1D05D43600D3B199 /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		187825B91D04454800D93485 /* bienvenue-00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00001.png"; sourceTree = "<group>"; };
 		187825BA1D04454800D93485 /* bienvenue-00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00002.png"; sourceTree = "<group>"; };
 		187825BB1D04454800D93485 /* bienvenue-00003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00003.png"; sourceTree = "<group>"; };
@@ -400,19 +396,15 @@
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
 		66670C001D04809E00AAFB8A /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
-		66670C0E1D04CEDB00AAFB8A /* chatLess.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chatLess.gif; sourceTree = "<group>"; };
-		66670C0F1D04CEDB00AAFB8A /* graineToPousseLess.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousseLess.gif; sourceTree = "<group>"; };
-		66670C101D04CEDB00AAFB8A /* marcheLessSpeed.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marcheLessSpeed.gif; sourceTree = "<group>"; };
 		66670C191D0503D800AAFB8A /* ColonyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColonyViewController.swift; path = OnboardingViewControllers/ColonyViewController.swift; sourceTree = "<group>"; };
-		666718971D0578E500AAFB8A /* graineReduce.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineReduce.gif; sourceTree = "<group>"; };
-		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
-		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
-		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
-		6677B19E1CFFD7B6000D455F /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
-		6677B19F1CFFD7B6000D455F /* courses.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = courses.gif; sourceTree = "<group>"; };
-		6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fruitToGraine.gif; sourceTree = "<group>"; };
-		6677B1A11CFFD7B6000D455F /* graineToPousse.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousse.gif; sourceTree = "<group>"; };
-		6677B1A21CFFD7B6000D455F /* marche.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marche.gif; sourceTree = "<group>"; };
+		666718991D05BFC200AAFB8A /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
+		6667189A1D05BFC200AAFB8A /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
+		6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fruitToGraine.gif; sourceTree = "<group>"; };
+		6667189C1D05BFC200AAFB8A /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
+		6667189D1D05BFC200AAFB8A /* courses.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = courses.gif; sourceTree = "<group>"; };
+		6667189E1D05BFC200AAFB8A /* marche.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marche.gif; sourceTree = "<group>"; };
+		6667189F1D05BFC200AAFB8A /* graineToPousse.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousse.gif; sourceTree = "<group>"; };
+		666718A01D05BFC200AAFB8A /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
 		66E3C7E61D02F9CD00E0ED08 /* CaslonGraphiqueEF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaslonGraphiqueEF.otf; sourceTree = "<group>"; };
 		66E3C7E71D02F9CD00E0ED08 /* Rene Bieder - Campton Black Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rene Bieder - Campton Black Italic.otf"; sourceTree = "<group>"; };
 		66E3C7E81D02F9CD00E0ED08 /* Rene Bieder - Campton Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rene Bieder - Campton Black.otf"; sourceTree = "<group>"; };
@@ -521,15 +513,14 @@
 		183FF6BA1CFF187E0086D011 /* gif */ = {
 			isa = PBXGroup;
 			children = (
-				66670C0D1D04CEDB00AAFB8A /* gifsCompressed */,
-				666C14561D031E72000201A4 /* bienvenue.gif */,
-				6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */,
-				6677B19D1CFFD7B6000D455F /* carte.gif */,
-				6677B19E1CFFD7B6000D455F /* chat.gif */,
-				6677B19F1CFFD7B6000D455F /* courses.gif */,
-				6677B1A01CFFD7B6000D455F /* fruitToGraine.gif */,
-				6677B1A11CFFD7B6000D455F /* graineToPousse.gif */,
-				6677B1A21CFFD7B6000D455F /* marche.gif */,
+				666718991D05BFC200AAFB8A /* bienvenue.gif */,
+				6667189A1D05BFC200AAFB8A /* carte.gif */,
+				6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */,
+				6667189C1D05BFC200AAFB8A /* pollenToFruit.gif */,
+				6667189D1D05BFC200AAFB8A /* courses.gif */,
+				6667189E1D05BFC200AAFB8A /* marche.gif */,
+				6667189F1D05BFC200AAFB8A /* graineToPousse.gif */,
+				666718A01D05BFC200AAFB8A /* chat.gif */,
 			);
 			path = gif;
 			sourceTree = "<group>";
@@ -550,60 +541,60 @@
 			path = Plant3D;
 			sourceTree = "<group>";
 		};
-		186487BF1D05951700D3B199 /* Components */ = {
+		186487DC1D05D43600D3B199 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				186487D41D059C8F00D3B199 /* ImagePopup */,
-				186487C01D05951700D3B199 /* Colony */,
-				186487C31D05951700D3B199 /* Popup */,
-				186487C61D05951700D3B199 /* ProgressBar */,
-				186487C91D05951700D3B199 /* TabBar */,
+				186487DD1D05D43600D3B199 /* Colony */,
+				186487E01D05D43600D3B199 /* ImagePopup */,
+				186487E31D05D43600D3B199 /* Popup */,
+				186487E51D05D43600D3B199 /* ProgressBar */,
+				186487E81D05D43600D3B199 /* TabBar */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		186487C01D05951700D3B199 /* Colony */ = {
+		186487DD1D05D43600D3B199 /* Colony */ = {
 			isa = PBXGroup;
 			children = (
-				186487C11D05951700D3B199 /* Colony.swift */,
-				186487C21D05951700D3B199 /* Colony.xib */,
+				186487DE1D05D43600D3B199 /* Colony.swift */,
+				186487DF1D05D43600D3B199 /* Colony.xib */,
 			);
 			path = Colony;
 			sourceTree = "<group>";
 		};
-		186487C31D05951700D3B199 /* Popup */ = {
+		186487E01D05D43600D3B199 /* ImagePopup */ = {
 			isa = PBXGroup;
 			children = (
-				186487C41D05951700D3B199 /* Popup.swift */,
+				186487E11D05D43600D3B199 /* ImagePopup.swift */,
+				186487E21D05D43600D3B199 /* ImagePopup.xib */,
+			);
+			path = ImagePopup;
+			sourceTree = "<group>";
+		};
+		186487E31D05D43600D3B199 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				186487E41D05D43600D3B199 /* Popup.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
 		};
-		186487C61D05951700D3B199 /* ProgressBar */ = {
+		186487E51D05D43600D3B199 /* ProgressBar */ = {
 			isa = PBXGroup;
 			children = (
-				186487C71D05951700D3B199 /* ProgressBar.swift */,
-				186487C81D05951700D3B199 /* ProgressBar.xib */,
+				186487E61D05D43600D3B199 /* ProgressBar.swift */,
+				186487E71D05D43600D3B199 /* ProgressBar.xib */,
 			);
 			path = ProgressBar;
 			sourceTree = "<group>";
 		};
-		186487C91D05951700D3B199 /* TabBar */ = {
+		186487E81D05D43600D3B199 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				186487CA1D05951700D3B199 /* TabBar.swift */,
-				186487CB1D05951700D3B199 /* TabBar.xib */,
+				186487E91D05D43600D3B199 /* TabBar.swift */,
+				186487EA1D05D43600D3B199 /* TabBar.xib */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		186487D41D059C8F00D3B199 /* ImagePopup */ = {
-			isa = PBXGroup;
-			children = (
-				186487D51D059C8F00D3B199 /* ImagePopup.swift */,
-				186487D61D059C8F00D3B199 /* ImagePopup.xib */,
-			);
-			path = ImagePopup;
 			sourceTree = "<group>";
 		};
 		187825B71D04454800D93485 /* ImagesSequences */ = {
@@ -785,7 +776,7 @@
 				1814CB391CEE53DE004D7540 /* Assets */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
 				1848F0111CF6446D000C45D6 /* Plant3D */,
-				186487BF1D05951700D3B199 /* Components */,
+				186487DC1D05D43600D3B199 /* Components */,
 				18EE767A1CDA2598000F290C /* Storyboards */,
 			);
 			path = Symbiosis;
@@ -836,17 +827,6 @@
 				18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */,
 			);
 			path = SYGeoms;
-			sourceTree = "<group>";
-		};
-		66670C0D1D04CEDB00AAFB8A /* gifsCompressed */ = {
-			isa = PBXGroup;
-			children = (
-				666718971D0578E500AAFB8A /* graineReduce.gif */,
-				66670C0E1D04CEDB00AAFB8A /* chatLess.gif */,
-				66670C0F1D04CEDB00AAFB8A /* graineToPousseLess.gif */,
-				66670C101D04CEDB00AAFB8A /* marcheLessSpeed.gif */,
-			);
-			path = gifsCompressed;
 			sourceTree = "<group>";
 		};
 		66E3C7E51D02F9CD00E0ED08 /* Fonts */ = {
@@ -969,6 +949,7 @@
 				187826471D04454800D93485 /* bienvenue-00043.png in Resources */,
 				187826291D04454800D93485 /* bienvenue-00013.png in Resources */,
 				187826461D04454800D93485 /* bienvenue-00042.png in Resources */,
+				666718A31D05BFC200AAFB8A /* fruitToGraine.gif in Resources */,
 				1878264B1D04454800D93485 /* bienvenue-00047.png in Resources */,
 				187826241D04454800D93485 /* bienvenue-00008.png in Resources */,
 				187826381D04454800D93485 /* bienvenue-00028.png in Resources */,
@@ -981,7 +962,6 @@
 				187826611D04454800D93485 /* bienvenue-00069.png in Resources */,
 				1878265A1D04454800D93485 /* bienvenue-00062.png in Resources */,
 				1878265E1D04454800D93485 /* bienvenue-00066.png in Resources */,
-				6677B1A51CFFD7B6000D455F /* chat.gif in Resources */,
 				1878265B1D04454800D93485 /* bienvenue-00063.png in Resources */,
 				66E3C80A1D02F9CD00E0ED08 /* Rene Bieder - Campton Thin Italic.otf in Resources */,
 				18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */,
@@ -993,19 +973,19 @@
 				1878264F1D04454800D93485 /* bienvenue-00051.png in Resources */,
 				1878262F1D04454800D93485 /* bienvenue-00019.png in Resources */,
 				187826321D04454800D93485 /* bienvenue-00022.png in Resources */,
+				666718A71D05BFC200AAFB8A /* graineToPousse.gif in Resources */,
 				187826751D04454800D93485 /* bienvenue-00089.png in Resources */,
 				187826451D04454800D93485 /* bienvenue-00041.png in Resources */,
 				1878262A1D04454800D93485 /* bienvenue-00014.png in Resources */,
 				1878267A1D04454800D93485 /* bienvenue-00094.png in Resources */,
 				1878263B1D04454800D93485 /* bienvenue-00031.png in Resources */,
+				186487F31D05D43600D3B199 /* TabBar.xib in Resources */,
 				187826761D04454800D93485 /* bienvenue-00090.png in Resources */,
-				186487CD1D05951700D3B199 /* Colony.xib in Resources */,
 				187826531D04454800D93485 /* bienvenue-00055.png in Resources */,
 				1878261D1D04454800D93485 /* bienvenue-00001.png in Resources */,
 				187826271D04454800D93485 /* bienvenue-00011.png in Resources */,
 				187FAD711CEF013800B10224 /* vignette.vsh in Resources */,
 				187826371D04454800D93485 /* bienvenue-00027.png in Resources */,
-				6677B1A61CFFD7B6000D455F /* courses.gif in Resources */,
 				66E3C7FA1D02F9CD00E0ED08 /* Rene Bieder - Campton Black Italic.otf in Resources */,
 				187826541D04454800D93485 /* bienvenue-00056.png in Resources */,
 				187826601D04454800D93485 /* bienvenue-00068.png in Resources */,
@@ -1013,25 +993,24 @@
 				187826741D04454800D93485 /* bienvenue-00088.png in Resources */,
 				187826551D04454800D93485 /* bienvenue-00057.png in Resources */,
 				1878267C1D04454800D93485 /* bienvenue-00096.png in Resources */,
+				186487EE1D05D43600D3B199 /* ImagePopup.xib in Resources */,
 				66E3C8081D02F9CD00E0ED08 /* Rene Bieder - Campton SemiBold Italic.otf in Resources */,
-				6677B1A91CFFD7B6000D455F /* marche.gif in Resources */,
 				18CF559D1CE91CA9008E8EC4 /* LaunchScreen.storyboard in Resources */,
 				187FAD7D1CEF047A00B10224 /* test.fsh in Resources */,
 				1878264D1D04454800D93485 /* bienvenue-00049.png in Resources */,
 				66E3C8051D02F9CD00E0ED08 /* Rene Bieder - Campton Light.otf in Resources */,
 				187826341D04454800D93485 /* bienvenue-00024.png in Resources */,
 				187826231D04454800D93485 /* bienvenue-00007.png in Resources */,
-				6677B1A41CFFD7B6000D455F /* carte.gif in Resources */,
 				1878266C1D04454800D93485 /* bienvenue-00080.png in Resources */,
 				1878265D1D04454800D93485 /* bienvenue-00065.png in Resources */,
 				66E3C7FC1D02F9CD00E0ED08 /* Rene Bieder - Campton Bold Italic.otf in Resources */,
-				6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */,
 				187826431D04454800D93485 /* bienvenue-00039.png in Resources */,
 				187826221D04454800D93485 /* bienvenue-00006.png in Resources */,
 				1878262D1D04454800D93485 /* bienvenue-00017.png in Resources */,
+				666718A81D05BFC200AAFB8A /* chat.gif in Resources */,
 				66E3C80B1D02F9CD00E0ED08 /* Rene Bieder - Campton Thin.otf in Resources */,
-				666C14571D031E72000201A4 /* bienvenue.gif in Resources */,
 				1878262C1D04454800D93485 /* bienvenue-00016.png in Resources */,
+				666718A11D05BFC200AAFB8A /* bienvenue.gif in Resources */,
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
 				187826621D04454800D93485 /* bienvenue-00070.png in Resources */,
 				66E3C8041D02F9CD00E0ED08 /* Rene Bieder - Campton Light Italic.otf in Resources */,
@@ -1043,10 +1022,13 @@
 				1878262B1D04454800D93485 /* bienvenue-00015.png in Resources */,
 				187826391D04454800D93485 /* bienvenue-00029.png in Resources */,
 				66E3C8021D02F9CD00E0ED08 /* Rene Bieder - Campton ExtraLight Italic.otf in Resources */,
+				666718A41D05BFC200AAFB8A /* pollenToFruit.gif in Resources */,
 				1878265F1D04454800D93485 /* bienvenue-00067.png in Resources */,
+				186487F11D05D43600D3B199 /* ProgressBar.xib in Resources */,
 				66E3C7FD1D02F9CD00E0ED08 /* Rene Bieder - Campton Bold.otf in Resources */,
 				187826501D04454800D93485 /* bienvenue-00052.png in Resources */,
 				187826691D04454800D93485 /* bienvenue-00077.png in Resources */,
+				186487EC1D05D43600D3B199 /* Colony.xib in Resources */,
 				187826801D04454800D93485 /* bienvenue-00100.png in Resources */,
 				66E3C7FF1D02F9CD00E0ED08 /* Rene Bieder - Campton Book.otf in Resources */,
 				18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */,
@@ -1059,31 +1041,28 @@
 				187826261D04454800D93485 /* bienvenue-00010.png in Resources */,
 				187826421D04454800D93485 /* bienvenue-00038.png in Resources */,
 				66E3C7F91D02F9CD00E0ED08 /* CaslonGraphiqueEF.otf in Resources */,
-				6677B1A71CFFD7B6000D455F /* fruitToGraine.gif in Resources */,
 				187FAD741CEF013800B10224 /* vignette.plist in Resources */,
 				1878267B1D04454800D93485 /* bienvenue-00095.png in Resources */,
 				187826331D04454800D93485 /* bienvenue-00023.png in Resources */,
 				66E3C8011D02F9CD00E0ED08 /* Rene Bieder - Campton ExtraBold.otf in Resources */,
 				187826281D04454800D93485 /* bienvenue-00012.png in Resources */,
-				6677B1A81CFFD7B6000D455F /* graineToPousse.gif in Resources */,
 				1878262E1D04454800D93485 /* bienvenue-00018.png in Resources */,
+				666718A51D05BFC200AAFB8A /* courses.gif in Resources */,
 				1878267F1D04454800D93485 /* bienvenue-00099.png in Resources */,
 				1878264A1D04454800D93485 /* bienvenue-00046.png in Resources */,
 				1878266F1D04454800D93485 /* bienvenue-00083.png in Resources */,
 				18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */,
 				666301951CFC3815001E991F /* Onboarding.storyboard in Resources */,
 				187826251D04454800D93485 /* bienvenue-00009.png in Resources */,
-				66670C121D04CEDB00AAFB8A /* graineToPousseLess.gif in Resources */,
-				186487D31D05951700D3B199 /* TabBar.xib in Resources */,
 				18F136401CF75AA30021CBF5 /* smoke.plist in Resources */,
+				666718A21D05BFC200AAFB8A /* carte.gif in Resources */,
 				187826651D04454800D93485 /* bienvenue-00073.png in Resources */,
 				187826411D04454800D93485 /* bienvenue-00037.png in Resources */,
 				187826711D04454800D93485 /* bienvenue-00085.png in Resources */,
 				1878266B1D04454800D93485 /* bienvenue-00079.png in Resources */,
-				66670C131D04CEDB00AAFB8A /* marcheLessSpeed.gif in Resources */,
 				187826301D04454800D93485 /* bienvenue-00020.png in Resources */,
 				1878261E1D04454800D93485 /* bienvenue-00002.png in Resources */,
-				186487D11D05951700D3B199 /* ProgressBar.xib in Resources */,
+				666718A61D05BFC200AAFB8A /* marche.gif in Resources */,
 				1878265C1D04454800D93485 /* bienvenue-00064.png in Resources */,
 				1878267E1D04454800D93485 /* bienvenue-00098.png in Resources */,
 				1878264E1D04454800D93485 /* bienvenue-00050.png in Resources */,
@@ -1095,10 +1074,7 @@
 				187826731D04454800D93485 /* bienvenue-00087.png in Resources */,
 				1878261F1D04454800D93485 /* bienvenue-00003.png in Resources */,
 				187826351D04454800D93485 /* bienvenue-00025.png in Resources */,
-				666718981D0578E500AAFB8A /* graineReduce.gif in Resources */,
-				66670C111D04CEDB00AAFB8A /* chatLess.gif in Resources */,
 				1878266D1D04454800D93485 /* bienvenue-00081.png in Resources */,
-				186487D81D059C8F00D3B199 /* ImagePopup.xib in Resources */,
 				1878266E1D04454800D93485 /* bienvenue-00082.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1156,6 +1132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186487EF1D05D43600D3B199 /* Popup.swift in Sources */,
 				18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */,
 				18180F341D04C75A008EAC4A /* FruitViewController.swift in Sources */,
 				183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */,
@@ -1167,32 +1144,31 @@
 				18F136541CF7CC270021CBF5 /* SYGeomBranch.swift in Sources */,
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
 				183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */,
+				186487ED1D05D43600D3B199 /* ImagePopup.swift in Sources */,
 				18180F1F1D04C752008EAC4A /* SYPedometer.swift in Sources */,
 				1848F0221CF6446D000C45D6 /* SYBezierManager.swift in Sources */,
-				186487CE1D05951700D3B199 /* Popup.swift in Sources */,
 				18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */,
 				18180F381D04C75A008EAC4A /* PlantSceneViewController.swift in Sources */,
 				18180F391D04C75A008EAC4A /* ProfilViewController.swift in Sources */,
-				186487D21D05951700D3B199 /* TabBar.swift in Sources */,
 				18F136551CF7CC270021CBF5 /* SYGeomEmpty.swift in Sources */,
+				186487F21D05D43600D3B199 /* TabBar.swift in Sources */,
 				18180F301D04C75A008EAC4A /* LoginViewController.swift in Sources */,
 				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
 				18180F371D04C75A008EAC4A /* PollenViewController.swift in Sources */,
-				186487D71D059C8F00D3B199 /* ImagePopup.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
 				18180F351D04C75A008EAC4A /* GraineViewController.swift in Sources */,
 				18180F201D04C752008EAC4A /* SYSocket.swift in Sources */,
 				18180F3A1D04C75A008EAC4A /* SuggestionViewController.swift in Sources */,
+				186487F01D05D43600D3B199 /* ProgressBar.swift in Sources */,
 				18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */,
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
-				186487CC1D05951700D3B199 /* Colony.swift in Sources */,
+				186487EB1D05D43600D3B199 /* Colony.swift in Sources */,
 				18180F321D04C75A008EAC4A /* MapViewController.swift in Sources */,
 				66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				18180F311D04C75A008EAC4A /* MainViewController.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
-				186487D01D05951700D3B199 /* ProgressBar.swift in Sources */,
 				66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,

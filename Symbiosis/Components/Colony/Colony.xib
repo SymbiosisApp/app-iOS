@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="CaslonGraphiqueEF.otf">
@@ -25,17 +26,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neutreFake" translatesAutoresizingMaskIntoConstraints="NO" id="WJc-QK-p7T">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgc-Q5-AcU">
-                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                     <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Aw6-SQ-mZv"/>
+                        <constraint firstAttribute="height" constant="60" id="cGZ-5j-an4"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
                     <state key="normal" title="J'AI COMPRIS">
@@ -43,47 +44,46 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiU-oR-1nU">
-                    <rect key="frame" x="44" y="445" width="287" height="25"/>
+                    <rect key="frame" x="8" y="378" width="584" height="25"/>
                     <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="22"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLONIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dC0-OM-32Q">
-                    <rect key="frame" x="115" y="421" width="145" height="16"/>
+                    <rect key="frame" x="8" y="354" width="584" height="16"/>
                     <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScG-XT-N9O">
-                    <rect key="frame" x="0.0" y="550" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="480" width="600" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.017884615384615384" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Ygz-t5-Ish"/>
+                        <constraint firstAttribute="height" constant="60" id="fuj-W1-rwO"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
                     <state key="normal" title="12 commentaires "/>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="kgc-Q5-AcU" secondAttribute="bottom" id="1B8-jC-uIh"/>
-                <constraint firstAttribute="trailing" secondItem="kgc-Q5-AcU" secondAttribute="trailing" id="4AW-kb-6xO"/>
-                <constraint firstAttribute="trailing" secondItem="IiU-oR-1nU" secondAttribute="trailing" constant="44" id="6pJ-Dn-xT1"/>
+                <constraint firstItem="ScG-XT-N9O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1gd-MP-hlS"/>
+                <constraint firstItem="kgc-Q5-AcU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8pX-eS-ddp"/>
+                <constraint firstAttribute="trailing" secondItem="ScG-XT-N9O" secondAttribute="trailing" id="AqA-oS-i5g"/>
                 <constraint firstAttribute="bottom" secondItem="WJc-QK-p7T" secondAttribute="bottom" id="AuL-vj-S6Z"/>
-                <constraint firstItem="IiU-oR-1nU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="44" id="Dji-XO-vRF"/>
-                <constraint firstItem="dC0-OM-32Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="115" id="M7e-wV-bBy"/>
-                <constraint firstItem="IiU-oR-1nU" firstAttribute="top" secondItem="dC0-OM-32Q" secondAttribute="top" constant="24" id="PRP-uL-2es"/>
-                <constraint firstItem="kgc-Q5-AcU" firstAttribute="top" secondItem="IiU-oR-1nU" secondAttribute="bottom" constant="137" id="Sgq-0v-lSz"/>
-                <constraint firstItem="ScG-XT-N9O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WSB-Es-6cI"/>
-                <constraint firstItem="ScG-XT-N9O" firstAttribute="top" secondItem="kgc-Q5-AcU" secondAttribute="top" constant="-57" id="YoR-qe-Pbj"/>
-                <constraint firstAttribute="trailing" secondItem="dC0-OM-32Q" secondAttribute="trailing" constant="115" id="cKB-eH-HR6"/>
+                <constraint firstItem="dC0-OM-32Q" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="HEX-rQ-8AO"/>
+                <constraint firstAttribute="bottom" secondItem="kgc-Q5-AcU" secondAttribute="bottom" id="UVf-ab-tuG"/>
+                <constraint firstItem="kgc-Q5-AcU" firstAttribute="top" secondItem="ScG-XT-N9O" secondAttribute="bottom" id="VN4-jd-88C"/>
+                <constraint firstItem="IiU-oR-1nU" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="Wb3-vp-9BV"/>
+                <constraint firstAttribute="trailing" secondItem="kgc-Q5-AcU" secondAttribute="trailing" id="Xsj-Rr-3Cb"/>
+                <constraint firstItem="dC0-OM-32Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="Z8I-HD-Pyh"/>
+                <constraint firstItem="IiU-oR-1nU" firstAttribute="top" secondItem="dC0-OM-32Q" secondAttribute="bottom" constant="8" id="aIl-wr-gtS"/>
                 <constraint firstItem="WJc-QK-p7T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cfH-FY-JsC"/>
                 <constraint firstItem="IiU-oR-1nU" firstAttribute="top" secondItem="dC0-OM-32Q" secondAttribute="bottom" constant="13" id="eiU-E0-xrz"/>
-                <constraint firstAttribute="trailing" secondItem="ScG-XT-N9O" secondAttribute="trailing" id="jie-C0-7pP"/>
-                <constraint firstItem="kgc-Q5-AcU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="stZ-uv-2iv"/>
+                <constraint firstItem="IiU-oR-1nU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="ppf-dO-KnM"/>
+                <constraint firstItem="ScG-XT-N9O" firstAttribute="top" secondItem="IiU-oR-1nU" secondAttribute="bottom" constant="77" id="sGw-vV-hAP"/>
                 <constraint firstAttribute="trailing" secondItem="WJc-QK-p7T" secondAttribute="trailing" id="ujd-Hy-p3A"/>
                 <constraint firstItem="WJc-QK-p7T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vuN-VD-qI8"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="eiU-E0-xrz"/>

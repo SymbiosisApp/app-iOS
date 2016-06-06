@@ -23,7 +23,6 @@ class FruitViewController: UIViewController {
 
 
 class EclosionViewController: FruitViewController{
-    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -31,7 +30,12 @@ class EclosionViewController: FruitViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "fruitToGraine")
+        
+        let chatGif = UIImage.gifWithName("fruitToGraine")
+        let imageView = UIImageView(image: chatGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
+        
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 2
         pageControl.currentPage = 0
@@ -40,7 +44,6 @@ class EclosionViewController: FruitViewController{
 }
 
 class PartageViewController: FruitViewController{
-    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var button: UIButton!
     
@@ -49,7 +52,11 @@ class PartageViewController: FruitViewController{
         
         self.button.layer.zPosition = 2
         self.image.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "carte")
+        
+        let chatGif = UIImage.gifWithName("carte")
+        let imageView = UIImageView(image: chatGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
     }
 
 }

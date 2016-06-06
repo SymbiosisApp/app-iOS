@@ -28,7 +28,6 @@ class ColonyViewController: UIViewController {
         let usersData = request.getData("http://symbiosis.etienne-dldc.fr/users/id=5&param=all")
         let colonyData = request.getData("http://symbiosis.etienne-dldc.fr/graines/id=5")
         
-        
         if let users = usersData as? [AnyObject]{
             for user in users {
                 print("user", user)
@@ -64,7 +63,7 @@ class ColonyViewController: UIViewController {
                     if let user = users["USER.pseudo"] as? String {
                         print("apprentis", user)
                         
-                        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 45+(index*70), y: 42), radius: CGFloat(25), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+                        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 45+(index*70), y: 48), radius: CGFloat(25), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
                         
                         let shapeLayer = CAShapeLayer()
                         shapeLayer.path = circlePath.CGPath
@@ -80,7 +79,7 @@ class ColonyViewController: UIViewController {
                             }
                         }
                     }
-                    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width*1, self.scrollView.frame.height)
+                    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width*0.90, self.scrollView.frame.height)
                 }
             }
             

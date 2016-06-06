@@ -26,10 +26,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8s-b7-nZY">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start" translatesAutoresizingMaskIntoConstraints="NO" id="bOB-kl-Kny">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -51,20 +47,16 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bOB-kl-Kny" secondAttribute="trailing" constant="-20" id="8kY-Oh-5Mk"/>
                             <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="g3c-Tt-Ftw" secondAttribute="bottom" id="GRE-VB-KEX"/>
-                            <constraint firstItem="V8s-b7-nZY" firstAttribute="top" secondItem="8qh-aX-Ye0" secondAttribute="topMargin" id="Ljx-J8-9EL"/>
-                            <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="V8s-b7-nZY" secondAttribute="bottom" id="NF5-TA-mRb"/>
                             <constraint firstItem="bOB-kl-Kny" firstAttribute="top" secondItem="8qh-aX-Ye0" secondAttribute="topMargin" id="YxB-0d-beT"/>
                             <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" constant="-20" id="d8E-A5-zie"/>
                             <constraint firstItem="bOB-kl-Kny" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" constant="-20" id="g2R-Sc-Qqw"/>
-                            <constraint firstItem="V8s-b7-nZY" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" constant="-20" id="hWQ-Bg-z0M"/>
                             <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="bOB-kl-Kny" secondAttribute="bottom" id="jg8-ev-hvT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="g3c-Tt-Ftw" secondAttribute="trailing" constant="-20" id="tbU-T3-Dfo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="V8s-b7-nZY" secondAttribute="trailing" constant="-20" id="xgI-2o-wYQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="g3c-Tt-Ftw" id="zii-YX-NvB"/>
-                        <outlet property="webView" destination="V8s-b7-nZY" id="Scq-ua-T7O"/>
+                        <outlet property="image" destination="bOB-kl-Kny" id="yim-iD-ip6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j1-4y-RC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,10 +76,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView userInteractionEnabled="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-lO-nsh">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bienvenue" translatesAutoresizingMaskIntoConstraints="NO" id="OIG-gy-T4D">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -97,22 +85,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="cN9-lO-nsh" firstAttribute="top" secondItem="OhH-Ei-n65" secondAttribute="topMargin" id="3R0-D2-sSa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fF1-Nb-FiE" secondAttribute="trailing" constant="-20" id="3e6-xp-n9h"/>
-                            <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="cN9-lO-nsh" secondAttribute="bottom" id="4KH-tl-t6w"/>
                             <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="fF1-Nb-FiE" secondAttribute="bottom" constant="20" id="C8w-7H-fjH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cN9-lO-nsh" secondAttribute="trailing" constant="-20" id="NnG-dW-quh"/>
                             <constraint firstItem="fF1-Nb-FiE" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" constant="-20" id="bFc-VK-HhA"/>
                             <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="OIG-gy-T4D" secondAttribute="bottom" id="jOr-aS-iCC"/>
-                            <constraint firstItem="cN9-lO-nsh" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" constant="-20" id="mL7-HO-vRp"/>
                             <constraint firstItem="OIG-gy-T4D" firstAttribute="top" secondItem="OhH-Ei-n65" secondAttribute="topMargin" id="nHP-Bq-Q9c"/>
                             <constraint firstItem="OIG-gy-T4D" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" constant="-20" id="vxY-mH-ySa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OIG-gy-T4D" secondAttribute="trailing" constant="-20" id="x3j-JT-Swz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="image" destination="OIG-gy-T4D" id="phe-Dc-F69"/>
                         <outlet property="pageControl" destination="fF1-Nb-FiE" id="lBo-f4-xOJ"/>
-                        <outlet property="webView" destination="cN9-lO-nsh" id="M7b-SR-QxJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuy-NG-cZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,9 +115,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wju-ej-Og1">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="356"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graine" translatesAutoresizingMaskIntoConstraints="NO" id="BPT-tM-xLS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -169,7 +150,6 @@
                     </view>
                     <connections>
                         <outlet property="image" destination="BPT-tM-xLS" id="fva-6c-cqE"/>
-                        <outlet property="imageAnimTest" destination="wju-ej-Og1" id="h6L-2A-rkF"/>
                         <outlet property="pageControl" destination="Oja-NF-uj9" id="xMo-Us-QZJ"/>
                     </connections>
                 </viewController>
@@ -189,13 +169,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ID0-jf-obg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="jJa-6b-eeq"/>
-                                </constraints>
-                            </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dissemination" translatesAutoresizingMaskIntoConstraints="NO" id="SHt-6i-RtR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -208,12 +181,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ID0-jf-obg" secondAttribute="trailing" constant="-20" id="1HA-BS-Qns"/>
                             <constraint firstItem="SHt-6i-RtR" firstAttribute="top" secondItem="v2s-05-Y0C" secondAttribute="topMargin" id="98k-gK-lIh"/>
                             <constraint firstItem="tSU-q9-HaH" firstAttribute="top" secondItem="qqH-es-56B" secondAttribute="bottom" constant="20" id="BwW-Qs-PH6"/>
-                            <constraint firstItem="ID0-jf-obg" firstAttribute="top" secondItem="v2s-05-Y0C" secondAttribute="topMargin" id="D0n-qH-F4x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qqH-es-56B" secondAttribute="trailing" constant="-20" id="HVN-2K-BHM"/>
-                            <constraint firstItem="ID0-jf-obg" firstAttribute="leading" secondItem="v2s-05-Y0C" secondAttribute="leadingMargin" constant="-20" id="Osi-lf-M47"/>
                             <constraint firstItem="qqH-es-56B" firstAttribute="leading" secondItem="v2s-05-Y0C" secondAttribute="leadingMargin" constant="-20" id="Q9b-XC-VRy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SHt-6i-RtR" secondAttribute="trailing" constant="-20" id="Rio-e5-9aP"/>
                             <constraint firstItem="SHt-6i-RtR" firstAttribute="leading" secondItem="v2s-05-Y0C" secondAttribute="leadingMargin" constant="-20" id="e4m-Dn-kRI"/>
@@ -223,7 +193,6 @@
                     <connections>
                         <outlet property="image" destination="SHt-6i-RtR" id="czw-rK-EXm"/>
                         <outlet property="pageControl" destination="qqH-es-56B" id="Oge-x2-7Lf"/>
-                        <outlet property="webView" destination="ID0-jf-obg" id="hLW-jq-xk3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1F-BD-dU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,13 +211,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqg-2p-drH">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="QT9-7c-2HU"/>
-                                </constraints>
-                            </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eclosion " translatesAutoresizingMaskIntoConstraints="NO" id="YhX-eF-yoI">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -261,12 +223,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gqg-2p-drH" firstAttribute="leading" secondItem="4zg-s8-9uE" secondAttribute="leadingMargin" constant="-20" id="4St-LC-KiX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gqg-2p-drH" secondAttribute="trailing" constant="-20" id="L5b-Rw-FRN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8se-3i-R0T" secondAttribute="trailing" constant="-20" id="Qg1-P3-mqQ"/>
                             <constraint firstItem="YhX-eF-yoI" firstAttribute="top" secondItem="4zg-s8-9uE" secondAttribute="topMargin" id="QjI-4L-Sjc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YhX-eF-yoI" secondAttribute="trailing" constant="-20" id="ZCP-zc-SeM"/>
-                            <constraint firstItem="gqg-2p-drH" firstAttribute="top" secondItem="4zg-s8-9uE" secondAttribute="topMargin" id="aGF-jV-WDy"/>
                             <constraint firstItem="xIf-yh-0ah" firstAttribute="top" secondItem="YhX-eF-yoI" secondAttribute="bottom" id="bM3-bJ-zMu"/>
                             <constraint firstItem="YhX-eF-yoI" firstAttribute="leading" secondItem="4zg-s8-9uE" secondAttribute="leadingMargin" constant="-20" id="jBj-AU-ga4"/>
                             <constraint firstItem="xIf-yh-0ah" firstAttribute="top" secondItem="8se-3i-R0T" secondAttribute="bottom" constant="20" id="kMT-N8-bFd"/>
@@ -276,7 +235,6 @@
                     <connections>
                         <outlet property="image" destination="YhX-eF-yoI" id="Md0-1a-oUt"/>
                         <outlet property="pageControl" destination="8se-3i-R0T" id="jui-zn-cbf"/>
-                        <outlet property="webView" destination="gqg-2p-drH" id="kAE-QY-6hO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpf-BM-CNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,13 +253,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="72B-fJ-3BQ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="PR6-EB-JID"/>
-                                </constraints>
-                            </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recolte" translatesAutoresizingMaskIntoConstraints="NO" id="RD8-Cf-OfG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -325,18 +276,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="RD8-Cf-OfG" secondAttribute="trailing" constant="-20" id="Ftt-j7-hCf"/>
                             <constraint firstItem="RD8-Cf-OfG" firstAttribute="top" secondItem="wxe-4V-vEI" secondAttribute="topMargin" id="LSK-Xu-i3n"/>
                             <constraint firstItem="RD8-Cf-OfG" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leadingMargin" constant="-20" id="M5c-f7-0mu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="72B-fJ-3BQ" secondAttribute="trailing" constant="-20" id="Pev-P1-eox"/>
-                            <constraint firstItem="72B-fJ-3BQ" firstAttribute="top" secondItem="wxe-4V-vEI" secondAttribute="topMargin" id="Rmv-hD-8YH"/>
                             <constraint firstItem="KvD-dm-FHt" firstAttribute="top" secondItem="gJF-8e-nfU" secondAttribute="bottom" id="T6W-dc-fT1"/>
                             <constraint firstItem="KvD-dm-FHt" firstAttribute="top" secondItem="RD8-Cf-OfG" secondAttribute="bottom" id="URh-Fd-pAq"/>
                             <constraint firstItem="gJF-8e-nfU" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leadingMargin" constant="-20" id="eB8-bQ-nN9"/>
-                            <constraint firstItem="72B-fJ-3BQ" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leadingMargin" constant="-20" id="ypt-nB-zVV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="gJF-8e-nfU" id="okR-gK-gMf"/>
                         <outlet property="image" destination="RD8-Cf-OfG" id="HJi-CI-cbM"/>
-                        <outlet property="webView" destination="72B-fJ-3BQ" id="wEr-Te-sEs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NsO-Uu-u2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,13 +303,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zFI-WD-C6d">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="MCv-by-ZTm"/>
-                                </constraints>
-                            </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partage" translatesAutoresizingMaskIntoConstraints="NO" id="oTt-dy-eWA">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -384,10 +324,7 @@
                             <constraint firstItem="9Se-tZ-fXH" firstAttribute="top" secondItem="oTt-dy-eWA" secondAttribute="bottom" id="22o-Wo-wDJ"/>
                             <constraint firstItem="oTt-dy-eWA" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leadingMargin" constant="-20" id="2wu-Cu-81j"/>
                             <constraint firstItem="9Se-tZ-fXH" firstAttribute="top" secondItem="u9y-cn-zVv" secondAttribute="bottom" id="8DK-p8-8P5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zFI-WD-C6d" secondAttribute="trailing" constant="-20" id="C1d-dI-QAe"/>
-                            <constraint firstItem="zFI-WD-C6d" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leadingMargin" constant="-20" id="PZO-f1-jJZ"/>
                             <constraint firstItem="u9y-cn-zVv" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leadingMargin" constant="-20" id="Ql7-fF-iUS"/>
-                            <constraint firstItem="zFI-WD-C6d" firstAttribute="top" secondItem="7MG-Yn-FWR" secondAttribute="topMargin" id="U5U-mX-Igz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oTt-dy-eWA" secondAttribute="trailing" constant="-20" id="uIX-xF-0zx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u9y-cn-zVv" secondAttribute="trailing" constant="-20" id="ve0-8S-5BN"/>
                             <constraint firstItem="oTt-dy-eWA" firstAttribute="top" secondItem="7MG-Yn-FWR" secondAttribute="topMargin" id="yit-39-ASv"/>
@@ -396,7 +333,6 @@
                     <connections>
                         <outlet property="button" destination="u9y-cn-zVv" id="4XW-Dq-De6"/>
                         <outlet property="image" destination="oTt-dy-eWA" id="MyM-xg-tUI"/>
-                        <outlet property="webView" destination="zFI-WD-C6d" id="755-9o-PZt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9t6-dn-VT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,9 +352,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTG-5p-Ehp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="361"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commentaires" translatesAutoresizingMaskIntoConstraints="NO" id="47f-tU-UnG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -439,7 +372,6 @@
                     </view>
                     <connections>
                         <outlet property="image" destination="47f-tU-UnG" id="Q9N-a6-Ha8"/>
-                        <outlet property="imageAnimTest" destination="tTG-5p-Ehp" id="kQe-gu-LH1"/>
                         <outlet property="pageControl" destination="66I-qT-mKY" id="ATm-Gd-UbQ"/>
                     </connections>
                 </viewController>
@@ -459,9 +391,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTD-mw-QfV">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="363"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-fw-pea">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -505,7 +434,6 @@
                     <connections>
                         <outlet property="button" destination="Cng-fw-pea" id="Z7r-6U-7OI"/>
                         <outlet property="image" destination="91n-m5-KpO" id="6qF-4b-Aoi"/>
-                        <outlet property="imageAnimTest" destination="bTD-mw-QfV" id="riB-VI-4Km"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0H-U8-hbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
