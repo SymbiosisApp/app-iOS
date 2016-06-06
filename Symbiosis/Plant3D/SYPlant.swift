@@ -22,13 +22,14 @@ class SYPlant: SCNNode, SYRederable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(states: [SYElementRootProps]) {
+    init(progresses: [Float]) {
         
+        super.init()
+        let states = self.generateProps(progresses)
         var propsList: [Any] = []
         for state in states {
             propsList.append(state)
         }
-        super.init()
         self.rootSYElem = SYElementRoot(propsList: propsList, positionsList: nil, orientationsList: nil, parent: self)
         
         self.addChildNode(self.rootSYElem)
@@ -44,6 +45,14 @@ class SYPlant: SCNNode, SYRederable {
     
     func getBezierManager() -> SYBezierManager {
         return self.bezierManager
+    }
+
+    func generateProps(progresses: [Float]) -> [SYElementRootProps] {
+        var result :[SYElementRootProps] = []
+        for progress in progresses {
+            result.append(SYElementRootProps(size: progress, hasLeefs: false, nbrOfFlower: 0, nbrOfFruits: 0, nbrOfSeed: 0))
+        }
+        return result
     }
     
 }

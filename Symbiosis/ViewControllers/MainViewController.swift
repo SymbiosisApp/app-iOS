@@ -190,7 +190,7 @@ class MainViewController: UIViewController, SYStateListener {
         
         if state.userIsAuthenticated() == false {
             //LOGIN
-            showLogin()
+            // showLogin()
         }
         
 //        if false /* TODO : state.getNotification ? */ {

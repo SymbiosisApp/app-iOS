@@ -9,33 +9,7 @@
 import Foundation
 import CoreLocation
 
-struct SYState {
-    var tab: Int = 1
-    var steps: Int = 0
-    var plant: SYPlant? = nil
-    var plantStatus: SYStatePlantStatus = .NotGenerated
-    var plantProgress: Float = 0
-    var nextPlantProgress: Float = 0
-    var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
-    var popups: Array<String?> = [nil, nil, nil, nil, nil]
-    var displayedOnboarding: String? = nil
-    var user: SYStateUser = SYStateUser()
-    var selectedSeed: String? = nil
-    var loginIsDisplay: Bool = false
-}
-
-enum SYStateActionType {
-    case SelectTab
-    case SetPlantStep
-    case SetPlantStatus
-    case SetGeoloc
-    case HideCurrentPopup
-    case ShowOnboarding
-    case HideOnboarding
-    case SetUserSeed
-    case SelectSeed
-    case DisplayLogin
-}
+// MARK: State Object
 
 enum SYStatePlantStatus {
     case NotGenerated
@@ -50,10 +24,45 @@ struct SYStateUser {
     var hasASeed: Bool = false
 }
 
+/// The state object
+struct SYState {
+    var tab: Int = 1
+    var steps: Int = 0
+    var plant: SYPlant? = nil
+    var plantStatus: SYStatePlantStatus = .NotGenerated
+    var plantProgress: Float = 0
+    var nextPlantProgress: Float? = nil
+    var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
+    var popups: Array<String?> = [nil, nil, nil, nil, nil]
+    var displayedOnboarding: String? = nil
+    var user: SYStateUser = SYStateUser()
+    var selectedSeed: String? = nil
+    var loginIsDisplay: Bool = false
+}
+
+/// State Actions Type
+enum SYStateActionType {
+    case SelectTab
+    case SetPlantStep
+    case SetPlantStatus
+    case SetGeoloc
+    case HideCurrentPopup
+    case ShowOnboarding
+    case HideOnboarding
+    case SetUserSeed
+    case SelectSeed
+    case DisplayLogin
+    case UpdatePlant
+    case SetPlantProgress
+}
+
+/// State Action strcut
 struct SYStateAction {
     let type: SYStateActionType
     let payload: Any?
 }
+
+// - MARK: State manager
 
 class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
@@ -63,9 +72,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     private var actionsQueue: [SYStateAction] = []
     private var dequeInProgress: Bool = false
     
-    /**
-     * This is the Events part
-     **/
+    // MARK: Redux implementation
     
     static let sharedInstance = SYStateManager()
     
@@ -124,16 +131,17 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         }
     }
     
+
+    // - MARK: Reducger
     /**
-     * Reducer
      * -> Update the state
      * make changes in state
-     * you can check value of currentState
+     * check value of currentState
      **/
-    // - MARK: State Actions
     
     func reducer(previousState: SYState, action: SYStateAction) -> SYState {
         var state = previousState
+        print("=> Action : \(action.type)")
         let payload = action.payload
         switch action.type {
         case .SelectTab:
@@ -174,37 +182,70 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             state = updateMapPopup(state)
         case .DisplayLogin:
             state.loginIsDisplay = true
+        case .UpdatePlant:
+            let newPlant = payload as! SYPlant
+            state.plant = newPlant
+        case .SetPlantProgress:
+            let newProgress = payload as! Float
+            state.plantProgress = newProgress
+            state.nextPlantProgress = nil
         }
         state = self.updatePlant(state)
         return state
     }
     
+    // MARK: Sub-reducers
     /**
      * Sub reducer
      * -> Update the state but don't trigger update
      **/
     
     func updatePlant(state: SYState) -> SYState {
-        let state = state
+        var state = state
+        // Update progress
         if currentState.user.hasASeed == false {
             // if no seed Do nothing because no plant :)
             return state
         }
-        
+        if state.plantStatus == .Generating {
+            return state
+        }
+        var nextProgress = 5 * log10( ( Float(currentState.steps) + 10000 ) / 10000 )
+        nextProgress += 0.6 // Pouce size
+        let diff = abs(nextProgress - currentState.plantProgress)
+        if diff > 0.1 {
+            print("Generate Plant !")
+            state.plantStatus = .Generating
+            // Save nextProgress
+            state.nextPlantProgress = nextProgress
+            // Generate plant for currentState.plantProgress => nextProgress
+            let blocksDispatchQueue = dispatch_queue_create("com.domain.blocksArray.sync", DISPATCH_QUEUE_CONCURRENT)
+            dispatch_sync(blocksDispatchQueue) {
+                self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generating)
+                let nextPlant = SYPlant(progresses: [self.previousState.plantProgress, nextProgress])
+                self.dispatchAction(SYStateActionType.SetPlantProgress, payload: nextProgress)
+                self.dispatchAction(SYStateActionType.UpdatePlant, payload: nextPlant)
+                self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generated)
+            }
+        }
+        return state
+    }
+    
+//    func updatePlant(state: SYState) -> SYState {
+//        var state = state
+//        if currentState.user.hasASeed == false {
+//            // if no seed Do nothing because no plant :)
+//            return state
+//        }
+//
+//        
+//        
 //        if self.currentState.plantStatus == SYStatePlantStatus.NotGenerated {
 //            
 //        }
-//        
-//        
-//        
-//        let nextProgress = 5 * log10( ( Float(currentState.steps) + 10000 ) / 10000 )
-//        let diff = abs(nextProgress - currentState.plantProgress)
-//        if diff > 0.1 {
-//            // update the plant
-//            state.nextPlantProgress = nextProgress
-//        }
-        return state
-    }
+//
+//        return state
+//    }
     
     func setPopup(state: SYState, popupName: String, onTab tabIndex: Int) -> SYState {
         var state = state
@@ -220,11 +261,10 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return state
     }
     
+    // - MARK: Read State
     /**
-     * Get tools
      * -> Don't change the state, just read it
      **/
-    // - MARK: Get special properties
     
     func tabHasChanged() -> Bool {
         return currentState.tab != previousState.tab
@@ -243,29 +283,25 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func isNotifiedTab(index: Int) -> Bool {
-        let popup = currentState.popups[index]
-        if popup != nil {
-            if self.isSelectedTab(index) {
-                return false
-            } else {
-                return true
-            }
-        } else {
-            return false
-        }
+        return isNotifiedTabForState(currentState, index: index)
     }
     
     func previousIsNotifiedTab(index: Int) -> Bool {
-        let popup = previousState.popups[index]
-        if popup != nil {
-            if previousState.tab == index {
-                return false
-            } else {
-                return true
-            }
-        } else {
+        return isNotifiedTabForState(previousState, index: index)
+    }
+    
+    private func isNotifiedTabForState(state: SYState, index: Int) -> Bool {
+        if state.tab == index {
             return false
         }
+        if index == 2 && state.plantStatus == .Generated {
+            return true
+        }
+        let popup = state.popups[index]
+        if popup != nil {
+            return true
+        }
+        return false
     }
     
     func tabNotificationHasChanged(index: Int) -> Bool {
@@ -303,16 +339,17 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     func plantIsGenerating() -> Bool {
         return currentState.plantStatus == .Generating
     }
-    
-    func getPlantProgresses() -> [Float] {
-        return [currentState.plantProgress, currentState.nextPlantProgress]
+
+    func getPlantStatus() -> SYStatePlantStatus {
+        return currentState.plantStatus
     }
     
-    func plantShouldEvolve() -> Bool {
-        if self.plantIsGenerating() {
-            return false
-        }
-        return (currentState.plantProgress != currentState.nextPlantProgress)
+    func plantStatusHasChanged() -> Bool {
+        return currentState.plantStatus != previousState.plantStatus
+    }
+    
+    func getPlant() -> SYPlant? {
+        return currentState.plant
     }
     
     func getCurrentTotalSteps() -> Int {
@@ -321,11 +358,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     
     func getPreviousTotalSteps() -> Int {
         return previousState.steps
-    }
-    
-    func plantIsAnimating() -> Bool {
-        return false
-        // return currentState.plantIsAnimating
     }
     
     func locationHasChanged() -> Bool {
@@ -355,11 +387,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.user.isAuthenticated
     }
     
-    
-    
-    /**
-     * Delegates
-     **/
     // - MARK: SYLocationManager Delegate
     
     func syLocationManager(manager: SYLocationManager, didUpdateLocations locations: [CLLocation]) {
