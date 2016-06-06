@@ -179,6 +179,7 @@
 		66670C161D04D84000AAFB8A /* Colonie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C151D04D84000AAFB8A /* Colonie.swift */; };
 		66670C181D04D84C00AAFB8A /* Colonie.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66670C171D04D84C00AAFB8A /* Colonie.xib */; };
 		66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C191D0503D800AAFB8A /* ColonyViewController.swift */; };
+		666718981D0578E500AAFB8A /* graineReduce.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718971D0578E500AAFB8A /* graineReduce.gif */; };
 		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
 		6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */; };
 		6677B1A41CFFD7B6000D455F /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19D1CFFD7B6000D455F /* carte.gif */; };
@@ -400,6 +401,7 @@
 		66670C151D04D84000AAFB8A /* Colonie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colonie.swift; sourceTree = "<group>"; };
 		66670C171D04D84C00AAFB8A /* Colonie.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Colonie.xib; sourceTree = "<group>"; };
 		66670C191D0503D800AAFB8A /* ColonyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColonyViewController.swift; path = OnboardingViewControllers/ColonyViewController.swift; sourceTree = "<group>"; };
+		666718971D0578E500AAFB8A /* graineReduce.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineReduce.gif; sourceTree = "<group>"; };
 		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
 		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 		66670C0D1D04CEDB00AAFB8A /* gifsCompressed */ = {
 			isa = PBXGroup;
 			children = (
+				666718971D0578E500AAFB8A /* graineReduce.gif */,
 				66670C0E1D04CEDB00AAFB8A /* chatLess.gif */,
 				66670C0F1D04CEDB00AAFB8A /* graineToPousseLess.gif */,
 				66670C101D04CEDB00AAFB8A /* marcheLessSpeed.gif */,
@@ -897,7 +900,7 @@
 				TargetAttributes = {
 					18BC17F11C722BBE008E6558 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = U953397FRU;
+						DevelopmentTeam = EBM73D6TAP;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1082,6 +1085,7 @@
 				187826731D04454800D93485 /* bienvenue-00087.png in Resources */,
 				1878261F1D04454800D93485 /* bienvenue-00003.png in Resources */,
 				187826351D04454800D93485 /* bienvenue-00025.png in Resources */,
+				666718981D0578E500AAFB8A /* graineReduce.gif in Resources */,
 				66670C111D04CEDB00AAFB8A /* chatLess.gif in Resources */,
 				1878266D1D04454800D93485 /* bienvenue-00081.png in Resources */,
 				1878266E1D04454800D93485 /* bienvenue-00082.png in Resources */,
@@ -1276,6 +1280,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1285,6 +1291,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
 				PRODUCT_NAME = "symbiosis-ios-app";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Symbiosis/symbiosis-ios-app-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1295,6 +1302,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1304,6 +1313,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deladonchamps.iOS-App";
 				PRODUCT_NAME = "symbiosis-ios-app";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Symbiosis/symbiosis-ios-app-Bridging-Header.h";
 			};
 			name = Release;

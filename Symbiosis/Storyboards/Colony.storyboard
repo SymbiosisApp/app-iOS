@@ -10,6 +10,8 @@
             <string>Campton-Light</string>
             <string>Campton-Light</string>
             <string>Campton-Light</string>
+            <string>Campton-Light</string>
+            <string>Campton-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -196,8 +198,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatFake" translatesAutoresizingMaskIntoConstraints="NO" id="1TF-pu-d3Z">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="chatFake" translatesAutoresizingMaskIntoConstraints="NO" id="1TF-pu-d3Z">
+                                <rect key="frame" x="4" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzw-Fd-Ylx">
@@ -225,6 +227,18 @@
                                     <action selector="closeChat:" destination="ifK-mW-zvY" eventType="touchUpInside" id="OQi-g6-YsX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COLONIE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuP-YY-Glx">
+                                <rect key="frame" x="163" y="40" width="88" height="21"/>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5k-JZ-Y7A">
+                                <rect key="frame" x="83" y="69" width="249" height="71"/>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

@@ -36,29 +36,12 @@ class GraineViewController: GrainesViewController{
         
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
-//        
-//        let graineGif = UIImage.gifWithName("graineToPousseLess")
-//        let imageView = UIImageView(image: graineGif)
-//        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
-//        view.addSubview(imageView)
         
+        let graineGif = UIImage.gifWithName("graineReduce")
+        let imageView = UIImageView(image: graineGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
         
-        self.imageAnimTest.contentMode = UIViewContentMode.ScaleToFill
-        self.imageAnimTest.clipsToBounds = true
-        self.imageAnimTest.center = self.view.center
-
-        let numberOfImages: Int = 50
-        var images = [UIImage]()
-        for i in 1...numberOfImages {
-            //print("Load image \(i)")
-            let imgName = String(format: "bienvenue-%05d.png", i)
-            //let img = UIImage(named: "bienvenue-\(i)")!
-            let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
-            images.append(img!)
-        }
-        self.imageAnimTest.animationImages = images
-        self.imageAnimTest.animationDuration = Double(numberOfImages) * (1/15)
-        self.imageAnimTest.startAnimating()
     }
 
 }
@@ -78,27 +61,11 @@ class CommentaireViewController: GrainesViewController{
         pageControl.numberOfPages = 3
         pageControl.currentPage = 1
         
-//        let chatGif = UIImage.gifWithName("chatLess")
-//        let imageView = UIImageView(image: chatGif)
-//        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
-//        view.addSubview(imageView)
+        let chatGif = UIImage.gifWithName("graineReduce")
+        let imageView = UIImageView(image: chatGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
         
-        self.imageAnimTest.contentMode = UIViewContentMode.ScaleToFill
-        self.imageAnimTest.clipsToBounds = true
-        self.imageAnimTest.center = self.view.center
-        
-        let numberOfImages: Int = 50
-        var images = [UIImage]()
-        for i in 1...numberOfImages {
-            //print("Load image \(i)")
-            let imgName = String(format: "bienvenue-%05d.png", i)
-            //let img = UIImage(named: "bienvenue-\(i)")!
-            let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
-            images.append(img!)
-        }
-        self.imageAnimTest.animationImages = images
-        self.imageAnimTest.animationDuration = Double(numberOfImages) * (1/15)
-        self.imageAnimTest.startAnimating()
     }
 
 }
@@ -115,26 +82,10 @@ class DeplacementViewController: GrainesViewController{
         self.button.layer.zPosition = 2
         self.image.layer.zPosition = 1
         
-//        let marcheGif = UIImage.gifWithName("marcheLessSpeed")
-//        let imageView = UIImageView(image: marcheGif)
-//        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
-//        view.addSubview(imageView)
+        let marcheGif = UIImage.gifWithName("graineReduce")
+        let imageView = UIImageView(image: marcheGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
         
-        self.imageAnimTest.contentMode = UIViewContentMode.ScaleToFill
-        self.imageAnimTest.clipsToBounds = true
-        self.imageAnimTest.center = self.view.center
-        
-        let numberOfImages: Int = 50
-        var images = [UIImage]()
-        for i in 1...numberOfImages {
-            //print("Load image \(i)")
-            let imgName = String(format: "bienvenue-%05d.png", i)
-            //let img = UIImage(named: "bienvenue-\(i)")!
-            let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
-            images.append(img!)
-        }
-        self.imageAnimTest.animationImages = images
-        self.imageAnimTest.animationDuration = Double(numberOfImages) * (1/15)
-        self.imageAnimTest.startAnimating()
     }
 }
