@@ -10,8 +10,11 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
+    let userData = UserSingleton.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
 
     }
 

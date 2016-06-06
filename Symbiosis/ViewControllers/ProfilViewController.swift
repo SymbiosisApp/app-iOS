@@ -55,11 +55,12 @@ class ProfilViewController: UIViewController {
         
         
         //Foreach STEPS titre+date
+        let background = Background()
         let titre = UILabel(frame: CGRectMake(0, 0, 200, 21))
         titre.center = CGPointMake(133, 250)
         titre.textAlignment = NSTextAlignment.Center
         titre.text = "GERMINATION"
-        titre.textColor = hexStringToUIColor("#FF9C8F")
+        titre.textColor = background.hexStringToUIColor("#FF9C8F")
         titre.font = UIFont(name: "Campton", size: 15.0)
         titre.font = UIFont.boldSystemFontOfSize(15)
         self.view.addSubview(titre)
@@ -68,32 +69,10 @@ class ProfilViewController: UIViewController {
         date.center = CGPointMake(128, 270)
         date.textAlignment = NSTextAlignment.Center
         date.text = "- le 02.05.16"
-        date.textColor = hexStringToUIColor("#BBB3B3")
+        date.textColor = background.hexStringToUIColor("#BBB3B3")
         date.font = UIFont(name: "Campton", size: 15.0)
         self.view.addSubview(date)
         
-    }
-    
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
-        
-        if (cString.hasPrefix("#")) {
-            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
-        }
-        
-        if ((cString.characters.count) != 6) {
-            return UIColor.grayColor()
-        }
-        
-        var rgbValue:UInt32 = 0
-        NSScanner(string: cString).scanHexInt(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
     
 }

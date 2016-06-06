@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,17 +20,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mqZ-7N-97i" userLabel="containerView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYF-B8-sSK" userLabel="Popup" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="ouk-5U-jwS" secondAttribute="width" multiplier="1:6" id="sJG-uh-L2P"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sJG-uh-L2P"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="sJG-uh-L2P"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,6 +57,32 @@
                             <constraint firstItem="iYF-B8-sSK" firstAttribute="leading" secondItem="DGK-db-TLf" secondAttribute="leading" id="h5h-ZQ-imM"/>
                             <constraint firstItem="mqZ-7N-97i" firstAttribute="top" secondItem="DGK-db-TLf" secondAttribute="top" id="tdf-L4-z10"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="iYF-B8-sSK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="8A6-iF-72o"/>
+                                <exclude reference="b8W-Yj-zgj"/>
+                                <exclude reference="h5h-ZQ-imM"/>
+                                <exclude reference="I4F-bY-7Az"/>
+                                <exclude reference="grt-ty-ZSe"/>
+                                <exclude reference="YeR-pZ-nuL"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="iYF-B8-sSK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="8A6-iF-72o"/>
+                                <include reference="b8W-Yj-zgj"/>
+                                <include reference="h5h-ZQ-imM"/>
+                                <include reference="I4F-bY-7Az"/>
+                                <include reference="grt-ty-ZSe"/>
+                                <include reference="YeR-pZ-nuL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="mqZ-7N-97i" id="yMy-un-Jdv"/>
@@ -70,27 +106,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
-                                    </imageView>
-                                </subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
+                                <rect key="frame" x="15" y="0.0" width="600" height="600"/>
                                 <accessibility key="accessibilityConfiguration" identifier="blurPopupView"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="FGd-GP-5Fk" secondAttribute="bottom" id="JDw-eR-KZi"/>
-                                    <constraint firstItem="FGd-GP-5Fk" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="top" id="JQv-7w-IZP"/>
-                                    <constraint firstAttribute="trailing" secondItem="FGd-GP-5Fk" secondAttribute="trailing" id="VoG-gL-Jra"/>
-                                    <constraint firstItem="FGd-GP-5Fk" firstAttribute="leading" secondItem="M7f-90-Cie" secondAttribute="leading" id="iGb-gp-ghr"/>
-                                </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
+                                <rect key="frame" x="16" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="4sP-ys-gRP"/>
-                            <constraint firstAttribute="trailing" secondItem="M7f-90-Cie" secondAttribute="trailing" id="Efy-Lq-Px2"/>
-                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="bottom" id="cWV-yJ-pnk"/>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leading" id="v4f-hD-QUh"/>
+                            <constraint firstItem="M7f-90-Cie" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-5" id="2TV-Du-ubw"/>
+                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="bottom" id="Gc3-DN-RMe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M7f-90-Cie" secondAttribute="trailing" constant="-35" id="TEh-O7-FaA"/>
+                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="UZv-BM-FTY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FGd-GP-5Fk" secondAttribute="trailing" constant="-36" id="Wg6-ds-lfs"/>
+                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-4" id="YPj-n8-aZq"/>
+                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="FGd-GP-5Fk" secondAttribute="bottom" id="eVV-up-7G5"/>
+                            <constraint firstItem="M7f-90-Cie" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="iTf-mp-fQd"/>
                         </constraints>
                     </view>
                     <connections>
