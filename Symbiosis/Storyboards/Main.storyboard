@@ -26,7 +26,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYF-B8-sSK" userLabel="Popup" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouk-5U-jwS" customClass="SYTabBar" customModule="symbiosis_ios_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="500" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="ouk-5U-jwS" secondAttribute="width" multiplier="1:6" id="sJG-uh-L2P"/>
@@ -57,50 +57,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53T-iL-6OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144" y="1355"/>
-        </scene>
-        <!--Popup-->
-        <scene sceneID="FPn-6j-sNw">
-            <objects>
-                <viewController storyboardIdentifier="PopupViewCtrl" id="kMm-eA-Lto" customClass="SYPopup" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wnB-yk-Y80"/>
-                        <viewControllerLayoutGuide type="bottom" id="Atl-6j-pVL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NTy-fa-Gxf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                    </imageView>
-                                </subviews>
-                                <accessibility key="accessibilityConfiguration" identifier="blurPopupView"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="FGd-GP-5Fk" secondAttribute="bottom" id="Eu4-hp-VDI"/>
-                                    <constraint firstItem="FGd-GP-5Fk" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="top" id="WGG-So-QQF"/>
-                                    <constraint firstAttribute="trailing" secondItem="FGd-GP-5Fk" secondAttribute="trailing" id="eqS-Jh-xpt"/>
-                                    <constraint firstItem="FGd-GP-5Fk" firstAttribute="leading" secondItem="M7f-90-Cie" secondAttribute="leading" id="sov-m4-EWa"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leading" id="A3i-Ur-yee"/>
-                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="bottom" id="MJ5-1c-Cda"/>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="top" secondItem="NTy-fa-Gxf" secondAttribute="top" id="aH3-PD-B3D"/>
-                            <constraint firstAttribute="trailing" secondItem="M7f-90-Cie" secondAttribute="trailing" id="cg0-qy-x2x"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="blurPopupView" destination="M7f-90-Cie" id="fWk-VF-JL0"/>
-                        <outlet property="imagePopup" destination="FGd-GP-5Fk" id="6Y5-mW-Mjc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JTO-fU-7SQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="144" y="2079"/>
         </scene>
     </scenes>
 </document>

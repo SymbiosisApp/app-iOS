@@ -22,7 +22,7 @@ class SYColony: UIView {
     let state = SYStateManager.sharedInstance
     
     // MARK: Init
-    var nibName: String = "Colonie"
+    var nibName: String = "Colony"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,7 @@ class SYColony: UIView {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
         
-        view?.superview!.hidden = true
+        //view?.superview!.hidden = true
         closeColonie.addTarget(self, action:#selector(self.hideColonie), forControlEvents: .TouchUpInside)
   
     }
@@ -62,7 +62,6 @@ class SYColony: UIView {
     
     func hideColonie(){
         //view?.superview!.removeFromSuperview()
-        state.dispatchAction(SYStateActionType.SelectSeed, payload: "blabla")
         view?.superview!.hidden = true
     }
     

@@ -144,6 +144,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         print("=> Action : \(action.type)")
         let payload = action.payload
         switch action.type {
+        
         case .SelectTab:
             let newSelectedTab = payload as! Int
             if currentState.user.hasASeed == false {
@@ -152,10 +153,12 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             } else {
                 state.tab = newSelectedTab
             }
+        
         case .SetPlantStep:
             let newSteps = payload as! Int
             state.steps = newSteps
             state = self.setPopup(state, popupName: "commencer", onTab: 3)
+        
         case .SetPlantStatus:
             let status = payload as! SYStatePlantStatus
             // TODO verif status
@@ -163,28 +166,37 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
 //                fatalError("Plant is already animating !")
 //            }
             state.plantStatus = status
+        
         case .SetGeoloc:
             let newGeoloc = payload as! CLLocationCoordinate2D
             state.location = newGeoloc
+        
         case .HideCurrentPopup:
             let tab = getCurrentTab()
             state.popups[tab] = nil
+        
         case .ShowOnboarding:
             let onboardingName = payload as! String
             state.displayedOnboarding = onboardingName
+        
         case .HideOnboarding:
             state.displayedOnboarding = nil
+        
         case .SetUserSeed:
             state.user.hasASeed = true
+        
         case .SelectSeed:
             let seedId = payload as! String
             state.selectedSeed = seedId
             state = updateMapPopup(state)
+        
         case .DisplayLogin:
             state.loginIsDisplay = true
+        
         case .UpdatePlant:
             let newPlant = payload as! SYPlant
             state.plant = newPlant
+        
         case .SetPlantProgress:
             let newProgress = payload as! Float
             state.plantProgress = newProgress
@@ -256,7 +268,12 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     func updateMapPopup(state: SYState) -> SYState {
         var state = state
         if state.selectedSeed != nil {
-            state.popups[1] = "commencer"
+            if state.user.hasASeed == false {
+                // Colony with select this seed button
+                state.popups[1] = "colony-select-seed"
+            } else {
+                state.popups[1] = "colony"
+            }
         }
         return state
     }

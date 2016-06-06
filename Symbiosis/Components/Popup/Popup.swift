@@ -16,7 +16,7 @@ class SYPopup: UIView, SYStateListener {
     @IBOutlet weak var buttonclose: UIButton!
     @IBOutlet weak var imagePopup: UIImageView!
     
-    let validPopups : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer"]
+    let validPopups : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer", "colony", "colony-select-seed"]
     
     let background = Background()
     
@@ -49,8 +49,14 @@ class SYPopup: UIView, SYStateListener {
         
         buttonclose.addTarget(self, action:#selector(self.hideCurrentPopup), forControlEvents: .TouchUpInside)
         
-        
         state.addListener(self)
+    }
+    
+    func loadViewFromNib() -> UIView {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        return view
     }
     
     func hideCurrentPopup() {
@@ -61,22 +67,6 @@ class SYPopup: UIView, SYStateListener {
         
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
-   
-    
-    func closePopup(){
-        // TODO add transition
-        view?.superview!.removeFromSuperview()
-        view.removeFromSuperview()
-    }
-
-
-    func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: nibName, bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        return view
-    }
-
     
     // - MARK: Update
     
@@ -96,16 +86,7 @@ class SYPopup: UIView, SYStateListener {
     func onStateUpdate() {
         
         if state.popupHasChanged() {
-            let currentPopup = state.getCurrentPopup()
-            if let popupName = currentPopup {
-                if validPopups.indexOf(popupName) != nil {
-                    showPopup(popupName)
-                } else {
-                    print("Invalid popup name : \(popupName)")
-                }
-            } else {
-                hidePopup()
-            }
+            self.onStateSetup()
         }
     }
     
@@ -123,11 +104,21 @@ class SYPopup: UIView, SYStateListener {
     }
     
     func showPopup(name: String) {
-        addBackgroundPopup(name)
-        if let parentView = view.superview {
-            parentView.hidden = false
+        if name == "colony" {
+            print("display colony")
+        } else if name == "colony-select-seed" {
+            print("display colony-select-seed")
+            print(self.view.frame)
+            let colony = SYColony(frame: self.view.frame)
+            colony.setup()
+            self.addSubview(colony)
         } else {
-            print("No parent view, snif :'(")
+            addBackgroundPopup(name)
+            if let parentView = view.superview {
+                parentView.hidden = false
+            } else {
+                print("No parent view, snif :'(")
+            }
         }
     }
 

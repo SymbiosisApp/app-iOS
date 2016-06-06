@@ -177,7 +177,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         let titre:String? = annotation.title!
         
         if (titre != nil) {
-            colonie.addbackground(titre!)
+            state.dispatchAction(SYStateActionType.SelectSeed, payload: titre)
+            // colonie.addbackground(titre!)
         }
 
         return true
