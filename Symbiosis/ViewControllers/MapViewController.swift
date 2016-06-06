@@ -32,11 +32,24 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         // Listen to events
         state.addListener(self)
         
+        let long = state.getCurrentLocation().longitude
+        let lat = state.getCurrentLocation().latitude
+        
         self.myMapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
         //myMapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         // set the map’s center coordinate and zoom level
-        myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 48.853138550976446, longitude: 2.348756790161133), zoomLevel: 12, animated: false)
+        myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long), zoomLevel: 12, animated: false)
+        
+        let neLat = myMapView.visibleCoordinateBounds.ne.latitude
+        let neLong = myMapView.visibleCoordinateBounds.ne.longitude
+        let swLat = myMapView.visibleCoordinateBounds.sw.latitude
+        let swLong = myMapView.visibleCoordinateBounds.sw.longitude
+    
+        let bounds = MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: swLat, longitude: swLong),
+                                         ne: CLLocationCoordinate2D(latitude: neLat, longitude: neLong))
+        myMapView.setVisibleCoordinateBounds(bounds, animated: false)
+        
         
         myMapView.tintColor = .darkGrayColor()
         

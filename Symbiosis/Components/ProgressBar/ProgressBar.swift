@@ -43,6 +43,8 @@ class SYProgressBar: UIView, SYStateListener {
         containerProgressBar.layer.cornerRadius = 2.0
         containerProgressBar.clipsToBounds = true
         
+        //TODO
+        
     }
     
     func loadViewFromNib() -> UIView {

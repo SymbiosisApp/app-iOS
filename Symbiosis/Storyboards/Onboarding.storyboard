@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -47,6 +47,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bOB-kl-Kny" secondAttribute="trailing" constant="-20" id="8kY-Oh-5Mk"/>
                             <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="g3c-Tt-Ftw" secondAttribute="bottom" id="GRE-VB-KEX"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="centerX" secondItem="8qh-aX-Ye0" secondAttribute="centerX" id="VtC-qp-Cll"/>
                             <constraint firstItem="bOB-kl-Kny" firstAttribute="top" secondItem="8qh-aX-Ye0" secondAttribute="topMargin" id="YxB-0d-beT"/>
                             <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" constant="-20" id="d8E-A5-zie"/>
                             <constraint firstItem="bOB-kl-Kny" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" constant="-20" id="g2R-Sc-Qqw"/>
@@ -79,20 +80,30 @@
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bienvenue" translatesAutoresizingMaskIntoConstraints="NO" id="OIG-gy-T4D">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-Nb-FiE">
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-Nb-FiE">
                                 <rect key="frame" x="0.0" y="543" width="600" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="fF1-Nb-FiE" secondAttribute="trailing" constant="-20" id="3e6-xp-n9h"/>
-                            <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="fF1-Nb-FiE" secondAttribute="bottom" constant="20" id="C8w-7H-fjH"/>
-                            <constraint firstItem="fF1-Nb-FiE" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" constant="-20" id="bFc-VK-HhA"/>
-                            <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="OIG-gy-T4D" secondAttribute="bottom" id="jOr-aS-iCC"/>
-                            <constraint firstItem="OIG-gy-T4D" firstAttribute="top" secondItem="OhH-Ei-n65" secondAttribute="topMargin" id="nHP-Bq-Q9c"/>
-                            <constraint firstItem="OIG-gy-T4D" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" constant="-20" id="vxY-mH-ySa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OIG-gy-T4D" secondAttribute="trailing" constant="-20" id="x3j-JT-Swz"/>
+                            <constraint firstItem="OIG-gy-T4D" firstAttribute="bottom" secondItem="8GG-vJ-xK4" secondAttribute="top" id="DzS-68-aXT"/>
+                            <constraint firstAttribute="trailing" secondItem="OIG-gy-T4D" secondAttribute="trailing" id="EsE-7r-kgA"/>
+                            <constraint firstAttribute="bottom" secondItem="fF1-Nb-FiE" secondAttribute="bottom" constant="20" symbolic="YES" id="Hih-yC-Hgh"/>
+                            <constraint firstItem="fF1-Nb-FiE" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leading" id="MF7-2O-gx1"/>
+                            <constraint firstItem="OIG-gy-T4D" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leading" id="OVX-xd-U2K"/>
+                            <constraint firstItem="OIG-gy-T4D" firstAttribute="leading" secondItem="fF1-Nb-FiE" secondAttribute="leading" id="b9O-J9-r4K"/>
+                            <constraint firstItem="fF1-Nb-FiE" firstAttribute="leading" secondItem="OIG-gy-T4D" secondAttribute="leading" id="oK2-Jh-0ty"/>
+                            <constraint firstItem="OIG-gy-T4D" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" id="vxY-mH-ySa"/>
+                            <constraint firstItem="OIG-gy-T4D" firstAttribute="trailing" secondItem="fF1-Nb-FiE" secondAttribute="trailing" id="xb3-bk-Rp6"/>
+                            <constraint firstItem="OIG-gy-T4D" firstAttribute="top" secondItem="OhH-Ei-n65" secondAttribute="top" id="xlw-85-5Xn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vxY-mH-ySa"/>
+                                <exclude reference="MF7-2O-gx1"/>
+                                <exclude reference="oK2-Jh-0ty"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="image" destination="OIG-gy-T4D" id="phe-Dc-F69"/>
@@ -320,6 +331,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9Se-tZ-fXH" firstAttribute="top" secondItem="oTt-dy-eWA" secondAttribute="bottom" id="22o-Wo-wDJ"/>
                             <constraint firstItem="oTt-dy-eWA" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leadingMargin" constant="-20" id="2wu-Cu-81j"/>

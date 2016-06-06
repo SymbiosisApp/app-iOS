@@ -11,10 +11,6 @@ import UIKit
 class ColonyViewController: UIViewController {
 
     let request = RequestData()
-//    let name: String! = nil
-//    let fondateName:String! = nil
-//    let apprentisName:[String]! = nil
-//    let userSeed: Int! = 0
     
     @IBOutlet weak var apprentisName: UILabel!
     @IBOutlet weak var fondateurName: UILabel!
@@ -23,9 +19,6 @@ class ColonyViewController: UIViewController {
     let background = Background()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        print("Colony !!")
 
         let usersData = request.getData("http://symbiosis.etienne-dldc.fr/users/id=5&param=all")
         let colonyData = request.getData("http://symbiosis.etienne-dldc.fr/graines/id=5")
@@ -40,11 +33,8 @@ class ColonyViewController: UIViewController {
                 if let user = user["pseudo"] as? String {
                     apprentisName.text = user
                 }
-
             }
         }
-
-        
     
         if let colony = colonyData as? [AnyObject]{
             
@@ -59,8 +49,6 @@ class ColonyViewController: UIViewController {
                     }
                     
                 }else{
-                    
-                   
                     
                     if let user = users["USER.pseudo"] as? String {
                         print("apprentis", user)
@@ -86,8 +74,6 @@ class ColonyViewController: UIViewController {
             }
             
         }
-        
-     
         
         
     }

@@ -391,7 +391,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
 //        if currentState.displayedOnboarding != nil {
 //            return nil
 //        } else {
-//            return "Graine"
+//            return "Pollen"
 //        }
     }
     

@@ -26,6 +26,8 @@ class GraineViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    var imageView: UIImageView! = nil
+    var imageLoaderView: UIImageView! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +38,40 @@ class GraineViewController: GrainesViewController{
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
         
-        let graineGif = UIImage.gifWithName("graineToPousse")
-        let imageView = UIImageView(image: graineGif)
-        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
-        view.addSubview(imageView)
-        
+        self.imageLoader()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.loadedGif(){
+                (result: Bool) in
+                if result {
+                    self.imageLoaderView.removeFromSuperview()
+                }
+            }
+        })
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        self.imageLoader()
+        self.imageView.removeFromSuperview()
+    }
+    
+    func imageLoader(){
+        let imageLoader : UIImage = UIImage(named:"graineToPousseLoader")!
+        self.imageLoaderView = UIImageView(image: imageLoader)
+        self.imageLoaderView .frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        self.view.addSubview(self.imageLoaderView)
+    }
+    
+    func loadedGif(completion: (result: Bool) -> Void){
+        let gif = UIImage.gifWithName("graineToPousse")
+        self.imageView = UIImageView(image: gif)
+        self.imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        self.view.addSubview(self.imageView)
+        completion(result: true)
+    }
+    
 
 }
 
@@ -49,6 +79,8 @@ class CommentaireViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    var imageView: UIImageView! = nil
+    var imageLoaderView: UIImageView! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,19 +91,48 @@ class CommentaireViewController: GrainesViewController{
         pageControl.numberOfPages = 3
         pageControl.currentPage = 1
         
-        let chatGif = UIImage.gifWithName("chat")
-        let imageView = UIImageView(image: chatGif)
-        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
-        view.addSubview(imageView)
-        
+        self.imageLoader()
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.loadedGif(){
+                (result: Bool) in
+                if result {
+                    self.imageLoaderView.removeFromSuperview()
+                }
+            }
+        })
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        self.imageLoader()
+        self.imageView.removeFromSuperview()
+    }
+    
+    func imageLoader(){
+        let imageLoader : UIImage = UIImage(named:"chatLoader")!
+        self.imageLoaderView = UIImageView(image: imageLoader)
+        self.imageLoaderView .frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        self.view.addSubview(self.imageLoaderView)
+    }
+    
+    func loadedGif(completion: (result: Bool) -> Void){
+        let gif = UIImage.gifWithName("chat")
+        self.imageView = UIImageView(image: gif)
+        self.imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        self.view.addSubview(self.imageView)
+        completion(result: true)
+    }
 }
+
 
 class DeplacementViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var button: UIButton!
+    var imageView: UIImageView! = nil
+    var imageLoaderView: UIImageView! = nil
 
     
     override func viewDidLoad() {
@@ -80,10 +141,37 @@ class DeplacementViewController: GrainesViewController{
         self.button.layer.zPosition = 2
         self.image.layer.zPosition = 1
         
-        let marcheGif = UIImage.gifWithName("marche")
-        let imageView = UIImageView(image: marcheGif)
-        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
-        view.addSubview(imageView)
-        
+        self.imageLoader()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.loadedGif(){
+                (result: Bool) in
+                if result {
+                    self.imageLoaderView.removeFromSuperview()
+                }
+            }
+        })
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        self.imageLoader()
+        self.imageView.removeFromSuperview()
+    }
+    
+    func imageLoader(){
+        let imageLoader : UIImage = UIImage(named:"marcheLoader")!
+        self.imageLoaderView = UIImageView(image: imageLoader)
+        self.imageLoaderView .frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        self.view.addSubview(self.imageLoaderView)
+    }
+    
+    func loadedGif(completion: (result: Bool) -> Void){
+        let gif = UIImage.gifWithName("marche")
+        self.imageView = UIImageView(image: gif)
+        self.imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        self.view.addSubview(self.imageView)
+        completion(result: true)
     }
 }
