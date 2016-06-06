@@ -166,6 +166,13 @@ class MainViewController: UIViewController, SYStateListener {
             self.hideTabBar(false)
         }
         
+        if let onboarding = state.getOnboardingToDisplay() {
+            state.dispatchAction(SYStateActionType.ShowOnboarding, payload: onboarding)
+            let dataLoarder = SYDataLoader()
+            let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: onboarding, name:"name")
+            self.showOnboarding(onboardingData)
+        }
+        
         updateViewContainer(false)
 
     }
@@ -204,10 +211,15 @@ class MainViewController: UIViewController, SYStateListener {
     
     func updateViewContainer(animated: Bool) {
         let currentTab = state.getCurrentTab()
-        // let previousTab = state.getPreviousTab()
+        let previousTab = state.getPreviousTab()
         
         if mountedViewCtrl != nil {
             mountedViewCtrl.willMoveToParentViewController(nil)
+        }
+        
+        var direction: CGFloat = currentTab < previousTab ? -1 : 1
+        if animated == false {
+            direction = 0
         }
         
         let currentViewCtrl = getViewControllerForIndex(currentTab)
@@ -220,41 +232,38 @@ class MainViewController: UIViewController, SYStateListener {
         
         let subView = currentViewCtrl.view
         let parentView = containerView
+        let constWidth = NSLayoutConstraint.init(item: subView, attribute: .Width, relatedBy: .Equal, toItem: parentView, attribute: .Width, multiplier: 1, constant: 0)
+        constWidth.active = true
+        let constHeight = NSLayoutConstraint.init(item: subView, attribute: .Height, relatedBy: .Equal, toItem: parentView, attribute: .Height, multiplier: 1, constant: 0)
+        constHeight.active = true
+        let constLeft = NSLayoutConstraint.init(item: subView, attribute: .Left, relatedBy: .Equal, toItem: parentView, attribute: .Left, multiplier: 1, constant: (parentView.frame.width * direction))
+        constLeft.active = true
         let constTop = NSLayoutConstraint.init(item: subView, attribute: .Top, relatedBy: .Equal, toItem: parentView, attribute: .Top, multiplier: 1, constant: 0)
         constTop.active = true
-        let constBottom = NSLayoutConstraint.init(item: subView, attribute: .Bottom, relatedBy: .Equal, toItem: parentView, attribute: .Bottom, multiplier: 1, constant: 0)
-        constBottom.active = true
-        let constLeading = NSLayoutConstraint.init(item: subView, attribute: .Leading, relatedBy: .Equal, toItem: parentView, attribute: .Leading, multiplier: 1, constant: 0)
-        constLeading.active = true
-        let constTrailing = NSLayoutConstraint.init(item: subView, attribute: .Trailing, relatedBy: .Equal, toItem: parentView, attribute: .Trailing, multiplier: 1, constant: 0)
-        constTrailing.active = true
         
+        // Animate
+        let animatedViewCtrl = currentViewCtrl
+        let viewCtrlToRemove = mountedViewCtrl
+        // animatedViewCtrl.view.alpha = 0
         containerView.layoutIfNeeded()
-        containerView.layoutSubviews()
-        
-        if mountedViewCtrl != nil {
-            mountedViewCtrl.view.removeFromSuperview()
-            mountedViewCtrl.removeFromParentViewController()
-        }
-        currentViewCtrl.didMoveToParentViewController(self)
+        UIView.animateWithDuration(0.3, animations: {
+            // animatedViewCtrl.view.alpha = 1
+            constLeft.constant = 0
+            animatedViewCtrl.view.layoutIfNeeded()
+            }, completion: { finished in
+                if finished == false {
+                    // animatedViewCtrl.view.alpha = 1
+                    constLeft.constant = 0
+                    animatedViewCtrl.view.layoutIfNeeded()
+                }
+                if viewCtrlToRemove != nil {
+                    viewCtrlToRemove.view.removeFromSuperview()
+                    viewCtrlToRemove.removeFromParentViewController()
+                }
+                animatedViewCtrl.didMoveToParentViewController(self)
+        })
         
         mountedViewCtrl = currentViewCtrl
-        
-//        UIView.animateWithDuration(0.3, animations: {
-//            newViewController.view.alpha = 1
-//            leftConstraint.constant = 0
-//            newViewController.view.layoutIfNeeded()
-//            },
-//                                   completion: { finished in
-//                                    if finished == false {
-//                                        newViewController.view.alpha = 1
-//                                        leftConstraint.constant = 0
-//                                        newViewController.view.layoutIfNeeded()
-//                                    }
-//                                    oldViewController.view.removeFromSuperview()
-//                                    oldViewController.removeFromParentViewController()
-//                                    newViewController.didMoveToParentViewController(self)
-//        })
         
     }
     
