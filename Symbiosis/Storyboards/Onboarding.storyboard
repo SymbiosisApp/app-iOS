@@ -131,6 +131,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wju-ej-Og1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="356"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graine" translatesAutoresizingMaskIntoConstraints="NO" id="BPT-tM-xLS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -166,6 +169,7 @@
                     </view>
                     <connections>
                         <outlet property="image" destination="BPT-tM-xLS" id="fva-6c-cqE"/>
+                        <outlet property="imageAnimTest" destination="wju-ej-Og1" id="h6L-2A-rkF"/>
                         <outlet property="pageControl" destination="Oja-NF-uj9" id="xMo-Us-QZJ"/>
                     </connections>
                 </viewController>
@@ -412,6 +416,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTG-5p-Ehp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="361"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commentaires" translatesAutoresizingMaskIntoConstraints="NO" id="47f-tU-UnG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -432,6 +439,7 @@
                     </view>
                     <connections>
                         <outlet property="image" destination="47f-tU-UnG" id="Q9N-a6-Ha8"/>
+                        <outlet property="imageAnimTest" destination="tTG-5p-Ehp" id="kQe-gu-LH1"/>
                         <outlet property="pageControl" destination="66I-qT-mKY" id="ATm-Gd-UbQ"/>
                     </connections>
                 </viewController>
@@ -451,8 +459,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deplacement" translatesAutoresizingMaskIntoConstraints="NO" id="91n-m5-KpO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTD-mw-QfV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="363"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-fw-pea">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
@@ -467,6 +475,9 @@
                                     <segue destination="oGZ-nZ-zm5" kind="unwind" unwindAction="closeOnboarding:" id="DJD-pL-8kn"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deplacement" translatesAutoresizingMaskIntoConstraints="NO" id="91n-m5-KpO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -494,6 +505,7 @@
                     <connections>
                         <outlet property="button" destination="Cng-fw-pea" id="Z7r-6U-7OI"/>
                         <outlet property="image" destination="91n-m5-KpO" id="6qF-4b-Aoi"/>
+                        <outlet property="imageAnimTest" destination="bTD-mw-QfV" id="riB-VI-4Km"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0H-U8-hbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
