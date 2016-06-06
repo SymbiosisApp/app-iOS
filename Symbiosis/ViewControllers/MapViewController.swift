@@ -43,7 +43,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         myMapView.delegate = self
         
         //GRAINE
-        let dataMap = request.getData("http://localhost:8080/graines/")
+        let dataMap = request.getData("http://symbiosis.etienne-dldc.fr/graines/")
         var latitude:Double = 0
         var longitude:Double = 0
         var name:String = ""
@@ -97,7 +97,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         
         
         //POLLEN
-        let pollenDataMap = request.getData("http://localhost:8080/pollens/")
+        let pollenDataMap = request.getData("http://symbiosis.etienne-dldc.fr/pollens/")
         var pollenLatitude:Double = 0
         var pollenLongitude:Double = 0
         
@@ -168,6 +168,12 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     //ADD INFORMATIONS FOR ONE PIN
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
+    }
+    
+    func mapView(mapView: MGLMapView, didSelectAnnotation annotation: MGLAnnotation) {
+        print("Click")
+        // state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
+        state.dispatchAction(SYStateActionType.SelectSeed, payload: "blabla")
     }
     
     /**

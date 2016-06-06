@@ -10,28 +10,29 @@ import Foundation
 import CoreLocation
 
 struct SYState {
-    var tab: Int = 3
+    var tab: Int = 1
     var steps: Int = 0
+    var plant: SYPlant? = nil
     var plantStatus: SYStatePlantStatus = .NotGenerated
     var plantProgress: Float = 0
     var nextPlantProgress: Float = 0
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
     var displayedOnboarding: String? = nil
-    
-    // Temp
-    var tabBarHidden: Bool = false
+    var user: SYStateUser = SYStateUser()
+    var selectedSeed: String? = nil
 }
 
 enum SYStateActionType {
     case SelectTab
     case SetPlantStep
     case SetPlantStatus
-    case SetTabBarHidden
     case SetGeoloc
     case HideCurrentPopup
     case ShowOnboarding
     case HideOnboarding
+    case SetUserSeed
+    case SelectSeed
 }
 
 enum SYStatePlantStatus {
@@ -40,6 +41,11 @@ enum SYStatePlantStatus {
     case Generated
     case Animating
     case Animated
+}
+
+struct SYStateUser {
+    var isAuthenticated: Bool = false
+    var hasASeed: Bool = false
 }
 
 struct SYStateAction {
@@ -130,13 +136,15 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         switch action.type {
         case .SelectTab:
             let newSelectedTab = payload as! Int
-            if newSelectedTab != state.tab {
+            if currentState.user.hasASeed == false {
+                // Only map is allow if no seed
+                state.tab = 1
+            } else {
                 state.tab = newSelectedTab
             }
         case .SetPlantStep:
             let newSteps = payload as! Int
             state.steps = newSteps
-            state = self.updatePlantProgress(state)
             state = self.setPopup(state, popupName: "commencer", onTab: 3)
         case .SetPlantStatus:
             let status = payload as! SYStatePlantStatus
@@ -145,9 +153,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
 //                fatalError("Plant is already animating !")
 //            }
             state.plantStatus = status
-        case .SetTabBarHidden:
-            let status = payload as! Bool
-            state.tabBarHidden = status
         case .SetGeoloc:
             let newGeoloc = payload as! CLLocationCoordinate2D
             state.location = newGeoloc
@@ -159,7 +164,14 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             state.displayedOnboarding = onboardingName
         case .HideOnboarding:
             state.displayedOnboarding = nil
+        case .SetUserSeed:
+            state.user.hasASeed = true
+        case .SelectSeed:
+            let seedId = payload as! String
+            state.selectedSeed = seedId
+            state = updateMapPopup(state)
         }
+        state = self.updatePlant(state)
         return state
     }
     
@@ -168,19 +180,39 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
      * -> Update the state but don't trigger update
      **/
     
-    func updatePlantProgress(state: SYState) -> SYState {
-        var state = state
-        let nextProgress = 5 * log10( ( Float(currentState.steps) + 10000 ) / 10000 )
-        let diff = abs(nextProgress - currentState.plantProgress)
-        if diff > 0.1 {
-            state.nextPlantProgress = nextProgress
+    func updatePlant(state: SYState) -> SYState {
+        let state = state
+        if currentState.user.hasASeed == false {
+            // if no seed Do nothing because no plant :)
+            return state
         }
+        
+//        if self.currentState.plantStatus == SYStatePlantStatus.NotGenerated {
+//            
+//        }
+//        
+//        
+//        
+//        let nextProgress = 5 * log10( ( Float(currentState.steps) + 10000 ) / 10000 )
+//        let diff = abs(nextProgress - currentState.plantProgress)
+//        if diff > 0.1 {
+//            // update the plant
+//            state.nextPlantProgress = nextProgress
+//        }
         return state
     }
     
     func setPopup(state: SYState, popupName: String, onTab tabIndex: Int) -> SYState {
         var state = state
         state.popups[tabIndex] = popupName
+        return state
+    }
+    
+    func updateMapPopup(state: SYState) -> SYState {
+        var state = state
+        if state.selectedSeed != nil {
+            state.popups[1] = "commencer"
+        }
         return state
     }
     
@@ -240,12 +272,16 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return self.getCurrentPopup() != self.getPrevioustPopup()
     }
     
-    func tabBarIsHidden() -> Bool {
-        return currentState.tabBarHidden
+    func tabBarIsDisplayed() -> Bool {
+        return currentState.user.hasASeed != false
     }
     
-    func tabBarHiddenHasChanged() -> Bool {
-        return currentState.tabBarHidden != previousState.tabBarHidden
+    func previousTabBarIsDisplayed() -> Bool {
+        return previousState.user.hasASeed != false
+    }
+    
+    func tabBarDisplayHasChanged() -> Bool {
+        return tabBarIsDisplayed() != previousTabBarIsDisplayed()
     }
     
     func getCurrentPopup() -> String? {

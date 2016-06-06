@@ -113,38 +113,6 @@ class MainViewController: UIViewController, SYStateListener {
         let tabView = tabViews[tabIndex]!
         return tabView
     }
-
-    
-    func setTabNavigation() {
-        
-        
-//        if tabViews[tabIndex] == nil {
-//            let tabName = viewsNames[tabIndex]
-//            if tabStoryboards[tabIndex] == nil {
-//                tabStoryboards[tabIndex] = UIStoryboard(name: tabName, bundle: nil)
-//            }
-//            let strboard = tabStoryboards[tabIndex]!
-//            
-//            tabViews[tabIndex] = strboard.instantiateViewControllerWithIdentifier("\(tabName)ViewCtrl")
-//            tabViews[tabIndex]!.view.translatesAutoresizingMaskIntoConstraints = false
-//        }
-//        
-//        let tabView = tabViews[tabIndex]!
-//        
-//        if currentTabView == nil {
-//            // just set up
-//            self.addChildViewController(tabView)
-//            self.addSubview(tabView.view, toView: self.containerView)
-//            self.containerView.layoutIfNeeded()
-//            self.containerView.layoutSubviews()
-//        } else {
-//            // Animate transition
-//            let invertDirection = tabIndex < state.getPreviousTab()
-//            self.cycleFromViewController(self.currentTabView!, toViewController: tabView, inverseDirection: invertDirection)
-//        }
-//        self.currentTabView = tabView
-        
-    }
     
     func hideTabBar(animated: Bool) {
         var duration = 0.3
@@ -189,11 +157,13 @@ class MainViewController: UIViewController, SYStateListener {
     
     func onStateSetup() {
         
+        print("Tabbar : \(state.tabBarIsDisplayed())")
+        
         // Init tab bar display
-        if state.tabBarIsHidden() {
-            self.hideTabBar(false)
-        } else {
+        if state.tabBarIsDisplayed() {
             self.showTabBar(false)
+        } else {
+            self.hideTabBar(false)
         }
         
         updateViewContainer(false)
@@ -206,11 +176,11 @@ class MainViewController: UIViewController, SYStateListener {
             updateViewContainer(true)
         }
         
-        if state.tabBarHiddenHasChanged() {
-            if state.tabBarIsHidden() {
-                self.hideTabBar(true)
-            } else {
+        if state.tabBarDisplayHasChanged() {
+            if state.tabBarIsDisplayed() {
                 self.showTabBar(true)
+            } else {
+                self.hideTabBar(true)
             }
         }
         
@@ -295,70 +265,8 @@ class MainViewController: UIViewController, SYStateListener {
         
     }
     
-    // - MARK: Utils
-    
-    func addSubview(subView:UIView, toView parentView:UIView) {
-        parentView.addSubview(subView)
-        
-        subView.removeConstraints(subView.constraints)
-        
-        // subView.translatesAutoresizingMaskIntoConstraints = false
-        
-        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0))
-        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0))
-        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0))
-        parentView.addConstraint(NSLayoutConstraint.init(item: subView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: parentView, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
-        
-        parentView.layoutIfNeeded()
-    }
-    
-    func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController, inverseDirection: Bool) {
-        
-        oldViewController.willMoveToParentViewController(nil)
-        self.addChildViewController(newViewController)
-        self.containerView!.addSubview(newViewController.view)
-        
-        let directionMultiplier: Float = inverseDirection ? -1.0 : 1.0
-        
-        // Add new constraints
-        
-        // newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        var viewBindingsDict = [String: AnyObject]()
-        viewBindingsDict["subView"] = newViewController.view
-        self.containerView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|", options: [], metrics: nil, views: viewBindingsDict))
-        
-        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        let leftConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: .Left, relatedBy: .Equal, toItem: self.containerView!, attribute: .Left, multiplier: 1.0, constant: 100 * CGFloat(directionMultiplier));
-        leftConstraint.active = true
-        let widthConstraint = NSLayoutConstraint.init(item: newViewController.view, attribute: .Width, relatedBy: .Equal, toItem: self.containerView!, attribute: .Width, multiplier: 1.0, constant: 0 );
-//         100 * CGFloat(directionMultiplier)
-        widthConstraint.active = true;
-        
-        newViewController.view.alpha = 0
-        newViewController.view.layoutIfNeeded()
-        
-        UIView.animateWithDuration(0.3, animations: {
-                newViewController.view.alpha = 1
-                leftConstraint.constant = 0
-                newViewController.view.layoutIfNeeded()
-            },
-            completion: { finished in
-                if finished == false {
-                    newViewController.view.alpha = 1
-                    leftConstraint.constant = 0
-                    newViewController.view.layoutIfNeeded()
-                }
-                oldViewController.view.removeFromSuperview()
-                oldViewController.removeFromParentViewController()
-                newViewController.didMoveToParentViewController(self)
-        })
-    }
-    
-    
-    
     // - MARK: Memory warning
+    
     override func didReceiveMemoryWarning() {
         print("Memory Warning !!!!")
         var hasReleaseSomething = false

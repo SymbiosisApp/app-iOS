@@ -102,7 +102,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     
     func handleTap(gestureRecognize: UIGestureRecognizer) {
         print("Tap")
-        state.dispatchAction(SYStateActionType.SetTabBarHidden, payload: !state.tabBarIsHidden())
     }
     
     @IBAction func onPlantPan(gestureRecognize: UIPanGestureRecognizer) {

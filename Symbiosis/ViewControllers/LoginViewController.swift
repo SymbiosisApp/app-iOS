@@ -37,7 +37,7 @@ class LoginViewController: UIViewController{
             ]
             
             //POST and callaback PostResponse
-            request.postData(data, url: "http://localhost:8080/user/"){
+            request.postData(data, url: "http://symbiosis.etienne-dldc.fr/user/"){
                 (result: String) in
                  //use server response
                 self.user.setUserData(Int(result)!, pseudo: self.pseudo.text!, email: self.email.text!, mdp: self.mdp.text!)

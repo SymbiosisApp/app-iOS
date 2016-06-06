@@ -42,7 +42,6 @@ class SYPopup: UIView, SYStateListener {
     
     // MARK: Setup
     func setup() {
-        state.addListener(self)
         
         view = loadViewFromNib()
         view.frame = bounds
@@ -52,10 +51,17 @@ class SYPopup: UIView, SYStateListener {
         view.superview!.hidden = true
         
         buttonclose.addTarget(self, action:#selector(self.hideCurrentPopup), forControlEvents: .TouchUpInside)
-        //addBackgroundPopup("partage")
+        
+        
+        state.addListener(self)
     }
     
     func hideCurrentPopup() {
+        if state.getCurrentPopup() == "commencer" {
+            state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
+            state.dispatchAction(SYStateActionType.SetUserSeed, payload: "Blabla")
+        }
+        
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
    
@@ -78,7 +84,16 @@ class SYPopup: UIView, SYStateListener {
     // - MARK: Update
     
     func onStateSetup() {
-        
+        let currentPopup = state.getCurrentPopup()
+        if let popupName = currentPopup {
+            if validPopups.indexOf(popupName) != nil {
+                showPopup(popupName)
+            } else {
+                print("Invalid popup name : \(popupName)")
+            }
+        } else {
+            hidePopup()
+        }
     }
     
     func onStateUpdate() {
@@ -126,7 +141,8 @@ class SYPopup: UIView, SYStateListener {
     }
     
     func hidePopup() {
-        if let parentView = view.superview {
+        if (view.superview != nil) {
+            let parentView = view.superview!
             parentView.hidden = true
         }
     }
