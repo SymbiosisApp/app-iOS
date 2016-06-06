@@ -15,6 +15,7 @@ import Mapbox
 class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     let request = RequestData()
     
+    @IBOutlet weak var mapSuperView: UIView!
     @IBOutlet weak var suggest: UIButton!
     @IBOutlet weak var search: UIButton!
     @IBOutlet weak var localisation: UIButton!
@@ -32,14 +33,14 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         state.addListener(self)
         
         self.myMapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
-        myMapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        //myMapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         // set the map’s center coordinate and zoom level
         myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 48.853138550976446, longitude: 2.348756790161133), zoomLevel: 12, animated: false)
         
         myMapView.tintColor = .darkGrayColor()
         
-        view.addSubview(myMapView)
+        self.mapSuperView.addSubview(myMapView)
         myMapView.delegate = self
         
         //GRAINE
@@ -80,7 +81,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
                     graineOld.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
                     graineOld.title = name
                     myMapView.addStyleClass("graineOld")
-                    graineOld.subtitle = String("old")
                     myMapView.addAnnotation(graineOld)
 
                 }else{
@@ -88,7 +88,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
                     graine.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
                     graine.title = name
                     myMapView.addStyleClass("graine")
-                    graine.subtitle = String("new")
                     myMapView.addAnnotation(graine)
                 }
     
@@ -166,7 +165,21 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     
     
     //ADD INFORMATIONS FOR ONE PIN
+    @IBOutlet weak var colonie: SYColonie!
+
+    @IBAction func close(sender: AnyObject) {
+        print("close")
+    }
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        
+        //colonie.layer.zPosition = 2
+        
+        let titre:String? = annotation.title!
+        
+        if (titre != nil) {
+            colonie.addbackground(titre!)
+        }
+
         return true
     }
     

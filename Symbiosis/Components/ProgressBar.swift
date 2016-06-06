@@ -13,6 +13,12 @@ class SYProgressBar: UIView, SYStateListener {
 
     // MARK: State
     let state = SYStateManager.sharedInstance
+    var nibName: String = "ProgressBar"
+    
+    @IBOutlet weak var containerProgressBar: UIView!
+    @IBOutlet weak var liquidProgressBar: UIView!
+
+    @IBOutlet var view: UIView!
     
     // MARK: Init
     override init(frame: CGRect) {
@@ -24,11 +30,24 @@ class SYProgressBar: UIView, SYStateListener {
         super.init(coder: aDecoder)
         setup()
     }
+
     
+    // MARK: Setup
     func setup() {
         state.addListener(self)
+        view = loadViewFromNib()
+        view.frame = bounds
+        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        addSubview(view)
         
+    }
+    
+    func loadViewFromNib() -> UIView {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         
+        return view
     }
     
     

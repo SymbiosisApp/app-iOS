@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="CaslonGraphiqueEF.otf">
+            <string>CaslonGraphiqueEF</string>
+        </mutableArray>
+        <mutableArray key="Rene Bieder - Campton Light.otf">
+            <string>Campton-Light</string>
+            <string>Campton-Light</string>
+            <string>Campton-Light</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SYColonie" customModule="symbiosis_ios_app" customModuleProvider="target">
+            <connections>
+                <outlet property="closeColonie" destination="kgc-Q5-AcU" id="a30-lT-jl3"/>
+                <outlet property="colonieName" destination="IiU-oR-1nU" id="yjd-RM-Neb"/>
+                <outlet property="commentaires" destination="ScG-XT-N9O" id="oG0-TI-CjL"/>
+                <outlet property="view" destination="iN0-l3-epB" id="K9K-XS-xB4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neutreFake" translatesAutoresizingMaskIntoConstraints="NO" id="WJc-QK-p7T">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgc-Q5-AcU">
+                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                    <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Aw6-SQ-mZv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
+                    <state key="normal" title="J'AI COMPRIS">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiU-oR-1nU">
+                    <rect key="frame" x="44" y="445" width="287" height="25"/>
+                    <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="22"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLONIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dC0-OM-32Q">
+                    <rect key="frame" x="115" y="421" width="145" height="16"/>
+                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScG-XT-N9O">
+                    <rect key="frame" x="0.0" y="550" width="375" height="60"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.017884615384615384" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Ygz-t5-Ish"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
+                    <state key="normal" title="12 commentaires "/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="kgc-Q5-AcU" secondAttribute="bottom" id="1B8-jC-uIh"/>
+                <constraint firstAttribute="trailing" secondItem="kgc-Q5-AcU" secondAttribute="trailing" id="4AW-kb-6xO"/>
+                <constraint firstAttribute="trailing" secondItem="IiU-oR-1nU" secondAttribute="trailing" constant="44" id="6pJ-Dn-xT1"/>
+                <constraint firstAttribute="bottom" secondItem="WJc-QK-p7T" secondAttribute="bottom" id="AuL-vj-S6Z"/>
+                <constraint firstItem="IiU-oR-1nU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="44" id="Dji-XO-vRF"/>
+                <constraint firstItem="dC0-OM-32Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="115" id="M7e-wV-bBy"/>
+                <constraint firstItem="IiU-oR-1nU" firstAttribute="top" secondItem="dC0-OM-32Q" secondAttribute="top" constant="24" id="PRP-uL-2es"/>
+                <constraint firstItem="kgc-Q5-AcU" firstAttribute="top" secondItem="IiU-oR-1nU" secondAttribute="bottom" constant="137" id="Sgq-0v-lSz"/>
+                <constraint firstItem="ScG-XT-N9O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WSB-Es-6cI"/>
+                <constraint firstItem="ScG-XT-N9O" firstAttribute="top" secondItem="kgc-Q5-AcU" secondAttribute="top" constant="-57" id="YoR-qe-Pbj"/>
+                <constraint firstAttribute="trailing" secondItem="dC0-OM-32Q" secondAttribute="trailing" constant="115" id="cKB-eH-HR6"/>
+                <constraint firstItem="WJc-QK-p7T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cfH-FY-JsC"/>
+                <constraint firstItem="IiU-oR-1nU" firstAttribute="top" secondItem="dC0-OM-32Q" secondAttribute="bottom" constant="13" id="eiU-E0-xrz"/>
+                <constraint firstAttribute="trailing" secondItem="ScG-XT-N9O" secondAttribute="trailing" id="jie-C0-7pP"/>
+                <constraint firstItem="kgc-Q5-AcU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="stZ-uv-2iv"/>
+                <constraint firstAttribute="trailing" secondItem="WJc-QK-p7T" secondAttribute="trailing" id="ujd-Hy-p3A"/>
+                <constraint firstItem="WJc-QK-p7T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vuN-VD-qI8"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="eiU-E0-xrz"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="279.5" y="238.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="neutreFake" width="375" height="667"/>
+    </resources>
+</document>
