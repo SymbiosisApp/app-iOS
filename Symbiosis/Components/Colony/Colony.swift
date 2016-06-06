@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SYColonie: UIView {
+class SYColony: UIView {
 
     @IBOutlet var view: UIView!
     @IBOutlet weak var colonieName: UILabel!

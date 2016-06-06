@@ -165,7 +165,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     
     
     //ADD INFORMATIONS FOR ONE PIN
-    @IBOutlet weak var colonie: SYColonie!
+    @IBOutlet weak var colonie: SYColony!
 
     @IBAction func close(sender: AnyObject) {
         print("close")
