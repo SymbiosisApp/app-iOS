@@ -12,18 +12,6 @@
 		18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F1B1D04C752008EAC4A /* SYLocationManager.swift */; };
 		18180F1F1D04C752008EAC4A /* SYPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F1C1D04C752008EAC4A /* SYPedometer.swift */; };
 		18180F201D04C752008EAC4A /* SYSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F1D1D04C752008EAC4A /* SYSocket.swift */; };
-		18180F2F1D04C75A008EAC4A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F221D04C75A008EAC4A /* ChatViewController.swift */; };
-		18180F301D04C75A008EAC4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F231D04C75A008EAC4A /* LoginViewController.swift */; };
-		18180F311D04C75A008EAC4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F241D04C75A008EAC4A /* MainViewController.swift */; };
-		18180F321D04C75A008EAC4A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F251D04C75A008EAC4A /* MapViewController.swift */; };
-		18180F331D04C75A008EAC4A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F261D04C75A008EAC4A /* OnboardingViewController.swift */; };
-		18180F341D04C75A008EAC4A /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F281D04C75A008EAC4A /* FruitViewController.swift */; };
-		18180F351D04C75A008EAC4A /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F291D04C75A008EAC4A /* GraineViewController.swift */; };
-		18180F361D04C75A008EAC4A /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2A1D04C75A008EAC4A /* IntroViewController.swift */; };
-		18180F371D04C75A008EAC4A /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2B1D04C75A008EAC4A /* PollenViewController.swift */; };
-		18180F381D04C75A008EAC4A /* PlantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2C1D04C75A008EAC4A /* PlantSceneViewController.swift */; };
-		18180F391D04C75A008EAC4A /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2D1D04C75A008EAC4A /* ProfilViewController.swift */; };
-		18180F3A1D04C75A008EAC4A /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F2E1D04C75A008EAC4A /* SuggestionViewController.swift */; };
 		183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AB1CFA078D0086D011 /* SYPath.swift */; };
 		183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183FF6AC1CFA078D0086D011 /* Utils.swift */; };
 		183FF6B31CFC75970086D011 /* symbiosis.json in Resources */ = {isa = PBXBuildFile; fileRef = 183FF6B21CFC75970086D011 /* symbiosis.json */; };
@@ -49,6 +37,19 @@
 		186487F11D05D43600D3B199 /* ProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487E71D05D43600D3B199 /* ProgressBar.xib */; };
 		186487F21D05D43600D3B199 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487E91D05D43600D3B199 /* TabBar.swift */; };
 		186487F31D05D43600D3B199 /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487EA1D05D43600D3B199 /* TabBar.xib */; };
+		186B08D11D05D8D3002C1A9F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08C31D05D8D3002C1A9F /* ChatViewController.swift */; };
+		186B08D21D05D8D3002C1A9F /* ColonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08C41D05D8D3002C1A9F /* ColonyViewController.swift */; };
+		186B08D31D05D8D3002C1A9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08C51D05D8D3002C1A9F /* LoginViewController.swift */; };
+		186B08D41D05D8D3002C1A9F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08C61D05D8D3002C1A9F /* MainViewController.swift */; };
+		186B08D51D05D8D3002C1A9F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08C71D05D8D3002C1A9F /* MapViewController.swift */; };
+		186B08D61D05D8D3002C1A9F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08C81D05D8D3002C1A9F /* OnboardingViewController.swift */; };
+		186B08D71D05D8D3002C1A9F /* FruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CA1D05D8D3002C1A9F /* FruitViewController.swift */; };
+		186B08D81D05D8D3002C1A9F /* GraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CB1D05D8D3002C1A9F /* GraineViewController.swift */; };
+		186B08D91D05D8D3002C1A9F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CC1D05D8D3002C1A9F /* IntroViewController.swift */; };
+		186B08DA1D05D8D3002C1A9F /* PollenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CD1D05D8D3002C1A9F /* PollenViewController.swift */; };
+		186B08DB1D05D8D3002C1A9F /* PlantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CE1D05D8D3002C1A9F /* PlantSceneViewController.swift */; };
+		186B08DC1D05D8D3002C1A9F /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CF1D05D8D3002C1A9F /* ProfilViewController.swift */; };
+		186B08DD1D05D8D3002C1A9F /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08D01D05D8D3002C1A9F /* SuggestionViewController.swift */; };
 		1878261D1D04454800D93485 /* bienvenue-00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825B91D04454800D93485 /* bienvenue-00001.png */; };
 		1878261E1D04454800D93485 /* bienvenue-00002.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BA1D04454800D93485 /* bienvenue-00002.png */; };
 		1878261F1D04454800D93485 /* bienvenue-00003.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BB1D04454800D93485 /* bienvenue-00003.png */; };
@@ -177,7 +178,6 @@
 		666301991CFC38EA001E991F /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301981CFC38EA001E991F /* UserSingleton.swift */; };
 		666301A71CFC4232001E991F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301A61CFC4232001E991F /* Login.storyboard */; };
 		66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C001D04809E00AAFB8A /* SwiftGif.swift */; };
-		66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C191D0503D800AAFB8A /* ColonyViewController.swift */; };
 		666718A11D05BFC200AAFB8A /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718991D05BFC200AAFB8A /* bienvenue.gif */; };
 		666718A21D05BFC200AAFB8A /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189A1D05BFC200AAFB8A /* carte.gif */; };
 		666718A31D05BFC200AAFB8A /* fruitToGraine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */; };
@@ -230,18 +230,6 @@
 		18180F1B1D04C752008EAC4A /* SYLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYLocationManager.swift; sourceTree = "<group>"; };
 		18180F1C1D04C752008EAC4A /* SYPedometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPedometer.swift; sourceTree = "<group>"; };
 		18180F1D1D04C752008EAC4A /* SYSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYSocket.swift; sourceTree = "<group>"; };
-		18180F221D04C75A008EAC4A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		18180F231D04C75A008EAC4A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		18180F241D04C75A008EAC4A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		18180F251D04C75A008EAC4A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		18180F261D04C75A008EAC4A /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		18180F281D04C75A008EAC4A /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
-		18180F291D04C75A008EAC4A /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
-		18180F2A1D04C75A008EAC4A /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
-		18180F2B1D04C75A008EAC4A /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
-		18180F2C1D04C75A008EAC4A /* PlantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSceneViewController.swift; sourceTree = "<group>"; };
-		18180F2D1D04C75A008EAC4A /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
-		18180F2E1D04C75A008EAC4A /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		183FF6AB1CFA078D0086D011 /* SYPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYPath.swift; sourceTree = "<group>"; };
 		183FF6AC1CFA078D0086D011 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		183FF6B21CFC75970086D011 /* symbiosis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbiosis.json; sourceTree = "<group>"; };
@@ -266,6 +254,19 @@
 		186487E71D05D43600D3B199 /* ProgressBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBar.xib; sourceTree = "<group>"; };
 		186487E91D05D43600D3B199 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		186487EA1D05D43600D3B199 /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
+		186B08C31D05D8D3002C1A9F /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		186B08C41D05D8D3002C1A9F /* ColonyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColonyViewController.swift; sourceTree = "<group>"; };
+		186B08C51D05D8D3002C1A9F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		186B08C61D05D8D3002C1A9F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		186B08C71D05D8D3002C1A9F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		186B08C81D05D8D3002C1A9F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		186B08CA1D05D8D3002C1A9F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
+		186B08CB1D05D8D3002C1A9F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
+		186B08CC1D05D8D3002C1A9F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		186B08CD1D05D8D3002C1A9F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
+		186B08CE1D05D8D3002C1A9F /* PlantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSceneViewController.swift; sourceTree = "<group>"; };
+		186B08CF1D05D8D3002C1A9F /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		186B08D01D05D8D3002C1A9F /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		187825B91D04454800D93485 /* bienvenue-00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00001.png"; sourceTree = "<group>"; };
 		187825BA1D04454800D93485 /* bienvenue-00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00002.png"; sourceTree = "<group>"; };
 		187825BB1D04454800D93485 /* bienvenue-00003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00003.png"; sourceTree = "<group>"; };
@@ -396,7 +397,6 @@
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
 		66670C001D04809E00AAFB8A /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
-		66670C191D0503D800AAFB8A /* ColonyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColonyViewController.swift; path = OnboardingViewControllers/ColonyViewController.swift; sourceTree = "<group>"; };
 		666718991D05BFC200AAFB8A /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		6667189A1D05BFC200AAFB8A /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
 		6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fruitToGraine.gif; sourceTree = "<group>"; };
@@ -470,34 +470,6 @@
 				18180F1D1D04C752008EAC4A /* SYSocket.swift */,
 			);
 			path = StateTools;
-			sourceTree = "<group>";
-		};
-		18180F211D04C75A008EAC4A /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				18180F271D04C75A008EAC4A /* OnboardingViewControllers */,
-				18180F221D04C75A008EAC4A /* ChatViewController.swift */,
-				66670C191D0503D800AAFB8A /* ColonyViewController.swift */,
-				18180F231D04C75A008EAC4A /* LoginViewController.swift */,
-				18180F241D04C75A008EAC4A /* MainViewController.swift */,
-				18180F251D04C75A008EAC4A /* MapViewController.swift */,
-				18180F261D04C75A008EAC4A /* OnboardingViewController.swift */,
-				18180F2C1D04C75A008EAC4A /* PlantSceneViewController.swift */,
-				18180F2D1D04C75A008EAC4A /* ProfilViewController.swift */,
-				18180F2E1D04C75A008EAC4A /* SuggestionViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		18180F271D04C75A008EAC4A /* OnboardingViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				18180F281D04C75A008EAC4A /* FruitViewController.swift */,
-				18180F291D04C75A008EAC4A /* GraineViewController.swift */,
-				18180F2A1D04C75A008EAC4A /* IntroViewController.swift */,
-				18180F2B1D04C75A008EAC4A /* PollenViewController.swift */,
-			);
-			path = OnboardingViewControllers;
 			sourceTree = "<group>";
 		};
 		183FF6AA1CFA078D0086D011 /* Utils */ = {
@@ -595,6 +567,34 @@
 				186487EA1D05D43600D3B199 /* TabBar.xib */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		186B08C21D05D8D3002C1A9F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				186B08C91D05D8D3002C1A9F /* OnboardingViewControllers */,
+				186B08C31D05D8D3002C1A9F /* ChatViewController.swift */,
+				186B08C41D05D8D3002C1A9F /* ColonyViewController.swift */,
+				186B08C51D05D8D3002C1A9F /* LoginViewController.swift */,
+				186B08C61D05D8D3002C1A9F /* MainViewController.swift */,
+				186B08C71D05D8D3002C1A9F /* MapViewController.swift */,
+				186B08C81D05D8D3002C1A9F /* OnboardingViewController.swift */,
+				186B08CE1D05D8D3002C1A9F /* PlantSceneViewController.swift */,
+				186B08CF1D05D8D3002C1A9F /* ProfilViewController.swift */,
+				186B08D01D05D8D3002C1A9F /* SuggestionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		186B08C91D05D8D3002C1A9F /* OnboardingViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				186B08CA1D05D8D3002C1A9F /* FruitViewController.swift */,
+				186B08CB1D05D8D3002C1A9F /* GraineViewController.swift */,
+				186B08CC1D05D8D3002C1A9F /* IntroViewController.swift */,
+				186B08CD1D05D8D3002C1A9F /* PollenViewController.swift */,
+			);
+			path = OnboardingViewControllers;
 			sourceTree = "<group>";
 		};
 		187825B71D04454800D93485 /* ImagesSequences */ = {
@@ -771,9 +771,9 @@
 				666301981CFC38EA001E991F /* UserSingleton.swift */,
 				66670C001D04809E00AAFB8A /* SwiftGif.swift */,
 				18180F1A1D04C752008EAC4A /* StateTools */,
-				18180F211D04C75A008EAC4A /* ViewControllers */,
 				183FF6AA1CFA078D0086D011 /* Utils */,
 				1814CB391CEE53DE004D7540 /* Assets */,
+				186B08C21D05D8D3002C1A9F /* ViewControllers */,
 				1814CB331CEE0B02004D7540 /* Touchpose */,
 				1848F0111CF6446D000C45D6 /* Plant3D */,
 				186487DC1D05D43600D3B199 /* Components */,
@@ -1132,49 +1132,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186B08DC1D05D8D3002C1A9F /* ProfilViewController.swift in Sources */,
 				186487EF1D05D43600D3B199 /* Popup.swift in Sources */,
 				18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */,
-				18180F341D04C75A008EAC4A /* FruitViewController.swift in Sources */,
 				183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */,
+				186B08DA1D05D8D3002C1A9F /* PollenViewController.swift in Sources */,
+				186B08D21D05D8D3002C1A9F /* ColonyViewController.swift in Sources */,
 				18F136571CF7CC270021CBF5 /* SYGeomTige.swift in Sources */,
-				18180F361D04C75A008EAC4A /* IntroViewController.swift in Sources */,
-				18180F331D04C75A008EAC4A /* OnboardingViewController.swift in Sources */,
 				18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */,
 				1848F01C1CF6446D000C45D6 /* SYElement.swift in Sources */,
 				18F136541CF7CC270021CBF5 /* SYGeomBranch.swift in Sources */,
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
+				186B08D81D05D8D3002C1A9F /* GraineViewController.swift in Sources */,
 				183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */,
 				186487ED1D05D43600D3B199 /* ImagePopup.swift in Sources */,
 				18180F1F1D04C752008EAC4A /* SYPedometer.swift in Sources */,
 				1848F0221CF6446D000C45D6 /* SYBezierManager.swift in Sources */,
 				18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */,
-				18180F381D04C75A008EAC4A /* PlantSceneViewController.swift in Sources */,
-				18180F391D04C75A008EAC4A /* ProfilViewController.swift in Sources */,
+				186B08D91D05D8D3002C1A9F /* IntroViewController.swift in Sources */,
+				186B08D41D05D8D3002C1A9F /* MainViewController.swift in Sources */,
 				18F136551CF7CC270021CBF5 /* SYGeomEmpty.swift in Sources */,
 				186487F21D05D43600D3B199 /* TabBar.swift in Sources */,
-				18180F301D04C75A008EAC4A /* LoginViewController.swift in Sources */,
 				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
-				18180F371D04C75A008EAC4A /* PollenViewController.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
-				18180F351D04C75A008EAC4A /* GraineViewController.swift in Sources */,
 				18180F201D04C752008EAC4A /* SYSocket.swift in Sources */,
-				18180F3A1D04C75A008EAC4A /* SuggestionViewController.swift in Sources */,
+				186B08D11D05D8D3002C1A9F /* ChatViewController.swift in Sources */,
 				186487F01D05D43600D3B199 /* ProgressBar.swift in Sources */,
 				18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */,
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
+				186B08D71D05D8D3002C1A9F /* FruitViewController.swift in Sources */,
 				186487EB1D05D43600D3B199 /* Colony.swift in Sources */,
-				18180F321D04C75A008EAC4A /* MapViewController.swift in Sources */,
-				66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
-				18180F311D04C75A008EAC4A /* MainViewController.swift in Sources */,
+				186B08DD1D05D8D3002C1A9F /* SuggestionViewController.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
 				66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,
+				186B08D61D05D8D3002C1A9F /* OnboardingViewController.swift in Sources */,
+				186B08D51D05D8D3002C1A9F /* MapViewController.swift in Sources */,
+				186B08D31D05D8D3002C1A9F /* LoginViewController.swift in Sources */,
 				183FF6B71CFDE0630086D011 /* SYRandomManager.swift in Sources */,
+				186B08DB1D05D8D3002C1A9F /* PlantSceneViewController.swift in Sources */,
 				183FF6B91CFF18640086D011 /* SYDataLoader.swift in Sources */,
-				18180F2F1D04C75A008EAC4A /* ChatViewController.swift in Sources */,
 				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

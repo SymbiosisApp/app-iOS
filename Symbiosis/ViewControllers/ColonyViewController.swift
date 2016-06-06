@@ -24,6 +24,8 @@ class ColonyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        print("Colony !!")
 
         let usersData = request.getData("http://symbiosis.etienne-dldc.fr/users/id=5&param=all")
         let colonyData = request.getData("http://symbiosis.etienne-dldc.fr/graines/id=5")
@@ -79,7 +81,7 @@ class ColonyViewController: UIViewController {
                             }
                         }
                     }
-                    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width*0.90, self.scrollView.frame.height)
+                    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width*0.60, self.scrollView.frame.height)
                 }
             }
             

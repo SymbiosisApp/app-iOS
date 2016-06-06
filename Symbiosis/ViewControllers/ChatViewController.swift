@@ -14,8 +14,16 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        print("Chat")
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("presque appear")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("Appear !")
     }
 
     override func didReceiveMemoryWarning() {
