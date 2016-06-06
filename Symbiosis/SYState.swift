@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 struct SYState {
-    var tab: Int = 3
+    var tab: Int = 2
     var steps: Int = 0
     var plantStatus: SYStatePlantStatus = .NotGenerated
     var plantProgress: Float = 0
@@ -302,7 +302,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         if currentState.displayedOnboarding != nil {
             return nil
         } else {
-            return "Graine"
+            return "Intro"
         }
     }
     

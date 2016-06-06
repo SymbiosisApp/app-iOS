@@ -15,6 +15,13 @@ class PollenViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    func loadGif(name: String){
+        let chatGif = UIImage.gifWithName(name)
+        let imageView = UIImageView(image: chatGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
+        view.addSubview(imageView)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -31,10 +38,13 @@ class DisseminationViewController: PollenViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "courses")
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 2
         pageControl.currentPage = 0
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.loadGif("courses")
+        })
     }
 
 }
@@ -49,7 +59,10 @@ class RecolteViewController: PollenViewController{
         
         self.button.layer.zPosition = 2
         self.image.layer.zPosition = 1
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "pollenToFruit")
+
+        dispatch_async(dispatch_get_main_queue(), {
+            self.loadGif("pollenToFruit")
+        })
     }
 
 }

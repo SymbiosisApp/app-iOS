@@ -176,7 +176,6 @@
 		66670C161D04D84000AAFB8A /* Colonie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C151D04D84000AAFB8A /* Colonie.swift */; };
 		66670C181D04D84C00AAFB8A /* Colonie.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66670C171D04D84C00AAFB8A /* Colonie.xib */; };
 		66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C191D0503D800AAFB8A /* ColonyViewController.swift */; };
-		666718A11D05BFC200AAFB8A /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718991D05BFC200AAFB8A /* bienvenue.gif */; };
 		666718A21D05BFC200AAFB8A /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189A1D05BFC200AAFB8A /* carte.gif */; };
 		666718A31D05BFC200AAFB8A /* fruitToGraine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */; };
 		666718A41D05BFC200AAFB8A /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189C1D05BFC200AAFB8A /* pollenToFruit.gif */; };
@@ -184,6 +183,7 @@
 		666718A61D05BFC200AAFB8A /* marche.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189E1D05BFC200AAFB8A /* marche.gif */; };
 		666718A71D05BFC200AAFB8A /* graineToPousse.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6667189F1D05BFC200AAFB8A /* graineToPousse.gif */; };
 		666718A81D05BFC200AAFB8A /* chat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718A01D05BFC200AAFB8A /* chat.gif */; };
+		666718AA1D05C84C00AAFB8A /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666718A91D05C84C00AAFB8A /* bienvenue.gif */; };
 		66E3C7E11D02F7A300E0ED08 /* ProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E3C7E01D02F7A300E0ED08 /* ProgressBar.xib */; };
 		66E3C7F91D02F9CD00E0ED08 /* CaslonGraphiqueEF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66E3C7E61D02F9CD00E0ED08 /* CaslonGraphiqueEF.otf */; };
 		66E3C7FA1D02F9CD00E0ED08 /* Rene Bieder - Campton Black Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66E3C7E71D02F9CD00E0ED08 /* Rene Bieder - Campton Black Italic.otf */; };
@@ -394,7 +394,6 @@
 		66670C151D04D84000AAFB8A /* Colonie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colonie.swift; sourceTree = "<group>"; };
 		66670C171D04D84C00AAFB8A /* Colonie.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Colonie.xib; sourceTree = "<group>"; };
 		66670C191D0503D800AAFB8A /* ColonyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColonyViewController.swift; path = OnboardingViewControllers/ColonyViewController.swift; sourceTree = "<group>"; };
-		666718991D05BFC200AAFB8A /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		6667189A1D05BFC200AAFB8A /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
 		6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fruitToGraine.gif; sourceTree = "<group>"; };
 		6667189C1D05BFC200AAFB8A /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
@@ -402,6 +401,7 @@
 		6667189E1D05BFC200AAFB8A /* marche.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marche.gif; sourceTree = "<group>"; };
 		6667189F1D05BFC200AAFB8A /* graineToPousse.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = graineToPousse.gif; sourceTree = "<group>"; };
 		666718A01D05BFC200AAFB8A /* chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chat.gif; sourceTree = "<group>"; };
+		666718A91D05C84C00AAFB8A /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		66E3C7E01D02F7A300E0ED08 /* ProgressBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBar.xib; sourceTree = "<group>"; };
 		66E3C7E61D02F9CD00E0ED08 /* CaslonGraphiqueEF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaslonGraphiqueEF.otf; sourceTree = "<group>"; };
 		66E3C7E71D02F9CD00E0ED08 /* Rene Bieder - Campton Black Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rene Bieder - Campton Black Italic.otf"; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 		183FF6BA1CFF187E0086D011 /* gif */ = {
 			isa = PBXGroup;
 			children = (
-				666718991D05BFC200AAFB8A /* bienvenue.gif */,
+				666718A91D05C84C00AAFB8A /* bienvenue.gif */,
 				6667189A1D05BFC200AAFB8A /* carte.gif */,
 				6667189B1D05BFC200AAFB8A /* fruitToGraine.gif */,
 				6667189C1D05BFC200AAFB8A /* pollenToFruit.gif */,
@@ -965,6 +965,7 @@
 				187826321D04454800D93485 /* bienvenue-00022.png in Resources */,
 				666718A71D05BFC200AAFB8A /* graineToPousse.gif in Resources */,
 				187826751D04454800D93485 /* bienvenue-00089.png in Resources */,
+				666718AA1D05C84C00AAFB8A /* bienvenue.gif in Resources */,
 				187826451D04454800D93485 /* bienvenue-00041.png in Resources */,
 				1878262A1D04454800D93485 /* bienvenue-00014.png in Resources */,
 				1878267A1D04454800D93485 /* bienvenue-00094.png in Resources */,
@@ -1000,7 +1001,6 @@
 				666718A81D05BFC200AAFB8A /* chat.gif in Resources */,
 				66E3C80B1D02F9CD00E0ED08 /* Rene Bieder - Campton Thin.otf in Resources */,
 				1878262C1D04454800D93485 /* bienvenue-00016.png in Resources */,
-				666718A11D05BFC200AAFB8A /* bienvenue.gif in Resources */,
 				18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */,
 				187826621D04454800D93485 /* bienvenue-00070.png in Resources */,
 				66670C181D04D84C00AAFB8A /* Colonie.xib in Resources */,

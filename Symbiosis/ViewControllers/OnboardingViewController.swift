@@ -30,6 +30,8 @@ class OnboardingViewController : UIPageViewController {
             result += [UIStoryboard(name:"Onboarding", bundle: nil).instantiateViewControllerWithIdentifier(String(value))]
         }
         
+        result = result.reverse()
+        
         return result
     }()
     

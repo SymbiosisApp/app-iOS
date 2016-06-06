@@ -32,9 +32,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3c-Tt-Ftw">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.59607843137254901" green="0.75686274509803919" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="tQw-d7-fpi"/>
-                                </constraints>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -46,13 +43,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bOB-kl-Kny" secondAttribute="trailing" constant="-20" id="8kY-Oh-5Mk"/>
-                            <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="g3c-Tt-Ftw" secondAttribute="bottom" id="GRE-VB-KEX"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="top" secondItem="CMN-XX-v5R" secondAttribute="bottom" constant="520" id="8nO-lX-DPN"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="trailing" secondItem="bOB-kl-Kny" secondAttribute="trailing" id="9ep-9c-yC8"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="bOB-kl-Kny" secondAttribute="leading" id="DAh-7o-sKn"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leading" id="G6n-oL-2zh"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leading" id="YBu-7g-TMb"/>
                             <constraint firstItem="bOB-kl-Kny" firstAttribute="top" secondItem="8qh-aX-Ye0" secondAttribute="topMargin" id="YxB-0d-beT"/>
-                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" constant="-20" id="d8E-A5-zie"/>
-                            <constraint firstItem="bOB-kl-Kny" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" constant="-20" id="g2R-Sc-Qqw"/>
+                            <constraint firstItem="bOB-kl-Kny" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leadingMargin" id="g2R-Sc-Qqw"/>
                             <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="bOB-kl-Kny" secondAttribute="bottom" id="jg8-ev-hvT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="g3c-Tt-Ftw" secondAttribute="trailing" constant="-20" id="tbU-T3-Dfo"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="bottom" secondItem="tU3-0l-CgR" secondAttribute="top" id="n0X-ch-5MQ"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="bOB-kl-Kny" secondAttribute="leading" id="rIx-R6-pMe"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="g2R-Sc-Qqw"/>
+                                <exclude reference="G6n-oL-2zh"/>
+                                <exclude reference="rIx-R6-pMe"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="button" destination="g3c-Tt-Ftw" id="zii-YX-NvB"/>
@@ -79,7 +87,7 @@
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bienvenue" translatesAutoresizingMaskIntoConstraints="NO" id="OIG-gy-T4D">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-Nb-FiE">
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-Nb-FiE">
                                 <rect key="frame" x="0.0" y="543" width="600" height="37"/>
                             </pageControl>
                         </subviews>
@@ -259,9 +267,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJF-8e-nfU">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="PyI-ND-6aE"/>
-                                </constraints>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -272,14 +277,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="gJF-8e-nfU" secondAttribute="trailing" constant="-20" id="93n-uD-Z6Z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RD8-Cf-OfG" secondAttribute="trailing" constant="-20" id="Ftt-j7-hCf"/>
-                            <constraint firstItem="RD8-Cf-OfG" firstAttribute="top" secondItem="wxe-4V-vEI" secondAttribute="topMargin" id="LSK-Xu-i3n"/>
-                            <constraint firstItem="RD8-Cf-OfG" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leadingMargin" constant="-20" id="M5c-f7-0mu"/>
-                            <constraint firstItem="KvD-dm-FHt" firstAttribute="top" secondItem="gJF-8e-nfU" secondAttribute="bottom" id="T6W-dc-fT1"/>
-                            <constraint firstItem="KvD-dm-FHt" firstAttribute="top" secondItem="RD8-Cf-OfG" secondAttribute="bottom" id="URh-Fd-pAq"/>
-                            <constraint firstItem="gJF-8e-nfU" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leadingMargin" constant="-20" id="eB8-bQ-nN9"/>
+                            <constraint firstItem="gJF-8e-nfU" firstAttribute="bottom" secondItem="KvD-dm-FHt" secondAttribute="top" id="167-U9-ppX"/>
+                            <constraint firstItem="RD8-Cf-OfG" firstAttribute="leading" secondItem="gJF-8e-nfU" secondAttribute="leading" id="4nY-GO-Tyl"/>
+                            <constraint firstItem="gJF-8e-nfU" firstAttribute="trailing" secondItem="RD8-Cf-OfG" secondAttribute="trailing" id="ECY-hv-WdQ"/>
+                            <constraint firstItem="RD8-Cf-OfG" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leading" id="Q8B-qz-bIS"/>
+                            <constraint firstItem="gJF-8e-nfU" firstAttribute="top" secondItem="4tg-ob-bjM" secondAttribute="bottom" constant="520" id="RXl-dE-n9U"/>
+                            <constraint firstItem="gJF-8e-nfU" firstAttribute="leading" secondItem="RD8-Cf-OfG" secondAttribute="leading" id="Ru3-A4-9Li"/>
+                            <constraint firstItem="gJF-8e-nfU" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leading" id="XAn-lv-Hud"/>
+                            <constraint firstItem="RD8-Cf-OfG" firstAttribute="top" secondItem="wxe-4V-vEI" secondAttribute="top" id="Z7V-Ni-3t7"/>
+                            <constraint firstItem="gJF-8e-nfU" firstAttribute="leading" secondItem="wxe-4V-vEI" secondAttribute="leadingMargin" id="eB8-bQ-nN9"/>
+                            <constraint firstItem="RD8-Cf-OfG" firstAttribute="bottom" secondItem="KvD-dm-FHt" secondAttribute="top" id="hGV-an-7ua"/>
+                            <constraint firstAttribute="trailing" secondItem="gJF-8e-nfU" secondAttribute="trailing" id="m70-Ek-Tgc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4nY-GO-Tyl"/>
+                                <exclude reference="Q8B-qz-bIS"/>
+                                <exclude reference="eB8-bQ-nN9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="button" destination="gJF-8e-nfU" id="okR-gK-gMf"/>
@@ -309,9 +325,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9y-cn-zVv">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="glW-sh-x8a"/>
-                                </constraints>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -321,14 +334,25 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="9Se-tZ-fXH" firstAttribute="top" secondItem="oTt-dy-eWA" secondAttribute="bottom" id="22o-Wo-wDJ"/>
-                            <constraint firstItem="oTt-dy-eWA" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leadingMargin" constant="-20" id="2wu-Cu-81j"/>
-                            <constraint firstItem="9Se-tZ-fXH" firstAttribute="top" secondItem="u9y-cn-zVv" secondAttribute="bottom" id="8DK-p8-8P5"/>
-                            <constraint firstItem="u9y-cn-zVv" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leadingMargin" constant="-20" id="Ql7-fF-iUS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oTt-dy-eWA" secondAttribute="trailing" constant="-20" id="uIX-xF-0zx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="u9y-cn-zVv" secondAttribute="trailing" constant="-20" id="ve0-8S-5BN"/>
-                            <constraint firstItem="oTt-dy-eWA" firstAttribute="top" secondItem="7MG-Yn-FWR" secondAttribute="topMargin" id="yit-39-ASv"/>
+                            <constraint firstItem="oTt-dy-eWA" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leadingMargin" id="2wu-Cu-81j"/>
+                            <constraint firstItem="u9y-cn-zVv" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leading" id="N1I-Wq-XzN"/>
+                            <constraint firstItem="u9y-cn-zVv" firstAttribute="bottom" secondItem="9Se-tZ-fXH" secondAttribute="top" id="NiS-X4-A8Z"/>
+                            <constraint firstItem="oTt-dy-eWA" firstAttribute="bottom" secondItem="9Se-tZ-fXH" secondAttribute="top" id="TZt-Dm-wTi"/>
+                            <constraint firstItem="oTt-dy-eWA" firstAttribute="leading" secondItem="u9y-cn-zVv" secondAttribute="leading" id="UOB-vq-3YI"/>
+                            <constraint firstItem="u9y-cn-zVv" firstAttribute="leading" secondItem="oTt-dy-eWA" secondAttribute="leading" id="fVn-MI-YCz"/>
+                            <constraint firstItem="oTt-dy-eWA" firstAttribute="trailing" secondItem="u9y-cn-zVv" secondAttribute="trailing" id="gyZ-Lo-6V0"/>
+                            <constraint firstItem="oTt-dy-eWA" firstAttribute="top" secondItem="7MG-Yn-FWR" secondAttribute="top" id="nae-v5-nGr"/>
+                            <constraint firstItem="oTt-dy-eWA" firstAttribute="leading" secondItem="7MG-Yn-FWR" secondAttribute="leading" id="nlp-hw-Y60"/>
+                            <constraint firstItem="u9y-cn-zVv" firstAttribute="top" secondItem="IMa-vR-7Ff" secondAttribute="bottom" constant="520" id="sbN-Vw-xJe"/>
+                            <constraint firstAttribute="trailing" secondItem="oTt-dy-eWA" secondAttribute="trailing" id="x6l-uP-LEV"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2wu-Cu-81j"/>
+                                <exclude reference="N1I-Wq-XzN"/>
+                                <exclude reference="fVn-MI-YCz"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="button" destination="u9y-cn-zVv" id="4XW-Dq-De6"/>
