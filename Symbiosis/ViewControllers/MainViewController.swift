@@ -244,15 +244,17 @@ class MainViewController: UIViewController, SYStateListener {
         // Animate
         let animatedViewCtrl = currentViewCtrl
         let viewCtrlToRemove = mountedViewCtrl
-        // animatedViewCtrl.view.alpha = 0
+        if animated == false {
+            animatedViewCtrl.view.alpha = 0
+        }
         containerView.layoutIfNeeded()
         UIView.animateWithDuration(0.3, animations: {
-            // animatedViewCtrl.view.alpha = 1
+            animatedViewCtrl.view.alpha = 1
             constLeft.constant = 0
             animatedViewCtrl.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished == false {
-                    // animatedViewCtrl.view.alpha = 1
+                    animatedViewCtrl.view.alpha = 1
                     constLeft.constant = 0
                     animatedViewCtrl.view.layoutIfNeeded()
                 }
