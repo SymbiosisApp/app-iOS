@@ -26,7 +26,6 @@ class GraineViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var imageAnimTest: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +36,7 @@ class GraineViewController: GrainesViewController{
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
         
-        let graineGif = UIImage.gifWithName("graineReduce")
+        let graineGif = UIImage.gifWithName("graineToPousse")
         let imageView = UIImageView(image: graineGif)
         imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
         view.addSubview(imageView)
@@ -50,7 +49,6 @@ class CommentaireViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var imageAnimTest: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +59,7 @@ class CommentaireViewController: GrainesViewController{
         pageControl.numberOfPages = 3
         pageControl.currentPage = 1
         
-        let chatGif = UIImage.gifWithName("graineReduce")
+        let chatGif = UIImage.gifWithName("chat")
         let imageView = UIImageView(image: chatGif)
         imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
         view.addSubview(imageView)
@@ -74,7 +72,7 @@ class DeplacementViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var imageAnimTest: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +80,7 @@ class DeplacementViewController: GrainesViewController{
         self.button.layer.zPosition = 2
         self.image.layer.zPosition = 1
         
-        let marcheGif = UIImage.gifWithName("graineReduce")
+        let marcheGif = UIImage.gifWithName("marche")
         let imageView = UIImageView(image: marcheGif)
         imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height/1.6)
         view.addSubview(imageView)

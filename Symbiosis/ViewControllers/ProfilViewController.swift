@@ -11,48 +11,11 @@ import UIKit
 
 class ProfilViewController: UIViewController {
     
-    @IBOutlet weak var imageAnimTest: UIImageView!
-    @IBOutlet weak var imageAnimTest2: UIImageView!
-    
     @IBOutlet weak var counterSteps: UILabel!
     @IBOutlet weak var stepsKm: UILabel!
+    @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
-        
-//        self.imageAnimTest.contentMode = UIViewContentMode.ScaleToFill
-//        self.imageAnimTest.clipsToBounds = true
-//        self.imageAnimTest.center = self.view.center
-//        
-//        let numberOfImages: Int = 50
-//        var images = [UIImage]()
-//        for i in 1...numberOfImages {
-//            //print("Load image \(i)")
-//            let imgName = String(format: "bienvenue-%05d.png", i)
-//            //let img = UIImage(named: "bienvenue-\(i)")!
-//            let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
-//            images.append(img!)
-//        }
-//        self.imageAnimTest.animationImages = images
-//        self.imageAnimTest.animationDuration = Double(numberOfImages) * (1/15)
-//        self.imageAnimTest.startAnimating()
-        
-        
-//        self.imageAnimTest2.contentMode = UIViewContentMode.ScaleToFill
-//        self.imageAnimTest2.clipsToBounds = true
-//        self.imageAnimTest2.center = self.view.center
-//        
-//        var images2 = [UIImage]()
-//        for i in 1...numberOfImages {
-//            print("Load image \(i)")
-//            let imgName = String(format: "bienvenue-%05d.png", i)
-//            //let img = UIImage(named: "bienvenue-\(i)")!
-//            let img = UIImage(data: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource(imgName, ofType: nil)!)!)
-//            images2.append(img!)
-//        }
-//        self.imageAnimTest2.animationImages = images2
-//        self.imageAnimTest2.animationDuration = Double(numberOfImages) * (1/15)
-//        self.imageAnimTest2.startAnimating()
-        
         
         //Foreach STEPS titre+date
         let background = Background()
@@ -73,6 +36,8 @@ class ProfilViewController: UIViewController {
         date.font = UIFont(name: "Campton", size: 15.0)
         self.view.addSubview(date)
         
+        button.backgroundColor = background.hexStringToUIColor("#77B4F7")
+       
     }
     
 }

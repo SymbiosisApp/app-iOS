@@ -24,13 +24,17 @@ class IntroViewController: UIViewController {
 class BienvenueViewController: IntroViewController{
     
     @IBOutlet weak var pageControl: UIPageControl!
-
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var image: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "bienvenue")
-        webView.layer.zPosition = -1
+        let chatGif = UIImage.gifWithName("bienvenue")
+        let imageView = UIImageView(image: chatGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height)
+        view.addSubview(imageView)
+        
+        self.image.layer.zPosition = 1
         pageControl.layer.zPosition = 2
         pageControl.numberOfPages = 2
         pageControl.currentPage = 0
@@ -40,13 +44,17 @@ class BienvenueViewController: IntroViewController{
 class StartViewController: IntroViewController{
     
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var image: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        background.addGifBackground(self.view, gifView: self.webView, gifSource: "bienvenue")
-        webView.layer.zPosition = -1
+        let chatGif = UIImage.gifWithName("bienvenue")
+        let imageView = UIImageView(image: chatGif)
+        imageView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height)
+        view.addSubview(imageView)
+        
+        self.image.layer.zPosition = 1
         button.layer.zPosition = 2
     }
 }

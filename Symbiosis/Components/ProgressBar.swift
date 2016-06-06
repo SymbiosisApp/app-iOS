@@ -40,6 +40,9 @@ class SYProgressBar: UIView, SYStateListener {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
         
+        containerProgressBar.layer.cornerRadius = 2.0
+        containerProgressBar.clipsToBounds = true
+        
     }
     
     func loadViewFromNib() -> UIView {

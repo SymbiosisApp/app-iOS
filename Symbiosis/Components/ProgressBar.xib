@@ -18,17 +18,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-ph-mHE">
-                    <rect key="frame" x="8" y="95" width="2" height="330"/>
+                    <rect key="frame" x="8" y="95" width="6" height="300"/>
                     <subviews>
                         <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYp-dO-0qg">
-                            <rect key="frame" x="0.0" y="82" width="2" height="248"/>
+                            <rect key="frame" x="0.0" y="82" width="6" height="218"/>
                             <color key="backgroundColor" red="1" green="0.39026079740000003" blue="0.56501108509999998" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="330" id="3ko-5u-1YZ"/>
-                        <constraint firstAttribute="width" constant="2" id="tio-F6-kru"/>
+                        <constraint firstAttribute="height" constant="300" id="3ko-5u-1YZ"/>
+                        <constraint firstAttribute="width" constant="6" id="tio-F6-kru"/>
                     </constraints>
                 </view>
             </subviews>
