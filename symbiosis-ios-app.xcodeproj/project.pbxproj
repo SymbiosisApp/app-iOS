@@ -43,11 +43,12 @@
 		186487CC1D05951700D3B199 /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487C11D05951700D3B199 /* Colony.swift */; };
 		186487CD1D05951700D3B199 /* Colony.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487C21D05951700D3B199 /* Colony.xib */; };
 		186487CE1D05951700D3B199 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487C41D05951700D3B199 /* Popup.swift */; };
-		186487CF1D05951700D3B199 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487C51D05951700D3B199 /* Popup.xib */; };
 		186487D01D05951700D3B199 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487C71D05951700D3B199 /* ProgressBar.swift */; };
 		186487D11D05951700D3B199 /* ProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487C81D05951700D3B199 /* ProgressBar.xib */; };
 		186487D21D05951700D3B199 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487CA1D05951700D3B199 /* TabBar.swift */; };
 		186487D31D05951700D3B199 /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487CB1D05951700D3B199 /* TabBar.xib */; };
+		186487D71D059C8F00D3B199 /* ImagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487D51D059C8F00D3B199 /* ImagePopup.swift */; };
+		186487D81D059C8F00D3B199 /* ImagePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487D61D059C8F00D3B199 /* ImagePopup.xib */; };
 		1878261D1D04454800D93485 /* bienvenue-00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825B91D04454800D93485 /* bienvenue-00001.png */; };
 		1878261E1D04454800D93485 /* bienvenue-00002.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BA1D04454800D93485 /* bienvenue-00002.png */; };
 		1878261F1D04454800D93485 /* bienvenue-00003.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BB1D04454800D93485 /* bienvenue-00003.png */; };
@@ -263,11 +264,12 @@
 		186487C11D05951700D3B199 /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
 		186487C21D05951700D3B199 /* Colony.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Colony.xib; sourceTree = "<group>"; };
 		186487C41D05951700D3B199 /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
-		186487C51D05951700D3B199 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
 		186487C71D05951700D3B199 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		186487C81D05951700D3B199 /* ProgressBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressBar.xib; sourceTree = "<group>"; };
 		186487CA1D05951700D3B199 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		186487CB1D05951700D3B199 /* TabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
+		186487D51D059C8F00D3B199 /* ImagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePopup.swift; sourceTree = "<group>"; };
+		186487D61D059C8F00D3B199 /* ImagePopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePopup.xib; sourceTree = "<group>"; };
 		187825B91D04454800D93485 /* bienvenue-00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00001.png"; sourceTree = "<group>"; };
 		187825BA1D04454800D93485 /* bienvenue-00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00002.png"; sourceTree = "<group>"; };
 		187825BB1D04454800D93485 /* bienvenue-00003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00003.png"; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 		186487BF1D05951700D3B199 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				186487D41D059C8F00D3B199 /* ImagePopup */,
 				186487C01D05951700D3B199 /* Colony */,
 				186487C31D05951700D3B199 /* Popup */,
 				186487C61D05951700D3B199 /* ProgressBar */,
@@ -572,7 +575,6 @@
 			isa = PBXGroup;
 			children = (
 				186487C41D05951700D3B199 /* Popup.swift */,
-				186487C51D05951700D3B199 /* Popup.xib */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -593,6 +595,15 @@
 				186487CB1D05951700D3B199 /* TabBar.xib */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		186487D41D059C8F00D3B199 /* ImagePopup */ = {
+			isa = PBXGroup;
+			children = (
+				186487D51D059C8F00D3B199 /* ImagePopup.swift */,
+				186487D61D059C8F00D3B199 /* ImagePopup.xib */,
+			);
+			path = ImagePopup;
 			sourceTree = "<group>";
 		};
 		187825B71D04454800D93485 /* ImagesSequences */ = {
@@ -1013,7 +1024,6 @@
 				6677B1A41CFFD7B6000D455F /* carte.gif in Resources */,
 				1878266C1D04454800D93485 /* bienvenue-00080.png in Resources */,
 				1878265D1D04454800D93485 /* bienvenue-00065.png in Resources */,
-				186487CF1D05951700D3B199 /* Popup.xib in Resources */,
 				66E3C7FC1D02F9CD00E0ED08 /* Rene Bieder - Campton Bold Italic.otf in Resources */,
 				6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */,
 				187826431D04454800D93485 /* bienvenue-00039.png in Resources */,
@@ -1088,6 +1098,7 @@
 				666718981D0578E500AAFB8A /* graineReduce.gif in Resources */,
 				66670C111D04CEDB00AAFB8A /* chatLess.gif in Resources */,
 				1878266D1D04454800D93485 /* bienvenue-00081.png in Resources */,
+				186487D81D059C8F00D3B199 /* ImagePopup.xib in Resources */,
 				1878266E1D04454800D93485 /* bienvenue-00082.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1167,6 +1178,7 @@
 				18180F301D04C75A008EAC4A /* LoginViewController.swift in Sources */,
 				1848F0231CF6446D000C45D6 /* SYShape.swift in Sources */,
 				18180F371D04C75A008EAC4A /* PollenViewController.swift in Sources */,
+				186487D71D059C8F00D3B199 /* ImagePopup.swift in Sources */,
 				184FA85D1CE0CBC4007D5C6F /* SYState.swift in Sources */,
 				18180F351D04C75A008EAC4A /* GraineViewController.swift in Sources */,
 				18180F201D04C752008EAC4A /* SYSocket.swift in Sources */,

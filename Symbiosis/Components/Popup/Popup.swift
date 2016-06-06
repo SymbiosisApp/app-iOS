@@ -11,20 +11,13 @@ import UIKit
 
 class SYPopup: UIView, SYStateListener {
     
-    // MARK: Outlets
-    @IBOutlet var view: UIView!
-    @IBOutlet weak var buttonclose: UIButton!
-    @IBOutlet weak var imagePopup: UIImageView!
-    
     let validPopups : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer", "colony", "colony-select-seed"]
-    
-    let background = Background()
-    
-    // MARK: Properties
-    var nibName: String = "Popup"
     
     // MARK: State
     let state = SYStateManager.sharedInstance
+    
+    var currentPopup: UIView? = nil
+    var constBottom: NSLayoutConstraint? = nil
     
     // MARK: Init
     override init(frame: CGRect) {
@@ -39,89 +32,81 @@ class SYPopup: UIView, SYStateListener {
     
     // MARK: Setup
     func setup() {
-        
-        view = loadViewFromNib()
-        view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        addSubview(view)
-        
-        view.superview!.hidden = true
-        
-        buttonclose.addTarget(self, action:#selector(self.hideCurrentPopup), forControlEvents: .TouchUpInside)
-        
         state.addListener(self)
-    }
-    
-    func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: nibName, bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        return view
-    }
-    
-    func hideCurrentPopup() {
-        if state.getCurrentPopup() == "commencer" {
-            state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
-            state.dispatchAction(SYStateActionType.SetUserSeed, payload: "Blabla")
-        }
         
-        state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
+        self.hidden = true
     }
     
     // - MARK: Update
     
     func onStateSetup() {
-        let currentPopup = state.getCurrentPopup()
-        if let popupName = currentPopup {
-            if validPopups.indexOf(popupName) != nil {
-                showPopup(popupName)
-            } else {
-                print("Invalid popup name : \(popupName)")
-            }
-        } else {
+        if self.currentPopup != nil {
             hidePopup()
+        }
+        let currentPopupName = state.getCurrentPopup()
+        if currentPopupName != nil {
+            if validPopups.indexOf(currentPopupName!) != nil {
+                showPopup(currentPopupName!)
+            } else {
+                print("Invalid popup name : \(currentPopupName!)")
+            }
         }
     }
     
     func onStateUpdate() {
-        
         if state.popupHasChanged() {
             self.onStateSetup()
         }
     }
     
-    func addBackgroundPopup(image:String){
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: image)
-        imagePopup.insertSubview(backgroundImage, atIndex: 0)
-    }
-    
     func hidePopup() {
-        if (view.superview != nil) {
-            let parentView = view.superview!
-            parentView.hidden = true
+        let popupToRemove = self.currentPopup!
+        UIView.animateWithDuration(0.3, animations: { 
+            self.constBottom?.constant = 200
+            popupToRemove.alpha = 0
+            self.layoutIfNeeded()
+            }) { (completed) in
+                if self.state.getCurrentPopup() == nil {
+                    self.hidden = true
+                }
         }
     }
     
     func showPopup(name: String) {
+        var newPopup: UIView? = nil
         if name == "colony" {
+            newPopup = SYColony(frame: self.frame)
             print("display colony")
         } else if name == "colony-select-seed" {
             print("display colony-select-seed")
-            print(self.view.frame)
-            let colony = SYColony(frame: self.view.frame)
-            colony.setup()
-            self.addSubview(colony)
+            newPopup = SYColony(frame: self.frame)
         } else {
-            addBackgroundPopup(name)
-            if let parentView = view.superview {
-                parentView.hidden = false
-            } else {
-                print("No parent view, snif :'(")
-            }
+            newPopup = SYImagePopup(frame: self.frame, imageName: name)
+        }
+        self.currentPopup = newPopup
+        
+        self.addSubview(self.currentPopup!)
+
+        // Constraints
+        self.currentPopup?.translatesAutoresizingMaskIntoConstraints = false;
+        let constWidth = NSLayoutConstraint.init(item: self.currentPopup!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        constWidth.active = true
+        let constHeight = NSLayoutConstraint.init(item: self.currentPopup!, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 0)
+        constHeight.active = true
+        let constLeft = NSLayoutConstraint.init(item: self.currentPopup!, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0)
+        constLeft.active = true
+        self.constBottom = NSLayoutConstraint.init(item: self.currentPopup!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 200)
+        self.constBottom!.active = true
+        self.currentPopup!.alpha = 0
+        self.layoutIfNeeded()
+        self.hidden = false
+        UIView.animateWithDuration(0.3, animations: { 
+            self.constBottom!.constant = 0
+            self.layoutIfNeeded()
+            self.currentPopup!.alpha = 1
+            }) { (completed) in
+                print("completed")
         }
     }
-
-
     
 }

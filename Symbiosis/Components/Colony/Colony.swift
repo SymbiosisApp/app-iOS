@@ -56,13 +56,12 @@ class SYColony: UIView {
         
         colonieName.text = name
         colonieName.textColor = background.hexStringToUIColor("#FF6A4D")
-        
     }
 
     
     func hideColonie(){
-        //view?.superview!.removeFromSuperview()
-        view?.superview!.hidden = true
+        state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
+        state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
     
     func loadViewFromNib() -> UIView {
