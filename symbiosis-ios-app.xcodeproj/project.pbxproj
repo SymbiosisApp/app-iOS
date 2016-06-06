@@ -178,6 +178,7 @@
 		66670C131D04CEDB00AAFB8A /* marcheLessSpeed.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66670C101D04CEDB00AAFB8A /* marcheLessSpeed.gif */; };
 		66670C161D04D84000AAFB8A /* Colonie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C151D04D84000AAFB8A /* Colonie.swift */; };
 		66670C181D04D84C00AAFB8A /* Colonie.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66670C171D04D84C00AAFB8A /* Colonie.xib */; };
+		66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66670C191D0503D800AAFB8A /* ColonyViewController.swift */; };
 		666C14571D031E72000201A4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 666C14561D031E72000201A4 /* bienvenue.gif */; };
 		6677B1A31CFFD7B6000D455F /* pollenToFruit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */; };
 		6677B1A41CFFD7B6000D455F /* carte.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6677B19D1CFFD7B6000D455F /* carte.gif */; };
@@ -398,6 +399,7 @@
 		66670C101D04CEDB00AAFB8A /* marcheLessSpeed.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marcheLessSpeed.gif; sourceTree = "<group>"; };
 		66670C151D04D84000AAFB8A /* Colonie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colonie.swift; sourceTree = "<group>"; };
 		66670C171D04D84C00AAFB8A /* Colonie.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Colonie.xib; sourceTree = "<group>"; };
+		66670C191D0503D800AAFB8A /* ColonyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColonyViewController.swift; path = OnboardingViewControllers/ColonyViewController.swift; sourceTree = "<group>"; };
 		666C14561D031E72000201A4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
 		6677B19C1CFFD7B6000D455F /* pollenToFruit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pollenToFruit.gif; sourceTree = "<group>"; };
 		6677B19D1CFFD7B6000D455F /* carte.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carte.gif; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			children = (
 				18180F271D04C75A008EAC4A /* OnboardingViewControllers */,
 				18180F221D04C75A008EAC4A /* ChatViewController.swift */,
+				66670C191D0503D800AAFB8A /* ColonyViewController.swift */,
 				18180F231D04C75A008EAC4A /* LoginViewController.swift */,
 				18180F241D04C75A008EAC4A /* MainViewController.swift */,
 				18180F251D04C75A008EAC4A /* MapViewController.swift */,
@@ -1170,6 +1173,7 @@
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
 				18180F321D04C75A008EAC4A /* MapViewController.swift in Sources */,
+				66670C1A1D0503D800AAFB8A /* ColonyViewController.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				18180F311D04C75A008EAC4A /* MainViewController.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
