@@ -183,11 +183,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         return true
     }
     
-    func mapView(mapView: MGLMapView, didSelectAnnotation annotation: MGLAnnotation) {
-        print("Click")
-        // state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
-        state.dispatchAction(SYStateActionType.SelectSeed, payload: "blabla")
-    }
+//    func mapView(mapView: MGLMapView, didSelectAnnotation annotation: MGLAnnotation) {
+//        print("Click")
+//        // state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
+//        state.dispatchAction(SYStateActionType.SelectSeed, payload: "blabla")
+//    }
     
     /**
      * State Update

@@ -18,6 +18,9 @@ class SYColonie: UIView {
     
     let background = Background()
     
+    // State
+    let state = SYStateManager.sharedInstance
+    
     // MARK: Init
     var nibName: String = "Colonie"
 
@@ -59,6 +62,7 @@ class SYColonie: UIView {
     
     func hideColonie(){
         //view?.superview!.removeFromSuperview()
+        state.dispatchAction(SYStateActionType.SelectSeed, payload: "blabla")
         view?.superview!.hidden = true
     }
     

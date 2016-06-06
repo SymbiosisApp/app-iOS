@@ -25,8 +25,8 @@ class ColonyViewController: UIViewController {
         super.viewDidLoad()
 
 
-        let usersData = request.getData("http://localhost:8080/users/id=5&param=all")
-        let colonyData = request.getData("http://localhost:8080/graines/id=5")
+        let usersData = request.getData("http://symbiosis.etienne-dldc.fr/users/id=5&param=all")
+        let colonyData = request.getData("http://symbiosis.etienne-dldc.fr/graines/id=5")
         
         
         if let users = usersData as? [AnyObject]{

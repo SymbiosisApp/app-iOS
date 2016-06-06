@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -106,23 +106,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
-                                <rect key="frame" x="15" y="0.0" width="600" height="600"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-90-Cie">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    </imageView>
+                                </subviews>
                                 <accessibility key="accessibilityConfiguration" identifier="blurPopupView"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="FGd-GP-5Fk" secondAttribute="bottom" id="Eu4-hp-VDI"/>
+                                    <constraint firstItem="FGd-GP-5Fk" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="top" id="WGG-So-QQF"/>
+                                    <constraint firstAttribute="trailing" secondItem="FGd-GP-5Fk" secondAttribute="trailing" id="eqS-Jh-xpt"/>
+                                    <constraint firstItem="FGd-GP-5Fk" firstAttribute="leading" secondItem="M7f-90-Cie" secondAttribute="leading" id="sov-m4-EWa"/>
+                                </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-GP-5Fk">
-                                <rect key="frame" x="16" y="0.0" width="600" height="600"/>
-                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-5" id="2TV-Du-ubw"/>
-                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="bottom" id="Gc3-DN-RMe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="M7f-90-Cie" secondAttribute="trailing" constant="-35" id="TEh-O7-FaA"/>
-                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="UZv-BM-FTY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FGd-GP-5Fk" secondAttribute="trailing" constant="-36" id="Wg6-ds-lfs"/>
-                            <constraint firstItem="FGd-GP-5Fk" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leadingMargin" constant="-4" id="YPj-n8-aZq"/>
-                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="FGd-GP-5Fk" secondAttribute="bottom" id="eVV-up-7G5"/>
-                            <constraint firstItem="M7f-90-Cie" firstAttribute="top" secondItem="wnB-yk-Y80" secondAttribute="bottom" id="iTf-mp-fQd"/>
+                            <constraint firstItem="M7f-90-Cie" firstAttribute="leading" secondItem="NTy-fa-Gxf" secondAttribute="leading" id="A3i-Ur-yee"/>
+                            <constraint firstItem="Atl-6j-pVL" firstAttribute="top" secondItem="M7f-90-Cie" secondAttribute="bottom" id="MJ5-1c-Cda"/>
+                            <constraint firstItem="M7f-90-Cie" firstAttribute="top" secondItem="NTy-fa-Gxf" secondAttribute="top" id="aH3-PD-B3D"/>
+                            <constraint firstAttribute="trailing" secondItem="M7f-90-Cie" secondAttribute="trailing" id="cg0-qy-x2x"/>
                         </constraints>
                     </view>
                     <connections>
