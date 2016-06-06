@@ -21,6 +21,7 @@ struct SYState {
     var displayedOnboarding: String? = nil
     var user: SYStateUser = SYStateUser()
     var selectedSeed: String? = nil
+    var loginIsDisplay: Bool = false
 }
 
 enum SYStateActionType {
@@ -33,6 +34,7 @@ enum SYStateActionType {
     case HideOnboarding
     case SetUserSeed
     case SelectSeed
+    case DisplayLogin
 }
 
 enum SYStatePlantStatus {
@@ -170,6 +172,8 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             let seedId = payload as! String
             state.selectedSeed = seedId
             state = updateMapPopup(state)
+        case .DisplayLogin:
+            state.loginIsDisplay = true
         }
         state = self.updatePlant(state)
         return state
@@ -340,6 +344,15 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
 //        } else {
 //            return "Graine"
 //        }
+    }
+    
+    func userIsAuthenticated() -> Bool {
+        // TODO join user and state
+//        let user = UserSingleton.sharedInstance;
+//        if(user.getUserData()["userId"] == nil){
+//            
+//        }
+        return currentState.user.isAuthenticated
     }
     
     

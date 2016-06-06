@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -55,6 +55,9 @@
                                 <fontDescription key="fontDescription" name="Campton-Bold" family="Campton" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="80" y="60" width="164" height="52.5"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy1-v6-AZN">
                                 <rect key="frame" x="80" y="117" width="72" height="54"/>
@@ -64,6 +67,9 @@
                                 <fontDescription key="fontDescription" name="Campton-Bold" family="Campton" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="80" y="115.5" width="72" height="52.5"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TA-HT-TSR">
                                 <rect key="frame" x="203" y="82" width="33" height="32"/>
@@ -73,6 +79,9 @@
                                 <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="203" y="82" width="33" height="30.5"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOUS AVEZ EFFECTUÉ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mf-0u-NB5">
                                 <rect key="frame" x="80" y="39" width="324" height="16"/>
@@ -91,11 +100,13 @@
                                 <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="148" y="139.5" width="27" height="30.5"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1YS-aj-WLW" firstAttribute="trailing" secondItem="9TA-HT-TSR" secondAttribute="trailing" constant="-36" id="0Q9-3R-Q5m"/>
                             <constraint firstItem="Hy1-v6-AZN" firstAttribute="trailing" secondItem="5sH-EX-ecj" secondAttribute="trailing" constant="-23" id="0gX-cB-DYI"/>
                             <constraint firstItem="5Mf-0u-NB5" firstAttribute="top" secondItem="9XR-ol-NR9" secondAttribute="bottom" constant="19" id="0vf-We-TxK"/>
                             <constraint firstItem="5sH-EX-ecj" firstAttribute="bottom" secondItem="Hy1-v6-AZN" secondAttribute="bottom" constant="2" id="713-Lf-SiU"/>
@@ -110,23 +121,12 @@
                             <constraint firstItem="Hy1-v6-AZN" firstAttribute="top" secondItem="1YS-aj-WLW" secondAttribute="bottom" constant="3" id="HHw-gm-0w6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oXQ-9K-vgg" secondAttribute="trailing" constant="-20" id="KsD-tw-kL1"/>
                             <constraint firstItem="1YS-aj-WLW" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="60" id="LMd-AA-ZLj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5sH-EX-ecj" secondAttribute="trailing" constant="341" id="NOA-Bs-o4m"/>
                             <constraint firstItem="9TA-HT-TSR" firstAttribute="bottom" secondItem="1YS-aj-WLW" secondAttribute="bottom" id="d6Y-sb-svF"/>
                             <constraint firstItem="EPc-bo-4OZ" firstAttribute="top" secondItem="N9z-Nr-fY1" secondAttribute="bottom" id="dXC-vs-43q"/>
                             <constraint firstItem="Hy1-v6-AZN" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="60" id="gDj-PJ-OVT"/>
                             <constraint firstItem="1YS-aj-WLW" firstAttribute="trailing" secondItem="9TA-HT-TSR" secondAttribute="trailing" constant="8" id="jRl-Xc-MBw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Mf-0u-NB5" secondAttribute="trailing" constant="125" id="t5V-Vf-9BS"/>
                             <constraint firstItem="5Mf-0u-NB5" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="60" id="wPf-In-AFn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9TA-HT-TSR" secondAttribute="trailing" constant="285" id="wuG-5I-XdT"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="t5V-Vf-9BS"/>
-                                <exclude reference="0Q9-3R-Q5m"/>
-                                <exclude reference="NOA-Bs-o4m"/>
-                                <exclude reference="wuG-5I-XdT"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="counterSteps" destination="1YS-aj-WLW" id="u5o-Ty-jel"/>

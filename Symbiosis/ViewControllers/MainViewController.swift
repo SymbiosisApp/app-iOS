@@ -188,18 +188,15 @@ class MainViewController: UIViewController, SYStateListener {
 //        self.didReceiveMemoryWarning()
 //        self.didReceiveMemoryWarning()
         
-        if false /* TODO : state.needLogin ? */ {
+        if state.userIsAuthenticated() == false {
             //LOGIN
-            let user = UserSingleton.sharedInstance;
-            if(user.getUserData()["userId"] == nil){
-                //showLogin()
-            }
+            showLogin()
         }
         
-        if false /* TODO : state.getNotification ? */ {
-            //call notification with texte
-            showNotifications("texte yolo notif")
-        }
+//        if false /* TODO : state.getNotification ? */ {
+//            //call notification with texte
+//            showNotifications("texte yolo notif")
+//        }
         
         if let onboarding = state.getOnboardingToDisplay() {
             state.dispatchAction(SYStateActionType.ShowOnboarding, payload: onboarding)
@@ -211,7 +208,7 @@ class MainViewController: UIViewController, SYStateListener {
     
     func updateViewContainer(animated: Bool) {
         let currentTab = state.getCurrentTab()
-        let previousTab = state.getPreviousTab()
+        // let previousTab = state.getPreviousTab()
         
         if mountedViewCtrl != nil {
             mountedViewCtrl.willMoveToParentViewController(nil)
