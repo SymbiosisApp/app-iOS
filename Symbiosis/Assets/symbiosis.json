@@ -1,29 +1,29 @@
 {
     "Onboarding": [{
         "Intro": [{
-            "name": "bienvenue"
-        }, {
             "name": "start"
+        }, {
+            "name": "bienvenue"
         }]
     }, {
         "Graine": [{
+            "name": "deplacement"
+        }, {
             "name": "graine"
         }, {
             "name": "commentaires"
-        }, {
-            "name": "deplacement"
         }]
     }, {
         "Pollen": [{
-            "name": "dissemination"
-        }, {
             "name": "recolte"
+        }, {
+            "name": "dissemination"
         }]
     }, {
         "Fruit": [{
-            "name": "eclosion"
-        }, {
             "name": "partage"
+        }, {
+            "name": "eclosion"
         }]
     }]
 }

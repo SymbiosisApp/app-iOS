@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="CaslonGraphiqueEF.otf">
+            <string>CaslonGraphiqueEF</string>
+        </mutableArray>
+        <mutableArray key="Rene Bieder - Campton Light.otf">
+            <string>Campton-Light</string>
+            <string>Campton-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Onboarding View Controller-->
         <scene sceneID="6dU-6q-nqM">
@@ -26,9 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start" translatesAutoresizingMaskIntoConstraints="NO" id="bOB-kl-Kny">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3c-Tt-Ftw">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.59607843137254901" green="0.75686274509803919" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,21 +48,36 @@
                                     <segue destination="402-2l-Gy2" kind="unwind" unwindAction="closeOnboarding:" id="dqh-m6-ecm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqW-0n-XWo">
+                                <rect key="frame" x="200" y="235" width="205" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="205" id="239-1u-zqF"/>
+                                    <constraint firstAttribute="height" constant="172" id="x5c-6t-bjn"/>
+                                </constraints>
+                                <string key="text">Chaque jour est une aventure grâce à votre plante générative. Cette dernière sera votre compagnon de route dans la découverte de nouveaux lieux arborés.</string>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gqW-0n-XWo" firstAttribute="centerX" secondItem="g3c-Tt-Ftw" secondAttribute="centerX" constant="2.5" id="6X7-in-hrV"/>
                             <constraint firstItem="g3c-Tt-Ftw" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leading" id="8bd-cJ-8RS"/>
-                            <constraint firstItem="bOB-kl-Kny" firstAttribute="leading" secondItem="8qh-aX-Ye0" secondAttribute="leading" id="FOl-gw-DXJ"/>
-                            <constraint firstAttribute="trailing" secondItem="bOB-kl-Kny" secondAttribute="trailing" id="b8g-ew-0tg"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="top" secondItem="gqW-0n-XWo" secondAttribute="bottom" constant="133" id="fu2-c3-EeN"/>
                             <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="g3c-Tt-Ftw" secondAttribute="bottom" id="iJk-Rl-WCD"/>
-                            <constraint firstItem="bOB-kl-Kny" firstAttribute="top" secondItem="8qh-aX-Ye0" secondAttribute="top" id="ijt-IJ-NcT"/>
-                            <constraint firstItem="tU3-0l-CgR" firstAttribute="top" secondItem="bOB-kl-Kny" secondAttribute="bottom" id="m7J-Hi-5v7"/>
+                            <constraint firstItem="g3c-Tt-Ftw" firstAttribute="top" secondItem="gqW-0n-XWo" secondAttribute="bottom" constant="175" id="mTz-kH-oTS"/>
                             <constraint firstAttribute="trailing" secondItem="g3c-Tt-Ftw" secondAttribute="trailing" id="pIy-XH-pW4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mTz-kH-oTS"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="button" destination="g3c-Tt-Ftw" id="zii-YX-NvB"/>
-                        <outlet property="image" destination="bOB-kl-Kny" id="yim-iD-ip6"/>
+                        <outlet property="texte" destination="gqW-0n-XWo" id="sfd-WX-DRW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j1-4y-RC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,40 +97,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bienvenue" translatesAutoresizingMaskIntoConstraints="NO" id="OIG-gy-T4D">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-Nb-FiE">
-                                <rect key="frame" x="0.0" y="543" width="600" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Symbiosis est une application qui souhaite vous reconnecter avec la nature urbaine qui vous entoure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2I4-2g-wEp">
+                                <rect key="frame" x="200" y="275" width="205" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="EjX-ll-vEG"/>
+                                    <constraint firstAttribute="height" constant="150" id="hpZ-SG-62s"/>
+                                    <constraint firstAttribute="width" constant="205" id="lQd-sj-Gdl"/>
                                 </constraints>
-                            </pageControl>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgw-rW-t1s">
+                                <rect key="frame" x="20" y="210" width="560" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="8cq-3i-zLd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="39"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fF1-Nb-FiE" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leading" id="EsV-vU-nzS"/>
-                            <constraint firstAttribute="trailing" secondItem="OIG-gy-T4D" secondAttribute="trailing" id="HYd-lJ-IXa"/>
-                            <constraint firstItem="OIG-gy-T4D" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leading" id="IOh-ZO-8Xy"/>
-                            <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="OIG-gy-T4D" secondAttribute="bottom" id="IgU-Ec-N8L"/>
-                            <constraint firstItem="fF1-Nb-FiE" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leading" id="MF7-2O-gx1"/>
-                            <constraint firstItem="OIG-gy-T4D" firstAttribute="top" secondItem="OhH-Ei-n65" secondAttribute="top" id="dWz-fs-uTW"/>
-                            <constraint firstAttribute="trailing" secondItem="fF1-Nb-FiE" secondAttribute="trailing" id="hat-kB-4PM"/>
-                            <constraint firstItem="fF1-Nb-FiE" firstAttribute="leading" secondItem="OIG-gy-T4D" secondAttribute="leading" id="oK2-Jh-0ty"/>
-                            <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="fF1-Nb-FiE" secondAttribute="bottom" constant="20" id="uS8-QY-XWt"/>
-                            <constraint firstItem="OIG-gy-T4D" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" id="vxY-mH-ySa"/>
+                            <constraint firstItem="Kgw-rW-t1s" firstAttribute="top" secondItem="M6A-cR-vXd" secondAttribute="bottom" constant="190" id="3Pf-FV-N4H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2I4-2g-wEp" secondAttribute="trailing" constant="155" id="3v9-k7-zN6"/>
+                            <constraint firstItem="2I4-2g-wEp" firstAttribute="top" secondItem="Kgw-rW-t1s" secondAttribute="bottom" constant="18" id="4RZ-LC-T61"/>
+                            <constraint firstItem="8GG-vJ-xK4" firstAttribute="top" secondItem="2I4-2g-wEp" secondAttribute="bottom" constant="175" id="BAk-5p-erK"/>
+                            <constraint firstItem="2I4-2g-wEp" firstAttribute="top" secondItem="Kgw-rW-t1s" secondAttribute="bottom" constant="-1" id="TLB-uX-9cJ"/>
+                            <constraint firstItem="Kgw-rW-t1s" firstAttribute="trailing" secondItem="OhH-Ei-n65" secondAttribute="trailingMargin" id="drR-nB-jqL"/>
+                            <constraint firstItem="Kgw-rW-t1s" firstAttribute="top" secondItem="M6A-cR-vXd" secondAttribute="bottom" constant="221" id="f00-Ns-VOd"/>
+                            <constraint firstItem="2I4-2g-wEp" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" constant="155" id="jsK-6c-FuH"/>
+                            <constraint firstItem="Kgw-rW-t1s" firstAttribute="leading" secondItem="OhH-Ei-n65" secondAttribute="leadingMargin" id="nNy-pb-FPt"/>
+                            <constraint firstItem="2I4-2g-wEp" firstAttribute="centerX" secondItem="Kgw-rW-t1s" secondAttribute="centerX" constant="2.5" id="rDC-m1-Ixk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="vxY-mH-ySa"/>
-                                <exclude reference="MF7-2O-gx1"/>
-                                <exclude reference="oK2-Jh-0ty"/>
+                                <exclude reference="f00-Ns-VOd"/>
+                                <exclude reference="3v9-k7-zN6"/>
+                                <exclude reference="4RZ-LC-T61"/>
+                                <exclude reference="jsK-6c-FuH"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="image" destination="OIG-gy-T4D" id="phe-Dc-F69"/>
-                        <outlet property="pageControl" destination="fF1-Nb-FiE" id="lBo-f4-xOJ"/>
+                        <outlet property="texte" destination="2I4-2g-wEp" id="Iqe-IL-cgs"/>
+                        <outlet property="titre" destination="Kgw-rW-t1s" id="sBy-YJ-fFA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuy-NG-cZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,7 +495,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bienvenue" width="375" height="667"/>
         <image name="commentaires" width="375" height="667"/>
         <image name="deplacement" width="375" height="667"/>
         <image name="dissemination" width="375" height="667"/>
@@ -471,6 +502,5 @@
         <image name="graine" width="375" height="667"/>
         <image name="partage" width="375" height="667"/>
         <image name="recolte" width="375" height="667"/>
-        <image name="start" width="375" height="667"/>
     </resources>
 </document>

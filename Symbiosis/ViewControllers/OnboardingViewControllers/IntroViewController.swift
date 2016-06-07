@@ -23,18 +23,18 @@ class IntroViewController: UIViewController {
 
 class BienvenueViewController: IntroViewController{
     
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var image: UIImageView!
     var imageView: UIImageView! = nil
     var imageLoaderView: UIImageView! = nil
+    
+    @IBOutlet weak var texte: UILabel!
+    @IBOutlet weak var titre: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.image.layer.zPosition = 1
-        pageControl.layer.zPosition = 2
-        pageControl.numberOfPages = 2
-        pageControl.currentPage = 0
+        texte.layer.zPosition = 1
+        titre.layer.zPosition = 1
+        titre.textColor = background.hexStringToUIColor("#FF9C8F")
         
         self.imageLoader()
     }
@@ -52,7 +52,9 @@ class BienvenueViewController: IntroViewController{
     
     override func viewDidDisappear(animated: Bool) {
         self.imageLoader()
-        self.imageView.removeFromSuperview()
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+        }
     }
     
     func imageLoader(){
@@ -75,15 +77,15 @@ class BienvenueViewController: IntroViewController{
 class StartViewController: IntroViewController{
     
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var texte: UILabel!
     var imageView: UIImageView! = nil
     var imageLoaderView: UIImageView! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.image.layer.zPosition = 1
-        button.layer.zPosition = 2
+        texte.layer.zPosition = 1
+        button.layer.zPosition = 1
         
         self.imageLoader()
     }
@@ -101,7 +103,9 @@ class StartViewController: IntroViewController{
     
     override func viewDidDisappear(animated: Bool) {
         self.imageLoader()
-        self.imageView.removeFromSuperview()
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+        }
     }
     
     func imageLoader(){

@@ -51,7 +51,9 @@ class EclosionViewController: FruitViewController{
     
     override func viewDidDisappear(animated: Bool) {
         self.imageLoader()
-        self.imageView.removeFromSuperview()
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+        }
     }
     
     func imageLoader(){
@@ -101,7 +103,9 @@ class PartageViewController: FruitViewController{
     
     override func viewDidDisappear(animated: Bool) {
         self.imageLoader()
-        self.imageView.removeFromSuperview()
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+        }
     }
     
     func imageLoader(){
