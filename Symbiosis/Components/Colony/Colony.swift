@@ -70,7 +70,7 @@ class SYColony: UIView, SYStateListener {
         state.dispatchAction(SYStateActionType.SelectSeed, payload: nil)
         if state.userHasSeed() == false {
             state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
-            state.dispatchAction(SYStateActionType.ShowOnboarding, payload: "Graine")
+            state.dispatchAction(SYStateActionType.SetOnboardingToDisplay, payload: "Graine")
         }
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }

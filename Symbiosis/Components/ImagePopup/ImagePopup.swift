@@ -47,7 +47,6 @@ class SYImagePopup: UIView {
     }
     
     func closeAction(){
-        print("Hide image popup")
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
     

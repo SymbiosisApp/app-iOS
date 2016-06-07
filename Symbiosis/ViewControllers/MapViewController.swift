@@ -193,7 +193,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     @IBOutlet weak var colonie: SYColony!
 
     @IBAction func close(sender: AnyObject) {
-        print("close")
+        
     }
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
@@ -225,7 +225,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         }
         if state.selectedSeedHasChanged() {
             if state.getSelectedSeed() == nil {
-                print("Hide selected")
                 myMapView.deselectAnnotation(self.selectedAnnotation, animated: true)
             }
         }

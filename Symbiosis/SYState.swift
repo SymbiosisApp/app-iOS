@@ -35,6 +35,7 @@ struct SYState {
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
     var displayedOnboarding: String? = nil
+    var onboardingToDisplay: String? = nil
     var user: SYStateUser = SYStateUser()
     var selectedSeed: Seed? = nil
     var loginIsDisplay: Bool = false
@@ -58,6 +59,7 @@ enum SYStateActionType {
     case UpdatePlant
     case SetPlantProgress
     case SetCommentDisplay
+    case SetOnboardingToDisplay
 }
 
 /// State Action strcut
@@ -161,7 +163,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         case .SetPlantStep:
             let newSteps = payload as! Int
             state.steps = newSteps
-            state = self.setPopup(state, popupName: "commencer", onTab: 3)
         
         case .SetPlantStatus:
             let status = payload as! SYStatePlantStatus
@@ -184,10 +185,14 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             let tab = getCurrentTab()
             state.popups[tab] = nil
         
+        case .SetOnboardingToDisplay:
+            let onboardingName = payload as! String
+            state.onboardingToDisplay = onboardingName
+            
         case .ShowOnboarding:
             let onboardingName = payload as! String
-            print("ShowOnboarding \(onboardingName)")
             state.displayedOnboarding = onboardingName
+            state.onboardingToDisplay = nil
         
         case .HideOnboarding:
             if currentState.displayedOnboarding == "Intro" {
@@ -221,7 +226,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             
         case .SetCommentDisplay:
             let display = payload as! Bool
-            print(display)
             state.commentViewIsDisplay = display
         }
         state = self.updatePlant(state)
@@ -408,6 +412,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getOnboardingToDisplay() -> String? {
+        if currentState.onboardingToDisplay != previousState.onboardingToDisplay && currentState.onboardingToDisplay != nil {
+            return currentState.onboardingToDisplay!
+        }
         if currentState.displayedOnboarding != nil {
             return nil
         }

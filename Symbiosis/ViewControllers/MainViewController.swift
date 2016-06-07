@@ -165,8 +165,6 @@ class MainViewController: UIViewController, SYStateListener {
     
     func onStateSetup() {
         
-        print("Tabbar : \(state.tabBarIsDisplayed())")
-        
         // Init tab bar display
         if state.tabBarIsDisplayed() {
             self.showTabBar(false)
@@ -219,8 +217,6 @@ class MainViewController: UIViewController, SYStateListener {
 //            showNotifications("texte yolo notif")
 //        }
         
-        print("-------")
-        print(state.getOnboardingToDisplay())
         if let onboarding = state.getOnboardingToDisplay() {
             state.dispatchAction(SYStateActionType.ShowOnboarding, payload: onboarding)
             let dataLoarder = SYDataLoader()

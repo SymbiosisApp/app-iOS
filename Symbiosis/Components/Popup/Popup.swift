@@ -56,7 +56,6 @@ class SYPopup: UIView, SYStateListener {
     }
     
     func onStateUpdate() {
-        print(state.getCurrentPopup())
         if state.popupHasChanged() {
             self.onStateSetup()
         }
@@ -104,7 +103,7 @@ class SYPopup: UIView, SYStateListener {
             self.layoutIfNeeded()
             self.currentPopup!.alpha = 1
             }) { (completed) in
-                print("completed")
+                // print("completed")
         }
     }
     
