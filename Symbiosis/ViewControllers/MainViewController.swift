@@ -82,6 +82,7 @@ class MainViewController: UIViewController, SYStateListener {
     
     
     @IBAction func closeOnboarding(segue: UIStoryboardSegue)    {
+        state.dispatchAction(SYStateActionType.HideOnboarding, payload: nil)
         dismissViewControllerAnimated(true, completion: nil)
     }
 

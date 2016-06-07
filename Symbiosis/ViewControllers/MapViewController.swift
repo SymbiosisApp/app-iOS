@@ -196,20 +196,15 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         print("close")
     }
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        
+        return true
+    }
+    
+    func mapView(mapView: MGLMapView, didSelectAnnotation annotation: MGLAnnotation) {
         if let seedAnnot = annotation as? SeedAnnotation {
             self.selectedAnnotation = annotation
             state.dispatchAction(SYStateActionType.SelectSeed, payload: seedAnnot.seed)
         }
-
-        return true
     }
-    
-//    func mapView(mapView: MGLMapView, didSelectAnnotation annotation: MGLAnnotation) {
-//        print("Click")
-//        // state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
-//        state.dispatchAction(SYStateActionType.SelectSeed, payload: "blabla")
-//    }
     
     /**
      * State Update

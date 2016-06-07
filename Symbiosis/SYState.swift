@@ -39,6 +39,8 @@ struct SYState {
     var selectedSeed: Seed? = nil
     var loginIsDisplay: Bool = false
     var commentViewIsDisplay: Bool = false
+    
+    var prezStep: String = "start"
 }
 
 /// State Actions Type
@@ -174,6 +176,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             state.location = newGeoloc
         
         case .HideCurrentPopup:
+//            if let popup = self.getCurrentPopup() {
+//                if popup == "colony" {
+//                    state.displayedOnboarding = "Graine"
+//                }
+//            }
             let tab = getCurrentTab()
             state.popups[tab] = nil
         
@@ -182,8 +189,12 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             state.displayedOnboarding = onboardingName
         
         case .HideOnboarding:
+            if currentState.displayedOnboarding == "Intro" {
+                state.prezStep = "yolo"
+                state = self.setPopup(state, popupName: "commencer", onTab: 1)
+            }
             state.displayedOnboarding = nil
-        
+
         case .SetUserSeed:
             state.user.hasASeed = true
         
@@ -396,12 +407,13 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getOnboardingToDisplay() -> String? {
+        if currentState.displayedOnboarding != nil {
+            return nil
+        }
+        if currentState.prezStep == "start" {
+            return "Intro"
+        }
         return nil
-//        if currentState.displayedOnboarding != nil {
-//            return nil
-//        } else {
-//            return "Graine"
-//        }
     }
     
     func selectedSeedHasChanged() -> Bool {
@@ -416,6 +428,15 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         }
         // Both not nil
         return currentState.selectedSeed!.id != previousState.selectedSeed!.id
+    }
+    
+    func distanceToSelectedSeed() -> Double? {
+        if currentState.selectedSeed == nil {
+            return nil
+        }
+        let from = CLLocation(latitude: currentState.location.latitude, longitude: currentState.location.longitude)
+        let to = CLLocation(latitude: currentState.selectedSeed!.coordinate.latitude, longitude: currentState.selectedSeed!.coordinate.longitude)
+        return from.distanceFromLocation(to)
     }
     
     func getSelectedSeed() -> Seed? {

@@ -56,6 +56,7 @@ class SYPopup: UIView, SYStateListener {
     }
     
     func onStateUpdate() {
+        print(state.getCurrentPopup())
         if state.popupHasChanged() {
             self.onStateSetup()
         }

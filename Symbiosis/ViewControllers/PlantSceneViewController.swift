@@ -33,7 +33,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         // retrieve the SCNView
         let scnView = self.view as! SCNView
         // show statistics such as fps and timing information
-        scnView.showsStatistics = true
+        // scnView.showsStatistics = true
         scnView.backgroundColor = UIColor(red: 0.8, green: 0.9, blue: 0.98, alpha: 1)
         scnView.delegate = self
         

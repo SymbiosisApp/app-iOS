@@ -67,8 +67,14 @@ class SYColony: UIView, SYStateListener {
     }
     
     func mainActionTouch() {
+        print("mainActionTouch")
+        print(state.getSelectedSeed())
         state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
-        state.dispatchAction(SYStateActionType.SelectSeed, payload: nil)
+        if state.getSelectedSeed() == nil {
+            print("show onboarding")
+            state.dispatchAction(SYStateActionType.SelectSeed, payload: nil)
+            state.dispatchAction(SYStateActionType.ShowOnboarding, payload: "Graine")
+        }
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
     
@@ -117,22 +123,36 @@ class SYColony: UIView, SYStateListener {
     
     func onStateSetup() {
         let seed = state.getSelectedSeed()
-        colonieName.text = seed?.name
-        colonieName.textColor = background.hexStringToUIColor("#FF6A4D")
         
-        print("Setup")
-        
-        print(state.userHasSeed())
-        
-        if state.userHasSeed() {
-            self.mainAction.setTitle("RETOURNER SUR LA CARTE", forState: UIControlState.Normal)
-        } else {
-            self.mainAction.setTitle("SELECTIONER CETTE GRAINE", forState: UIControlState.Normal)
+        if (seed != nil) {
+            
+            let distance = state.distanceToSelectedSeed()!
+            
+            colonieName.text = seed?.name
+            colonieName.textColor = background.hexStringToUIColor("#FF6A4D")
+            
+            print("Setup")
+            
+            print(state.userHasSeed())
+            
+            if state.userHasSeed() {
+                self.mainAction.setTitle("RETOURNER SUR LA CARTE", forState: UIControlState.Normal)
+            } else {
+                self.mainAction.setTitle("SELECTIONER CETTE GRAINE", forState: UIControlState.Normal)
+                if distance < 100 {
+                    self.mainAction.enabled = true
+                    self.mainAction.backgroundColor = UIColor(red: 152/255, green: 193/255, blue: 245/255, alpha: 1)
+                } else {
+                    self.mainAction.enabled = false
+                    self.mainAction.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+                }
+            }
+            
         }
     }
     
     func onStateUpdate() {
-        if self.state.selectedSeedHasChanged() {
+        if self.state.selectedSeedHasChanged() || state.locationHasChanged() {
             self.onStateSetup()
         }
     }

@@ -75,7 +75,8 @@ class SYElementBasicType1: SYElement {
             self.addInElems("trunk", type: "trunkShape", propsIndex: propsIndex, options: nil, props: trunkProps, position: GLKVector3Make(0, 0, 0), orientation: GLKVector4Make(0, 1, 0, 0) )
             
             
-            self.addInElems("sphere", type: "sphereShape", propsIndex: propsIndex, options: nil, props: SYGeomSphereProps(size: 0.1), position: GLKVector3Make(0, 0, 0), orientation: GLKVector4Make(0, 1, 0, 0) )
+            let middle = (trunkBones.last?.position.y)! * 0.25
+            self.addInElems("sphere", type: "sphereShape", propsIndex: propsIndex, options: nil, props: SYGeomSphereProps(size: myProps.rootProps.size), position: GLKVector3Make(0, middle, 0), orientation: GLKVector4Make(0, 1, 0, 0) )
             
         }
     }

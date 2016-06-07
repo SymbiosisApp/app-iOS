@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SYImagePopup" customModule="symbiosis_ios_app" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="kgc-Q5-AcU" id="uKU-rB-A9c"/>
-                <outlet property="image" destination="WJc-QK-p7T" id="5ps-34-O6k"/>
                 <outlet property="view" destination="iN0-l3-epB" id="sjB-Ws-s6Q"/>
             </connections>
         </placeholder>
@@ -22,9 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neutreFake" translatesAutoresizingMaskIntoConstraints="NO" id="WJc-QK-p7T" userLabel="image">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgc-Q5-AcU" userLabel="CloseButton">
                     <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                     <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,17 +36,10 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="kgc-Q5-AcU" secondAttribute="bottom" id="1B8-jC-uIh"/>
                 <constraint firstAttribute="trailing" secondItem="kgc-Q5-AcU" secondAttribute="trailing" id="4AW-kb-6xO"/>
-                <constraint firstAttribute="bottom" secondItem="WJc-QK-p7T" secondAttribute="bottom" id="AuL-vj-S6Z"/>
-                <constraint firstItem="WJc-QK-p7T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cfH-FY-JsC"/>
                 <constraint firstItem="kgc-Q5-AcU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="stZ-uv-2iv"/>
-                <constraint firstAttribute="trailing" secondItem="WJc-QK-p7T" secondAttribute="trailing" id="ujd-Hy-p3A"/>
-                <constraint firstItem="WJc-QK-p7T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vuN-VD-qI8"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="279.5" y="238.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="neutreFake" width="375" height="667"/>
-    </resources>
 </document>
