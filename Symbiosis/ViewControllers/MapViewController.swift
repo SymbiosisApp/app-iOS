@@ -159,6 +159,12 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         
         for mapStyle in mapView.styleClasses{
             
+            if(mapStyle == "pointeur"){
+                var image = UIImage(named: "pointeur")!
+                image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
+                annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "pointeur")
+                mapView.removeStyleClass("pointeur")
+            }
             if(mapStyle == "graine"){
                 var image = UIImage(named: "pin-map-green")!
                 image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
@@ -176,12 +182,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
                 image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
                 annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "graineOld")
                 mapView.removeStyleClass("graineOld")
-            }
-            if(mapStyle == "pointeur"){
-                var image = UIImage(named: "pointeur")!
-                image = image.imageWithAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
-                annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "pointeur")
-                mapView.removeStyleClass("pointeur")
             }
         }
         

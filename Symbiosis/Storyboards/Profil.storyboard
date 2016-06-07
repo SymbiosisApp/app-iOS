@@ -50,34 +50,41 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4093" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YS-aj-WLW">
-                                <rect key="frame" x="80" y="60" width="164" height="54"/>
+                                <rect key="frame" x="80" y="60" width="116" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="44P-IF-e5U"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Campton-Bold" family="Campton" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="44P-IF-e5U"/>
+                                    </mask>
+                                </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="80" y="60" width="164" height="52.5"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy1-v6-AZN">
-                                <rect key="frame" x="80" y="112" width="72" height="54"/>
+                                <rect key="frame" x="80" y="112" width="62" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="u2p-Jx-JGi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Campton-Bold" family="Campton" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="u2p-Jx-JGi"/>
+                                    </mask>
+                                </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="80" y="115.5" width="72" height="52.5"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TA-HT-TSR">
-                                <rect key="frame" x="203" y="82" width="33" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="MOz-7e-Gxh"/>
-                                </constraints>
+                                <rect key="frame" x="198" y="87" width="33" height="21"/>
                                 <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -95,10 +102,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sH-EX-ecj">
-                                <rect key="frame" x="148" y="136" width="27" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="27" id="Rsc-og-83v"/>
-                                </constraints>
+                                <rect key="frame" x="145" y="139" width="27" height="21"/>
                                 <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -109,24 +113,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Hy1-v6-AZN" firstAttribute="trailing" secondItem="5sH-EX-ecj" secondAttribute="trailing" constant="-23" id="0gX-cB-DYI"/>
                             <constraint firstItem="5Mf-0u-NB5" firstAttribute="top" secondItem="9XR-ol-NR9" secondAttribute="bottom" constant="19" id="0vf-We-TxK"/>
-                            <constraint firstItem="5sH-EX-ecj" firstAttribute="bottom" secondItem="Hy1-v6-AZN" secondAttribute="bottom" constant="2" id="713-Lf-SiU"/>
-                            <constraint firstItem="9TA-HT-TSR" firstAttribute="top" secondItem="5Mf-0u-NB5" secondAttribute="bottom" constant="27" id="7Lu-P1-VE8"/>
                             <constraint firstItem="N9z-Nr-fY1" firstAttribute="top" secondItem="PXT-5Y-Cdr" secondAttribute="topMargin" id="8zQ-vn-oPB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N9z-Nr-fY1" secondAttribute="trailing" constant="-20" id="B7S-dg-f6X"/>
                             <constraint firstItem="oXQ-9K-vgg" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="-20" id="DXp-Fb-fhL"/>
-                            <constraint firstItem="5sH-EX-ecj" firstAttribute="top" secondItem="1YS-aj-WLW" secondAttribute="bottom" constant="22" id="Dpw-hx-fao"/>
                             <constraint firstItem="N9z-Nr-fY1" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="-20" id="FRq-rK-mqc"/>
                             <constraint firstItem="1YS-aj-WLW" firstAttribute="top" secondItem="5Mf-0u-NB5" secondAttribute="bottom" constant="5" id="FXg-Yj-Ash"/>
                             <constraint firstAttribute="bottomMargin" secondItem="oXQ-9K-vgg" secondAttribute="bottom" id="GBq-Po-eeN"/>
                             <constraint firstItem="Hy1-v6-AZN" firstAttribute="top" secondItem="1YS-aj-WLW" secondAttribute="bottom" constant="-2" id="HHw-gm-0w6"/>
+                            <constraint firstItem="5sH-EX-ecj" firstAttribute="top" secondItem="1YS-aj-WLW" secondAttribute="bottom" constant="25" id="IH3-D6-6CN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oXQ-9K-vgg" secondAttribute="trailing" constant="-20" id="KsD-tw-kL1"/>
                             <constraint firstItem="1YS-aj-WLW" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="60" id="LMd-AA-ZLj"/>
-                            <constraint firstItem="9TA-HT-TSR" firstAttribute="bottom" secondItem="1YS-aj-WLW" secondAttribute="bottom" id="d6Y-sb-svF"/>
+                            <constraint firstItem="5sH-EX-ecj" firstAttribute="leading" secondItem="Hy1-v6-AZN" secondAttribute="trailing" constant="3" id="Mce-Oe-UlM"/>
+                            <constraint firstItem="9TA-HT-TSR" firstAttribute="top" secondItem="5Mf-0u-NB5" secondAttribute="bottom" constant="32" id="NEg-Js-cTm"/>
                             <constraint firstItem="EPc-bo-4OZ" firstAttribute="top" secondItem="N9z-Nr-fY1" secondAttribute="bottom" id="dXC-vs-43q"/>
                             <constraint firstItem="Hy1-v6-AZN" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="60" id="gDj-PJ-OVT"/>
-                            <constraint firstItem="1YS-aj-WLW" firstAttribute="trailing" secondItem="9TA-HT-TSR" secondAttribute="trailing" constant="8" id="jRl-Xc-MBw"/>
+                            <constraint firstItem="9TA-HT-TSR" firstAttribute="leading" secondItem="1YS-aj-WLW" secondAttribute="trailing" constant="2" id="oqF-Bq-QJy"/>
                             <constraint firstItem="5Mf-0u-NB5" firstAttribute="leading" secondItem="PXT-5Y-Cdr" secondAttribute="leadingMargin" constant="60" id="wPf-In-AFn"/>
                         </constraints>
                     </view>
