@@ -1,5 +1,5 @@
 //
-//  SYGeomTrunk.swift
+//  SYGeomSphere.swift
 //  symbiosis-ios-app
 //
 //  Created by Etienne De Ladonchamps on 27/05/2016.
@@ -11,23 +11,23 @@ import GLKit
 import SceneKit
 
 /**
- * Trunk
+ * Sphere
  **/
-struct SYGeomTrunkProps {
+struct SYGeomSphereProps {
     var size: Float = 1
 }
 
-class SYGeomTrunk: SYGeom {
+class SYGeomSphere: SYGeom {
     
     override func verifyProps() {
-        if !(self.props is SYGeomTrunkProps) {
+        if !(self.props is SYGeomSphereProps) {
             fatalError("Incorrect Props")
         }
     }
     
     override func boneFunc (options: SYBoneFuncOptions) -> SYBone {
         
-        let myProps = self.props as! SYGeomTrunkProps
+        let myProps = self.props as! SYGeomSphereProps
         
         // Return 0
         if myProps.size == 0 {
@@ -35,33 +35,20 @@ class SYGeomTrunk: SYGeom {
         }
         
         var isLastStep: Bool = false
-        var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
+        let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
+        let translation = GLKVector3Make(0, myProps.size/20, 0)
         
-        let myPath = self.parent.getBezierManager().get("trunk", options: nil)
-        
-        let maxSize: Float = 9
-        let progressOnMax = (8 + (1 - pow(Float(M_E), (-0.1 * myProps.size)))) / maxSize
-        let progressCurve = progressOnMax * (options.boneSizeFromStart / myProps.size)
-        
-        let multiplier: Float = (1 - pow(Float(M_E), (-0.1 * myProps.size))) * 3
-        
-        let point = myPath.valueAtTime(progressCurve)
-        let nextPoint = myPath.valueAtTime(progressCurve + 0.01)
-        let translation = GLKVector3Make(Float(point.x) * multiplier, Float(point.y) * multiplier, 0)
-        let nextTranslate = GLKVector3Make(Float(nextPoint.x) * multiplier, Float(nextPoint.y) * multiplier, 0)
-        orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
-        
-        if (options.boneSizeFromStart > myProps.size) {
+        if (options.index > 20) {
             isLastStep = true
         }
         
-        return SYBone(translation: translation, orientation: orientation, size: 0.1, isLastStep: isLastStep, isAbsolute: true)
+        return SYBone(translation: translation, orientation: orientation, size: nil, isLastStep: isLastStep, isAbsolute: false)
         
     }
     
     override func stepFunc (options: SYStepFuncOptions) -> SYStep {
         
-        let myProps = self.props as! SYGeomTrunkProps
+        let myProps = self.props as! SYGeomSphereProps
         
         if myProps.size == 0 {
             return SYStep(points: [])
@@ -72,15 +59,9 @@ class SYGeomTrunk: SYGeom {
         
         var points: [GLKVector3] = []
         
-        // let myPath = self.parent.getBezierManager().get("trunk-width", options: nil)
+        let myPath = self.parent.getBezierManager().get("sphere", options: nil)
         
-        // let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
-  
-        // let width = 0.1 * (1 - progress)
-        
-        
-        var width = (1 - pow(Float(M_E), (-0.1 * myProps.size))) * 0.1
-        width = width * (1 - progress)
+        let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
         
         // Last step
         if progressNum == 1 {
@@ -88,9 +69,9 @@ class SYGeomTrunk: SYGeom {
         } else if progressNum == 0 {
             points = [GLKVector3Make(0, 0, 0)]
         } else {
-            let angleStep: Float = Float(M_PI)/3.0
+            let angleStep: Float = Float(M_PI)/(10/2)
             
-            for i in 0...5 {
+            for i in 0..<10 {
                 let angle = Float(i) * angleStep
                 let rotate = GLKMatrix4MakeRotation(angle, 0, 1, 0)
                 let point = GLKMatrix4MultiplyAndProjectVector3(rotate, GLKVector3Make(width, 0, 0))
@@ -126,11 +107,11 @@ class SYGeomTrunk: SYGeom {
 }
 
 
-class SYShapeTrunk: SYShape {
+class SYShapeSphere: SYShape {
     
     override func verifyProps() {
         for props in propsList {
-            if !(props is SYGeomTrunkProps) {
+            if !(props is SYGeomSphereProps) {
                 fatalError("Incorect Props")
             }
         }
@@ -138,8 +119,8 @@ class SYShapeTrunk: SYShape {
     
     override func generateAllGeomStructure() {
         for props in propsList {
-            let newProps = props as! SYGeomTrunkProps
-            self.geoms.append(SYGeomTrunk(props: newProps, parent: self))
+            let newProps = props as! SYGeomSphereProps
+            self.geoms.append(SYGeomSphere(props: newProps, parent: self))
         }
     }
     

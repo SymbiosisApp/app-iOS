@@ -46,25 +46,36 @@ class SYElementBasicType1: SYElement {
             //            let childProps = SYGeomLeafProps(size: 1, bend: 0.3)
             //            self.addInElems("leaf", type: "leafShape", index: index, options: nil, props: childProps, position: nil, orientation: nil)
             
-            let trunkProps = SYGeomTrunkProps(size: myProps.rootProps.size)
+            let trunkSize = myProps.rootProps.size * 2
+            
+            let trunkProps = SYGeomTrunkProps(size: trunkSize)
             
             let trunkBones: [SYBone] = SYGeomTrunk(withoutGenerateWithProps: trunkProps, parent: self).getBones()
 
             if myProps.rootProps.hasLeefs {
                 for (index, bone) in trunkBones.enumerate() {
-                    let pos = GLKVector3Make(bone.position.x, bone.position.y, bone.position.z)
-                    let props = SYGeomLeafProps(size: 0.5)
-//                    var orient = GLKVector4Make(0, 1, 0, 0)
-//                    let rotate = GLKMatrix4MakeRotationToAlign(GLKVector3Make(0, 1, 0), plan: bone.translation, axisRotation: 0)
-//                    let orient = GLKQuaternionMakeWithMatrix4(rotate)
-//                    let orient = GLKVector4Make(bone.translation.x, bone.translation.y, bone.translation.z, 0)
-                    let orient = GLKVector4Make(0, 1, 0, 0)
+                    let pos = GLKVector3Make(-bone.position.x, bone.position.y, bone.position.z)
+                    let leafSize = (1 - pow(Float(M_E), (-0.1 * trunkSize))) * 4
+                    let props = SYGeomLeafProps(size: leafSize)
+                    let vertOrient = ((Float(random() % 1000)/1000) - 0.5) * Float(M_PI) * 2
+                    var orient = GLKVector4Make(bone.translation.x, bone.translation.y, bone.translation.z, vertOrient)
+                    
+                    let node = SCNNode()
+                    node.rotation = SCNVector4FromGLKVector4(GLKVector4Normalize(orient))
+                    orient = SCNVector4ToGLKVector4(node.orientation)
+                    
+                    // var orient = GLKVector4Make(0, 1, 0, vertOrient)
+                    // let rotate = GLKMatrix4MakeRotationToAlign(GLKVector3Make(0, 1, 0), plan: bone.translation, axisRotation: 0)
+                    // orient = GLKMatrix4MultiplyVector4(rotate, GLKVector4Make(0, 1, 0, 0))
                     
                     self.addInElems("leaf\(index)", type: "leafShape", propsIndex: propsIndex, options: nil, props: props, position: pos, orientation: GLKVector4Normalize(orient))
                 }
             }
             
-            self.addInElems("trunk", type: "trunkShape", propsIndex: propsIndex, options: nil, props: trunkProps, position: GLKVector3Make(0, 0, 0), orientation: nil )
+            self.addInElems("trunk", type: "trunkShape", propsIndex: propsIndex, options: nil, props: trunkProps, position: GLKVector3Make(0, 0, 0), orientation: GLKVector4Make(0, 1, 0, 0) )
+            
+            
+            self.addInElems("sphere", type: "sphereShape", propsIndex: propsIndex, options: nil, props: SYGeomSphereProps(size: 0.1), position: GLKVector3Make(0, 0, 0), orientation: GLKVector4Make(0, 1, 0, 0) )
             
         }
     }

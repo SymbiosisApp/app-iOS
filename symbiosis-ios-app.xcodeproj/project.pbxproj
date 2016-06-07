@@ -50,6 +50,8 @@
 		186B08DB1D05D8D3002C1A9F /* PlantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CE1D05D8D3002C1A9F /* PlantSceneViewController.swift */; };
 		186B08DC1D05D8D3002C1A9F /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08CF1D05D8D3002C1A9F /* ProfilViewController.swift */; };
 		186B08DD1D05D8D3002C1A9F /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08D01D05D8D3002C1A9F /* SuggestionViewController.swift */; };
+		186B08DF1D06B706002C1A9F /* SYGeomSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08DE1D06B705002C1A9F /* SYGeomSphere.swift */; };
+		186B08E11D06CA87002C1A9F /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B08E01D06CA87002C1A9F /* CommentsViewController.swift */; };
 		1878261D1D04454800D93485 /* bienvenue-00001.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825B91D04454800D93485 /* bienvenue-00001.png */; };
 		1878261E1D04454800D93485 /* bienvenue-00002.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BA1D04454800D93485 /* bienvenue-00002.png */; };
 		1878261F1D04454800D93485 /* bienvenue-00003.png in Resources */ = {isa = PBXBuildFile; fileRef = 187825BB1D04454800D93485 /* bienvenue-00003.png */; };
@@ -261,12 +263,14 @@
 		186B08C71D05D8D3002C1A9F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		186B08C81D05D8D3002C1A9F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		186B08CA1D05D8D3002C1A9F /* FruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitViewController.swift; sourceTree = "<group>"; };
-		186B08CB1D05D8D3002C1A9F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; };
+		186B08CB1D05D8D3002C1A9F /* GraineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraineViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		186B08CC1D05D8D3002C1A9F /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		186B08CD1D05D8D3002C1A9F /* PollenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenViewController.swift; sourceTree = "<group>"; };
 		186B08CE1D05D8D3002C1A9F /* PlantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSceneViewController.swift; sourceTree = "<group>"; };
 		186B08CF1D05D8D3002C1A9F /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		186B08D01D05D8D3002C1A9F /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		186B08DE1D06B705002C1A9F /* SYGeomSphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeomSphere.swift; sourceTree = "<group>"; };
+		186B08E01D06CA87002C1A9F /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		187825B91D04454800D93485 /* bienvenue-00001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00001.png"; sourceTree = "<group>"; };
 		187825BA1D04454800D93485 /* bienvenue-00002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00002.png"; sourceTree = "<group>"; };
 		187825BB1D04454800D93485 /* bienvenue-00003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bienvenue-00003.png"; sourceTree = "<group>"; };
@@ -582,6 +586,7 @@
 				186B08CE1D05D8D3002C1A9F /* PlantSceneViewController.swift */,
 				186B08CF1D05D8D3002C1A9F /* ProfilViewController.swift */,
 				186B08D01D05D8D3002C1A9F /* SuggestionViewController.swift */,
+				186B08E01D06CA87002C1A9F /* CommentsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -825,6 +830,7 @@
 				18F136521CF7CC270021CBF5 /* SYGeomTige.swift */,
 				18F136511CF7CC270021CBF5 /* SYGeomLeaf.swift */,
 				18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */,
+				186B08DE1D06B705002C1A9F /* SYGeomSphere.swift */,
 			);
 			path = SYGeoms;
 			sourceTree = "<group>";
@@ -1135,6 +1141,7 @@
 				186B08DC1D05D8D3002C1A9F /* ProfilViewController.swift in Sources */,
 				186487EF1D05D43600D3B199 /* Popup.swift in Sources */,
 				18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */,
+				186B08DF1D06B706002C1A9F /* SYGeomSphere.swift in Sources */,
 				183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */,
 				186B08DA1D05D8D3002C1A9F /* PollenViewController.swift in Sources */,
 				186B08D21D05D8D3002C1A9F /* ColonyViewController.swift in Sources */,
@@ -1145,6 +1152,7 @@
 				1814CB351CEE0B47004D7540 /* main.swift in Sources */,
 				186B08D81D05D8D3002C1A9F /* GraineViewController.swift in Sources */,
 				183FF6AE1CFA078D0086D011 /* Utils.swift in Sources */,
+				186B08E11D06CA87002C1A9F /* CommentsViewController.swift in Sources */,
 				186487ED1D05D43600D3B199 /* ImagePopup.swift in Sources */,
 				18180F1F1D04C752008EAC4A /* SYPedometer.swift in Sources */,
 				1848F0221CF6446D000C45D6 /* SYBezierManager.swift in Sources */,

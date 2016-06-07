@@ -251,6 +251,9 @@ class SYElement: SCNNode, SYRederable {
         case "trunkShape":
             let trunk = SYShapeTrunk(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(trunk)
+        case "sphereShape":
+            let sphere = SYShapeSphere(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
+            self.elems.append(sphere)
         default:
             break
         }
@@ -267,6 +270,8 @@ class SYElement: SCNNode, SYRederable {
             return (SYGeomTigeProps(size: 0, width: 0), nil, nil)
         case "trunkShape":
             return (SYGeomTrunkProps(size: 0), nil, nil)
+        case "sphereShape":
+            return (SYGeomSphereProps(size: 0), nil, nil)
         default:
             return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
         }

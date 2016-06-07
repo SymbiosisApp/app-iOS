@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SYColony: UIView {
+class SYColony: UIView, SYStateListener {
 
     @IBOutlet var view: UIView!
     @IBOutlet weak var colonieName: UILabel!
@@ -27,6 +27,8 @@ class SYColony: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        
+        state.addListener(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +38,6 @@ class SYColony: UIView {
     
     // MARK: Setup
     func setup() {
-        
         view = loadViewFromNib()
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
@@ -44,7 +45,6 @@ class SYColony: UIView {
         
         //view?.superview!.hidden = true
         closeColonie.addTarget(self, action:#selector(self.hideColonie), forControlEvents: .TouchUpInside)
-  
     }
     
     func addbackground(name: String){        
@@ -57,22 +57,36 @@ class SYColony: UIView {
         colonieName.text = name
         colonieName.textColor = background.hexStringToUIColor("#FF6A4D")
     }
-
     
     func hideColonie(){
         state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
+        state.dispatchAction(SYStateActionType.SelectSeed, payload: nil)
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
     
     func loadViewFromNib() -> UIView {
-        
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: nibName, bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         
         return view
     }
-
     
+    @IBAction func showComments(sender: AnyObject) {
+        state.dispatchAction(SYStateActionType.SetCommentDisplay, payload: true)
+    }
     
+    // MARK: State
+    
+    func onStateSetup() {
+        let seed = state.getSelectedSeed()
+        colonieName.text = seed
+        colonieName.textColor = background.hexStringToUIColor("#FF6A4D")
+    }
+    
+    func onStateUpdate() {
+        if self.state.selectedSeedHasChanged() {
+            self.onStateSetup()
+        }
+    }
 }

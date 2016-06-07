@@ -21,12 +21,12 @@ enum SYStatePlantStatus {
 
 struct SYStateUser {
     var isAuthenticated: Bool = false
-    var hasASeed: Bool = false
+    var hasASeed: Bool = true
 }
 
 /// The state object
 struct SYState {
-    var tab: Int = 1
+    var tab: Int = 2
     var steps: Int = 0
     var plant: SYPlant? = nil
     var plantStatus: SYStatePlantStatus = .NotGenerated
@@ -38,6 +38,7 @@ struct SYState {
     var user: SYStateUser = SYStateUser()
     var selectedSeed: String? = nil
     var loginIsDisplay: Bool = false
+    var commentViewIsDisplay: Bool = false
 }
 
 /// State Actions Type
@@ -54,6 +55,7 @@ enum SYStateActionType {
     case DisplayLogin
     case UpdatePlant
     case SetPlantProgress
+    case SetCommentDisplay
 }
 
 /// State Action strcut
@@ -186,8 +188,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             state.user.hasASeed = true
         
         case .SelectSeed:
-            let seedId = payload as! String
-            state.selectedSeed = seedId
+            if let seedId = payload as? String {
+                state.selectedSeed = seedId
+            } else {
+                state.selectedSeed = nil
+            }
             state = updateMapPopup(state)
         
         case .DisplayLogin:
@@ -201,6 +206,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             let newProgress = payload as! Float
             state.plantProgress = newProgress
             state.nextPlantProgress = nil
+            
+        case .SetCommentDisplay:
+            let display = payload as! Bool
+            print(display)
+            state.commentViewIsDisplay = display
         }
         state = self.updatePlant(state)
         return state
@@ -387,12 +397,28 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getOnboardingToDisplay() -> String? {
-        return nil
-//        if currentState.displayedOnboarding != nil {
-//            return nil
-//        } else {
-//            return "Pollen"
-//        }
+        // return nil
+        if currentState.displayedOnboarding != nil {
+            return nil
+        } else {
+            return "Graine"
+        }
+    }
+    
+    func selectedSeedHasChanged() -> Bool {
+        return currentState.selectedSeed != previousState.selectedSeed
+    }
+    
+    func getSelectedSeed() -> String? {
+        return currentState.selectedSeed
+    }
+    
+    func commentDisplayHasChanged() -> Bool {
+        return currentState.commentViewIsDisplay != previousState.commentViewIsDisplay
+    }
+    
+    func commentIsDisplay() -> Bool {
+        return currentState.commentViewIsDisplay
     }
     
     func userIsAuthenticated() -> Bool {

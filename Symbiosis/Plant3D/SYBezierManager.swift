@@ -75,6 +75,11 @@ class SYBezierManager {
             path.moveToPoint(CGPoint(x: 0, y: 0))
             path.addCurveToPoint(CGPoint(x: 0.5, y: 0.1), controlPoint1: CGPoint(x: 0.2, y: 0.2), controlPoint2: CGPoint(x: 0.4, y: 0.3))
         
+        case "sphere":
+            path.moveToPoint(CGPoint(x: 0, y: 0))
+            path.addCurveToPoint(CGPoint(x: 1, y: 1), controlPoint1: CGPoint(x: 0, y: 0.6), controlPoint2: CGPoint(x: 0.4, y: 1))
+            path.addCurveToPoint(CGPoint(x: 2, y: 0), controlPoint1: CGPoint(x: 1.6, y: 1), controlPoint2: CGPoint(x: 2, y: 0.6))
+            
         default:
             fatalError("Not registered Bezier \(key)")
         }

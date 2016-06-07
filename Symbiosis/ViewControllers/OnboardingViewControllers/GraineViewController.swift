@@ -157,7 +157,9 @@ class DeplacementViewController: GrainesViewController{
     
     override func viewDidDisappear(animated: Bool) {
         self.imageLoader()
-        self.imageView.removeFromSuperview()
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+        }
     }
     
     func imageLoader(){

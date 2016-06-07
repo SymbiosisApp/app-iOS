@@ -153,6 +153,13 @@ class MainViewController: UIViewController, SYStateListener {
         })
     }
     
+    func showComments() {
+        // Trigger segue
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("Comments")
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
     // - MARK: Update
     
     func onStateSetup() {
@@ -173,6 +180,10 @@ class MainViewController: UIViewController, SYStateListener {
             self.showOnboarding(onboardingData)
         }
         
+        if state.commentIsDisplay() {
+            showComments()
+        }
+        
         updateViewContainer(false)
 
     }
@@ -181,6 +192,12 @@ class MainViewController: UIViewController, SYStateListener {
         
         if state.tabHasChanged() {
             updateViewContainer(true)
+        }
+        
+        if state.commentDisplayHasChanged() {
+            if state.commentIsDisplay() {
+                showComments()
+            }
         }
         
         if state.tabBarDisplayHasChanged() {

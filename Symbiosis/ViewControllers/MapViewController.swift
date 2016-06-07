@@ -22,15 +22,13 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     
     var myMapView: MGLMapView!
     var geolocPointer: MGLPointAnnotation!
+    var selectedAnnotation: MGLAnnotation? = nil
     
     // State
     let state = SYStateManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Listen to events
-        state.addListener(self)
         
         let long = state.getCurrentLocation().longitude
         let lat = state.getCurrentLocation().latitude
@@ -137,6 +135,9 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         localisation.layer.zPosition = 1
         suggest.layer.zPosition = 1
         
+        // Listen to events
+        state.addListener(self)
+        
     }
     
     
@@ -190,8 +191,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         let titre:String? = annotation.title!
         
         if (titre != nil) {
+            selectedAnnotation = annotation
             state.dispatchAction(SYStateActionType.SelectSeed, payload: titre)
-            // colonie.addbackground(titre!)
         }
 
         return true
@@ -208,15 +209,23 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
      **/
     
     func onStateSetup() {
-        
-        
-        
+        if state.getSelectedSeed() == nil {
+            self.myMapView.removeAnnotations([self.geolocPointer])
+            self.updateGeoloc()
+            myMapView.deselectAnnotation(nil, animated: true)
+        }
     }
     
     func onStateUpdate() {
         if state.locationHasChanged() {
             self.myMapView.removeAnnotations([self.geolocPointer])
             self.updateGeoloc()
+        }
+        if state.selectedSeedHasChanged() {
+            if state.getSelectedSeed() == nil {
+                print("Hide selected")
+                myMapView.deselectAnnotation(self.selectedAnnotation, animated: true)
+            }
         }
     }
     
