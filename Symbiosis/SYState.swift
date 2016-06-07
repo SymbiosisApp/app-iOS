@@ -41,7 +41,8 @@ struct SYState {
     var loginIsDisplay: Bool = false
     var commentViewIsDisplay: Bool = false
     var unreadMessages: Bool = false
-    var appIsInBackground: Bool = false
+    var appInBackground: Bool = false
+    var notificationSended: Bool = false
     
     var prezStep: String = "start"
 }
@@ -63,6 +64,8 @@ enum SYStateActionType {
     case SetCommentDisplay
     case SetOnboardingToDisplay
     case SetUnreadMessages
+    case SetBackgroundMode
+    case NotificationSended
 }
 
 /// State Action strcut
@@ -233,9 +236,20 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         case .SetCommentDisplay:
             let display = payload as! Bool
             state.commentViewIsDisplay = display
+            
         case .SetUnreadMessages:
             let hasUnread = payload as! Bool
             state.unreadMessages = hasUnread
+            
+        case .SetBackgroundMode:
+            let back = payload as! Bool
+            if back == false {
+                state.notificationSended = false
+            }
+            state.appInBackground = back
+            
+        case .NotificationSended:
+            state.notificationSended = true
         }
         state = self.updatePlant(state)
         return state
@@ -277,22 +291,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         }
         return state
     }
-    
-//    func updatePlant(state: SYState) -> SYState {
-//        var state = state
-//        if currentState.user.hasASeed == false {
-//            // if no seed Do nothing because no plant :)
-//            return state
-//        }
-//
-//        
-//        
-//        if self.currentState.plantStatus == SYStatePlantStatus.NotGenerated {
-//            
-//        }
-//
-//        return state
-//    }
     
     func setPopup(state: SYState, popupName: String, onTab tabIndex: Int) -> SYState {
         var state = state
@@ -345,7 +343,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             return true
         }
         if index == 3 && state.unreadMessages == true { // Chat
-            print("-----------------")
             return true
         }
         let popup = state.popups[index]
@@ -472,6 +469,14 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.commentViewIsDisplay
     }
     
+    func backgroundModeHasChanged() -> Bool {
+        return currentState.appInBackground != previousState.appInBackground
+    }
+    
+    func isInBackgroundMode() -> Bool {
+        return currentState.appInBackground
+    }
+    
     func userIsAuthenticated() -> Bool {
         // TODO join user and state
 //        let user = UserSingleton.sharedInstance;
@@ -480,6 +485,29 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
 //        }
         return currentState.user.isAuthenticated
     }
+    
+    func hasNotifToSend() -> Bool {
+        if currentState.appInBackground == false {
+            return false
+        }
+        if currentState.notificationSended == true {
+            return false
+        }
+        var result = false
+        for i in 0..<currentState.popups.count {
+            if currentState.popups[i] != previousState.popups[i] && currentState.popups[i] != nil  {
+                result = true
+            }
+        }
+        if result == false {
+            if currentState.plantStatus == .Generated {
+                result = true
+            }
+        }
+        return result
+    }
+    
+    
     
     // - MARK: SYLocationManager Delegate
     

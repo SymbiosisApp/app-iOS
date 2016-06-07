@@ -127,36 +127,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         }
     }
     
-//    func animatePlant() {
-//        // print("animate")
-//        SCNTransaction.begin()
-//        SCNTransaction.setAnimationDuration(0.5)
-//        self.plant.render(1)
-//        SCNTransaction.commit()
-//    }
-//    
-//    func evolveThePlant() {
-//        print("Envolve the plant !")
-//        state.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generating)
-//        let progresses = state.getPlantProgresses()
-//        self.plantProps = generateProps(progresses)
-//        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-//        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-//            // print("Start generate !")
-//            print(self.plantProps)
-//            let nextPlant = SYPlant(states: self.plantProps)
-//            // print("Generate Done !")
-//            if self.plant != nil {
-//                self.plant.removeFromParentNode()
-//            }
-//            self.plant = nextPlant
-//            self.scene.rootNode.addChildNode(self.plant)
-//            self.plant.render(0)
-//            self.animatePlant()
-//            self.state.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generated)
-//        }
-//    }
-    
     func animatePlant() {
         print("Animate plant !")
         state.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Animating)
@@ -176,13 +146,14 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     }
     
     func updatePlantAndAnimate(animate: Bool) {
+        print("updatePlantAndAnimate")
         if self.plant != nil {
             self.plant.removeFromParentNode()
         }
         self.plant = state.getPlant()
         
         self.scene.rootNode.addChildNode(self.plant)
-        if state.isSelectedTab(2) {
+        if state.isSelectedTab(2) && state.isInBackgroundMode() == false {
             if animate {
                 self.plant!.render(0)
                 self.animatePlant()
@@ -220,14 +191,14 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     }
     
     func onStateUpdate() {
-        if state.plantStatusHasChanged() {
+        if state.plantStatusHasChanged() || state.backgroundModeHasChanged() || state.tabHasChanged() {
             let newStatus = state.getPlantStatus()
             switch newStatus {
             case .Generated:
                 // Animate
                 self.updatePlantAndAnimate(true)
             case .Animating:
-                // Do nothinf
+                // Do nothing
                 break
             case .Animated:
                 // Do Nothing
