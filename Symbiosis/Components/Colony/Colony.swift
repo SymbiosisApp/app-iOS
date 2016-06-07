@@ -67,12 +67,9 @@ class SYColony: UIView, SYStateListener {
     }
     
     func mainActionTouch() {
-        print("mainActionTouch")
-        print(state.getSelectedSeed())
-        state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
-        if state.getSelectedSeed() == nil {
-            print("show onboarding")
-            state.dispatchAction(SYStateActionType.SelectSeed, payload: nil)
+        state.dispatchAction(SYStateActionType.SelectSeed, payload: nil)
+        if state.userHasSeed() == false {
+            state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
             state.dispatchAction(SYStateActionType.ShowOnboarding, payload: "Graine")
         }
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
@@ -130,10 +127,6 @@ class SYColony: UIView, SYStateListener {
             
             colonieName.text = seed?.name
             colonieName.textColor = background.hexStringToUIColor("#FF6A4D")
-            
-            print("Setup")
-            
-            print(state.userHasSeed())
             
             if state.userHasSeed() {
                 self.mainAction.setTitle("RETOURNER SUR LA CARTE", forState: UIControlState.Normal)

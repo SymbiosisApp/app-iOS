@@ -186,6 +186,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         
         case .ShowOnboarding:
             let onboardingName = payload as! String
+            print("ShowOnboarding \(onboardingName)")
             state.displayedOnboarding = onboardingName
         
         case .HideOnboarding:

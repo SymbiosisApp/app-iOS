@@ -219,6 +219,8 @@ class MainViewController: UIViewController, SYStateListener {
 //            showNotifications("texte yolo notif")
 //        }
         
+        print("-------")
+        print(state.getOnboardingToDisplay())
         if let onboarding = state.getOnboardingToDisplay() {
             state.dispatchAction(SYStateActionType.ShowOnboarding, payload: onboarding)
             let dataLoarder = SYDataLoader()
