@@ -189,6 +189,8 @@ class MainViewController: UIViewController, SYStateListener {
     
     func onStateUpdate() {
         
+        print("MainViewController State Update")
+        
         if state.tabHasChanged() {
             updateViewContainer(true)
         }
@@ -283,6 +285,10 @@ class MainViewController: UIViewController, SYStateListener {
         
         mountedViewCtrl = currentViewCtrl
         
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        print("Bye bye MainViewController :'( ")
     }
     
     // - MARK: Memory warning

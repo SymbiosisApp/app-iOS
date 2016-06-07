@@ -41,6 +41,7 @@ struct SYState {
     var loginIsDisplay: Bool = false
     var commentViewIsDisplay: Bool = false
     var unreadMessages: Bool = false
+    var appIsInBackground: Bool = false
     
     var prezStep: String = "start"
 }
