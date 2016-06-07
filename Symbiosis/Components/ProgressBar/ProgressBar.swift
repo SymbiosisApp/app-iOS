@@ -14,6 +14,7 @@ class SYProgressBar: UIView, SYStateListener {
     // MARK: State
     let state = SYStateManager.sharedInstance
     var nibName: String = "ProgressBar"
+    var barHeightConstraint: NSLayoutConstraint? = nil
     
     @IBOutlet weak var containerProgressBar: UIView!
     @IBOutlet weak var liquidProgressBar: UIView!
@@ -34,38 +35,19 @@ class SYProgressBar: UIView, SYStateListener {
     
     // MARK: Setup
     func setup() {
-        state.addListener(self)
+        print("setup")
+        
         view = loadViewFromNib()
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
         
-        containerProgressBar.layer.cornerRadius = 2.0
-        containerProgressBar.clipsToBounds = true
+        self.barHeightConstraint = NSLayoutConstraint.init(item: liquidProgressBar, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: containerProgressBar, attribute: NSLayoutAttribute.Height, multiplier: 0, constant: 0)
+        self.barHeightConstraint?.active = true
         
-        progressBar()
-    }
-    
-    func progressBar(){
-        
-        var progress = liquidProgressBar.frame
-        var heightLiquidProgressBar = liquidProgressBar.frame
-        let heightContainerProgressBar = containerProgressBar.frame.height
-        let randomValue = CGFloat(randRange(1, upper: 99))
-        
-        progress.origin.y = heightContainerProgressBar - ((randomValue * heightContainerProgressBar)/100)
-        heightLiquidProgressBar = progress
-        
-        self.containerProgressBar.addSubview(UIView(frame: heightLiquidProgressBar))
-        
-        UIView.animateWithDuration(0.8, animations: {
-            self.liquidProgressBar.frame = CGRectMake(progress.origin.x, progress.origin.y, progress.height, progress.width)
-        })
+        self.layoutIfNeeded()
 
-    }
-    
-    func randRange (lower: UInt32 , upper: UInt32) -> UInt32 {
-        return lower + arc4random_uniform(upper - lower + 1)
+        state.addListener(self)
     }
     
     func loadViewFromNib() -> UIView {
@@ -76,13 +58,45 @@ class SYProgressBar: UIView, SYStateListener {
         return view
     }
     
+    func animateTo(progress: Float) {
+        UIView.animateWithDuration(1.0, animations: {
+            if self.barHeightConstraint != nil {
+                self.barHeightConstraint!.active = false
+            }
+            self.barHeightConstraint = NSLayoutConstraint.init(item: self.liquidProgressBar, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self.containerProgressBar, attribute: NSLayoutAttribute.Height, multiplier: CGFloat(progress), constant: 0)
+            self.barHeightConstraint!.active = true
+            self.layoutIfNeeded()
+        }) { (completed) in
+            print("done")
+        }
+    }
     
     func onStateSetup() {
-        
+        let progress = state.getProgressBarProgress()
+        self.animateTo(progress)
     }
     
     func onStateUpdate() {
-        
+        if state.plantStatusHasChanged() {
+            let newStatus = state.getPlantStatus()
+            switch newStatus {
+            case .Generated:
+                break
+            case .Animating:
+                let progress = state.getProgressBarProgress()
+                self.animateTo(progress)
+            case .Animated:
+                // Do Nothing
+                break
+            case .Generating:
+                // Do Nothing
+                break
+            case .NotGenerated:
+                // Do Nothing
+                break
+            }
+
+        }
     }
 
 }
