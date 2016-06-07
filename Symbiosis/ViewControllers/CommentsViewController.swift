@@ -26,10 +26,7 @@ class CommentsViewController: UIViewController, SYStateListener {
     
     func onStateSetup() {
         let colony = state.getSelectedSeed()
-        self.colonyName.text = colony!
-        
-        print(colony)
-        
+        self.colonyName.text = colony?.name
     }
     
     func onStateUpdate() {

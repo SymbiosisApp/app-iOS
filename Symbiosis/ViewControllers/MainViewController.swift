@@ -82,6 +82,7 @@ class MainViewController: UIViewController, SYStateListener {
     
     
     @IBAction func closeOnboarding(segue: UIStoryboardSegue)    {
+        state.dispatchAction(SYStateActionType.HideOnboarding, payload: nil)
         dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -163,8 +164,6 @@ class MainViewController: UIViewController, SYStateListener {
     // - MARK: Update
     
     func onStateSetup() {
-        
-        print("Tabbar : \(state.tabBarIsDisplayed())")
         
         // Init tab bar display
         if state.tabBarIsDisplayed() {

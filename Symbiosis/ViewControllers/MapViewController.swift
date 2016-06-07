@@ -12,6 +12,35 @@ import UIKit
 // Mapbox is added "manualy", not with carthage
 import Mapbox
 
+class SeedAnnotation: MGLPointAnnotation {
+    
+    private var _seed: Seed!
+    
+    var seed: Seed? {
+        set(newSeed) {
+            self._seed = newSeed
+            self.title = self._seed.name
+            self.coordinate = self._seed.coordinate
+        }
+        get {
+            return self._seed
+        }
+    }
+    
+    
+    var style: String {
+        get {
+            if self._seed!.isRecent {
+                return "graine"
+            } else {
+                return "graineOld"
+            }
+        }
+    }
+    
+}
+
+
 class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     let request = RequestData()
     
@@ -27,27 +56,13 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     // State
     let state = SYStateManager.sharedInstance
     
+    var seedData: [Seed] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let long = state.getCurrentLocation().longitude
-        let lat = state.getCurrentLocation().latitude
-        
         self.myMapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
         //myMapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
-        // set the map’s center coordinate and zoom level
-        myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long), zoomLevel: 12, animated: false)
-        
-        let neLat = myMapView.visibleCoordinateBounds.ne.latitude
-        let neLong = myMapView.visibleCoordinateBounds.ne.longitude
-        let swLat = myMapView.visibleCoordinateBounds.sw.latitude
-        let swLong = myMapView.visibleCoordinateBounds.sw.longitude
-    
-        let bounds = MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: swLat, longitude: swLong),
-                                         ne: CLLocationCoordinate2D(latitude: neLat, longitude: neLong))
-        myMapView.setVisibleCoordinateBounds(bounds, animated: false)
-        
         
         myMapView.tintColor = .darkGrayColor()
         
@@ -60,10 +75,12 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         var longitude:Double = 0
         var name:String = ""
         var date:NSDate? = NSDate()
+        var id: Int? = nil
         
         let formater = NSDateFormatter()
         formater.dateFormat = "dd/MM/yyyy"
         
+        // Compute seeds
         if let data = dataMap as? [AnyObject]{
             for graine in data {
    
@@ -76,33 +93,27 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
                 if let graineInfo = graine["nom"] as? String {
                     name = String(UTF8String: graineInfo)!
                 }
+                if let graineInfo = graine["rowid"] as? String {
+                    id = Int(graineInfo)!
+                }
                 if let graineInfo = graine["date"] as? String {
-
                     if var dateF = formater.dateFromString(graineInfo){
                         dateF = addUnitToDate(.Day, number: +7, date: dateF)
                         date = dateF
                     }
                 }
                 
-                let dateNow = NSDate()
-                let compareDateResult = date!.compare(dateNow)
-                //if current date > dateformated = AUJOUR > date + 7jours
-                if compareDateResult == NSComparisonResult.OrderedDescending{
-                    let graineOld = MGLPointAnnotation()
-                    graineOld.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-                    graineOld.title = name
-                    myMapView.addStyleClass("graineOld")
-                    myMapView.addAnnotation(graineOld)
-
-                }else{
-                    let graine = MGLPointAnnotation()
-                    graine.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-                    graine.title = name
-                    myMapView.addStyleClass("graine")
-                    myMapView.addAnnotation(graine)
-                }
+                let seed = Seed(coordinate: CLLocationCoordinate2DMake(latitude, longitude), name: name, date: date!, id: id!)
+                self.seedData.append(seed)
     
             }
+        }
+        
+        for seed in self.seedData {
+            let seedAnot = SeedAnnotation()
+            seedAnot.seed = seed
+            myMapView.addStyleClass(seedAnot.style)
+            myMapView.addAnnotation(seedAnot)
         }
         
         
@@ -182,27 +193,18 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
     @IBOutlet weak var colonie: SYColony!
 
     @IBAction func close(sender: AnyObject) {
-        print("close")
+        
     }
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        
-        //colonie.layer.zPosition = 2
-        
-        let titre:String? = annotation.title!
-        
-        if (titre != nil) {
-            selectedAnnotation = annotation
-            state.dispatchAction(SYStateActionType.SelectSeed, payload: titre)
-        }
-
         return true
     }
     
-//    func mapView(mapView: MGLMapView, didSelectAnnotation annotation: MGLAnnotation) {
-//        print("Click")
-//        // state.dispatchAction(SYStateActionType.SetUserSeed, payload: nil)
-//        state.dispatchAction(SYStateActionType.SelectSeed, payload: "blabla")
-//    }
+    func mapView(mapView: MGLMapView, didSelectAnnotation annotation: MGLAnnotation) {
+        if let seedAnnot = annotation as? SeedAnnotation {
+            self.selectedAnnotation = annotation
+            state.dispatchAction(SYStateActionType.SelectSeed, payload: seedAnnot.seed)
+        }
+    }
     
     /**
      * State Update
@@ -223,7 +225,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         }
         if state.selectedSeedHasChanged() {
             if state.getSelectedSeed() == nil {
-                print("Hide selected")
                 myMapView.deselectAnnotation(self.selectedAnnotation, animated: true)
             }
         }
@@ -238,6 +239,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         self.geolocPointer.coordinate = state.getCurrentLocation()
         myMapView.addStyleClass("pointeur")
         myMapView.addAnnotation(geolocPointer)
+        
+        // set the map’s center coordinate and zoom level
+        let long = state.getCurrentLocation().longitude
+        let lat = state.getCurrentLocation().latitude
+        myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long), zoomLevel: 13, animated: true)
     }
     
     //ADD DAYS AT ONE DATE

@@ -13,7 +13,6 @@ class SYImagePopup: UIView {
 
     
     @IBOutlet var view: UIView!
-    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     
     // State
@@ -41,14 +40,13 @@ class SYImagePopup: UIView {
         
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
         backgroundImage.image = UIImage(named: imageName)
-        image.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, atIndex: 0)
 
         closeButton.addTarget(self, action:#selector(self.closeAction), forControlEvents: .TouchUpInside)
   
     }
     
     func closeAction(){
-        print("Hide image popup")
         state.dispatchAction(SYStateActionType.HideCurrentPopup, payload: nil)
     }
     

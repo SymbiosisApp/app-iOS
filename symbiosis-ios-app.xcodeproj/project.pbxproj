@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1801FEA61D07035200A385F4 /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801FEA51D07035200A385F4 /* Seed.swift */; };
 		1814CB351CEE0B47004D7540 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB341CEE0B47004D7540 /* main.swift */; };
 		1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1814CB371CEE0DC3004D7540 /* QTouchposeApplication.m */; };
 		18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18180F1B1D04C752008EAC4A /* SYLocationManager.swift */; };
@@ -225,6 +226,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1801FEA51D07035200A385F4 /* Seed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
 		1814CB2F1CEE0AEE004D7540 /* symbiosis-ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "symbiosis-ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		1814CB341CEE0B47004D7540 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1814CB361CEE0DC3004D7540 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTouchposeApplication.h; path = Touchpose/QTouchposeApplication.h; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				18180F1B1D04C752008EAC4A /* SYLocationManager.swift */,
 				18180F1C1D04C752008EAC4A /* SYPedometer.swift */,
 				18180F1D1D04C752008EAC4A /* SYSocket.swift */,
+				1801FEA51D07035200A385F4 /* Seed.swift */,
 			);
 			path = StateTools;
 			sourceTree = "<group>";
@@ -897,7 +900,7 @@
 				TargetAttributes = {
 					18BC17F11C722BBE008E6558 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = EBM73D6TAP;
+						DevelopmentTeam = U953397FRU;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1174,6 +1177,7 @@
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,
 				186B08DD1D05D8D3002C1A9F /* SuggestionViewController.swift in Sources */,
 				666301991CFC38EA001E991F /* UserSingleton.swift in Sources */,
+				1801FEA61D07035200A385F4 /* Seed.swift in Sources */,
 				66670C011D04809E00AAFB8A /* SwiftGif.swift in Sources */,
 				1848F0251CF6446D000C45D6 /* SYStructs.swift in Sources */,
 				1848F01F1CF6446D000C45D6 /* SYGeom.swift in Sources */,

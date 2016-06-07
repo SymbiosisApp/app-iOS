@@ -21,12 +21,12 @@ enum SYStatePlantStatus {
 
 struct SYStateUser {
     var isAuthenticated: Bool = false
-    var hasASeed: Bool = true
+    var hasASeed: Bool = false
 }
 
 /// The state object
 struct SYState {
-    var tab: Int = 2
+    var tab: Int = 1
     var steps: Int = 0
     var plant: SYPlant? = nil
     var plantStatus: SYStatePlantStatus = .NotGenerated
@@ -35,10 +35,13 @@ struct SYState {
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
     var displayedOnboarding: String? = nil
+    var onboardingToDisplay: String? = nil
     var user: SYStateUser = SYStateUser()
-    var selectedSeed: String? = nil
+    var selectedSeed: Seed? = nil
     var loginIsDisplay: Bool = false
     var commentViewIsDisplay: Bool = false
+    
+    var prezStep: String = "start"
 }
 
 /// State Actions Type
@@ -56,6 +59,7 @@ enum SYStateActionType {
     case UpdatePlant
     case SetPlantProgress
     case SetCommentDisplay
+    case SetOnboardingToDisplay
 }
 
 /// State Action strcut
@@ -159,7 +163,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         case .SetPlantStep:
             let newSteps = payload as! Int
             state.steps = newSteps
-            state = self.setPopup(state, popupName: "commencer", onTab: 3)
         
         case .SetPlantStatus:
             let status = payload as! SYStatePlantStatus
@@ -174,22 +177,36 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             state.location = newGeoloc
         
         case .HideCurrentPopup:
+//            if let popup = self.getCurrentPopup() {
+//                if popup == "colony" {
+//                    state.displayedOnboarding = "Graine"
+//                }
+//            }
             let tab = getCurrentTab()
             state.popups[tab] = nil
         
+        case .SetOnboardingToDisplay:
+            let onboardingName = payload as! String
+            state.onboardingToDisplay = onboardingName
+            
         case .ShowOnboarding:
             let onboardingName = payload as! String
             state.displayedOnboarding = onboardingName
+            state.onboardingToDisplay = nil
         
         case .HideOnboarding:
+            if currentState.displayedOnboarding == "Intro" {
+                state.prezStep = "yolo"
+                state = self.setPopup(state, popupName: "commencer", onTab: 1)
+            }
             state.displayedOnboarding = nil
-        
+
         case .SetUserSeed:
             state.user.hasASeed = true
         
         case .SelectSeed:
-            if let seedId = payload as? String {
-                state.selectedSeed = seedId
+            if let seed = payload as? Seed {
+                state.selectedSeed = seed
             } else {
                 state.selectedSeed = nil
             }
@@ -209,7 +226,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             
         case .SetCommentDisplay:
             let display = payload as! Bool
-            print(display)
             state.commentViewIsDisplay = display
         }
         state = self.updatePlant(state)
@@ -278,12 +294,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     func updateMapPopup(state: SYState) -> SYState {
         var state = state
         if state.selectedSeed != nil {
-            if state.user.hasASeed == false {
-                // Colony with select this seed button
-                state.popups[1] = "colony-select-seed"
-            } else {
-                state.popups[1] = "colony"
-            }
+            state.popups[1] = "colony"
         }
         return state
     }
@@ -343,6 +354,10 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.user.hasASeed != false
     }
     
+    func userHasSeed() -> Bool {
+        return currentState.user.hasASeed
+    }
+    
     func previousTabBarIsDisplayed() -> Bool {
         return previousState.user.hasASeed != false
     }
@@ -397,19 +412,42 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getOnboardingToDisplay() -> String? {
-        // return nil
+        if currentState.onboardingToDisplay != previousState.onboardingToDisplay && currentState.onboardingToDisplay != nil {
+            return currentState.onboardingToDisplay!
+        }
         if currentState.displayedOnboarding != nil {
             return nil
-        } else {
+        }
+        if currentState.prezStep == "start" {
             return "Intro"
         }
+        return nil
     }
     
     func selectedSeedHasChanged() -> Bool {
-        return currentState.selectedSeed != previousState.selectedSeed
+        if currentState.selectedSeed == nil && previousState.selectedSeed == nil {
+            return false
+        }
+        if currentState.selectedSeed != nil && previousState.selectedSeed == nil {
+            return true
+        }
+        if currentState.selectedSeed == nil && previousState.selectedSeed != nil {
+            return true
+        }
+        // Both not nil
+        return currentState.selectedSeed!.id != previousState.selectedSeed!.id
     }
     
-    func getSelectedSeed() -> String? {
+    func distanceToSelectedSeed() -> Double? {
+        if currentState.selectedSeed == nil {
+            return nil
+        }
+        let from = CLLocation(latitude: currentState.location.latitude, longitude: currentState.location.longitude)
+        let to = CLLocation(latitude: currentState.selectedSeed!.coordinate.latitude, longitude: currentState.selectedSeed!.coordinate.longitude)
+        return from.distanceFromLocation(to)
+    }
+    
+    func getSelectedSeed() -> Seed? {
         return currentState.selectedSeed
     }
     

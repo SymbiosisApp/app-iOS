@@ -11,7 +11,7 @@ import UIKit
 
 class SYPopup: UIView, SYStateListener {
     
-    let validPopups : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer", "colony", "colony-select-seed"]
+    let validPopups : [String] = ["commencer", "commenter", "decouverte", "dispersion", "fruit", "lieu", "merci", "photo", "suggerer", "colony"]
     
     // MARK: State
     let state = SYStateManager.sharedInstance
@@ -33,6 +33,8 @@ class SYPopup: UIView, SYStateListener {
     // MARK: Setup
     func setup() {
         state.addListener(self)
+        
+        self.userInteractionEnabled = true
         
         self.hidden = true
     }
@@ -76,10 +78,6 @@ class SYPopup: UIView, SYStateListener {
         var newPopup: UIView? = nil
         if name == "colony" {
             newPopup = SYColony(frame: self.frame)
-            print("display colony")
-        } else if name == "colony-select-seed" {
-            print("display colony-select-seed")
-            newPopup = SYColony(frame: self.frame)
         } else {
             newPopup = SYImagePopup(frame: self.frame, imageName: name)
         }
@@ -105,7 +103,7 @@ class SYPopup: UIView, SYStateListener {
             self.layoutIfNeeded()
             self.currentPopup!.alpha = 1
             }) { (completed) in
-                print("completed")
+                // print("completed")
         }
     }
     

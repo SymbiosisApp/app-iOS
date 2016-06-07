@@ -33,7 +33,6 @@ class SYDataLoader {
                     }
                 }
             }
-            
         } catch {
             fatalError("error serializing JSON: \(error)")
         }

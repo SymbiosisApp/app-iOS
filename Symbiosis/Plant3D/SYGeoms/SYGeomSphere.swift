@@ -34,11 +34,17 @@ class SYGeomSphere: SYGeom {
             return SYBone(translation: GLKVector3Make(0, 0, 0), orientation: GLKMatrix4MakeRotation(0, 0, 1, 0), size: nil, isLastStep: true, isAbsolute: nil)
         }
         
+        var stepSize = myProps.size/20 * 0.1
+        
+        if options.index == 0 || options.index == 20 {
+            stepSize = stepSize * 0.5
+        }
+        
         var isLastStep: Bool = false
         let orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
-        let translation = GLKVector3Make(0, myProps.size/20, 0)
+        let translation = GLKVector3Make(0, stepSize, 0)
         
-        if (options.index > 20) {
+        if (options.index >= 20) {
             isLastStep = true
         }
         
@@ -61,7 +67,7 @@ class SYGeomSphere: SYGeom {
         
         let myPath = self.parent.getBezierManager().get("sphere", options: nil)
         
-        let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
+        let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * (myProps.size * 0.5)
         
         // Last step
         if progressNum == 1 {
@@ -89,15 +95,12 @@ class SYGeomSphere: SYGeom {
         // let myProps = self.props as! SYGeomBranchProps
         
         let mat = SCNMaterial()
-        mat.diffuse.contents = UIColor(red: 1.0, green: 0.6118, blue: 0.5608, alpha: 1)
-        // mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
+        mat.diffuse.contents = UIColor(red: 0.3, green: 0.5118, blue: 0.9, alpha: 1)
         mat.doubleSided = true
         
         var shaders: [String:String] = [:]
         
         shaders[SCNShaderModifierEntryPointFragment] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("test", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
-        
-        // shaders[SCNShaderModifierEntryPointLightingModel] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("tooning", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
         
         mat.shaderModifiers = shaders
         
