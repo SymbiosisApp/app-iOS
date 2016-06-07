@@ -21,12 +21,12 @@ enum SYStatePlantStatus {
 
 struct SYStateUser {
     var isAuthenticated: Bool = false
-    var hasASeed: Bool = true
+    var hasASeed: Bool = false
 }
 
 /// The state object
 struct SYState {
-    var tab: Int = 2
+    var tab: Int = 1
     var steps: Int = 0
     var plant: SYPlant? = nil
     var plantStatus: SYStatePlantStatus = .NotGenerated
@@ -36,7 +36,7 @@ struct SYState {
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
     var displayedOnboarding: String? = nil
     var user: SYStateUser = SYStateUser()
-    var selectedSeed: String? = nil
+    var selectedSeed: Seed? = nil
     var loginIsDisplay: Bool = false
     var commentViewIsDisplay: Bool = false
 }
@@ -188,8 +188,8 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             state.user.hasASeed = true
         
         case .SelectSeed:
-            if let seedId = payload as? String {
-                state.selectedSeed = seedId
+            if let seed = payload as? Seed {
+                state.selectedSeed = seed
             } else {
                 state.selectedSeed = nil
             }
@@ -278,12 +278,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     func updateMapPopup(state: SYState) -> SYState {
         var state = state
         if state.selectedSeed != nil {
-            if state.user.hasASeed == false {
-                // Colony with select this seed button
-                state.popups[1] = "colony-select-seed"
-            } else {
-                state.popups[1] = "colony"
-            }
+            state.popups[1] = "colony"
         }
         return state
     }
@@ -343,6 +338,10 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return currentState.user.hasASeed != false
     }
     
+    func userHasSeed() -> Bool {
+        return currentState.user.hasASeed
+    }
+    
     func previousTabBarIsDisplayed() -> Bool {
         return previousState.user.hasASeed != false
     }
@@ -397,19 +396,29 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getOnboardingToDisplay() -> String? {
-        // return nil
-        if currentState.displayedOnboarding != nil {
-            return nil
-        } else {
-            return "Graine"
-        }
+        return nil
+//        if currentState.displayedOnboarding != nil {
+//            return nil
+//        } else {
+//            return "Graine"
+//        }
     }
     
     func selectedSeedHasChanged() -> Bool {
-        return currentState.selectedSeed != previousState.selectedSeed
+        if currentState.selectedSeed == nil && previousState.selectedSeed == nil {
+            return false
+        }
+        if currentState.selectedSeed != nil && previousState.selectedSeed == nil {
+            return true
+        }
+        if currentState.selectedSeed == nil && previousState.selectedSeed != nil {
+            return true
+        }
+        // Both not nil
+        return currentState.selectedSeed!.id != previousState.selectedSeed!.id
     }
     
-    func getSelectedSeed() -> String? {
+    func getSelectedSeed() -> Seed? {
         return currentState.selectedSeed
     }
     

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="CaslonGraphiqueEF.otf">
@@ -18,9 +17,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SYColony" customModule="symbiosis_ios_app" customModuleProvider="target">
             <connections>
-                <outlet property="closeColonie" destination="kgc-Q5-AcU" id="a30-lT-jl3"/>
                 <outlet property="colonieName" destination="IiU-oR-1nU" id="yjd-RM-Neb"/>
                 <outlet property="commentaires" destination="ScG-XT-N9O" id="oG0-TI-CjL"/>
+                <outlet property="exitView" destination="x5F-yG-Pqg" id="Sc5-Ca-wKj"/>
+                <outlet property="mainAction" destination="kgc-Q5-AcU" id="95C-B4-fXb"/>
+                <outlet property="stackView" destination="uva-LQ-IAT" id="HMW-F6-7CF"/>
                 <outlet property="view" destination="iN0-l3-epB" id="K9K-XS-xB4"/>
             </connections>
         </placeholder>
@@ -29,73 +30,105 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neutreFake" translatesAutoresizingMaskIntoConstraints="NO" id="WJc-QK-p7T">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-yG-Pqg" userLabel="ExitView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgc-Q5-AcU">
-                    <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                    <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uva-LQ-IAT">
+                    <rect key="frame" x="0.0" y="369" width="600" height="231"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkR-6G-qEp">
+                            <rect key="frame" x="295" y="0.0" width="10" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="10" id="CXH-xi-D62"/>
+                                <constraint firstAttribute="height" constant="30" id="xA5-HW-WqL"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLONIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dC0-OM-32Q">
+                            <rect key="frame" x="270" y="30" width="61" height="16"/>
+                            <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5c-ej-YAC">
+                            <rect key="frame" x="295" y="46" width="10" height="10"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="10" id="M8Y-Vb-exE"/>
+                                <constraint firstAttribute="height" constant="10" id="y1q-nu-KSu"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiU-oR-1nU">
+                            <rect key="frame" x="20" y="56" width="560" height="25"/>
+                            <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="22"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAy-N7-b80">
+                            <rect key="frame" x="295" y="81" width="10" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="jqY-xi-CTm"/>
+                                <constraint firstAttribute="width" constant="10" id="y7G-K7-Dvy"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScG-XT-N9O">
+                            <rect key="frame" x="0.0" y="111" width="600" height="60"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.017884615384615384" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="fuj-W1-rwO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
+                            <state key="normal" title="12 commentaires "/>
+                            <connections>
+                                <action selector="showComments:" destination="-1" eventType="touchUpInside" id="rNS-Pe-WD1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgc-Q5-AcU" userLabel="MainButton">
+                            <rect key="frame" x="0.0" y="171" width="600" height="60"/>
+                            <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="cGZ-5j-an4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
+                            <state key="normal" title="RETOURNER SUR LA CARTE">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="cGZ-5j-an4"/>
+                        <constraint firstItem="kgc-Q5-AcU" firstAttribute="leading" secondItem="uva-LQ-IAT" secondAttribute="leading" id="0WL-cd-mKQ"/>
+                        <constraint firstAttribute="trailing" secondItem="ScG-XT-N9O" secondAttribute="trailing" id="7ML-DH-JuC"/>
+                        <constraint firstAttribute="trailing" secondItem="NAy-N7-b80" secondAttribute="trailing" id="Bmb-hu-NCH"/>
+                        <constraint firstAttribute="trailing" secondItem="kgc-Q5-AcU" secondAttribute="trailing" id="EC2-FZ-1Vo"/>
+                        <constraint firstAttribute="trailing" secondItem="pkR-6G-qEp" secondAttribute="trailing" id="NzJ-Sv-sCg"/>
+                        <constraint firstItem="ScG-XT-N9O" firstAttribute="leading" secondItem="uva-LQ-IAT" secondAttribute="leading" id="Oct-Nk-BEc"/>
+                        <constraint firstItem="y5c-ej-YAC" firstAttribute="leading" secondItem="uva-LQ-IAT" secondAttribute="leading" id="QDT-Fj-iZu"/>
+                        <constraint firstItem="pkR-6G-qEp" firstAttribute="leading" secondItem="uva-LQ-IAT" secondAttribute="leading" id="b9u-Ps-akK"/>
+                        <constraint firstItem="NAy-N7-b80" firstAttribute="leading" secondItem="uva-LQ-IAT" secondAttribute="leading" id="bv8-ui-t65"/>
+                        <constraint firstItem="IiU-oR-1nU" firstAttribute="leading" secondItem="uva-LQ-IAT" secondAttribute="leading" constant="20" id="fJQ-r2-3TS"/>
+                        <constraint firstAttribute="trailing" secondItem="IiU-oR-1nU" secondAttribute="trailing" constant="20" id="olJ-wv-7ZU"/>
+                        <constraint firstAttribute="trailing" secondItem="y5c-ej-YAC" secondAttribute="trailing" id="qzd-GQ-ST7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
-                    <state key="normal" title="J'AI COMPRIS">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiU-oR-1nU">
-                    <rect key="frame" x="8" y="378" width="584" height="25"/>
-                    <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="22"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="COLONIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dC0-OM-32Q">
-                    <rect key="frame" x="8" y="354" width="584" height="16"/>
-                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScG-XT-N9O">
-                    <rect key="frame" x="0.0" y="480" width="600" height="60"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.017884615384615384" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="fuj-W1-rwO"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
-                    <state key="normal" title="12 commentaires "/>
-                    <connections>
-                        <action selector="showComments:" destination="-1" eventType="touchUpInside" id="rNS-Pe-WD1"/>
-                    </connections>
-                </button>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="NzJ-Sv-sCg"/>
+                            <exclude reference="b9u-Ps-akK"/>
+                            <exclude reference="Bmb-hu-NCH"/>
+                            <exclude reference="bv8-ui-t65"/>
+                            <exclude reference="QDT-Fj-iZu"/>
+                            <exclude reference="qzd-GQ-ST7"/>
+                        </mask>
+                    </variation>
+                </stackView>
             </subviews>
             <constraints>
-                <constraint firstItem="ScG-XT-N9O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1gd-MP-hlS"/>
-                <constraint firstItem="kgc-Q5-AcU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8pX-eS-ddp"/>
-                <constraint firstAttribute="trailing" secondItem="ScG-XT-N9O" secondAttribute="trailing" id="AqA-oS-i5g"/>
-                <constraint firstAttribute="bottom" secondItem="WJc-QK-p7T" secondAttribute="bottom" id="AuL-vj-S6Z"/>
-                <constraint firstItem="dC0-OM-32Q" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="HEX-rQ-8AO"/>
-                <constraint firstAttribute="bottom" secondItem="kgc-Q5-AcU" secondAttribute="bottom" id="UVf-ab-tuG"/>
-                <constraint firstItem="kgc-Q5-AcU" firstAttribute="top" secondItem="ScG-XT-N9O" secondAttribute="bottom" id="VN4-jd-88C"/>
-                <constraint firstItem="IiU-oR-1nU" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="Wb3-vp-9BV"/>
-                <constraint firstAttribute="trailing" secondItem="kgc-Q5-AcU" secondAttribute="trailing" id="Xsj-Rr-3Cb"/>
-                <constraint firstItem="dC0-OM-32Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="Z8I-HD-Pyh"/>
-                <constraint firstItem="IiU-oR-1nU" firstAttribute="top" secondItem="dC0-OM-32Q" secondAttribute="bottom" constant="8" id="aIl-wr-gtS"/>
-                <constraint firstItem="WJc-QK-p7T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cfH-FY-JsC"/>
-                <constraint firstItem="IiU-oR-1nU" firstAttribute="top" secondItem="dC0-OM-32Q" secondAttribute="bottom" constant="13" id="eiU-E0-xrz"/>
-                <constraint firstItem="IiU-oR-1nU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="ppf-dO-KnM"/>
-                <constraint firstItem="ScG-XT-N9O" firstAttribute="top" secondItem="IiU-oR-1nU" secondAttribute="bottom" constant="77" id="sGw-vV-hAP"/>
-                <constraint firstAttribute="trailing" secondItem="WJc-QK-p7T" secondAttribute="trailing" id="ujd-Hy-p3A"/>
-                <constraint firstItem="WJc-QK-p7T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vuN-VD-qI8"/>
+                <constraint firstAttribute="trailing" secondItem="uva-LQ-IAT" secondAttribute="trailing" id="7iG-6z-8aS"/>
+                <constraint firstItem="x5F-yG-Pqg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="E3I-bP-AHk"/>
+                <constraint firstItem="uva-LQ-IAT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GlJ-2U-vUZ"/>
+                <constraint firstAttribute="trailing" secondItem="x5F-yG-Pqg" secondAttribute="trailing" id="Pav-wA-2EP"/>
+                <constraint firstItem="x5F-yG-Pqg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fYH-ca-Ckc"/>
+                <constraint firstAttribute="bottom" secondItem="x5F-yG-Pqg" secondAttribute="bottom" id="qY5-Ur-YES"/>
+                <constraint firstAttribute="bottom" secondItem="uva-LQ-IAT" secondAttribute="bottom" id="vAT-Ma-HTo"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="eiU-E0-xrz"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="279.5" y="238.5"/>
+            <point key="canvasLocation" x="279" y="238"/>
         </view>
     </objects>
-    <resources>
-        <image name="neutreFake" width="375" height="667"/>
-    </resources>
 </document>
