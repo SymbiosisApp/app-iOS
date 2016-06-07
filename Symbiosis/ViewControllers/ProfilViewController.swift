@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class ProfilViewController: UIViewController {
+class ProfilViewController: UIViewController, SYStateListener {
+    
+    let state = SYStateManager.sharedInstance
     
     @IBOutlet weak var counterSteps: UILabel!
     @IBOutlet weak var stepsKm: UILabel!
@@ -37,7 +39,26 @@ class ProfilViewController: UIViewController {
         self.view.addSubview(date)
         
         button.backgroundColor = background.hexStringToUIColor("#77B4F7")
-       
+        
+        state.addListener(self)
+    }
+    
+    
+    func onStateSetup() {
+        let steps = state.getCurrentTotalSteps()
+        self.counterSteps.text = String(steps)
+        
+        let kilometer = steps/1300
+        self.stepsKm.text = String(kilometer)
+            
+        print(steps, kilometer)
+    }
+    
+    func onStateUpdate() {
+        if state.getCurrentTotalSteps() != state.getPreviousTotalSteps(){
+            self.onStateSetup()
+        }
+        
     }
     
 }
