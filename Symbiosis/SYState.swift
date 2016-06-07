@@ -422,7 +422,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getProgressBarProgress() -> Float {
-        return (Float(currentState.steps) % 10000) / 10000
+        return (Float(currentState.steps) % 10001) / 10000
     }
     
     func getOnboardingToDisplay() -> String? {

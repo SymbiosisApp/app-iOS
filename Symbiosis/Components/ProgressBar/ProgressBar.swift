@@ -45,8 +45,11 @@ class SYProgressBar: UIView, SYStateListener {
         self.barHeightConstraint = NSLayoutConstraint.init(item: liquidProgressBar, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: containerProgressBar, attribute: NSLayoutAttribute.Height, multiplier: 0, constant: 0)
         self.barHeightConstraint?.active = true
         
+        
         self.layoutIfNeeded()
 
+        containerProgressBar.layer.cornerRadius = containerProgressBar.frame.width / 2
+        
         state.addListener(self)
     }
     
