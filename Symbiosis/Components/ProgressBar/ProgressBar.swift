@@ -43,8 +43,29 @@ class SYProgressBar: UIView, SYStateListener {
         containerProgressBar.layer.cornerRadius = 2.0
         containerProgressBar.clipsToBounds = true
         
-        //TODO
+        progressBar()
+    }
+    
+    func progressBar(){
         
+        var progress = liquidProgressBar.frame
+        var heightLiquidProgressBar = liquidProgressBar.frame
+        let heightContainerProgressBar = containerProgressBar.frame.height
+        let randomValue = CGFloat(randRange(1, upper: 99))
+        
+        progress.origin.y = heightContainerProgressBar - ((randomValue * heightContainerProgressBar)/100)
+        heightLiquidProgressBar = progress
+        
+        self.containerProgressBar.addSubview(UIView(frame: heightLiquidProgressBar))
+        
+        UIView.animateWithDuration(0.8, animations: {
+            self.liquidProgressBar.frame = CGRectMake(progress.origin.x, progress.origin.y, progress.height, progress.width)
+        })
+
+    }
+    
+    func randRange (lower: UInt32 , upper: UInt32) -> UInt32 {
+        return lower + arc4random_uniform(upper - lower + 1)
     }
     
     func loadViewFromNib() -> UIView {
