@@ -27,6 +27,8 @@ class MainViewController: UIViewController, SYStateListener {
     var tabViews: [UIViewController?] = [nil, nil, nil, nil, nil]
     weak var mountedViewCtrl: UIViewController!
     
+    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    
     var isLoaded: Bool = false
     
     // State
@@ -65,6 +67,12 @@ class MainViewController: UIViewController, SYStateListener {
         tabBar.applyStyle()
     }
     
+    func endBackgroundTask() {
+        NSLog("Background task ended.")
+        UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
+        backgroundTask = UIBackgroundTaskInvalid
+    }
+    
     func showLogin(){
         dispatch_async(dispatch_get_main_queue(), {
             let storyboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
@@ -88,6 +96,7 @@ class MainViewController: UIViewController, SYStateListener {
 
     
     func showNotifications(textNotification : String){
+        print("showNotifications")
         let now = NSDate(timeIntervalSinceNow: 10)
         let notification = UILocalNotification()
         notification.alertBody = textNotification
@@ -193,6 +202,11 @@ class MainViewController: UIViewController, SYStateListener {
             updateViewContainer(true)
         }
         
+        if state.hasNotifToSend() {
+            state.dispatchAction(SYStateActionType.NotificationSended, payload: nil)
+            self.showNotifications("Salut !!")
+        }
+        
         if state.commentDisplayHasChanged() {
             if state.commentIsDisplay() {
                 showComments()
@@ -207,14 +221,9 @@ class MainViewController: UIViewController, SYStateListener {
             }
         }
         
-        if state.userIsAuthenticated() == false {
-            //LOGIN
-            // showLogin()
-        }
-        
-//        if false /* TODO : state.getNotification ? */ {
-//            //call notification with texte
-//            showNotifications("texte yolo notif")
+//        if state.userIsAuthenticated() == false {
+//            //LOGIN
+//             showLogin()
 //        }
         
         if let onboarding = state.getOnboardingToDisplay() {
@@ -222,6 +231,27 @@ class MainViewController: UIViewController, SYStateListener {
             let dataLoarder = SYDataLoader()
             let onboardingData = dataLoarder.loadJson("Onboarding", secondArray: onboarding, name:"name")
             self.showOnboarding(onboardingData)
+        }
+        
+        if state.backgroundModeHasChanged() {
+            print("Background \(state.isInBackgroundMode())")
+            if state.isInBackgroundMode() {
+                print("Start background")
+                backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+                    [unowned self] in
+                    self.endBackgroundTask()
+                }
+            }
+        }
+        
+        switch UIApplication.sharedApplication().applicationState {
+        case .Active:
+            break
+        case .Background:
+            break
+            // NSLog("Background time remaining = %.1f seconds", UIApplication.sharedApplication().backgroundTimeRemaining)
+        case .Inactive:
+            break
         }
     }
     

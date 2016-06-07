@@ -9,6 +9,8 @@
 import UIKit
 
 class ChatViewController: UIViewController {
+    
+    let state = SYStateManager.sharedInstance
 
     @IBOutlet weak var colonyName: UILabel!
     let userData = UserSingleton.sharedInstance
@@ -17,6 +19,10 @@ class ChatViewController: UIViewController {
         
         colonyName.text = "Cathédrale Notre-Dame de Paris"
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        state.dispatchAction(SYStateActionType.SetUnreadMessages, payload: false)
     }
 
     override func didReceiveMemoryWarning() {

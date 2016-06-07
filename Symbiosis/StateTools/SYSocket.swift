@@ -17,8 +17,12 @@ class SYSocket {
     let io = SocketIOClient(socketURL: NSURL(string: "http://localhost:8000/")!, options: [.Log(false), .ForcePolling(true)])
     
     private init() {
-        self.io.on("connect") {data, ack in
+        self.io.on("connect") { data, ack in
             print("socket connected")
+        }
+        
+        self.io.on("disconnect") { data, ack in
+            print("socket disconnected")
         }
         
         self.io.connect()
