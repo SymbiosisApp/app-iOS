@@ -10,7 +10,12 @@
             <string>CaslonGraphiqueEF</string>
             <string>CaslonGraphiqueEF</string>
         </mutableArray>
+        <mutableArray key="Rene Bieder - Campton Book.otf">
+            <string>Campton-Book</string>
+        </mutableArray>
         <mutableArray key="Rene Bieder - Campton Light.otf">
+            <string>Campton-Light</string>
+            <string>Campton-Light</string>
             <string>Campton-Light</string>
             <string>Campton-Light</string>
             <string>Campton-Light</string>
@@ -47,17 +52,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apr-Jl-vpU">
-                                <rect key="frame" x="20" y="364" width="560" height="21"/>
+                                <rect key="frame" x="20" y="370" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hxz-jy-GXt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Campton-Book" family="Campton" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FONDATEUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlb-WY-IcM">
-                                <rect key="frame" x="20" y="393" width="560" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="20" y="399" width="560" height="15"/>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -80,8 +85,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnN-FV-c6s">
-                                <rect key="frame" x="25" y="447" width="555" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="25" y="451" width="555" height="17"/>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -104,7 +109,7 @@
                             <constraint firstItem="aeK-Jl-Apl" firstAttribute="trailing" secondItem="2BT-b9-cuN" secondAttribute="trailingMargin" id="Z5c-zm-xc7"/>
                             <constraint firstItem="Qx1-Sx-6eR" firstAttribute="top" secondItem="G4A-0X-Liv" secondAttribute="bottom" id="Zga-oa-fuR"/>
                             <constraint firstItem="apr-Jl-vpU" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" id="af6-RV-N7S"/>
-                            <constraint firstItem="uYl-UZ-uap" firstAttribute="top" secondItem="vlb-WY-IcM" secondAttribute="bottom" constant="49" id="cDG-dY-5vL"/>
+                            <constraint firstItem="uYl-UZ-uap" firstAttribute="top" secondItem="vlb-WY-IcM" secondAttribute="bottom" constant="43" id="cDG-dY-5vL"/>
                             <constraint firstItem="qnN-FV-c6s" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" constant="5" id="dIj-GO-vp8"/>
                             <constraint firstItem="vlb-WY-IcM" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" id="eOj-b6-1RY"/>
                             <constraint firstItem="qnN-FV-c6s" firstAttribute="trailing" secondItem="2BT-b9-cuN" secondAttribute="trailingMargin" id="fwy-QP-6bU"/>

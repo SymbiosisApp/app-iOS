@@ -31,7 +31,7 @@ class ColonyViewController: UIViewController {
                     print("graine", seed)
                 }
                 if let user = user["pseudo"] as? String {
-                    apprentisName.text = user
+                    apprentisName.text = user.uppercaseString
                 }
             }
         }
@@ -53,15 +53,16 @@ class ColonyViewController: UIViewController {
                     if let user = users["USER.pseudo"] as? String {
                         print("apprentis", user)
                         
-                        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 45+(index*70), y: 48), radius: CGFloat(25), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+                        let imageName = "photoUser"
+                        let image = UIImage(named: imageName)
+                        let imageView = UIImageView(image: image!)
+                        imageView.frame = CGRect(x: 20+(index*70), y: 15, width: 60, height: 60)
+                        imageView.layer.cornerRadius = imageView.frame.size.width / 2;
+                        imageView.clipsToBounds = true
+                        imageView.layer.borderWidth = 2.0;
+                        imageView.layer.borderColor = UIColor.clearColor().CGColor
                         
-                        let shapeLayer = CAShapeLayer()
-                        shapeLayer.path = circlePath.CGPath
-                        
-                        shapeLayer.fillColor = UIColor.whiteColor().CGColor
-                        shapeLayer.strokeColor = UIColor.lightGrayColor().CGColor
-                        shapeLayer.lineWidth = 2.0
-                        self.scrollView.layer.addSublayer(shapeLayer)
+                        self.scrollView.addSubview(imageView)
                         
                         if "Chloé" == users["USER.pseudo"] as? String {
                             if let seedName = users["GRAINE.nom"] as? String {
