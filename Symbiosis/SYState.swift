@@ -40,6 +40,7 @@ struct SYState {
     var selectedSeed: Seed? = nil
     var loginIsDisplay: Bool = false
     var commentViewIsDisplay: Bool = false
+    var unreadMessages: Bool = false
     
     var prezStep: String = "start"
 }
@@ -60,6 +61,7 @@ enum SYStateActionType {
     case SetPlantProgress
     case SetCommentDisplay
     case SetOnboardingToDisplay
+    case SetUnreadMessages
 }
 
 /// State Action strcut
@@ -199,6 +201,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
                 state.prezStep = "yolo"
                 state = self.setPopup(state, popupName: "commencer", onTab: 1)
             }
+            if currentState.displayedOnboarding == "Graine" {
+                self.dispatchAction(SYStateActionType.SetUnreadMessages, payload: true)
+            }
             state.displayedOnboarding = nil
 
         case .SetUserSeed:
@@ -227,6 +232,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         case .SetCommentDisplay:
             let display = payload as! Bool
             state.commentViewIsDisplay = display
+        case .SetUnreadMessages:
+            let hasUnread = payload as! Bool
+            state.unreadMessages = hasUnread
         }
         state = self.updatePlant(state)
         return state
@@ -333,6 +341,10 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             return false
         }
         if index == 2 && state.plantStatus == .Generated {
+            return true
+        }
+        if index == 3 && state.unreadMessages == true { // Chat
+            print("-----------------")
             return true
         }
         let popup = state.popups[index]
