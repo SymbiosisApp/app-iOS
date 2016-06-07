@@ -141,16 +141,6 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
         updateIndexOnboardingDelegate()
     }
     
-//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        
-//        return initOnboardingData.count
-//        
-//    }
-//    
-//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        return 0
-//    }
-    
 }
 
 
@@ -161,16 +151,4 @@ protocol protocolPageViewControllerDelegate {
     func PageViewController (pageViewController : OnboardingViewController, didUpdatePageIndex index: Int)
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

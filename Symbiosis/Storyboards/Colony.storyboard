@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="CaslonGraphiqueEF.otf">
+            <string>CaslonGraphiqueEF</string>
+            <string>CaslonGraphiqueEF</string>
+        </mutableArray>
         <mutableArray key="Rene Bieder - Campton Light.otf">
-            <string>Campton-Light</string>
-            <string>Campton-Light</string>
             <string>Campton-Light</string>
             <string>Campton-Light</string>
             <string>Campton-Light</string>
@@ -50,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="21" id="hxz-jy-GXt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FONDATEUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlb-WY-IcM">
@@ -72,13 +74,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-Jl-Apl">
-                                <rect key="frame" x="20" y="62" width="560" height="23"/>
-                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="19"/>
+                                <rect key="frame" x="20" y="62" width="560" height="22"/>
+                                <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnN-FV-c6s">
-                                <rect key="frame" x="20" y="447" width="560" height="21"/>
+                                <rect key="frame" x="25" y="447" width="555" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -103,7 +105,7 @@
                             <constraint firstItem="Qx1-Sx-6eR" firstAttribute="top" secondItem="G4A-0X-Liv" secondAttribute="bottom" id="Zga-oa-fuR"/>
                             <constraint firstItem="apr-Jl-vpU" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" id="af6-RV-N7S"/>
                             <constraint firstItem="uYl-UZ-uap" firstAttribute="top" secondItem="vlb-WY-IcM" secondAttribute="bottom" constant="49" id="cDG-dY-5vL"/>
-                            <constraint firstItem="qnN-FV-c6s" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" id="dIj-GO-vp8"/>
+                            <constraint firstItem="qnN-FV-c6s" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" constant="5" id="dIj-GO-vp8"/>
                             <constraint firstItem="vlb-WY-IcM" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leadingMargin" id="eOj-b6-1RY"/>
                             <constraint firstItem="qnN-FV-c6s" firstAttribute="trailing" secondItem="2BT-b9-cuN" secondAttribute="trailingMargin" id="fwy-QP-6bU"/>
                             <constraint firstItem="zXI-Ly-X8z" firstAttribute="leading" secondItem="2BT-b9-cuN" secondAttribute="leading" id="gZV-CC-aNr"/>
@@ -140,15 +142,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5k-JZ-Y7A">
-                                <rect key="frame" x="20" y="69" width="560" height="21"/>
-                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5k-JZ-Y7A">
+                                <rect key="frame" x="80" y="65" width="460" height="20"/>
+                                <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLONIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuP-YY-Glx">
-                                <rect key="frame" x="20" y="40" width="560" height="21"/>
-                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="17"/>
+                                <rect key="frame" x="80" y="40" width="460" height="17"/>
+                                <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -168,19 +170,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w5k-JZ-Y7A" firstAttribute="top" secondItem="FuP-YY-Glx" secondAttribute="bottom" constant="8" id="8d9-Jb-tzf"/>
-                            <constraint firstItem="w5k-JZ-Y7A" firstAttribute="trailing" secondItem="5cF-aS-VN1" secondAttribute="trailingMargin" id="Cqc-60-BxS"/>
+                            <constraint firstItem="w5k-JZ-Y7A" firstAttribute="trailing" secondItem="5cF-aS-VN1" secondAttribute="trailingMargin" constant="-40" id="Cqc-60-BxS"/>
                             <constraint firstItem="FuP-YY-Glx" firstAttribute="top" secondItem="MVh-Lk-jrN" secondAttribute="bottom" constant="20" id="QPJ-ad-CeP"/>
-                            <constraint firstItem="w5k-JZ-Y7A" firstAttribute="leading" secondItem="5cF-aS-VN1" secondAttribute="leadingMargin" id="RKK-vX-m7q"/>
-                            <constraint firstItem="FuP-YY-Glx" firstAttribute="leading" secondItem="5cF-aS-VN1" secondAttribute="leadingMargin" id="Wa9-Ey-2TI"/>
+                            <constraint firstItem="w5k-JZ-Y7A" firstAttribute="leading" secondItem="5cF-aS-VN1" secondAttribute="leadingMargin" constant="60" id="RKK-vX-m7q"/>
+                            <constraint firstItem="FuP-YY-Glx" firstAttribute="leading" secondItem="5cF-aS-VN1" secondAttribute="leadingMargin" constant="60" id="Wa9-Ey-2TI"/>
                             <constraint firstItem="1TF-pu-d3Z" firstAttribute="leading" secondItem="5cF-aS-VN1" secondAttribute="leading" id="ZIN-rp-giR"/>
                             <constraint firstItem="Nqq-Fl-yZI" firstAttribute="top" secondItem="1TF-pu-d3Z" secondAttribute="bottom" id="dg9-uN-6Tb"/>
                             <constraint firstItem="Fzw-Fd-Ylx" firstAttribute="leading" secondItem="5cF-aS-VN1" secondAttribute="leadingMargin" id="doX-lF-dwG"/>
                             <constraint firstItem="1TF-pu-d3Z" firstAttribute="top" secondItem="5cF-aS-VN1" secondAttribute="top" id="gj7-lx-j1F"/>
-                            <constraint firstItem="FuP-YY-Glx" firstAttribute="trailing" secondItem="5cF-aS-VN1" secondAttribute="trailingMargin" id="rzX-1K-QLs"/>
+                            <constraint firstItem="FuP-YY-Glx" firstAttribute="trailing" secondItem="5cF-aS-VN1" secondAttribute="trailingMargin" constant="-40" id="rzX-1K-QLs"/>
                             <constraint firstItem="Fzw-Fd-Ylx" firstAttribute="top" secondItem="MVh-Lk-jrN" secondAttribute="bottom" constant="20" id="tGo-VX-6hx"/>
                             <constraint firstAttribute="trailing" secondItem="1TF-pu-d3Z" secondAttribute="trailing" id="wO3-6a-5B1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colonyName" destination="w5k-JZ-Y7A" id="ZAD-vh-9ea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gun-Zb-NfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8L2-Uc-PJK" userLabel="Exit" sceneMemberID="exit"/>

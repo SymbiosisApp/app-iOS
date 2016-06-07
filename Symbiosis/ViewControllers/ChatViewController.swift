@@ -10,11 +10,12 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
+    @IBOutlet weak var colonyName: UILabel!
     let userData = UserSingleton.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Chat")
+        colonyName.text = "Cathédrale Notre-Dame de Paris"
 
     }
 

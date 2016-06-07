@@ -52,7 +52,9 @@ class DisseminationViewController: PollenViewController{
     
     override func viewDidDisappear(animated: Bool) {
         self.imageLoader()
-        self.imageView.removeFromSuperview()
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+        }
     }
     
     func imageLoader(){
@@ -99,7 +101,9 @@ class RecolteViewController: PollenViewController{
     
     override func viewDidDisappear(animated: Bool) {
         self.imageLoader()
-        self.imageView.removeFromSuperview()
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+        }
     }
     
     func imageLoader(){

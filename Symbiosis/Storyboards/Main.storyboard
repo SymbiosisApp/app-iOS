@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8JD-vG-jvJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="CaslonGraphiqueEF.otf">
+            <string>CaslonGraphiqueEF</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="fH5-lP-ibE">
@@ -69,21 +74,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQt-gu-znX">
-                                <rect key="frame" x="20" y="231" width="138" height="82"/>
-                                <state key="normal" title="Balec"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-OJ-lvW">
+                                <rect key="frame" x="0.0" y="112" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commentairesFake" translatesAutoresizingMaskIntoConstraints="NO" id="DEO-KV-i86">
+                                        <rect key="frame" x="0.0" y="-70" width="600" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="600" id="2gz-sI-GPM"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="DEO-KV-i86" secondAttribute="bottom" constant="70" id="Piy-Lm-O0w"/>
+                                    <constraint firstItem="DEO-KV-i86" firstAttribute="leading" secondItem="lv8-OJ-lvW" secondAttribute="leading" id="jVb-cz-djA"/>
+                                    <constraint firstItem="DEO-KV-i86" firstAttribute="top" secondItem="lv8-OJ-lvW" secondAttribute="top" constant="-70" id="pA1-V1-Ao0"/>
+                                    <constraint firstAttribute="trailing" secondItem="DEO-KV-i86" secondAttribute="trailing" id="rf9-hc-sw7"/>
+                                    <constraint firstItem="DEO-KV-i86" firstAttribute="centerX" secondItem="lv8-OJ-lvW" secondAttribute="centerX" id="xo9-mI-4d4"/>
+                                </constraints>
+                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commentairesBackgroundFake" translatesAutoresizingMaskIntoConstraints="NO" id="1NC-tm-XDh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQt-gu-znX">
+                                <rect key="frame" x="20" y="28" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="3Kd-g0-Mfb"/>
+                                    <constraint firstAttribute="height" constant="46" id="9z2-4k-TyN"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="back"/>
                                 <connections>
                                     <action selector="closeComments:" destination="tqw-4W-gos" eventType="touchUpInside" id="ign-8i-lHQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU2-fX-Ik7">
-                                <rect key="frame" x="20" y="20" width="206" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU2-fX-Ik7">
+                                <rect key="frame" x="80" y="40" width="440" height="21"/>
+                                <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="lv8-OJ-lvW" secondAttribute="bottom" constant="-112" id="5Gx-eg-emH"/>
+                            <constraint firstItem="lv8-OJ-lvW" firstAttribute="leading" secondItem="YVM-ea-TaP" secondAttribute="leading" id="Bg6-wg-Qao"/>
+                            <constraint firstItem="OU2-fX-Ik7" firstAttribute="top" secondItem="hBS-6y-bqE" secondAttribute="bottom" constant="20" id="Fff-kD-9Dz"/>
+                            <constraint firstItem="lv8-OJ-lvW" firstAttribute="top" secondItem="YVM-ea-TaP" secondAttribute="top" constant="112" id="L7z-1X-A5O"/>
+                            <constraint firstItem="OU2-fX-Ik7" firstAttribute="centerX" secondItem="YVM-ea-TaP" secondAttribute="centerX" id="Mlw-BK-Vzu"/>
+                            <constraint firstItem="1nO-71-umL" firstAttribute="top" secondItem="1NC-tm-XDh" secondAttribute="bottom" id="Uxz-QO-tgv"/>
+                            <constraint firstItem="1NC-tm-XDh" firstAttribute="top" secondItem="YVM-ea-TaP" secondAttribute="top" id="XQz-pB-QEH"/>
+                            <constraint firstItem="lv8-OJ-lvW" firstAttribute="width" secondItem="YVM-ea-TaP" secondAttribute="width" id="XRk-Fx-rYc"/>
+                            <constraint firstAttribute="trailing" secondItem="lv8-OJ-lvW" secondAttribute="trailing" id="cED-lp-8UB"/>
+                            <constraint firstItem="DQt-gu-znX" firstAttribute="top" secondItem="hBS-6y-bqE" secondAttribute="bottom" constant="8" id="e0E-we-rfa"/>
+                            <constraint firstItem="OU2-fX-Ik7" firstAttribute="width" secondItem="YVM-ea-TaP" secondAttribute="width" constant="-160" id="rO1-6s-7wb"/>
+                            <constraint firstItem="DQt-gu-znX" firstAttribute="leading" secondItem="YVM-ea-TaP" secondAttribute="leadingMargin" id="rV2-of-Peq"/>
+                            <constraint firstItem="1NC-tm-XDh" firstAttribute="leading" secondItem="YVM-ea-TaP" secondAttribute="leading" id="wLo-pO-SSo"/>
+                            <constraint firstAttribute="trailing" secondItem="1NC-tm-XDh" secondAttribute="trailing" id="xnS-U4-ABp"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="colonyName" destination="OU2-fX-Ik7" id="agb-da-1OE"/>
@@ -94,4 +141,9 @@
             <point key="canvasLocation" x="144" y="2066"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="60" height="60"/>
+        <image name="commentairesBackgroundFake" width="375" height="607"/>
+        <image name="commentairesFake" width="358" height="522"/>
+    </resources>
 </document>
