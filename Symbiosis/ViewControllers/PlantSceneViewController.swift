@@ -128,7 +128,6 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     }
     
     func animatePlant() {
-        print("Animate plant !")
         state.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Animating)
         dispatch_after(
             dispatch_time( DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)) ),
@@ -146,7 +145,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
     }
     
     func updatePlantAndAnimate(animate: Bool) {
-        print("updatePlantAndAnimate")
+        // print("updatePlantAndAnimate")
         if self.plant != nil {
             self.plant.removeFromParentNode()
         }
