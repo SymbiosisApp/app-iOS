@@ -32,7 +32,7 @@ struct SYState {
     var plantStatus: SYStatePlantStatus = .NotGenerated
     var plantProgress: Float = 0
     var nextPlantProgress: Float? = nil
-    var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.849992, longitude: 2.348990)
+    var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.845566, longitude: 2.348988)
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
     var displayedOnboarding: String? = nil
     var onboardingToDisplay: String? = nil

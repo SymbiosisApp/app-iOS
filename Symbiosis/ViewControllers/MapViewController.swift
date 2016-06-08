@@ -264,6 +264,14 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
             options: NSCalendarOptions(rawValue: 0))!
     }
     
+    func blurEffect(){
+        //        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        //        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        //        blurEffectView.alpha = 0.9
+        //        blurEffectView.frame = view.bounds
+        //        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        //        view.addSubview(blurEffectView)
+    }
   
 }
 
