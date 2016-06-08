@@ -57,7 +57,8 @@ class ColonyViewController: UIViewController {
                     if let user = users["USER.pseudo"] as? String {
                         print("apprentis", user)
                         
-                        let imageName = "photoUser"
+                        let imageName = "plante\(1+index)"
+                        print(imageName)
                         let image = UIImage(named: imageName)
                         let imageView = UIImageView(image: image!)
                         imageView.frame = CGRect(x: 20+(index*70), y: 15, width: 60, height: 60)
