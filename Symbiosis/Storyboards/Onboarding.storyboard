@@ -15,6 +15,9 @@
         </mutableArray>
         <mutableArray key="Rene Bieder - Campton Medium.otf">
             <string>Campton-Medium</string>
+            <string>Campton-Medium</string>
+            <string>Campton-Medium</string>
+            <string>Campton-Medium</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -300,10 +303,11 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJF-8e-nfU">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.70588235290000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="881-Wh-k3T"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Campton-Medium" family="Campton" pointSize="15"/>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -350,10 +354,11 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9y-cn-zVv">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.70588235290000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="l8g-2c-tcV"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Campton-Medium" family="Campton" pointSize="15"/>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -427,12 +432,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deplacement" translatesAutoresizingMaskIntoConstraints="NO" id="91n-m5-KpO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-fw-pea">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.70588235290000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2xI-eK-jaW"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Campton-Medium" family="Campton" pointSize="15"/>
                                 <state key="normal" title="J'AI COMPRIS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -440,9 +449,6 @@
                                     <segue destination="oGZ-nZ-zm5" kind="unwind" unwindAction="closeOnboarding:" id="DJD-pL-8kn"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deplacement" translatesAutoresizingMaskIntoConstraints="NO" id="91n-m5-KpO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

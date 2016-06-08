@@ -281,14 +281,27 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
             // Save nextProgress
             state.nextPlantProgress = nextProgress
             // Generate plant for currentState.plantProgress => nextProgress
-            let blocksDispatchQueue = dispatch_queue_create("com.domain.blocksArray.sync", DISPATCH_QUEUE_CONCURRENT)
-            dispatch_sync(blocksDispatchQueue) {
-                self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generating)
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generating)
+                }
                 let nextPlant = SYPlant(progresses: [self.previousState.plantProgress, nextProgress])
-                self.dispatchAction(SYStateActionType.SetPlantProgress, payload: nextProgress)
-                self.dispatchAction(SYStateActionType.UpdatePlant, payload: nextPlant)
-                self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generated)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.dispatchAction(SYStateActionType.SetPlantProgress, payload: nextProgress)
+                    self.dispatchAction(SYStateActionType.UpdatePlant, payload: nextPlant)
+                    self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generated)
+                }
             }
+            
+//            let blocksDispatchQueue = dispatch_queue_create("com.domain.blocksArray.sync", DISPATCH_QUEUE_CONCURRENT)
+//            dispatch_sync(blocksDispatchQueue) {
+//                self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generating)
+//                let nextPlant = SYPlant(progresses: [self.previousState.plantProgress, nextProgress])
+//                self.dispatchAction(SYStateActionType.SetPlantProgress, payload: nextProgress)
+//                self.dispatchAction(SYStateActionType.UpdatePlant, payload: nextPlant)
+//                self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generated)
+//            }
         }
         return state
     }
