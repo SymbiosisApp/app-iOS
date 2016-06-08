@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="CaslonGraphiqueEF.otf">
-            <string>CaslonGraphiqueEF</string>
-            <string>CaslonGraphiqueEF</string>
-        </mutableArray>
         <mutableArray key="Rene Bieder - Campton Book.otf">
             <string>Campton-Book</string>
         </mutableArray>
@@ -20,6 +16,8 @@
             <string>Campton-Light</string>
         </mutableArray>
         <mutableArray key="Rene Bieder - Campton Medium.otf">
+            <string>Campton-Medium</string>
+            <string>Campton-Medium</string>
             <string>Campton-Medium</string>
         </mutableArray>
     </customFonts>
@@ -67,8 +65,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-Jl-Apl">
-                                <rect key="frame" x="20" y="62" width="560" height="22"/>
-                                <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="19"/>
+                                <rect key="frame" x="20" y="62" width="560" height="23"/>
+                                <fontDescription key="fontDescription" name="Campton-Medium" family="Campton" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -151,8 +149,8 @@
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5k-JZ-Y7A">
-                                <rect key="frame" x="80" y="65" width="460" height="20"/>
-                                <fontDescription key="fontDescription" name="CaslonGraphiqueEF" family="CaslonGraphiqueEF" pointSize="17"/>
+                                <rect key="frame" x="80" y="65" width="460" height="21"/>
+                                <fontDescription key="fontDescription" name="Campton-Medium" family="Campton" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>

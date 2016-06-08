@@ -204,7 +204,7 @@ class MainViewController: UIViewController, SYStateListener {
         
         if state.hasNotifToSend() {
             state.dispatchAction(SYStateActionType.NotificationSended, payload: nil)
-            self.showNotifications("Salut !!")
+            self.showNotifications("Youpi ! J’ai une surprise pour toi !")
         }
         
         if state.commentDisplayHasChanged() {

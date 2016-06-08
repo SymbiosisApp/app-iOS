@@ -17,7 +17,7 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        colonyName.text = "Cathédrale Notre-Dame de Paris"
+        colonyName.text = "Notre-Dame"
 
     }
     

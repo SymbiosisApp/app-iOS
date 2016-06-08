@@ -32,7 +32,7 @@ struct SYState {
     var plantStatus: SYStatePlantStatus = .NotGenerated
     var plantProgress: Float = 0
     var nextPlantProgress: Float? = nil
-    var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.8746253, longitude: 2.38835662)
+    var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 48.849992, longitude: 2.348990)
     var popups: Array<String?> = [nil, nil, nil, nil, nil]
     var displayedOnboarding: String? = nil
     var onboardingToDisplay: String? = nil
@@ -467,6 +467,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func distanceToSelectedSeed() -> Double? {
+        return 0
         if currentState.selectedSeed == nil {
             return nil
         }

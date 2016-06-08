@@ -252,7 +252,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         // set the map’s center coordinate and zoom level
         let long = state.getCurrentLocation().longitude
         let lat = state.getCurrentLocation().latitude
-        myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long), zoomLevel: 13, animated: true)
+        myMapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long), zoomLevel: 12, animated: true)
     }
     
     //ADD DAYS AT ONE DATE

@@ -18,11 +18,30 @@ class ProfilViewController: UIViewController, SYStateListener {
     @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
+        let background = Background()
+
+        //Foreach STEPS titre+date
+        let titre1 = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        titre1.center = CGPointMake(160, 250)
+        titre1.textAlignment = NSTextAlignment.Center
+        titre1.text = "CHOIX D'UNE GRAINE"
+        titre1.textColor = background.hexStringToUIColor("#FF9C8F")
+        titre1.font = UIFont(name: "Campton", size: 15.0)
+        titre1.font = UIFont.boldSystemFontOfSize(15)
+        self.view.addSubview(titre1)
+        
+        let date1 = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        date1.center = CGPointMake(128, 270)
+        date1.textAlignment = NSTextAlignment.Center
+        date1.text = "- le 09.06.16"
+        date1.textColor = background.hexStringToUIColor("#BBB3B3")
+        date1.font = UIFont(name: "Campton", size: 15.0)
+        self.view.addSubview(date1)
+
         
         //Foreach STEPS titre+date
-        let background = Background()
         let titre = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        titre.center = CGPointMake(133, 250)
+        titre.center = CGPointMake(133, 300)
         titre.textAlignment = NSTextAlignment.Center
         titre.text = "GERMINATION"
         titre.textColor = background.hexStringToUIColor("#FF9C8F")
@@ -31,9 +50,9 @@ class ProfilViewController: UIViewController, SYStateListener {
         self.view.addSubview(titre)
         
         let date = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        date.center = CGPointMake(128, 270)
+        date.center = CGPointMake(128, 320)
         date.textAlignment = NSTextAlignment.Center
-        date.text = "- le 02.05.16"
+        date.text = "- le 09.06.16"
         date.textColor = background.hexStringToUIColor("#BBB3B3")
         date.font = UIFont(name: "Campton", size: 15.0)
         self.view.addSubview(date)
