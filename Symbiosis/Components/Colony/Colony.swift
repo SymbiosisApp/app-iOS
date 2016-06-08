@@ -13,6 +13,7 @@ class SYColony: UIView, SYStateListener {
 
     @IBOutlet var view: UIView!
     @IBOutlet weak var colonieName: UILabel!
+    @IBOutlet weak var graienOrColony: UILabel!
     @IBOutlet weak var commentaires: UIButton!
     @IBOutlet weak var mainAction: UIButton!
     @IBOutlet weak var stackView: UIStackView!
@@ -119,6 +120,13 @@ class SYColony: UIView, SYStateListener {
     // MARK: State
     
     func onStateSetup() {
+        
+        if state.userHasSeed() {
+            graienOrColony.text = "colonie".uppercaseString
+        } else {
+            graienOrColony.text = "graine".uppercaseString
+        }
+        
         let seed = state.getSelectedSeed()
         
         if (seed != nil) {

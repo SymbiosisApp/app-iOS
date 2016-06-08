@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -73,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnN-FV-c6s">
-                                <rect key="frame" x="25" y="451" width="555" height="17"/>
+                                <rect key="frame" x="25" y="448" width="555" height="17"/>
                                 <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uYl-UZ-uap" secondAttribute="trailing" id="0JR-i5-Qg2"/>
                             <constraint firstItem="Qx1-Sx-6eR" firstAttribute="top" secondItem="zXI-Ly-X8z" secondAttribute="bottom" id="0dy-oq-aEG"/>
-                            <constraint firstItem="uYl-UZ-uap" firstAttribute="top" secondItem="qnN-FV-c6s" secondAttribute="bottom" constant="-11" id="2Ez-E0-tsZ"/>
+                            <constraint firstItem="uYl-UZ-uap" firstAttribute="top" secondItem="qnN-FV-c6s" secondAttribute="bottom" constant="-8" id="2Ez-E0-tsZ"/>
                             <constraint firstAttribute="trailing" secondItem="G4A-0X-Liv" secondAttribute="trailing" id="2Mu-ob-UeU"/>
                             <constraint firstItem="vlb-WY-IcM" firstAttribute="top" secondItem="apr-Jl-vpU" secondAttribute="bottom" constant="8" id="5xq-8I-fnc"/>
                             <constraint firstItem="vlb-WY-IcM" firstAttribute="trailing" secondItem="2BT-b9-cuN" secondAttribute="trailingMargin" id="HRO-bv-jBp"/>
