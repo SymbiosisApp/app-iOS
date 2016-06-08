@@ -51,7 +51,6 @@ class ProfilViewController: UIViewController, SYStateListener {
         let kilometer = steps/1300
         self.stepsKm.text = String(kilometer)
             
-        print(steps, kilometer)
     }
     
     func onStateUpdate() {

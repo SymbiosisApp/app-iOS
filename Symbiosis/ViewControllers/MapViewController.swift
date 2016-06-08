@@ -216,6 +216,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
             self.updateGeoloc()
             myMapView.deselectAnnotation(nil, animated: true)
         }
+
     }
     
     func onStateUpdate() {
@@ -227,6 +228,18 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
             if state.getSelectedSeed() == nil {
                 myMapView.deselectAnnotation(self.selectedAnnotation, animated: true)
             }
+        }
+        
+        let showPin = state.allFunctionnalities()
+        
+        if showPin{
+            suggest.hidden = false
+            search.hidden = false
+            localisation.hidden = false
+        }else{
+            suggest.hidden = true
+            search.hidden = true
+            localisation.hidden = true
         }
     }
     

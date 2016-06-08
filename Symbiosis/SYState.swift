@@ -45,6 +45,7 @@ struct SYState {
     var notificationSended: Bool = false
     
     var prezStep: String = "start"
+    var fonctionnalities: Bool = false
 }
 
 /// State Actions Type
@@ -511,6 +512,13 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         return result
     }
     
+    func allFunctionnalities() -> Bool {
+        return currentState.steps > 20000
+    }
+    
+//    func allFunctionnalitiesHasChanged() -> Bool{
+//        return currentState.fonctionnalities != previousState.fonctionnalities
+//    }
     
     
     // - MARK: SYLocationManager Delegate

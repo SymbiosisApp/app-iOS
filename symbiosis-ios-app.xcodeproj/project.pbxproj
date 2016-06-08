@@ -80,6 +80,7 @@
 		662C28071D06E46100A702F4 /* marche.gif in Resources */ = {isa = PBXBuildFile; fileRef = 662C28061D06E46100A702F4 /* marche.gif */; };
 		662C280B1D06E54400A702F4 /* courses.gif in Resources */ = {isa = PBXBuildFile; fileRef = 662C280A1D06E54400A702F4 /* courses.gif */; };
 		662C280F1D06EE4D00A702F4 /* bienvenue.gif in Resources */ = {isa = PBXBuildFile; fileRef = 662C280E1D06EE4D00A702F4 /* bienvenue.gif */; };
+		662C28111D07997900A702F4 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C28101D07997900A702F4 /* PlantViewController.swift */; };
 		666301951CFC3815001E991F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301941CFC3815001E991F /* Onboarding.storyboard */; };
 		666301991CFC38EA001E991F /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666301981CFC38EA001E991F /* UserSingleton.swift */; };
 		666301A71CFC4232001E991F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666301A61CFC4232001E991F /* Login.storyboard */; };
@@ -202,6 +203,7 @@
 		662C28061D06E46100A702F4 /* marche.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marche.gif; sourceTree = "<group>"; };
 		662C280A1D06E54400A702F4 /* courses.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = courses.gif; sourceTree = "<group>"; };
 		662C280E1D06EE4D00A702F4 /* bienvenue.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bienvenue.gif; sourceTree = "<group>"; };
+		662C28101D07997900A702F4 /* PlantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		666301941CFC3815001E991F /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Onboarding.storyboard; path = Storyboards/Onboarding.storyboard; sourceTree = "<group>"; };
 		666301981CFC38EA001E991F /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		666301A61CFC4232001E991F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				186B08CF1D05D8D3002C1A9F /* ProfilViewController.swift */,
 				186B08D01D05D8D3002C1A9F /* SuggestionViewController.swift */,
 				186B08E01D06CA87002C1A9F /* CommentsViewController.swift */,
+				662C28101D07997900A702F4 /* PlantViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				18F1365C1CF7CC630021CBF5 /* SYElementBasicType1.swift in Sources */,
 				1848F0211CF6446D000C45D6 /* SYPlant.swift in Sources */,
 				18F136561CF7CC270021CBF5 /* SYGeomLeaf.swift in Sources */,
+				662C28111D07997900A702F4 /* PlantViewController.swift in Sources */,
 				186B08D71D05D8D3002C1A9F /* FruitViewController.swift in Sources */,
 				186487EB1D05D43600D3B199 /* Colony.swift in Sources */,
 				18F136581CF7CC270021CBF5 /* SYGeomTrunk.swift in Sources */,

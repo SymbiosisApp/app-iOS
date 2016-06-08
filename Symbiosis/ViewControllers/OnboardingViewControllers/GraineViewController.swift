@@ -25,7 +25,6 @@ class GrainesViewController: UIViewController {
 class GraineViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var pageControl: UIPageControl!
     var imageView: UIImageView! = nil
     var imageLoaderView: UIImageView! = nil
 
@@ -33,10 +32,6 @@ class GraineViewController: GrainesViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        pageControl.layer.zPosition = 2
-        
-        pageControl.numberOfPages = 3
-        pageControl.currentPage = 0
         
         self.imageLoader()
     }
@@ -80,7 +75,6 @@ class GraineViewController: GrainesViewController{
 class CommentaireViewController: GrainesViewController{
     
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var pageControl: UIPageControl!
     var imageView: UIImageView! = nil
     var imageLoaderView: UIImageView! = nil
     
@@ -88,10 +82,6 @@ class CommentaireViewController: GrainesViewController{
         super.viewDidLoad()
         
         self.image.layer.zPosition = 1
-        pageControl.layer.zPosition = 2
-        
-        pageControl.numberOfPages = 3
-        pageControl.currentPage = 1
         
         self.imageLoader()
     }

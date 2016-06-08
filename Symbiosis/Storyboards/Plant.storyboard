@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Plant View Controller-->
         <scene sceneID="gkS-ms-hJy">
             <objects>
-                <viewController storyboardIdentifier="PlantViewCtrl" id="fD0-gG-fvK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlantViewCtrl" id="fD0-gG-fvK" customClass="PlantViewController" customModule="symbiosis_ios_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="waf-ug-Fid"/>
                         <viewControllerLayoutGuide type="bottom" id="x3K-ad-l18"/>
@@ -24,7 +24,7 @@
                                     <segue destination="fHZ-KM-3bX" kind="embed" id="uWf-P0-b7i"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYP-sI-Jdj">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYP-sI-Jdj">
                                 <rect key="frame" x="520" y="28" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="DGO-Hm-Xtp"/>
@@ -52,6 +52,9 @@
                             <constraint firstItem="NNe-kM-2u7" firstAttribute="leading" secondItem="3PZ-hn-UEo" secondAttribute="leadingMargin" constant="20" id="ttf-5m-SVw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photo" destination="bYP-sI-Jdj" id="okh-bJ-urk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y63-Db-KCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

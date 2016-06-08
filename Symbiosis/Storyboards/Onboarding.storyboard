@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -179,42 +179,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graine" translatesAutoresizingMaskIntoConstraints="NO" id="BPT-tM-xLS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Oja-NF-uj9">
-                                <rect key="frame" x="0.0" y="543" width="600" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="0m9-SV-WYj"/>
-                                </constraints>
-                            </pageControl>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="BPT-tM-xLS" firstAttribute="trailing" secondItem="Oja-NF-uj9" secondAttribute="trailing" id="4q4-Vd-YPX"/>
-                            <constraint firstAttribute="trailing" secondItem="Oja-NF-uj9" secondAttribute="trailing" id="582-ua-kBg"/>
                             <constraint firstItem="BPT-tM-xLS" firstAttribute="top" secondItem="Eaw-Ib-neR" secondAttribute="top" id="7E7-ff-cnV"/>
-                            <constraint firstItem="BPT-tM-xLS" firstAttribute="leading" secondItem="Oja-NF-uj9" secondAttribute="leading" id="BwX-CZ-2Ao"/>
-                            <constraint firstItem="Oja-NF-uj9" firstAttribute="leading" secondItem="Eaw-Ib-neR" secondAttribute="leading" id="NjF-6p-97C"/>
                             <constraint firstItem="3cX-2F-jgQ" firstAttribute="top" secondItem="BPT-tM-xLS" secondAttribute="bottom" id="UE7-8L-ZfC"/>
                             <constraint firstAttribute="trailing" secondItem="BPT-tM-xLS" secondAttribute="trailing" id="gmc-JK-zCa"/>
-                            <constraint firstItem="BPT-tM-xLS" firstAttribute="leading" secondItem="Oja-NF-uj9" secondAttribute="leading" id="igI-px-Kfx"/>
-                            <constraint firstItem="BPT-tM-xLS" firstAttribute="trailing" secondItem="Oja-NF-uj9" secondAttribute="trailing" id="oce-lR-EDP"/>
-                            <constraint firstItem="3cX-2F-jgQ" firstAttribute="top" secondItem="Oja-NF-uj9" secondAttribute="bottom" constant="20" id="sIf-V4-25m"/>
                             <constraint firstItem="BPT-tM-xLS" firstAttribute="leading" secondItem="Eaw-Ib-neR" secondAttribute="leading" id="w76-6C-SmM"/>
-                            <constraint firstItem="BPT-tM-xLS" firstAttribute="leading" secondItem="Oja-NF-uj9" secondAttribute="leading" id="wIQ-Uj-9Cm"/>
-                            <constraint firstItem="BPT-tM-xLS" firstAttribute="leading" secondItem="Oja-NF-uj9" secondAttribute="leading" id="z8U-rY-YJ1"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="4q4-Vd-YPX"/>
-                                <exclude reference="BwX-CZ-2Ao"/>
-                                <exclude reference="igI-px-Kfx"/>
-                                <exclude reference="oce-lR-EDP"/>
-                                <exclude reference="wIQ-Uj-9Cm"/>
-                                <exclude reference="z8U-rY-YJ1"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="image" destination="BPT-tM-xLS" id="fva-6c-cqE"/>
-                        <outlet property="pageControl" destination="Oja-NF-uj9" id="xMo-Us-QZJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAd-JR-QOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -420,27 +394,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commentaires" translatesAutoresizingMaskIntoConstraints="NO" id="47f-tU-UnG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="66I-qT-mKY">
-                                <rect key="frame" x="0.0" y="543" width="600" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="KPh-fj-lfP"/>
-                                </constraints>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="47f-tU-UnG" firstAttribute="leading" secondItem="voq-Y5-tW4" secondAttribute="leading" id="12h-zo-4w0"/>
-                            <constraint firstItem="66I-qT-mKY" firstAttribute="leading" secondItem="voq-Y5-tW4" secondAttribute="leading" id="1rJ-Ux-jJX"/>
-                            <constraint firstItem="UlP-Pz-miy" firstAttribute="top" secondItem="66I-qT-mKY" secondAttribute="bottom" constant="20" id="Ie6-6l-uRt"/>
                             <constraint firstAttribute="trailing" secondItem="47f-tU-UnG" secondAttribute="trailing" id="Jst-ot-P0f"/>
                             <constraint firstItem="47f-tU-UnG" firstAttribute="top" secondItem="voq-Y5-tW4" secondAttribute="top" id="M5i-O5-EBF"/>
                             <constraint firstItem="UlP-Pz-miy" firstAttribute="top" secondItem="47f-tU-UnG" secondAttribute="bottom" id="OWx-xN-0eT"/>
-                            <constraint firstAttribute="trailing" secondItem="66I-qT-mKY" secondAttribute="trailing" id="Vqm-GN-coI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="image" destination="47f-tU-UnG" id="Q9N-a6-Ha8"/>
-                        <outlet property="pageControl" destination="66I-qT-mKY" id="ATm-Gd-UbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPU-SX-WMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
