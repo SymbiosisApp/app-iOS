@@ -146,3 +146,10 @@ func GLKMatrix4MakeRotationToAlignGLKVector3(target: GLKVector3, plan: GLKVector
     result = GLKMatrix4Multiply(GLKMatrix4MakeRotation(axisRotation, target.x, target.y, target.z), result)
     return result
 }
+
+func GLKVector4FromEulerAngles(angleX: Float, angleY: Float, angleZ: Float) -> GLKVector4 {
+    let node = SCNNode()
+    node.eulerAngles = SCNVector3Make(angleX, angleY, angleZ)
+    //return GLKVector4Normalize(SCNVector4ToGLKVector4(node.rotation))
+    return SCNVector4ToGLKVector4(node.rotation)
+}

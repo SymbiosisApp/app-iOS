@@ -33,9 +33,9 @@
                                 <state key="normal" backgroundImage="share"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNe-kM-2u7" customClass="SYProgressBar" customModule="symbiosis_ios_app" customModuleProvider="target">
-                                <rect key="frame" x="40" y="40" width="10" height="520"/>
+                                <rect key="frame" x="40" y="60" width="6" height="480"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="10" id="z0N-Fb-hIK"/>
+                                    <constraint firstAttribute="width" constant="6" id="z0N-Fb-hIK"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -43,11 +43,11 @@
                         <constraints>
                             <constraint firstItem="Lol-94-hjX" firstAttribute="top" secondItem="3PZ-hn-UEo" secondAttribute="top" id="AhG-FQ-gNt"/>
                             <constraint firstItem="Lol-94-hjX" firstAttribute="leading" secondItem="3PZ-hn-UEo" secondAttribute="leading" id="C7J-yx-CWc"/>
-                            <constraint firstItem="x3K-ad-l18" firstAttribute="top" secondItem="NNe-kM-2u7" secondAttribute="bottom" constant="40" id="Pml-jw-xXH"/>
+                            <constraint firstItem="x3K-ad-l18" firstAttribute="top" secondItem="NNe-kM-2u7" secondAttribute="bottom" constant="60" id="Pml-jw-xXH"/>
                             <constraint firstItem="bYP-sI-Jdj" firstAttribute="top" secondItem="waf-ug-Fid" secondAttribute="bottom" constant="8" id="cgQ-Im-jjf"/>
                             <constraint firstItem="bYP-sI-Jdj" firstAttribute="trailing" secondItem="3PZ-hn-UEo" secondAttribute="trailingMargin" id="i5E-df-Qpe"/>
                             <constraint firstAttribute="trailing" secondItem="Lol-94-hjX" secondAttribute="trailing" id="iDU-JL-Z1L"/>
-                            <constraint firstItem="NNe-kM-2u7" firstAttribute="top" secondItem="3PZ-hn-UEo" secondAttribute="topMargin" constant="40" id="loF-qh-nfG"/>
+                            <constraint firstItem="NNe-kM-2u7" firstAttribute="top" secondItem="3PZ-hn-UEo" secondAttribute="topMargin" constant="60" id="loF-qh-nfG"/>
                             <constraint firstItem="x3K-ad-l18" firstAttribute="top" secondItem="Lol-94-hjX" secondAttribute="bottom" id="rSS-Kj-xCV"/>
                             <constraint firstItem="NNe-kM-2u7" firstAttribute="leading" secondItem="3PZ-hn-UEo" secondAttribute="leadingMargin" constant="20" id="ttf-5m-SVw"/>
                         </constraints>

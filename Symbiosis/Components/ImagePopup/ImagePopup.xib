@@ -5,8 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Rene Bieder - Campton Light.otf">
-            <string>Campton-Light</string>
+        <mutableArray key="Rene Bieder - Campton Medium.otf">
+            <string>Campton-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -23,11 +23,11 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgc-Q5-AcU" userLabel="CloseButton">
                     <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                    <color key="backgroundColor" red="0.59607843140000005" green="0.75686274509999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.46666666666666667" green="0.70588235294117641" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Aw6-SQ-mZv"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Campton-Light" family="Campton" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Campton-Medium" family="Campton" pointSize="15"/>
                     <state key="normal" title="J'AI COMPRIS">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </state>

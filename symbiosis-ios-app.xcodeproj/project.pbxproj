@@ -58,6 +58,7 @@
 		187FAD741CEF013800B10224 /* vignette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD6E1CEF013800B10224 /* vignette.plist */; };
 		187FAD7D1CEF047A00B10224 /* test.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD7B1CEF047A00B10224 /* test.fsh */; };
 		187FAD7E1CEF047A00B10224 /* tooning.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 187FAD7C1CEF047A00B10224 /* tooning.fsh */; };
+		188AE4BA1D0803DC00BA21D7 /* SYGeomBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AE4B91D0803DC00BA21D7 /* SYGeomBrick.swift */; };
 		18BC17F61C722BBE008E6558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC17F51C722BBE008E6558 /* AppDelegate.swift */; };
 		18BC17FF1C722BBE008E6558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC17FE1C722BBE008E6558 /* Assets.xcassets */; };
 		18CF559C1CE91CA9008E8EC4 /* Colony.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55961CE91CA9008E8EC4 /* Colony.storyboard */; };
@@ -180,6 +181,7 @@
 		187FAD6E1CEF013800B10224 /* vignette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = vignette.plist; sourceTree = "<group>"; };
 		187FAD7B1CEF047A00B10224 /* test.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test.fsh; sourceTree = "<group>"; };
 		187FAD7C1CEF047A00B10224 /* tooning.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = tooning.fsh; sourceTree = "<group>"; };
+		188AE4B91D0803DC00BA21D7 /* SYGeomBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeomBrick.swift; sourceTree = "<group>"; };
 		18BC17F21C722BBE008E6558 /* symbiosis-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "symbiosis-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC17F51C722BBE008E6558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18BC17FE1C722BBE008E6558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				18F136501CF7CC270021CBF5 /* SYGeomEmpty.swift */,
 				18F136521CF7CC270021CBF5 /* SYGeomTige.swift */,
 				18F136511CF7CC270021CBF5 /* SYGeomLeaf.swift */,
+				188AE4B91D0803DC00BA21D7 /* SYGeomBrick.swift */,
 				18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */,
 				186B08DE1D06B705002C1A9F /* SYGeomSphere.swift */,
 			);
@@ -750,6 +753,7 @@
 				18180F1F1D04C752008EAC4A /* SYPedometer.swift in Sources */,
 				1848F0221CF6446D000C45D6 /* SYBezierManager.swift in Sources */,
 				18F1365A1CF7CC460021CBF5 /* SYElementRoot.swift in Sources */,
+				188AE4BA1D0803DC00BA21D7 /* SYGeomBrick.swift in Sources */,
 				186B08D91D05D8D3002C1A9F /* IntroViewController.swift in Sources */,
 				186B08D41D05D8D3002C1A9F /* MainViewController.swift in Sources */,
 				18F136551CF7CC270021CBF5 /* SYGeomEmpty.swift in Sources */,

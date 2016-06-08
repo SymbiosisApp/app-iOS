@@ -254,6 +254,9 @@ class SYElement: SCNNode, SYRederable {
         case "sphereShape":
             let sphere = SYShapeSphere(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(sphere)
+        case "brickShape":
+            let brick = SYShapeBrick(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
+            self.elems.append(brick)
         case "flowerElem":
             let flower = SYElementFlower1(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(flower)
@@ -275,6 +278,8 @@ class SYElement: SCNNode, SYRederable {
             return (SYGeomTrunkProps(size: 0), nil, nil)
         case "sphereShape":
             return (SYGeomSphereProps(size: 0), nil, nil)
+        case "brickShape":
+            return (SYGeomBrickProps(size: 0), nil, nil)
         case "flowerElem":
             let rootProps = shadow.options as! SYElementRootProps
             let props = SYElementFlower1Props(id: "", size: 0, rootProps: rootProps)

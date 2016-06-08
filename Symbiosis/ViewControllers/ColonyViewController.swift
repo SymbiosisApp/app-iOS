@@ -15,6 +15,7 @@ class ColonyViewController: UIViewController {
     @IBOutlet weak var apprentisName: UILabel!
     @IBOutlet weak var fondateurName: UILabel!
     @IBOutlet weak var colonyName: UILabel!
+    @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     let background = Background()
     override func viewDidLoad() {
@@ -22,6 +23,8 @@ class ColonyViewController: UIViewController {
 
         let usersData = request.getData("http://symbiosis.etienne-dldc.fr/users/id=5&param=all")
         let colonyData = request.getData("http://symbiosis.etienne-dldc.fr/graines/id=5")
+        
+        mainButton.backgroundColor = Background().hexStringToUIColor("#77B4F7")
         
         if let users = usersData as? [AnyObject]{
             for user in users {
@@ -31,7 +34,8 @@ class ColonyViewController: UIViewController {
                     print("graine", seed)
                 }
                 if let user = user["pseudo"] as? String {
-                    apprentisName.text = user.uppercaseString
+                    // apprentisName.text = user.uppercaseString
+                    apprentisName.text = "Apprentis".uppercaseString
                 }
             }
         }

@@ -1,15 +1,3 @@
-//
-//  SYGeomLeaf.swift
-//  symbiosis-ios-app
-//
-//  Created by Etienne De Ladonchamps on 27/05/2016.
-//  Copyright © 2016 Etienne De Ladonchamps. All rights reserved.
-//
-
-import Foundation
-import GLKit
-import SceneKit
-
 
 //
 //  SYGeomLeaf.swift

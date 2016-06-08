@@ -234,12 +234,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, SYStateListener {
         
         if showPin{
             suggest.hidden = false
-            search.hidden = false
-            localisation.hidden = false
         }else{
             suggest.hidden = true
-            search.hidden = true
-            localisation.hidden = true
         }
     }
     

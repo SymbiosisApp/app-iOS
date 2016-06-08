@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SYProgressBar" customModule="symbiosis_ios_app" customModuleProvider="target">
@@ -14,21 +15,21 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="526"/>
+            <rect key="frame" x="0.0" y="0.0" width="33" height="526"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-ph-mHE">
-                    <rect key="frame" x="0.0" y="0.0" width="50" height="526"/>
+                    <rect key="frame" x="0.0" y="0.0" width="33" height="526"/>
                     <subviews>
                         <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYp-dO-0qg">
-                            <rect key="frame" x="0.0" y="0.0" width="50" height="526"/>
+                            <rect key="frame" x="0.0" y="263" width="33" height="263"/>
                             <color key="backgroundColor" red="1" green="0.39026079740000003" blue="0.56501108509999998" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="yYp-dO-0qg" secondAttribute="trailing" id="4fl-se-to7"/>
-                        <constraint firstItem="yYp-dO-0qg" firstAttribute="height" secondItem="Qz5-ph-mHE" secondAttribute="height" placeholder="YES" id="9Im-yO-9Yq"/>
+                        <constraint firstItem="yYp-dO-0qg" firstAttribute="height" secondItem="Qz5-ph-mHE" secondAttribute="height" multiplier="0.5" placeholder="YES" id="9Im-yO-9Yq"/>
                         <constraint firstAttribute="bottom" secondItem="yYp-dO-0qg" secondAttribute="bottom" id="jPH-rk-tyK"/>
                         <constraint firstItem="yYp-dO-0qg" firstAttribute="leading" secondItem="Qz5-ph-mHE" secondAttribute="leading" id="uBn-ob-VHy"/>
                     </constraints>
@@ -42,7 +43,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="42" y="346"/>
+            <point key="canvasLocation" x="33.5" y="346"/>
         </view>
     </objects>
 </document>
