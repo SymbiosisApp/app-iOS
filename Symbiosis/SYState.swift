@@ -467,7 +467,6 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func distanceToSelectedSeed() -> Double? {
-        return 0
         if currentState.selectedSeed == nil {
             return nil
         }
