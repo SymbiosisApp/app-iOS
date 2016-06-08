@@ -60,7 +60,7 @@ class SYGeomLeaf: SYGeom {
         let nextPoint = myPath.valueAtTime(progressCurve + 0.01)
         let translation = GLKVector3Make(Float(point.x) * multiplier, Float(point.y) * multiplier, 0)
         let nextTranslate = GLKVector3Make(Float(nextPoint.x) * multiplier, Float(nextPoint.y) * multiplier, 0)
-        orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: 0 )
+        orientation = GLKMatrix4MakeRotationToAlignGLKVector3(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: 0 )
         
         if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true
@@ -118,7 +118,7 @@ class SYGeomLeaf: SYGeom {
         // let myProps = self.props as! SYGeomBranchProps
         
         let mat = SCNMaterial()
-        mat.diffuse.contents = UIColor(red: 1.0, green: 0.6118, blue: 0.5608, alpha: 1)
+        mat.diffuse.contents = UIColor(red: 1.0, green: 1.0, blue: 0.5608, alpha: 1)
         // mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         mat.doubleSided = true
         

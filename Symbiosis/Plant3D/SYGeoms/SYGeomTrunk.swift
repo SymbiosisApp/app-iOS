@@ -49,7 +49,7 @@ class SYGeomTrunk: SYGeom {
         let nextPoint = myPath.valueAtTime(progressCurve + 0.01)
         let translation = GLKVector3Make(Float(point.x) * multiplier, Float(point.y) * multiplier, 0)
         let nextTranslate = GLKVector3Make(Float(nextPoint.x) * multiplier, Float(nextPoint.y) * multiplier, 0)
-        orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
+        orientation = GLKMatrix4MakeRotationToAlignGLKVector3(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
         
         if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true

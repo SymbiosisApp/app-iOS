@@ -102,7 +102,7 @@ class SYElement: SCNNode, SYRederable {
         } else {
             self.orientationsList = []
             for _ in 0..<propsList.count {
-                self.orientationsList.append(GLKVector4Make(0, 1, 0, 0))
+                self.orientationsList.append(GLKVector4Make(0, 0, 0, 0))
             }
         }
         self.propsList = propsList
@@ -176,7 +176,7 @@ class SYElement: SCNNode, SYRederable {
             shadow.positions[propsIndex] = position!
         }
         if orientation == nil {
-            shadow.orientations[propsIndex] = GLKVector4Make(0, 1, 0, 0)
+            shadow.orientations[propsIndex] = GLKVector4Make(0, 0, 0, 0)
         } else {
             shadow.orientations[propsIndex] = orientation!
         }
@@ -254,6 +254,9 @@ class SYElement: SCNNode, SYRederable {
         case "sphereShape":
             let sphere = SYShapeSphere(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(sphere)
+        case "flowerElem":
+            let flower = SYElementFlower1(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
+            self.elems.append(flower)
         default:
             break
         }
@@ -272,6 +275,10 @@ class SYElement: SCNNode, SYRederable {
             return (SYGeomTrunkProps(size: 0), nil, nil)
         case "sphereShape":
             return (SYGeomSphereProps(size: 0), nil, nil)
+        case "flowerElem":
+            let rootProps = shadow.options as! SYElementRootProps
+            let props = SYElementFlower1Props(id: "", size: 0, rootProps: rootProps)
+            return (props, nil, nil)
         default:
             return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
         }

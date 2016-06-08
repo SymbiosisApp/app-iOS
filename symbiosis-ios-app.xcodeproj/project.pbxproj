@@ -67,6 +67,7 @@
 		18CF55A01CE91CA9008E8EC4 /* Plant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */; };
 		18CF55A11CE91CA9008E8EC4 /* Profil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */; };
 		18CF55A31CE91D85008E8EC4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CF55A21CE91D85008E8EC4 /* Settings.storyboard */; };
+		18EB72321D07A08A00E6523F /* SYElementFlower1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB72311D07A08A00E6523F /* SYElementFlower1.swift */; };
 		18F1363F1CF75AA30021CBF5 /* smoke.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 18F1363C1CF75AA30021CBF5 /* smoke.fsh */; };
 		18F136401CF75AA30021CBF5 /* smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F1363D1CF75AA30021CBF5 /* smoke.plist */; };
 		18F136411CF75AA30021CBF5 /* smoke.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 18F1363E1CF75AA30021CBF5 /* smoke.vsh */; };
@@ -190,6 +191,7 @@
 		18CF559A1CE91CA9008E8EC4 /* Plant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Plant.storyboard; path = Storyboards/Plant.storyboard; sourceTree = "<group>"; };
 		18CF559B1CE91CA9008E8EC4 /* Profil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profil.storyboard; path = Storyboards/Profil.storyboard; sourceTree = "<group>"; };
 		18CF55A21CE91D85008E8EC4 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
+		18EB72311D07A08A00E6523F /* SYElementFlower1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYElementFlower1.swift; sourceTree = "<group>"; };
 		18F1363C1CF75AA30021CBF5 /* smoke.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = smoke.fsh; sourceTree = "<group>"; };
 		18F1363D1CF75AA30021CBF5 /* smoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smoke.plist; sourceTree = "<group>"; };
 		18F1363E1CF75AA30021CBF5 /* smoke.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = smoke.vsh; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			children = (
 				18F136591CF7CC460021CBF5 /* SYElementRoot.swift */,
 				18F1365B1CF7CC630021CBF5 /* SYElementBasicType1.swift */,
+				18EB72311D07A08A00E6523F /* SYElementFlower1.swift */,
 			);
 			path = SYElements;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				186B08DB1D05D8D3002C1A9F /* PlantSceneViewController.swift in Sources */,
 				183FF6B91CFF18640086D011 /* SYDataLoader.swift in Sources */,
 				1814CB381CEE0DC3004D7540 /* QTouchposeApplication.m in Sources */,
+				18EB72321D07A08A00E6523F /* SYElementFlower1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

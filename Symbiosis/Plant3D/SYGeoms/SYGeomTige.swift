@@ -51,7 +51,7 @@ class SYGeomTige: SYGeom {
         let nextPoint = myBezier.valueAtTime(progressCurve + 0.01)
         let translation = GLKVector3Make(Float(point.y) * 1, Float(point.x) * 1, 0)
         let nextTranslate = GLKVector3Make(Float(nextPoint.y) * 1, Float(nextPoint.x) * 1, 0)
-        orientation = GLKMatrix4MakeRotationToAlign(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
+        orientation = GLKMatrix4MakeRotationToAlignGLKVector3(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: options.boneSizeFromStart/10 )
         
         if (options.boneSizeFromStart > myProps.size) {
             isLastStep = true

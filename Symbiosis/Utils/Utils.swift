@@ -132,7 +132,7 @@ func CGPointLerp(from from: CGPoint, to: CGPoint, progress: CGFloat) -> CGPoint 
     return CGPoint(x: x, y: y)
 }
 
-func GLKMatrix4MakeRotationToAlign(target: GLKVector3, plan: GLKVector3, axisRotation: Float) -> GLKMatrix4 {
+func GLKMatrix4MakeRotationToAlignGLKVector3(target: GLKVector3, plan: GLKVector3, axisRotation: Float) -> GLKMatrix4 {
     let targetNor = GLKVector3Normalize(target)
     let planNor = GLKVector3Normalize(plan)
     let axis = GLKVector3Normalize(GLKVector3CrossProduct(targetNor, planNor))

@@ -65,18 +65,22 @@ class SYElementBasicType1: SYElement {
                     orient = SCNVector4ToGLKVector4(node.orientation)
                     
                     // var orient = GLKVector4Make(0, 1, 0, vertOrient)
-                    // let rotate = GLKMatrix4MakeRotationToAlign(GLKVector3Make(0, 1, 0), plan: bone.translation, axisRotation: 0)
+                    // let rotate = GLKMatrix4MakeRotationToAlignGLKVector3(GLKVector3Make(0, 1, 0), plan: bone.translation, axisRotation: 0)
                     // orient = GLKMatrix4MultiplyVector4(rotate, GLKVector4Make(0, 1, 0, 0))
                     
                     self.addInElems("leaf\(index)", type: "leafShape", propsIndex: propsIndex, options: nil, props: props, position: pos, orientation: GLKVector4Normalize(orient))
+
                 }
             }
             
-            self.addInElems("trunk", type: "trunkShape", propsIndex: propsIndex, options: nil, props: trunkProps, position: GLKVector3Make(0, 0, 0), orientation: GLKVector4Make(0, 1, 0, 0) )
+            self.addInElems("trunk", type: "trunkShape", propsIndex: propsIndex, options: nil, props: trunkProps, position: GLKVector3Make(0, 0, 0), orientation: GLKVector4Make(0, 0, 0, 0) )
+            
+            let flowerProps = SYElementFlower1Props(id: "flower", size: myProps.rootProps.size, rootProps: myProps.rootProps)
+            self.addInElems("flower", type: "flowerElem", propsIndex: propsIndex, options: nil, props: flowerProps, position: nil, orientation: nil)
             
             
             let middle = (trunkBones.last?.position.y)! * 0.25
-            self.addInElems("sphere", type: "sphereShape", propsIndex: propsIndex, options: nil, props: SYGeomSphereProps(size: myProps.rootProps.size), position: GLKVector3Make(0, middle, 0), orientation: GLKVector4Make(0, 1, 0, 0) )
+            self.addInElems("sphere", type: "sphereShape", propsIndex: propsIndex, options: nil, props: SYGeomSphereProps(size: myProps.rootProps.size), position: GLKVector3Make(0, middle, 0), orientation: GLKVector4Make(0, 0, 0, 0) )
             
         }
     }
