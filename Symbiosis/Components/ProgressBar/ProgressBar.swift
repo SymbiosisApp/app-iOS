@@ -62,6 +62,7 @@ class SYProgressBar: UIView, SYStateListener {
     }
     
     func animateTo(progress: Float) {
+        print("animate progress")
         UIView.animateWithDuration(1.0, animations: {
             if self.barHeightConstraint != nil {
                 self.barHeightConstraint!.active = false
@@ -70,13 +71,17 @@ class SYProgressBar: UIView, SYStateListener {
             self.barHeightConstraint!.active = true
             self.layoutIfNeeded()
         }) { (completed) in
-            print("done")
+            print("done animate progress")
         }
     }
     
     func onStateSetup() {
-        let progress = state.getProgressBarProgress()
-        self.animateTo(progress)
+        // Do nothing
+        print(state.getPlantStatus())
+        if state.getPlantStatus() == .Animated {
+            let progress = state.getProgressBarProgress()
+            animateTo(progress)
+        }
     }
     
     func onStateUpdate() {

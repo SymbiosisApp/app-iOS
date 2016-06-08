@@ -42,19 +42,19 @@ class SYElementFlower1: SYElement {
             
             
             
-            self.addInElems("brick", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: nil)
-            
-            let val: Float = 20
-            
-            self.addInElems("brick--1", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 0)))
-            self.addInElems("brick--2", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 2)))
-            self.addInElems("brick--3", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 4)))
-            self.addInElems("brick--4", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 6)))
-            self.addInElems("brick--5", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 8)))
-            self.addInElems("brick--6", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 10)))
-            self.addInElems("brick--7", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 12)))
-            
-            
+//            self.addInElems("brick", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: nil)
+//            
+//            let val: Float = 20
+//            
+//            self.addInElems("brick--1", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 0)))
+//            self.addInElems("brick--2", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 2)))
+//            self.addInElems("brick--3", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 4)))
+//            self.addInElems("brick--4", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 6)))
+//            self.addInElems("brick--5", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 8)))
+//            self.addInElems("brick--6", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 10)))
+//            self.addInElems("brick--7", type: "brickShape", propsIndex: propsIndex, options: myProps.rootProps, props: SYGeomBrickProps(size: 1), position: nil, orientation: GLKVector4Normalize(GLKVector4Make(0, val, 0, 12)))
+//            
+//            
             
             
             for i in 0..<6 {

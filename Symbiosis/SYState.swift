@@ -262,6 +262,12 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
      * -> Update the state but don't trigger update
      **/
     
+    func getPlantProgressForSteps(steps: Int) -> Float {
+        var result = 5 * log10( ( Float(steps) + 10000 ) / 10000 )
+        result += 0.6 // Pouce size
+        return result
+    }
+    
     func updatePlant(state: SYState) -> SYState {
         var state = state
         // Update progress
@@ -272,8 +278,7 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
         if state.plantStatus == .Generating {
             return state
         }
-        var nextProgress = 5 * log10( ( Float(currentState.steps) + 10000 ) / 10000 )
-        nextProgress += 0.6 // Pouce size
+        let nextProgress = self.getPlantProgressForSteps(currentState.steps)
         let diff = abs(nextProgress - currentState.plantProgress)
         if diff > 0.1 {
             print("Generate Plant !")
@@ -436,7 +441,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     }
     
     func getProgressBarProgress() -> Float {
-        return (Float(currentState.steps) % 10001) / 10000
+        let plantProgress = self.getPlantProgressForSteps(currentState.steps)
+        print(plantProgress)
+        return (plantProgress % 3) / 3
     }
     
     func getOnboardingToDisplay() -> String? {
