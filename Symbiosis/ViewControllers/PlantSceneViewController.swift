@@ -50,7 +50,7 @@ class PlantSceneViewController: UIViewController, SCNSceneRendererDelegate, SYSt
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.camera?.xFov = 30.0
-        cameraNode.position = SCNVector3Make(0, 0.5, 2)
+        cameraNode.position = SCNVector3Make(0, 0.7, 2)
         // add rotationNode
         rotationNode.addChildNode(cameraNode)
         rotationNode.position = SCNVector3Make(0, 0, 0)

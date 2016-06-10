@@ -50,37 +50,66 @@ class SYElementBasicType1: SYElement {
             
             let trunkProps = SYGeomTrunkProps(size: trunkSize)
             
-            let trunkBones: [SYBone] = SYGeomTrunk(withoutGenerateWithProps: trunkProps, parent: self).getBones()
-
-            if myProps.rootProps.hasLeefs {
+            let trunkGeom = SYGeomTrunk(withoutGenerateWithProps: trunkProps, parent: self)
+            let trunkBones: [SYBone] = trunkGeom.getBones()
+            
+            // if myProps.rootProps.hasLeefs {
                 for (index, bone) in trunkBones.enumerate() {
-                    let pos = GLKVector3Make(-bone.position.x, bone.position.y, bone.position.z)
-                    let leafSize = (1 - pow(Float(M_E), (-0.1 * trunkSize))) * 4
-                    let props = SYGeomLeafProps(size: leafSize)
-                    let vertOrient = ((Float(random() % 1000)/1000) - 0.5) * Float(M_PI) * 2
-                    var orient = GLKVector4Make(bone.translation.x, bone.translation.y, bone.translation.z, vertOrient)
+
+                    let progress = Float(bone.index) / Float(trunkBones.count)
                     
-                    let node = SCNNode()
-                    node.rotation = SCNVector4FromGLKVector4(GLKVector4Normalize(orient))
-                    orient = SCNVector4ToGLKVector4(node.orientation)
-                    
-                    // var orient = GLKVector4Make(0, 1, 0, vertOrient)
-                    // let rotate = GLKMatrix4MakeRotationToAlignGLKVector3(GLKVector3Make(0, 1, 0), plan: bone.translation, axisRotation: 0)
-                    // orient = GLKMatrix4MultiplyVector4(rotate, GLKVector4Make(0, 1, 0, 0))
-                    
-                    self.addInElems("leaf\(index)", type: "leafShape", propsIndex: propsIndex, options: nil, props: props, position: pos, orientation: GLKVector4Normalize(orient))
+                    if progress > 0.3 && progress < 0.9 {
+                        
+                        let leafId = "\(myProps.id)-leafs-\(index)"
+                        let pos = GLKVector3Make(bone.position.x, bone.position.y, bone.position.z)
+                        var orient = bone.orientation
+                        let leafSize = 0.1 + (1 - progress) * myProps.rootProps.size
+                        
+                        let nbrOfLeafs = self.parent.getRandomManager().get("\(leafId)-number") % 3
+                        for i in 0..<nbrOfLeafs {
+                            let leafRotateY = Float(self.parent.getRandomManager().get("\(leafId)-\(i)") % 1000) / 1000
+                            orient = GLKMatrix4Multiply(orient, GLKMatrix4MakeYRotation(leafRotateY * 2 * Float(M_PI)))
+                            let props = SYGeomLeafProps(size: leafSize, firstRotation: orient, id: leafId )
+                            self.addInElems("\(leafId)-\(i)", type: "leafShape", propsIndex: propsIndex, options: nil, props: props, position: pos, orientation: nil)
+                        }
+                    }
 
                 }
-            }
+            // }
             
             self.addInElems("trunk", type: "trunkShape", propsIndex: propsIndex, options: nil, props: trunkProps, position: GLKVector3Make(0, 0, 0), orientation: GLKVector4Make(0, 0, 0, 0) )
             
-            let flowerProps = SYElementFlower1Props(id: "flower", size: myProps.rootProps.size, rootProps: myProps.rootProps)
-            self.addInElems("flower", type: "flowerElem", propsIndex: propsIndex, options: nil, props: flowerProps, position: nil, orientation: nil)
             
+//            let flowerProps = SYElementFlower1Props(id: "flower", size: myProps.rootProps.size * 0.3, rootProps: myProps.rootProps)
+//            self.addInElems("flower", type: "flowerElem", propsIndex: propsIndex, options: nil, props: flowerProps, position: trunkBones.last?.position, orientation: nil)
+//            
             
-            let middle = (trunkBones.last?.position.y)! * 0.25
-            self.addInElems("sphere", type: "sphereShape", propsIndex: propsIndex, options: nil, props: SYGeomSphereProps(size: myProps.rootProps.size), position: GLKVector3Make(0, middle, 0), orientation: GLKVector4Make(0, 0, 0, 0) )
+            let rootSize = myProps.rootProps.size
+            
+            if trunkBones.count > 1  {
+                
+                // Sphere 1
+                let nbrOfSphere = Int(rootSize*6)
+                
+                for i in 0..<nbrOfSphere {
+                    let sphereRan = self.parent.getRandomManager().get("\(myProps.id)-sphere2-\(i)")
+                    let posX = ((Float(sphereRan%33454) / 33454)*2 - 1) * rootSize * 0.05
+                    let posY = ((Float(sphereRan%77655) / 77655)*2 - 1) * rootSize * 0.05
+                    let posZ = ((Float(sphereRan%99876) / 99876)*2 - 1) * rootSize * 0.05
+                    let size = 0.2 + (Float(sphereRan%6787) / 6787) * rootSize * 0.05
+                    let spherePos = GLKVector3Add(trunkBones.last!.position, GLKVector3Make(posX, posY, posZ))
+                    let sphereProps = SYGeomSphere2Props(size: size, orient: nil)
+                    self.addInElems("sphere2-\(i)", type: "sphere2Shape", propsIndex: propsIndex, options: nil, props: sphereProps, position: spherePos, orientation: nil)
+                }
+                
+//                spherePos = GLKVector3Add(trunkBones.last!.position, GLKVector3Make(0.03 * rootSize, 0.01 * rootSize, 0.02 * rootSize))
+//                let sphereProps2 = SYGeomSphere2Props(size: myProps.rootProps.size * 0.1, orient: nil)
+//                self.addInElems("sphere3", type: "sphere2Shape", propsIndex: propsIndex, options: nil, props: sphereProps2, position: spherePos, orientation: nil)
+                
+                
+                // let middle = (trunkBones.last?.position.y)! * 0.25
+                self.addInElems("sphere", type: "sphereShape", propsIndex: propsIndex, options: nil, props: SYGeomSphereProps(size: myProps.rootProps.size * 0.6, orient: trunkBones[0].orientation), position: trunkBones[0].position, orientation: nil )
+            }
             
         }
     }

@@ -16,6 +16,8 @@ import SceneKit
  **/
 struct SYGeomLeafProps {
     var size: Float = 1
+    var firstRotation: GLKMatrix4? = nil
+    var id: String = "SYGeomLeafProps"
 }
 
 class SYGeomLeaf: SYGeom {
@@ -38,7 +40,11 @@ class SYGeomLeaf: SYGeom {
         var isLastStep: Bool = false
         var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
         
-        let myPath = self.parent.getBezierManager().get("leaf", options: nil)
+        let courbe = self.parent.getRandomManager().get(myProps.id) % 10000
+        
+        var pathOpt = SYBezierOptions()
+        pathOpt.val1 = (Float(courbe) / 10000)
+        let myPath = self.parent.getBezierManager().get("leaf", options: pathOpt )
         
         let progressCurve = options.boneSizeFromStart / myProps.size
         
@@ -46,7 +52,7 @@ class SYGeomLeaf: SYGeom {
         
         let point = myPath.valueAtTime(progressCurve)
         let nextPoint = myPath.valueAtTime(progressCurve + 0.01)
-        let translation = GLKVector3Make(Float(point.x) * multiplier, Float(point.y) * multiplier, 0)
+        var translation = GLKVector3Make(Float(point.x) * multiplier, Float(point.y) * multiplier, 0)
         let nextTranslate = GLKVector3Make(Float(nextPoint.x) * multiplier, Float(nextPoint.y) * multiplier, 0)
         orientation = GLKMatrix4MakeRotationToAlignGLKVector3(GLKVector3Subtract(nextTranslate, translation), plan: GLKVector3Make(0, 1, 0), axisRotation: 0 )
         
@@ -54,7 +60,12 @@ class SYGeomLeaf: SYGeom {
             isLastStep = true
         }
         
-        return SYBone(translation: translation, orientation: orientation, size: 0.02, isLastStep: isLastStep, isAbsolute: true)
+        if myProps.firstRotation != nil {
+            translation = GLKMatrix4MultiplyAndProjectVector3(myProps.firstRotation!, translation)
+            orientation = GLKMatrix4Multiply(myProps.firstRotation!, orientation)
+        }
+        
+        return SYBone(translation: translation, orientation: orientation, size: 0.08 * myProps.size, isLastStep: isLastStep, isAbsolute: true)
         
     }
     
@@ -71,29 +82,23 @@ class SYGeomLeaf: SYGeom {
         
         var points: [GLKVector3] = []
         
-        // let myPath = self.parent.getBezierManager().get("Leaf-width", options: nil)
+        let myPath = self.parent.getBezierManager().get("Leaf-width-2", options: nil)
         
-        // let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * 0.5 // * (myProps.size / 10)
+        let width: Float = Float(myPath.valueAtTime(progress).y) * 0.1 * myProps.size
         
-        // let width = 0.1 * (1 - progress)
-        
-        var width = (1 - pow(Float(M_E), (-0.1 * myProps.size))) * 0.1
-        width = width * (1 - progress)
+//        var width = (1 - pow(Float(M_E), (-0.1 * myProps.size))) * 0.1
+//        width = width * (1 - progress)
         
         // Last step
-        if progressNum == 1 {
+        if progressNum >= 1 {
             points = [GLKVector3Make(0, 0, 0)]
         } else if progressNum == 0 {
             points = [GLKVector3Make(0, 0, 0)]
         } else {
-            let angleStep: Float = Float(M_PI)/3.0
-            
-            for i in 0...5 {
-                let angle = Float(i) * angleStep
-                let rotate = GLKMatrix4MakeRotation(angle, 0, 1, 0)
-                let point = GLKMatrix4MultiplyAndProjectVector3(rotate, GLKVector3Make(width, 0, 0))
-                points.append(point)
-            }
+            points.append(GLKVector3Make(width/3, 0, 0))
+            points.append(GLKVector3Make(-width/2, width/4, width))
+            points.append(GLKVector3Make(-width/3, 0, 0))
+            points.append(GLKVector3Make(-width/2, width/4, -width))
             
         }
         
@@ -103,12 +108,16 @@ class SYGeomLeaf: SYGeom {
     
     override func generateMaterial() {
         
-        // let myProps = self.props as! SYGeomBranchProps
+        let myProps = self.props as! SYGeomLeafProps
+        
+        let colorBlue = Float(self.parent.getRandomManager().get("\(myProps.id)-color")%1000) / 1000
         
         let mat = SCNMaterial()
-        mat.diffuse.contents = UIColor(red: 1.0, green: 1.0, blue: 0.5608, alpha: 1)
+        // mat.diffuse.contents = UIColor(red: 119/255, green: 180/255, blue: 247/255, alpha: 1)
+        mat.diffuse.contents = UIColor(hue: 210/360, saturation: 0.51 + (0.1 * CGFloat(colorBlue)), brightness: 0.96, alpha: 1)
         // mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         mat.doubleSided = true
+        
         
         var shaders: [String:String] = [:]
         
@@ -116,7 +125,7 @@ class SYGeomLeaf: SYGeom {
         
         // shaders[SCNShaderModifierEntryPointLightingModel] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("tooning", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
         
-        mat.shaderModifiers = shaders
+        // mat.shaderModifiers = shaders
         
         self.materials = [mat]
     }

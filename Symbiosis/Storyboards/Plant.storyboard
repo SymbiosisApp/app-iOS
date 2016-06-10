@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Rene Bieder - Campton Medium.otf">
+            <string>Campton-Medium</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Plant View Controller-->
         <scene sceneID="gkS-ms-hJy">
@@ -38,6 +43,12 @@
                                     <constraint firstAttribute="width" constant="6" id="z0N-Fb-hIK"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculs en cours..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odU-sy-PqG">
+                                <rect key="frame" x="20" y="20" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="Campton-Medium" family="Campton" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.73895474137931039" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
@@ -47,12 +58,16 @@
                             <constraint firstItem="bYP-sI-Jdj" firstAttribute="top" secondItem="waf-ug-Fid" secondAttribute="bottom" constant="8" id="cgQ-Im-jjf"/>
                             <constraint firstItem="bYP-sI-Jdj" firstAttribute="trailing" secondItem="3PZ-hn-UEo" secondAttribute="trailingMargin" id="i5E-df-Qpe"/>
                             <constraint firstAttribute="trailing" secondItem="Lol-94-hjX" secondAttribute="trailing" id="iDU-JL-Z1L"/>
+                            <constraint firstItem="odU-sy-PqG" firstAttribute="leading" secondItem="3PZ-hn-UEo" secondAttribute="leadingMargin" id="kcX-ZW-WUW"/>
                             <constraint firstItem="NNe-kM-2u7" firstAttribute="top" secondItem="3PZ-hn-UEo" secondAttribute="topMargin" constant="60" id="loF-qh-nfG"/>
+                            <constraint firstItem="odU-sy-PqG" firstAttribute="top" secondItem="waf-ug-Fid" secondAttribute="bottom" id="owI-RS-9Mm"/>
                             <constraint firstItem="x3K-ad-l18" firstAttribute="top" secondItem="Lol-94-hjX" secondAttribute="bottom" id="rSS-Kj-xCV"/>
                             <constraint firstItem="NNe-kM-2u7" firstAttribute="leading" secondItem="3PZ-hn-UEo" secondAttribute="leadingMargin" constant="20" id="ttf-5m-SVw"/>
+                            <constraint firstItem="odU-sy-PqG" firstAttribute="trailing" secondItem="3PZ-hn-UEo" secondAttribute="trailingMargin" id="yBh-lG-N7d"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="computeLabel" destination="odU-sy-PqG" id="hzZ-h8-rkC"/>
                         <outlet property="photo" destination="bYP-sI-Jdj" id="okh-bJ-urk"/>
                     </connections>
                 </viewController>

@@ -260,6 +260,9 @@ class SYElement: SCNNode, SYRederable {
         case "flowerElem":
             let flower = SYElementFlower1(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
             self.elems.append(flower)
+        case "sphere2Shape":
+            let sphere = SYShapeSphere2(propsList: shadow.allProps, positionsList: shadow.allPositions, orientationsList: shadow.allOrientations, parent: self)
+            self.elems.append(sphere)
         default:
             break
         }
@@ -271,15 +274,17 @@ class SYElement: SCNNode, SYRederable {
         case "branchShape":
             return (SYGeomBranchProps(size: 0, width: 0, random: 0), nil, nil)
         case "leafShape":
-            return (SYGeomLeafProps(size: 0), nil, nil)
+            return (SYGeomLeafProps(size: 0, firstRotation: nil, id: ""), nil, nil)
         case "leafShape":
             return (SYGeomTigeProps(size: 0, width: 0), nil, nil)
         case "trunkShape":
             return (SYGeomTrunkProps(size: 0), nil, nil)
         case "sphereShape":
-            return (SYGeomSphereProps(size: 0), nil, nil)
+            return (SYGeomSphereProps(size: 0, orient: nil), nil, nil)
+        case "sphere2Shape":
+            return (SYGeomSphere2Props(size: 0, orient: nil), nil, nil)
         case "brickShape":
-            return (SYGeomBrickProps(size: 0), nil, nil)
+            return (SYGeomBrickProps(size: 0, firstRotation: nil), nil, nil)
         case "flowerElem":
             let rootProps = shadow.options as! SYElementRootProps
             let props = SYElementFlower1Props(id: "", size: 0, rootProps: rootProps)

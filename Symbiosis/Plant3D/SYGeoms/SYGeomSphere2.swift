@@ -1,5 +1,5 @@
 //
-//  SYGeomSphere.swift
+//  SYGeomSphere2.swift
 //  symbiosis-ios-app
 //
 //  Created by Etienne De Ladonchamps on 27/05/2016.
@@ -9,52 +9,52 @@
 import Foundation
 import GLKit
 import SceneKit
+import UIKit
 
 /**
- * Sphere
+ * Sphere2
  **/
-struct SYGeomSphereProps {
+struct SYGeomSphere2Props {
     var size: Float = 1
     var orient: GLKMatrix4? = nil
 }
 
-class SYGeomSphere: SYGeom {
+class SYGeomSphere2: SYGeom {
     
     override func verifyProps() {
-        if !(self.props is SYGeomSphereProps) {
+        if !(self.props is SYGeomSphere2Props) {
             fatalError("Incorrect Props")
         }
     }
     
     override func boneFunc (options: SYBoneFuncOptions) -> SYBone {
         
-        let myProps = self.props as! SYGeomSphereProps
+        let myProps = self.props as! SYGeomSphere2Props
         
         // Return 0
         if myProps.size == 0 {
             return SYBone(translation: GLKVector3Make(0, 0, 0), orientation: GLKMatrix4MakeRotation(0, 0, 1, 0), size: nil, isLastStep: true, isAbsolute: nil)
         }
         
-        var stepSize = myProps.size/20 * 0.1
-        
-        if options.index == 0 || options.index == 20 {
-            stepSize = stepSize * 0.5
+        if options.index == 0 {
+            print("------")
         }
         
-        var isLastStep: Bool = false
-        var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0.1, 0, 1, 0)
-        var translation = GLKVector3Make(0, stepSize, 0)
+        let nbrOfSteps = 20
         
-        if (options.index >= 20) {
+        let angle = (Float(options.index) / Float(nbrOfSteps)) * Float(M_PI)
+        let stepSize = sin(angle) * myProps.size * 0.008
+        
+        var isLastStep: Bool = false
+        var orientation: GLKMatrix4 = GLKMatrix4MakeRotation(0, 0, 1, 0)
+        let translation = GLKVector3Make(0, stepSize, 0)
+        
+        if (options.index >= nbrOfSteps) {
             isLastStep = true
         }
         
         if options.index == 0 && myProps.orient != nil {
             orientation = GLKMatrix4Multiply(myProps.orient!, orientation)
-        }
-        
-        if options.index == 0 {
-            translation = GLKVector3Make(0, -(myProps.size * 0.05 * 0.5), 0)
         }
         
         return SYBone(translation: translation, orientation: orientation, size: nil, isLastStep: isLastStep, isAbsolute: false)
@@ -63,7 +63,7 @@ class SYGeomSphere: SYGeom {
     
     override func stepFunc (options: SYStepFuncOptions) -> SYStep {
         
-        let myProps = self.props as! SYGeomSphereProps
+        let myProps = self.props as! SYGeomSphere2Props
         
         if myProps.size == 0 {
             return SYStep(points: [])
@@ -74,9 +74,9 @@ class SYGeomSphere: SYGeom {
         
         var points: [GLKVector3] = []
         
-        let myPath = self.parent.getBezierManager().get("sphere", options: nil)
+        let angle = (Float(options.bone.index) / Float(options.nbrOfSteps)) * Float(M_PI)
         
-        let width: Float = (Float(myPath.valueAtTime(progress).y) / 10) * (myProps.size * 0.5)
+        let width: Float = sin(angle) * myProps.size * 0.5 * 0.1
         
         // Last step
         if progressNum == 1 {
@@ -104,14 +104,9 @@ class SYGeomSphere: SYGeom {
         // let myProps = self.props as! SYGeomBranchProps
         
         let mat = SCNMaterial()
-        mat.diffuse.contents = UIColor(red: 3/255, green: 58/255, blue: 150/255, alpha: 1)
+        mat.diffuse.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        mat.emission.contents = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
         mat.doubleSided = true
-        
-//        var shaders: [String:String] = [:]
-//        
-//        shaders[SCNShaderModifierEntryPointFragment] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("test", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
-//        
-//        mat.shaderModifiers = shaders
         
         self.materials = [mat]
     }
@@ -119,11 +114,11 @@ class SYGeomSphere: SYGeom {
 }
 
 
-class SYShapeSphere: SYShape {
+class SYShapeSphere2: SYShape {
     
     override func verifyProps() {
         for props in propsList {
-            if !(props is SYGeomSphereProps) {
+            if !(props is SYGeomSphere2Props) {
                 fatalError("Incorect Props")
             }
         }
@@ -131,8 +126,8 @@ class SYShapeSphere: SYShape {
     
     override func generateAllGeomStructure() {
         for props in propsList {
-            let newProps = props as! SYGeomSphereProps
-            self.geoms.append(SYGeomSphere(props: newProps, parent: self))
+            let newProps = props as! SYGeomSphere2Props
+            self.geoms.append(SYGeomSphere2(props: newProps, parent: self))
         }
     }
     

@@ -22,12 +22,15 @@ enum SYStatePlantStatus {
 struct SYStateUser {
     var isAuthenticated: Bool = false
     var hasASeed: Bool = false
+    //var hasASeed: Bool = true
 }
 
 /// The state object
 struct SYState {
     var tab: Int = 1
+    //var tab: Int = 2
     var steps: Int = 0
+    //var steps: Int = 15000
     var plant: SYPlant? = nil
     var plantStatus: SYStatePlantStatus = .NotGenerated
     var plantProgress: Float = 0
@@ -93,6 +96,9 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
     let locationManager: SYLocationManager = SYLocationManager(useNatif: false)
     // Pedometer
     let pedometer: SYPedometer = SYPedometer(useNatif: false)
+
+    let randomManager: SYRandomManager = SYRandomManager()
+    let bezierManager: SYBezierManager = SYBezierManager()
     
     private init() {
         // Delegates
@@ -291,7 +297,11 @@ class SYStateManager: SYLocationManagerDelegate, SYPedometerDelegate {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.dispatchAction(SYStateActionType.SetPlantStatus, payload: SYStatePlantStatus.Generating)
                 }
-                let nextPlant = SYPlant(progresses: [self.previousState.plantProgress, nextProgress])
+                let nextPlant = SYPlant(
+                    progresses: [self.previousState.plantProgress, nextProgress],
+                    randomManager: self.randomManager,
+                    bezierManager: self.bezierManager
+                )
                 dispatch_async(dispatch_get_main_queue()) {
                     self.dispatchAction(SYStateActionType.SetPlantProgress, payload: nextProgress)
                     self.dispatchAction(SYStateActionType.UpdatePlant, payload: nextPlant)

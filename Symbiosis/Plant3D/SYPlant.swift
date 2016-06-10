@@ -15,14 +15,17 @@ import SceneKit
 class SYPlant: SCNNode, SYRederable {
     
     var rootSYElem: SYElement! = nil
-    let randomManager: SYRandomManager = SYRandomManager()
-    let bezierManager: SYBezierManager = SYBezierManager()
+    
+    let randomManager: SYRandomManager
+    let bezierManager: SYBezierManager
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(progresses: [Float]) {
+    init(progresses: [Float], randomManager: SYRandomManager, bezierManager: SYBezierManager) {
+        self.randomManager = randomManager
+        self.bezierManager = bezierManager
         
         super.init()
         let states = self.generateProps(progresses)

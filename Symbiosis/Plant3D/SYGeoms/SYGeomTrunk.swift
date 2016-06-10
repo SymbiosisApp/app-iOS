@@ -55,7 +55,12 @@ class SYGeomTrunk: SYGeom {
             isLastStep = true
         }
         
-        return SYBone(translation: translation, orientation: orientation, size: 0.1, isLastStep: isLastStep, isAbsolute: true)
+        if options.bones.count >= 2 {
+            let dist = GLKVector3Distance(options.bones[0].translation, options.bones[1].translation)
+            print("dist : \(dist)")
+        }
+        
+        return SYBone(translation: translation, orientation: orientation, size: 0.05, isLastStep: isLastStep, isAbsolute: true)
         
     }
     
@@ -108,17 +113,18 @@ class SYGeomTrunk: SYGeom {
         // let myProps = self.props as! SYGeomBranchProps
         
         let mat = SCNMaterial()
-        mat.diffuse.contents = UIColor(red: 1.0, green: 0.6118, blue: 0.5608, alpha: 1)
+        //mat.diffuse.contents = UIColor(red: 255/255, green: 204/255, blue: 184/255, alpha: 1)
+        mat.diffuse.contents = UIColor(red: 255/255, green: 156/255, blue: 142/255, alpha: 1)
         // mat.emission.contents = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         mat.doubleSided = true
         
-        var shaders: [String:String] = [:]
-        
-        shaders[SCNShaderModifierEntryPointFragment] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("test", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
-        
-        // shaders[SCNShaderModifierEntryPointLightingModel] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("tooning", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
-        
-        mat.shaderModifiers = shaders
+//        var shaders: [String:String] = [:]
+//        
+//        shaders[SCNShaderModifierEntryPointFragment] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("test", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
+//        
+//        // shaders[SCNShaderModifierEntryPointLightingModel] = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("tooning", ofType: "fsh")!, encoding: NSUTF8StringEncoding)
+//        
+//        mat.shaderModifiers = shaders
         
         self.materials = [mat]
     }

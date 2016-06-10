@@ -15,6 +15,7 @@ import SceneKit
  **/
 struct SYGeomBrickProps {
     var size: Float = 1
+    var firstRotation: GLKMatrix4? = nil
 }
 
 class SYGeomBrick: SYGeom {
@@ -37,10 +38,14 @@ class SYGeomBrick: SYGeom {
         var isLastStep = false
         
         let translation = GLKVector3Make(0, 0.1, 0)
-        let orientation = GLKMatrix4MakeXRotation(0.2)
+        var orientation = GLKMatrix4MakeXRotation(0.2)
         
         if options.index >= 10 {
             isLastStep = true
+        }
+        
+        if myProps.firstRotation != nil && options.index == 0 {
+            orientation = myProps.firstRotation!
         }
         
         return SYBone(translation: translation, orientation: orientation, size: nil, isLastStep: isLastStep, isAbsolute: false)

@@ -29,6 +29,7 @@
 		185439861CEBC4EF00B1D86C /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439841CEBC4EF00B1D86C /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		185439A21CEBCF4D00B1D86C /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; };
 		185439A31CEBD00900B1D86C /* SocketIOClientSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18601DCA1D08D4F0006ACB0A /* SYGeomSphere2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18601DC91D08D4F0006ACB0A /* SYGeomSphere2.swift */; };
 		186487EB1D05D43600D3B199 /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487DE1D05D43600D3B199 /* Colony.swift */; };
 		186487EC1D05D43600D3B199 /* Colony.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186487DF1D05D43600D3B199 /* Colony.xib */; };
 		186487ED1D05D43600D3B199 /* ImagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186487E11D05D43600D3B199 /* ImagePopup.swift */; };
@@ -152,6 +153,7 @@
 		185439841CEBC4EF00B1D86C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		185439971CEBCABC00B1D86C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		185439A11CEBCF4D00B1D86C /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
+		18601DC91D08D4F0006ACB0A /* SYGeomSphere2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYGeomSphere2.swift; sourceTree = "<group>"; };
 		186487DE1D05D43600D3B199 /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
 		186487DF1D05D43600D3B199 /* Colony.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Colony.xib; sourceTree = "<group>"; };
 		186487E11D05D43600D3B199 /* ImagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePopup.swift; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				188AE4B91D0803DC00BA21D7 /* SYGeomBrick.swift */,
 				18F136531CF7CC270021CBF5 /* SYGeomTrunk.swift */,
 				186B08DE1D06B705002C1A9F /* SYGeomSphere.swift */,
+				18601DC91D08D4F0006ACB0A /* SYGeomSphere2.swift */,
 			);
 			path = SYGeoms;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 			files = (
 				186B08DC1D05D8D3002C1A9F /* ProfilViewController.swift in Sources */,
 				186487EF1D05D43600D3B199 /* Popup.swift in Sources */,
+				18601DCA1D08D4F0006ACB0A /* SYGeomSphere2.swift in Sources */,
 				18180F1E1D04C752008EAC4A /* SYLocationManager.swift in Sources */,
 				186B08DF1D06B706002C1A9F /* SYGeomSphere.swift in Sources */,
 				183FF6AD1CFA078D0086D011 /* SYPath.swift in Sources */,

@@ -38,11 +38,12 @@ class SYPopup: UIView, SYStateListener {
         self.userInteractionEnabled = true
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        
         self.blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView!.alpha = 0
+        
         blurEffectView!.frame = self.bounds
         //blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        self.addSubview(blurEffectView!)
+        // self.addSubview(blurEffectView!)
         
         self.hidden = true
     }
@@ -74,11 +75,12 @@ class SYPopup: UIView, SYStateListener {
     }
     
     func hidePopup() {
+        // self.blurEffectView!.hidden = true
         let popupToRemove = self.currentPopup!
         UIView.animateWithDuration(0.3, animations: { 
             self.constBottom?.constant = 200
             popupToRemove.alpha = 0
-            self.blurEffectView!.alpha = 0
+            // self.blurEffectView!.alpha = 0
             self.layoutIfNeeded()
             }) { (completed) in
                 if self.state.getCurrentPopup() == nil {
@@ -111,9 +113,11 @@ class SYPopup: UIView, SYStateListener {
         self.currentPopup!.alpha = 0
         self.layoutIfNeeded()
         self.hidden = false
+        
+        // self.blurEffectView!.hidden = false
         UIView.animateWithDuration(0.3, animations: { 
             self.constBottom!.constant = 0
-            self.blurEffectView!.alpha = 0.7
+            // self.blurEffectView!.alpha = 0.7
             self.layoutIfNeeded()
             self.currentPopup!.alpha = 1
             }) { (completed) in
